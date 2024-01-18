@@ -96,7 +96,7 @@ const eventData = [
     name : "HACKATHON",
     fees : 1000,
     members: "4-6 Members",
-    ct: "First, second, third and forth year students",
+    ct: "First, second, third and fourth year students",
   //  logo: Hackathon_logo,
     nt: "₹ 1000/- For National Entries",
     it: "Free for International Entries",
