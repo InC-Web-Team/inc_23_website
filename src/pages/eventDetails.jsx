@@ -16,7 +16,7 @@ function EventDetails(props) {
       name: "Impetus",
       short_desc: "International Level Project Exhibition and Competition ",
      
-      desc: ["Impetus is an intercollegiate international level competition and has been attracting corporate giants for not only sponsorship but also in terms of time and guidance to the participants. Industries such as eQ Technologic, Microsoft, Mobiliya, Deutsche Bank Group, Avaya, Siemens, Sagitech, Apporbit, e-Zest, HP, Indian Oil, 3 Ogeestudio, Tata, Mojo Networks, Ryussi, Tibco, Calsoft, Persistent, Pubmatic, IBM, Airtight, AthenaHealth, IEEE, ACM, were closely associated with this event. During the 3 day event, first year, second year and third year students from various colleges across India and abroad showcase their projects in domains like" ,<br/>,`🔹Application Development `,<br/>,`🔹 Communication, Networking, Security `,<br/>,`🔹 Machine Learning, Pattern Recognition, Artificial Intelligence`,<br/>,`🔹 Embedded systems, VLSI, IoT, Remote Sensing`,<br/>, `🔹 Blockchain, Cloud Computing`,<br/>,`🔹Others`],
+      desc: ["Impetus is an intercollegiate international level competition and has been attracting corporate giants for not only sponsorship but also in terms of time and guidance to the participants. Industries such as eQ Technologic, Uptiq, iMocha, Sarvartra Technologies, Microsoft, Mobiliya, Deutsche Bank Group, Avaya, Siemens, HP, Mojo Networks, Ryussi, Tibco, Calsoft, Persistent, IBM, IEEE, ACM, were closely associated with this event. During the 3 day event, first year, second year and third year students from various colleges across India and abroad showcase their projects in domains like" ,<br/>,`🔹Application Development `,<br/>,`🔹 Communication, Networking, Security `,<br/>,`🔹 Machine Learning, Pattern Recognition, Artificial Intelligence`,<br/>,`🔹 Embedded systems, VLSI, IoT, Remote Sensing`,<br/>, `🔹 Blockchain, Cloud Computing`,<br/>,`🔹Others(Bio-Signal Processing, Biomedical, Bioinformatics, etc.).`],
      
       
       domains: [
@@ -52,15 +52,15 @@ function EventDetails(props) {
       rules: [
         `🔹Judge's decision will be final.`,
         <br/>,
-        `🔹Project status must be in "Ready to Use".`,
+        `🔹Project status must be "Ready to Use".`,
         <br/>,
         `🔹Already registered candidates need not register again.`,
       ],
-      note: ` Project addressing the societal needs like Health, Agriculture, Kids/Women Safety, Education etc. & selected project shall be awarded ₹1 Lakh Cash Prize from PICT.`,
+      note: ` Selected Project addressing the societal needs like Health, Agriculture, Kids/Women Safety, Education etc. shall be awarded ₹1 Lakh Cash Prize from PICT.`,
       
       // contact: ['Apoorvaraj 8530191073 ', 'Mrugank 7083823772', 'Vrushali 9766176681', 'Aarti 9405119460'],
       button_link: "https://pictinc.org/register/events/impetus",
-      schedule: "Dates will be out soon",
+      schedule: "5th to 7th April, 2024",
     },
    concepts: {
       // contact: [
@@ -71,15 +71,15 @@ function EventDetails(props) {
       // ],
       logo: concepts_logo,
       criteria: "Final year students enrolled in BE/ BTech degree.",
-      schedule: "Dates will be out soon",
+      schedule: "5th to 7th April, 2024",
       main_name: "CONCEPTS",
       name:"Concepts",
       notices: [
-        "1. The Participants should be present on campus and the labs during the time period allocated.",
+        "1. The Participants should be present on campus and the labs during the time allocated.",
         "2. At least 2 judges will be judging each project. However there will be judges from other organizations who will be evaluating projects for probable hiring or for special prizes etc. Hence none of the groups should leave the campus unless informed officially by the judging team.",
         "3. The judging criteria includes the following points :- ", <p>i. Innovative Ideas Involved.</p> , <p>ii. Approach to Exploit Ideas.</p>, <p> iii. Approach towards Implementing the system and Future Applications.</p> ,<p> iv. Implementation of engineering Principles. </p> ,<p>v. Presentation and Q & A</p>,
         "4. We request all the group members to visit the stalls put up in the campus.",
-        "5. For any judging related queries contact the lab coordinator associated with the respective lab only. Their contact details are written on each lab white board.",
+        "5. For any judging related queries contact the lab coordinator associated with the respective lab only. Their contact details are written on the lab's white board.",
       ],
       short_desc:
         "The most grand project exhibition event Concepts for final year student",
@@ -113,12 +113,12 @@ function EventDetails(props) {
         team_size: "max 5",
       },
       prizes: "Cash prize worth ₹7 Lakh.",
-      note: ` Project addressing the societal needs like Health, Agriculture, Kids/Women Safety, Education etc. & selected project shall be awarded ₹ 1 Lakh Cash Prize from PICT.`,
+      note: `Selected project addressing the societal needs like Health, Agriculture, Kids/Women Safety, Education etc. shall be awarded ₹ 1 Lakh Cash Prize from PICT.`,
     
       rules: [
        
          <p> 🔹Judge's decision will be final.</p>,
-         <p>🔹Project status must be in "Ready to Use"</p>,
+         <p>🔹Project status must be "Ready to Use"</p>,
          <p>🔹Already registered candidatess need not register again.</p>,
       ],
       button_link: "https://pictinc.org/register/events/concepts",
@@ -131,14 +131,14 @@ function EventDetails(props) {
       prizes: "Cash prize worth ₹7 Lakh",
       note1: `🔹Judge's decision will be final.`,
       note3: `🔹Already registered candidatess need not register again.`,
-      schedule: "Dates will be out soon",
+      schedule: "5th to 7th April, 2024",
       criteria: [`Junior Level - This category is open for all students who are pursuing first or second year of any undergraduate  degree/course.`,<br/>,
       `Senior Level - Third year engineering, final year engineering of any undergraduate degree/course.`],
       logo: pradnya_logo,
       main_name: "PRADNYA",
       name:"Pradnya",
       short_desc: "Competitive Programming",
-      desc: "PRADNYA is a one of a kind programming event meticulously forged by our finest, catering to rookies and veterans alike, from all over the world. This Contest puts the programmer’s logical thinking and Problem solving skills to the test using programming languages, which guarantees to appraise their skills as a programmer.",
+      desc: "PRADNYA is a one of a kind programming event meticulously forged by our finest, catering to rookies and veterans alike, from all over the world. This Contest puts the programmer’s logical thinking and Problem solving skills to  test using programming languages, which guarantees to appraise their skills as a programmer.",
       eligibility: [
         { tag: "Number of members in team", details: "maximum 2 members" },
         {
@@ -181,7 +181,7 @@ function EventDetails(props) {
         fees: ["🔹 For National Entries : ₹ 100/-",<br/>,
         "🔹 For International Students : Free entry"
       ],
-        team_size: 2,
+        team_size: max 2,
       },
       rules: [
         "All students whose colleges are located within the Pune district are required to attend this round in person at the PICT Campus. For students residing outside of the Pune district, there is an option to take the round in hybrid mode.",
