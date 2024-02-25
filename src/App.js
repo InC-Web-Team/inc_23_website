@@ -7,6 +7,7 @@ import ProtectedRoutes from './routes/ProtectedRoutes';
 import './App.css';
 import Judge from './pages/judge';
 import winners_inc23 from './pages/winners_inc23.jsx';
+import SendEmail from './pages/sendEmail/sendEmail.jsx';
 
 function MainApp() {
   const [loading, setLoading] = useState(false);
@@ -37,6 +38,8 @@ function MainApp() {
         <Route path='/inc-teams' element={<InCTeams />} />
         <Route path='/web-teams' element={<WebTeam />} />
         <Route path='/faculty-teams' element={<FacultyTeam />} />
+
+        <Route path='/send-email' element={<SendEmail/>} />
 
 
         {process.env.REACT_APP_ENVIRONMENT === 'development' &&
