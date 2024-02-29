@@ -17,7 +17,7 @@ function RegistrationsForms() {
     return (
         <div className=''>
             <Routes>
-                <Route path='/judge/:eventName' element={<JudgeForm />} />
+                <Route path='/judge' element={<JudgeForm />} />
                 <Route path='/events/:eventName' element={<EventsForm />} />
                 <Route path='/admin' element={<AdminForm />} />
             </Routes>

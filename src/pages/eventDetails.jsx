@@ -15,10 +15,10 @@ function EventDetails(props) {
       main_name: "IMPETUS",
       name: "Impetus",
       short_desc: "International Level Project Exhibition and Competition ",
-     
-      desc: ["Impetus is an intercollegiate international level competition and has been attracting corporate giants for not only sponsorship but also in terms of time and guidance to the participants. Industries such as eQ Technologic, Microsoft, Mobiliya, Deutsche Bank Group, Avaya, Siemens, Sagitech, Apporbit, e-Zest, HP, Indian Oil, 3 Ogeestudio, Tata, Mojo Networks, Ryussi, Tibco, Calsoft, Persistent, Pubmatic, IBM, Airtight, AthenaHealth, IEEE, ACM, were closely associated with this event. During the 3 day event, first year, second year and third year students from various colleges across India and abroad showcase their projects in domains like" ,<br/>,`🔹Application Development `,<br/>,`🔹 Communication, Networking, Security `,<br/>,`🔹 Machine Learning, Pattern Recognition, Artificial Intelligence`,<br/>,`🔹 Embedded systems, VLSI, IoT, Remote Sensing`,<br/>, `🔹 Blockchain, Cloud Computing`,<br/>,`🔹Others`],
-     
-      
+
+      desc: ["Impetus is an intercollegiate international level competition and has been attracting corporate giants for not only sponsorship but also in terms of time and guidance to the participants. Industries such as eQ Technologic, Microsoft, Mobiliya, Deutsche Bank Group, Avaya, Siemens, Sagitech, Apporbit, e-Zest, HP, Indian Oil, 3 Ogeestudio, Tata, Mojo Networks, Ryussi, Tibco, Calsoft, Persistent, Pubmatic, IBM, Airtight, AthenaHealth, IEEE, ACM, were closely associated with this event. During the 3 day event, first year, second year and third year students from various colleges across India and abroad showcase their projects in domains like", <br />, `🔹Application Development `, <br />, `🔹 Communication, Networking, Security `, <br />, `🔹 Machine Learning, Pattern Recognition, Artificial Intelligence`, <br />, `🔹 Embedded systems, VLSI, IoT, Remote Sensing`, <br />, `🔹 Blockchain, Cloud Computing`, <br />, `🔹Others`],
+
+
       domains: [
         {
           domain: "APPLICATION DEVELOPMENT",
@@ -43,7 +43,7 @@ function EventDetails(props) {
       ],
       registrations: {
         fees: [
-          `🔹 For National Entries: ₹100 /-`,<br/>,
+          `🔹 For National Entries: ₹100 /-`, <br />,
           `🔹 For International Entries: Free`,
         ],
         team_size: "max 5",
@@ -51,18 +51,18 @@ function EventDetails(props) {
       prizes: `Cash prize worth ₹7 Lakh.`,
       rules: [
         `🔹Judge's decision will be final.`,
-        <br/>,
+        <br />,
         `🔹Project status must be in "Ready to Use".`,
-        <br/>,
+        <br />,
         `🔹Already registered candidates need not register again.`,
       ],
       note: ` Project addressing the societal needs like Health, Agriculture, Kids/Women Safety, Education etc. & selected project shall be awarded ₹1 Lakh Cash Prize from PICT.`,
-      
+
       // contact: ['Apoorvaraj 8530191073 ', 'Mrugank 7083823772', 'Vrushali 9766176681', 'Aarti 9405119460'],
       button_link: "https://pictinc.org/register/events/impetus",
       schedule: "5th 6th & 7th of April",
     },
-   concepts: {
+    concepts: {
       // contact: [
       //   "Siddharth 8237892072",
       //   "Kalpesh 7769945077",
@@ -73,11 +73,11 @@ function EventDetails(props) {
       criteria: "Final year students enrolled in BE/ BTech degree.",
       schedule: "5th 6th & 7th of April",
       main_name: "CONCEPTS",
-      name:"Concepts",
+      name: "Concepts",
       notices: [
         "1. The Participants should be present on campus and the labs during the time period allocated.",
         "2. At least 2 judges will be judging each project. However there will be judges from other organizations who will be evaluating projects for probable hiring or for special prizes etc. Hence none of the groups should leave the campus unless informed officially by the judging team.",
-        "3. The judging criteria includes the following points :- ", <p>i. Innovative Ideas Involved.</p> , <p>ii. Approach to Exploit Ideas.</p>, <p> iii. Approach towards Implementing the system and Future Applications.</p> ,<p> iv. Implementation of engineering Principles. </p> ,<p>v. Presentation and Q & A</p>,
+        "3. The judging criteria includes the following points :- ", <p>i. Innovative Ideas Involved.</p>, <p>ii. Approach to Exploit Ideas.</p>, <p> iii. Approach towards Implementing the system and Future Applications.</p>, <p> iv. Implementation of engineering Principles. </p>, <p>v. Presentation and Q & A</p>,
         "4. We request all the group members to visit the stalls put up in the campus.",
         "5. For any judging related queries contact the lab coordinator associated with the respective lab only. Their contact details are written on each lab white board.",
       ],
@@ -107,19 +107,19 @@ function EventDetails(props) {
         },
       ],
       registrations: {
-        fees: ['🔹For National Entries :    ₹300/- ',<br/>,
-      '🔹 For International Students : Free entry'],
-     
+        fees: ['🔹For National Entries :    ₹300/- ', <br />,
+          '🔹 For International Entries : Free entry'],
+
         team_size: "max 5",
       },
       prizes: "Cash prize worth ₹7 Lakh.",
       note: ` Project addressing the societal needs like Health, Agriculture, Kids/Women Safety, Education etc. & selected project shall be awarded ₹ 1 Lakh Cash Prize from PICT.`,
-    
+
       rules: [
-       
-         <p> 🔹Judge's decision will be final.</p>,
-         <p>🔹Project status must be in "Ready to Use"</p>,
-         <p>🔹Already registered candidatess need not register again.</p>,
+
+        <p> 🔹Judge's decision will be final.</p>,
+        <p>🔹Project status must be in "Ready to Use"</p>,
+        <p>🔹Already registered candidatess need not register again.</p>,
       ],
       button_link: "https://pictinc.org/register/events/concepts",
     },
@@ -132,11 +132,11 @@ function EventDetails(props) {
       note1: `🔹Judge's decision will be final.`,
       note3: `🔹Already registered candidatess need not register again.`,
       schedule: "5th 6th & 7th of April",
-      criteria: [`Junior Level - This category is open for all students who are pursuing first or second year of any undergraduate  degree/course.`,<br/>,
-      `Senior Level - Third year engineering, final year engineering of any undergraduate degree/course.`],
+      criteria: [`Junior Level - This category is open for all students who are pursuing first or second year of any undergraduate  degree/course.`, <br />,
+        `Senior Level - Third year engineering, final year engineering of any undergraduate degree/course.`],
       logo: pradnya_logo,
       main_name: "PRADNYA",
-      name:"Pradnya",
+      name: "Pradnya",
       short_desc: "Competitive Programming",
       desc: "PRADNYA is a one of a kind programming event meticulously forged by our finest, catering to rookies and veterans alike, from all over the world. This Contest puts the programmer’s logical thinking and Problem solving skills to the test using programming languages, which guarantees to appraise their skills as a programmer.",
       eligibility: [
@@ -159,10 +159,10 @@ function EventDetails(props) {
             "The wildcard round is open to both junior and senior teams, and the top 5 teams from each category will enter directly into the programming round (Round 2). This round will be conducted online on the CODECHEF platform. The wildcard round will include programming questions where the participants can code using any programming language they prefer.",
         },
         {
-          name:[ "Round 1 : MCQ Round [ Day 1 ] ", 
-        
-        ],
-     
+          name: ["Round 1 : MCQ Round [ Day 1 ] ",
+
+          ],
+
           details:
             "In this event the participants are given multiple-choice and short-answer questions. This round is conducted for both levels using a web platform specially designed by the PICT Pradnya team. The team will communicate information regarding scheduled slots for this round to the participants one day before the event.",
         },
@@ -178,9 +178,9 @@ function EventDetails(props) {
         },
       ],
       registrations: {
-        fees: ["🔹 For National Entries : ₹ 100/-",<br/>,
-        "🔹 For International Students : Free entry"
-      ],
+        fees: ["🔹 For National Entries : ₹ 100/-", <br />,
+          "🔹 For International Entries : Free entry"
+        ],
         team_size: 2,
       },
       rules: [
@@ -188,8 +188,8 @@ function EventDetails(props) {
       ],
       button_link: "https://pictinc.org/register/events/pradnya",
     },
-  
-    
+
+
   };
 
   let { eventName } = useParams();
@@ -208,18 +208,18 @@ function EventDetails(props) {
     <>
       <div className="text-justify">
         {eventDetail !== "" ? (
-          <div className="grid md:grid-cols-2 min-h-screen md:p-8 gap-8 backdrop-blur-xl ">
+          <div className="grid md:grid-cols-2 min-h-screen md:p-8 gap-8 backdrop-blur-xl mt-5">
             <div className=" text-center  text-white  px-4   ">
-              <div className=" w-[60%] max-w-[380px]  mx-auto">
+              <div className="w-[50%] md:w-[35%]  mx-auto">
                 <img
                   src={eventDetail.logo}
                   alt="event-logo"
                   className="event-logo"
                 />
               </div>
-              <div className="py-3 text-6xl mx-auto font-bold text-gold  bg-clip-text ">
+              <div className="py-3 text-5xl md:text-6xl mx-auto font-bold text-gold  bg-clip-text  ">
                 {/* Impetus */}
-               {eventDetail.main_name}
+                {eventDetail.main_name}
                 {/* {console.log(eventDetail.name)} */}
               </div>
               <div className=" border-b border-gray-500"></div>
@@ -227,31 +227,33 @@ function EventDetails(props) {
                 {eventDetail.short_desc}
                 {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat dolor amet eum rem, magnam velit quam vero fugit quis reprehenderit animi laudantium temporibus! Tenetur temporibus odio nesciunt minus, sint consequuntur! */}
               </div>
-              <div className="event-fees text-blue-400 text-lg font-bold text-left  tracking-widest grid grid-cols-2 place-items-center">
-                <div className="flex space-x-2">
-                  <span className="text-gray-200 font-thin">Fees: </span>
+              <div className="event-fees text-blue-400 text-lg flex flex-col md:flex-row font-bold text-left md:space-x-28 items-center md:justify-center">
+                <div>
+                  <span className="text-gray-200 font-thin">Fees: </span> <br />
                   <span>{eventDetail.registrations.fees}</span>
                   <br />
-                  {/* <p>Free for PICT and International Students</p> */}
+                  <br />
+
+                  <div className="flex space-x-2">
+                    <div className="text-gray-200 font-thin">Team Size : </div>
+                    <div>{eventDetail.registrations.team_size} members</div>
+                  </div>
+                  <br />
                 </div>
-                <div className="flex space-x-2">
-                  <div className="text-gray-200 font-thin">Team Size: </div>
-                  <div>{eventDetail.registrations.team_size}</div>
-                </div>
-              </div>
-              {/* <p className="text-green-400">
+                {/* <p className="text-green-400">
                       Registrations are currently being done manually. Sorry for
                       inconvenience:(
                     </p> */}
-              <button className="px-5 font-xl md:px-6 py-4 text-white font-semibold border border-transparent focus:outline-0 rounded-xl bg-faint_blue/30 transition-all duration-300 hover:text-gold hover:border-light_blue hover:bg-faint_blue/10">
-                <a href={eventDetail.button_link}>Register</a>
-              </button>
+                <button className=" h-18 px-5 font-xl md:px-6 py-4 text-white font-semibold border border-transparent focus:outline-0 rounded-xl bg-faint_blue/30 transition-all duration-300 hover:text-gold hover:border-light_blue hover:bg-faint_blue/10">
+                  <a href={eventDetail.button_link}>Register</a>
+                </button>
+              </div>
               {/* <p className="text-red-400 font-medium event-register-buttons disabled">
                         Registrations closed! Try with other events.
                       </p>           */}
             </div>
             {/* event details description */}
-            <div className="space-y-4  p-8 h-full overflow-auto bg-black/20 shadow-lg bg-light_blue/30 rounded-xl  border-light_blue shadow-light_blue/20 hover:bg-light_blue/10 border  max-h-screen font-thin ">
+            <div className="space-y-4  p-8 h-full overflow-auto bg-black/20 shadow-lg bg-light_blue/30 rounded-xl  border-light_blue shadow-light_blue/20 hover:bg-light_blue/10 border  md:max-h-screen font-thin ">
               <div className="text-4xl text-gold font-bold mb-8 border-b border-white pb-2">
                 Description
               </div>

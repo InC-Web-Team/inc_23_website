@@ -7,7 +7,7 @@ const Table = lazy(() => import('../../components/table.jsx'));
 
 function ChooseProjects() {
     const [event, setEvent] = useState({ eventName: '' })
-     const { isLoading, data } = usePendingPayments(event.eventName)
+    const { isLoading, data } = usePendingPayments(event.eventName)
     // const verifyPaymentMutation = useVerifyPayment(event.eventName)
 
     const options = [
@@ -24,12 +24,12 @@ function ChooseProjects() {
 
     const select_arr = [
         {
-            label : 'Select',
+            label: 'Select',
             value: 'select',
         },
         {
-            label : 'Unselect',
-            value : 'unselect',
+            label: 'Unselect',
+            value: 'unselect',
         }
     ]
 
@@ -48,10 +48,10 @@ function ChooseProjects() {
             //button: true,
             cell: (row) => (
                 <RadioButtons
-                 name= "Select"
-                 options={select_arr}
-                 state = {event}
-                 setState = {setEvent}
+                    name="Select"
+                    options={select_arr}
+                    state={event}
+                    setState={setEvent}
                 />
                 // <Buttons
                 //     className='scale-75 md:py-2 py-1'

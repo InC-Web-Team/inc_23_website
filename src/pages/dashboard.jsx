@@ -1,5 +1,4 @@
 import "./styles/dashboard.css";
-import logo from "../assets/images/logo.png";
 import bg from "../assets/images/alBG.jpg";
 import AdminData from "../components/adminData";
 

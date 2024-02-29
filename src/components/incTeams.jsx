@@ -28,8 +28,8 @@ function InCTeamsSection() {
       </figure>
       <div className='w-full md:w-2/5 relative flex justify-center items-center gap-6 md:p-6'>
         {/* <Buttons value={'Student Team'} onClick={() => navigate('/inc-teams')} /> */}
-        <Buttons value={'Web Comittie'} onClick={() => navigate('/web-teams')} />
-        <Buttons value={'Faculty Comitties'} onClick={() => navigate('/faculty-teams')}/>
+        <Buttons value={'Web Committee'} onClick={() => navigate('/web-teams')} />
+        <Buttons value={'Faculty Committees'} onClick={() => navigate('/faculty-teams')}/>
       </div>
 
       {showPopup && (

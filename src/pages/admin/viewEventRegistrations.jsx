@@ -34,6 +34,14 @@ function ViewEventRegistrations() {
             wrap: true,
             sortable: true,
         },
+        // {
+        //     name: 'Techfiesta',
+        //     selector: row => row['techfiesta'],
+        //     cellExport: row => row['techfiesta'],
+        //     width: '100px',
+        //     wrap: true,
+        //     sortable: true,
+        // },
         {
             name: 'Team ID',
             selector: row => row['pid'],

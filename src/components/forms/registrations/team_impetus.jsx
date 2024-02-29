@@ -263,12 +263,6 @@ const proj_domain = [
   { value: "OT", label: "Others" },
 ];
 
-// export const projectTypes = [
-//   { value: 'SEL', label: 'Select' },
-//   { value: 'Open Hardware/Firmware', label: 'Open Hardware/Firmware' },
-//   { value: 'Open Software', label: 'Open Software' }
-// ]
-
 const gender_type = [
   { value: "SEL", label: "Select", disabled: true },
   { value: "Male", label: "Male" },
@@ -276,53 +270,10 @@ const gender_type = [
   { value: "Other", label: "Other" },
 ];
 
-
-// const state_arr = [
-//     { value: 'SEL', label: 'Select' },
-//     { value: 'AP', label: "Arunachal Pradesh" },
-//     { value: 'AS', label: "Assam" },
-//     { value: 'BI', label: "Bihar" },
-//     { value: 'CH', label: "Chhattisgarh" },
-//     { value: 'DEL', label: "Delhi" },
-//     { value: 'G', label: "Goa" },
-//     { value: 'GUJ', label: "Gujarat" },
-//     { value: 'HAR', label: "Haryana" },
-//     { value: 'HP', label: "Himachal Pradesh" },
-//     { value: 'JK', label: "Jammu &amp; Kashmir" },
-//     { value: 'JH', label: "Jharkhand" },
-//     { value: 'KAR', label: "Karnataka" },
-//     { value: 'KR', label: "Kerala" },
-//     { value: 'MP', label: "Madhya Pradesh" },
-//     { value: 'MAH', label: "Maharashtra" },
-//     { value: 'MN', label: "Manipur" },
-//     { value: 'MG', label: "Meghalaya" },
-//     { value: 'MZ', label: "Mizoram" },
-//     { value: 'OR', label: "Orissa" },
-//     { value: 'PN', label: "Punjab" },
-//     { value: 'RJ', label: "Rajasthan" },
-//     { value: 'TN', label: "Tamil Nadu" },
-//     { value: 'TL', label: "Telangana" },
-//     { value: 'TR', label: "Tripura" },
-//     { value: 'UP', label: "Uttar Pradesh" },
-//     { value: 'UT', label: "Uttarakhand" },
-//     { value: 'WB', label: "West Bengal" },
-
-// ]
-
-// const local_arr = [
-//   { value: "SEL", label: "Select", disabled: true },
-//   { value: "1", label: "Urban" },
-//   { value: "0", label: "Rural" },
-// ];
-
-
-
-
 const demo_arr = [
   {
     value: "1",
     label: "Yes",
-    // onChange: function (e) { }
   },
   {
     value: "0",
@@ -482,12 +433,15 @@ function TeamImpetus() {
   };
 
   //form 2
-
   const [form2, setForm2] = useState({
     isPICT: "",
     isInternational: "",
     college: "",
     country: "",
+    techfiesta: "",
+    group_leader_email: "",
+    tech_group_id: "",
+    tech_Transaction_id: "",
     state: "",
     district: "",
     locality: "1",
@@ -503,11 +457,13 @@ function TeamImpetus() {
   const handleInputChange2 = (e) => {
     const { name, value } = e.target;
     if (name === "isPICT" && value === "1") {
+      // console.log("is pict");
       setForm2((form2) => ({
         ...form2,
         isPICT: "1",
         college: "Pune Institute Of Computer Technology",
         country: "India",
+        Transaction_id: "",
         city: "Pune",
         state: "Maharashtra",
         district: "Pune",
@@ -515,7 +471,6 @@ function TeamImpetus() {
         mode: "1",
         reason_of_mode: "",
         isInternational: "0",
-        year: "",
       }));
       setPaymentStatus(true);
     } else if (name === "isPICT" && value === "0") {
@@ -529,7 +484,6 @@ function TeamImpetus() {
         district: "",
         locality: "",
         isInternational: "",
-        year: "",
       }));
     } else if (name === "isInternational" && value === "0") {
       setForm2((form2) => ({
@@ -547,6 +501,15 @@ function TeamImpetus() {
         [name]: value,
       }));
       setPaymentStatus(true);
+    } else if (name === "techfiesta" && value === "1") {
+      setForm2((form2) => ({
+        ...form2,
+        group_leader_email: "",
+        tech_group_id: "",
+        isInternational: "0",
+        country: "India",
+        [name]: value,
+      }));
     } else {
       setForm2((prevState) => {
         errors2[name] !== "" &&
@@ -648,18 +611,54 @@ function TeamImpetus() {
     if (formStep === 2) {
       for (const property in form2) {
         if (form2[property] === "") {
-          if (property === "reason_of_mode" && form2["mode"] === "1") continue;
-          if (property === "referral") continue;
-          toast.warn("Please enter all fields!");
-          return;
+          if (form2.isPICT === "1") {
+            if (property === "referral") continue;
+            if (property === "reason_of_mode") continue;
+            if (property === "tech_group_id") continue;
+            if (property === "group_leader_email") continue;
+            if (property === "tech_Transaction_id") continue;
+            if (property === "techfiesta") continue;
+            if (property === "Transaction_id") continue;
+            console.log(property)
+            toast.warn("Please enter all fields!");
+            return;
+          } else if (form2.techfiesta === "0") {
+            if (property === "group_leader_email") continue;
+            if (property === "tech_group_id") continue;
+            if (property === "tech_Transaction_id") continue;
+            if (property === "techfiesta") continue;
+            if (property === "Transaction_id") continue;
+            if (property === "reason_of_mode" && form2["mode"] === "1") continue;
+            if (property === "referral") continue;
+            console.log(property)
+            toast.warn("Please enter all fields!");
+            return;
+          }
+          else {
+            if (property === "reason_of_mode" && form2["mode"] === "1") continue;
+            if (property === "referral") continue;
+            if (property === "Transaction_id") continue;
+            if (property === "tech_group_id") continue;
+            if (property === "group_leader_email") continue;
+            if (property === "tech_Transaction_id") continue;
+            if (property === "techfiesta") continue;
+
+            console.log(property)
+            toast.warn("Please enter all fields!");
+            return;
+          }
         }
       }
       registerUserMutationForm2.mutate(form2, {
         onSuccess: () => {
           setErrors2(initialErrorsForm2);
-          if (form2.isPICT === "1" || form2.isInternational === "1") {
+          setErrors2(initialErrorsForm2);
+          if (form2.isPICT === "1" || form2.isInternational === "1" || form2.techfiesta === "1") {
             const temp =
-              form2.isPICT === "1" ? { isPICT: "1" } : { isInternational: "1" };
+              form2.isPICT === "1" ? { isPICT: "1" } :
+                form2.isInternational === "1" ? { isInternational: "1" } :
+                  { payment_id: form2.tech_Transaction_id };
+
             registerUserMutationForm3.mutate(temp, {
               onSuccess: () => {
                 toast.success("Completed Registration !", { icon: "✅" });
@@ -1017,14 +1016,61 @@ function TeamImpetus() {
                   {form2.isPICT === "0" && (
                     <>
                       <RadioButtons
+                        label="Have you Participated in Techfiesta Hackathon ?"
+                        options={country_arr}
+                        state={form2}
+                        setState={setForm2}
+                        name="techfiesta"
+                        required
+                        error={errors2.isPICT}
+                      />
+                      {form2.techfiesta === "1" && (
+                        <><div className="md:flex md:space-x-3">
+                          <div>
+                            <InputBox
+                              label="Group Leader's email ID"
+                              name={"group_leader_email"}
+                              type="text"
+                              placeholder="Enter group Leader's email ID"
+                              required
+                              onChange={(e) => handleInputChange2(e)}
+                              value={form2.group_leader_email}
+                            />
+                          </div>
+                          <div>
+                            <InputBox
+                              label="Group ID"
+                              name={"tech_group_id"}
+                              type="text"
+                              placeholder="Enter group Leader's email ID"
+                              required
+                              onChange={(e) => handleInputChange2(e)}
+                              value={form2.tech_group_id}
+                            />
+                          </div>
+                        </div>
+                          <InputBox
+                            label="Techfiesta Transaction ID"
+                            name={"tech_Transaction_id"}
+                            type="text"
+                            placeholder="Enter Techfiesta Transaction ID"
+                            required
+                            onChange={(e) => handleInputChange2(e)}
+                            value={form2.tech_Transaction_id}
+                          />
+                        </>
+                      )}
+
+                      {form2.techfiesta === "0" && (<RadioButtons
                         label="Is International ?"
                         options={country_arr}
                         state={form2}
                         setState={setForm2}
                         name="isInternational"
                         required
-                      // error={errors2.isInternational}
-                      />
+                        error={errors2.isInternational}
+                      />)}
+
                       <div className=" mx-1 my-2">
                         <InputBox
                           label="College (Full form)"
@@ -1108,7 +1154,7 @@ function TeamImpetus() {
                             state={form2}
                             setState={setForm2}
                             required
-                          // error={errors2.locality}
+                            error={errors2.locality}
                           />
                         </div>
                       </div>
@@ -1120,7 +1166,7 @@ function TeamImpetus() {
                         setState={setForm2}
                         name="mode"
                         required
-                        // error={errors2.mode}
+                        error={errors2.mode}
                         tip={"Participants from Pune should select offline mode only."}
                       />
 
@@ -1148,9 +1194,6 @@ function TeamImpetus() {
                         error={errors2.referral}
                         tip={"Referral should be between 3-50 characters long (if any)"}
                       />
-
-
-
                     </>
                   )}
 
@@ -1206,6 +1249,7 @@ function TeamImpetus() {
                     />
                   </div>
                 ))}
+
               {formStep === 3 ? (
                 paymentStatus ? (
                   <></>
@@ -1219,7 +1263,7 @@ function TeamImpetus() {
                 )
               ) : (
                 formStep === 2 &&
-                (paymentStatus ? (<div className=" text-right">
+                (paymentStatus || form2.techfiesta === "1" ? (<div className=" text-right">
                   <Buttons
                     className="mx-2"
                     value=" Previous Step"
@@ -1237,16 +1281,23 @@ function TeamImpetus() {
                   />
                 </div>
                 ) : (
-                  <Buttons
-                    className=" mx-2 my-2  "
-                    value="Next Step"
-                    onClick={nextForm}
-                    loading={
-                      registerUserMutationForm0.isLoading ||
-                      registerUserMutationForm1.isLoading ||
-                      registerUserMutationForm2.isLoading
-                    }
-                  />
+                  <div className=" text-right">
+                    <Buttons
+                      className="mx-2"
+                      value=" Previous Step"
+                      onClick={prevForm}
+                    />
+                    <Buttons
+                      className=" mx-2 my-2  "
+                      value="Next Step"
+                      onClick={nextForm}
+                      loading={
+                        registerUserMutationForm0.isLoading ||
+                        registerUserMutationForm1.isLoading ||
+                        registerUserMutationForm2.isLoading
+                      }
+                    />
+                  </div>
                 ))
               )}
               {formStep < 2 && (<div className="md:flex justify-between">

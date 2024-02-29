@@ -257,8 +257,8 @@ function TeamPradnya() {
           toast.warn("Please upload the ID");
           return;
         } else if (property === "codechef_id" && form1.at(-1)[property] === "") {
-          toast.warn("Plese add Codechef ID");
-          return;
+          // toast.warn("Plese add Codechef ID");
+          continue;
         }
       }
 
@@ -295,17 +295,6 @@ function TeamPradnya() {
     setForm1([...form1, object]);
   }
 
-
-
-  // const removefields = (index) => {
-  //   let data = [...form1];
-  //   // console.log(...form1);
-  //   data.splice(index, 1);
-  //   setForm1(data);
-  //   memberCount--;
-  // };
-
-  //form 2
   const [form2, setForm2] = useState({
     isPICT: "",
     isInternational: "",
@@ -338,8 +327,8 @@ function TeamPradnya() {
     data[index][event.target.name] = event.target.files[0];
     setForm1(data);
   };
-  const handleInputChange2 = (e) => {
 
+  const handleInputChange2 = (e) => {
     const { name, value } = e.target;
     if (name === "isPICT" && value === "1") {
       setForm2((form2) => ({
@@ -420,7 +409,7 @@ function TeamPradnya() {
   const [formStep, setFormStep] = React.useState(1);
 
   const prevForm = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     setFormStep((currentStep) => currentStep - 1);
     setActiveStep(activeStep - 1);
   };
@@ -599,9 +588,9 @@ function TeamPradnya() {
                           required
                           error={errors1.member_id}
                         />
-                        <NoteBox title="please take note" text="accepted format: jpeg, png and less than 200kb" />
+                        <NoteBox title ="please take note" text="accepted format: jpeg, png and less than 200kb" />
 
-                        <InputBox
+                        {/*  <InputBox
                           label="CodeChef ID"
                           name="codechef_id"
                           type="text"
@@ -611,7 +600,7 @@ function TeamPradnya() {
                           onChange={(event) => handleFormChange(event, index)}
                           value={form.codechef_id}
                           tip={'Codechef ID can be Alphanumeric'}
-                        />
+                        /> */}
 
                         {memberCount < 2 ? (
                           <Buttons

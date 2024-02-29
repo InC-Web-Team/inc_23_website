@@ -2,6 +2,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { getPendingPayments, verifyPayment, verifyAdmin, loginAdmin, getRegistrations, viewJudges, allocateJudge, deallocateJudge, getLabAllocations } from '../api';
 import errorParser from '../utils/errorParser';
 import { toast } from '../components';
+import { verifyJudge } from '../api/requests';
 
 function useLoginAdmin(setErrors) {
   const { mutate, isLoading, isSuccess, isError, data, error } = useMutation(loginAdmin, {
@@ -42,6 +43,19 @@ function usePendingPayments(eventName) {
 
 function useVerifyAdmin() {
   const { isLoading, isSuccess, isError, data, error } = useQuery({ queryKey: ['verifyAdmin'], queryFn: verifyAdmin, retry: false })
+
+  if (isError) {
+    const parsedError = errorParser(error)
+    if (parsedError.server) toast.error(parsedError.server, { autoClose: 5000 })
+    else {
+      parsedError.error && toast.error(parsedError[Object.keys(parsedError)[0]], { autoClose: 5000 })
+    }
+  }
+  return { isLoading, isSuccess, isError, data, error }
+}
+
+function useVerifyJudge() {
+  const { isLoading, isSuccess, isError, data, error } = useQuery({ queryKey: ['verifyJudge'], queryFn: verifyJudge, retry: false })
 
   if (isError) {
     const parsedError = errorParser(error)
@@ -149,6 +163,7 @@ export {
   usePendingPayments,
   useVerifyPayment,
   useVerifyAdmin,
+  useVerifyJudge,
   useGetRegistrations,
   useGetJudgeRegistrations,
   useAllocate,

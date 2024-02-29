@@ -5,7 +5,7 @@ import ViewEventRegistrations from './viewEventRegistrations';
 import ViewJudges from '../judge/viewJudges';
 import Allocations from './allocations/allocations';
 import Deallocation from './allocations/deallocation';
-import AdminNavBar from './navbar';
+import AdminNavBar from './AdminNavbar';
 
 
 function Admin() {

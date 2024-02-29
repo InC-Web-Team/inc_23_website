@@ -261,40 +261,6 @@ const gender_type = [
   { value: "Other", label: "Other" },
 ];
 
-// const state_arr = [
-//   { value: 'SEL', label: 'Select', disabled: true },
-//   { value: 'AP', label: "Arunachal Pradesh" },
-//   { value: 'AS', label: "Assam" },
-//   { value: 'BI', label: "Bihar" },
-//   { value: 'CH', label: "Chhattisgarh" },
-//   { value: 'DEL', label: "Delhi" },
-//   { value: 'G', label: "Goa" },
-//   { value: 'GUJ', label: "Gujarat" },
-//   { value: 'HAR', label: "Haryana" },
-//   { value: 'HP', label: "Himachal Pradesh" },
-//   { value: 'JK', label: "Jammu &amp; Kashmir" },
-//   { value: 'JH', label: "Jharkhand" },
-//   { value: 'KAR', label: "Karnataka" },
-//   { value: 'KR', label: "Kerala" },
-//   { value: 'MP', label: "Madhya Pradesh" },
-//   { value: 'MAH', label: "Maharashtra" },
-//   { value: 'MN', label: "Manipur" },
-//   { value: 'MG', label: "Meghalaya" },
-//   { value: 'MZ', label: "Mizoram" },
-//   { value: 'OR', label: "Orissa" },
-//   { value: 'PN', label: "Punjab" },
-//   { value: 'RJ', label: "Rajasthan" },
-//   { value: 'TN', label: "Tamil Nadu" },
-//   { value: 'TL', label: "Telangana" },
-//   { value: 'TR', label: "Tripura" },
-//   { value: 'UP', label: "Uttar Pradesh" },
-//   { value: 'UT', label: "Uttarakhand" },
-//   { value: 'WB', label: "West Bengal" },
-
-// ]
-
-
-
 function TeamConcepts() {
   //form0
   const [activeStep, setActiveStep] = useState(1);
@@ -392,6 +358,7 @@ function TeamConcepts() {
           return;
         } else if (property === "email" && !validateEmail(formFields.at(-1)[property])) {
           toast.warn("Please enter a valid E-mail address");
+          return;
         } else if (property === "phone" && formFields.at(-1)[property].length !== 10) {
           toast.warn("Please enter a valid phone number");
           return;
@@ -449,6 +416,10 @@ function TeamConcepts() {
     college: "",
     department: "",
     group_id: "",
+    techfiesta: "",
+    group_leader_email: "",
+    tech_group_id: "",
+    tech_Transaction_id: "",
     country: "",
     state: "",
     district: "",
@@ -464,7 +435,7 @@ function TeamConcepts() {
 
   const handleInputChange2 = (e) => {
     const { name, value } = e.target;
-    // console.log(form2.group_id)
+    // console.log(name, value)
 
     if (name === "isPICT" && value === "1") {
       // console.log("is pict");
@@ -474,6 +445,7 @@ function TeamConcepts() {
         college: "Pune Institute Of Computer Technology",
         country: "India",
         department: "",
+        Transaction_id: "",
         city: "Pune",
         state: "Maharashtra",
         district: "Pune",
@@ -482,7 +454,7 @@ function TeamConcepts() {
         reason_of_mode: "",
         isInternational: "0",
       }));
-      // setPaymentStatus(true);
+      setPaymentStatus(true);
     } else if (name === "isPICT" && value === "0") {
       setForm2((form2) => ({
         ...form2,
@@ -513,6 +485,15 @@ function TeamConcepts() {
         [name]: value,
       }));
       setPaymentStatus(true);
+    } else if (name === "techfiesta" && value === "1") {
+      setForm2((form2) => ({
+        ...form2,
+        group_leader_email: "",
+        tech_group_id: "",
+        isInternational: "0",
+        country: "India",
+        [name]: value,
+      }));
     } else {
       setForm2((prevState) => {
         errors2[name] !== "" &&
@@ -556,6 +537,7 @@ function TeamConcepts() {
     }));
     setPaymentStatus(true);
   }
+
 
   const dept_arr = [
     {
@@ -677,28 +659,55 @@ function TeamConcepts() {
           if (form2.isPICT === "1") {
             if (property === "referral") continue;
             if (property === "reason_of_mode") continue;
-            console.log(property)
+            if (property === "tech_group_id") continue;
+            if (property === "group_leader_email") continue;
+            if (property === "tech_Transaction_id") continue;
+            if (property === "techfiesta") continue;
+            if (property === "Transaction_id") continue;
+            // console.log(property)
             toast.warn("Please enter all fields!");
             return;
-          } else {
+          } else if (form2.techfiesta === "0") {
+            if (property === "department") continue;
+            if (property === "group_id") continue;
+            if (property === "group_leader_email") continue;
+            if (property === "tech_group_id") continue;
+            if (property === "tech_Transaction_id") continue;
+            if (property === "techfiesta") continue;
+            if (property === "Transaction_id") continue;
+            if (property === "reason_of_mode" && form2["mode"] === "1") continue;
+            if (property === "referral") continue;
+            // console.log(property)
+            toast.warn("Please enter all fields!");
+            return;
+          }
+          else {
             if (property === "reason_of_mode" && form2["mode"] === "1") continue;
             if (property === "referral") continue;
             if (property === "department") continue;
             if (property === "group_id") continue;
-            console.log(property)
-            console.log(form2)
+            if (property === "Transaction_id") continue;
+            if (property === "tech_group_id") continue;
+            if (property === "group_leader_email") continue;
+            if (property === "tech_Transaction_id") continue;
+            if (property === "techfiesta") continue;
+
+            // console.log(property)
             toast.warn("Please enter all fields!");
             return;
           }
         }
       }
       registerUserMutationForm2.mutate(form2, {
-
         onSuccess: () => {
           setErrors2(initialErrorsForm2);
-          if (form2.isPICT === "1" || form2.isInternational === "1") {
+          if (form2.isPICT === "1" || form2.isInternational === "1" || form2.techfiesta === "1") {
             const temp =
-              form2.isPICT === "1" ? { isPICT: "1" } : { isInternational: "1" };
+              form2.isPICT === "1" ? { isPICT: "1" } :
+                form2.isInternational === "1" ? { isInternational: "1" } :
+                  { payment_id: form2.tech_Transaction_id };
+
+            // console.log(temp);
             registerUserMutationForm3.mutate(temp, {
               onSuccess: () => {
                 toast.success("Completed Registration !", { icon: "✅" });
@@ -727,7 +736,7 @@ function TeamConcepts() {
         {
           onSuccess: () => {
             toast.success("Completed Step 4️⃣ !", { icon: "✅" });
-            // setActiveStep((activeStep) => activeStep + 1);
+            setActiveStep((activeStep) => activeStep + 1);
             setPaymentStatus(true);
           },
         }
@@ -1022,7 +1031,6 @@ function TeamConcepts() {
                     error={errors2.isPICT}
                   />
 
-
                   {form2.isPICT === "1" && <>
                     <RadioButtons
                       label="Department"
@@ -1049,6 +1057,52 @@ function TeamConcepts() {
                   {form2.isPICT === "0" && (
                     <>
                       <RadioButtons
+                        label="Have you Participated in Techfiesta Hackathon ?"
+                        options={country_arr}
+                        state={form2}
+                        setState={setForm2}
+                        name="techfiesta"
+                        required
+                        error={errors2.isPICT}
+                      />
+                      {form2.techfiesta === "1" && (
+                        <><div className="md:flex md:space-x-3">
+                          <div>
+                            <InputBox
+                              label="Group Leader's email ID"
+                              name={"group_leader_email"}
+                              type="text"
+                              placeholder="Enter group Leader's email ID"
+                              required
+                              onChange={(e) => handleInputChange2(e)}
+                              value={form2.group_leader_email}
+                            />
+                          </div>
+                          <div>
+                            <InputBox
+                              label="Group ID"
+                              name={"tech_group_id"}
+                              type="text"
+                              placeholder="Enter group Leader's email ID"
+                              required
+                              onChange={(e) => handleInputChange2(e)}
+                              value={form2.tech_group_id}
+                            />
+                          </div>
+                        </div>
+                          <InputBox
+                            label="Techfiesta Transaction ID"
+                            name={"tech_Transaction_id"}
+                            type="text"
+                            placeholder="Enter Techfiesta Transaction ID"
+                            required
+                            onChange={(e) => handleInputChange2(e)}
+                            value={form2.tech_Transaction_id}
+                          />
+                        </>
+                      )}
+
+                      {form2.techfiesta === "0" && (<RadioButtons
                         label="Is International ?"
                         options={country_arr}
                         state={form2}
@@ -1056,7 +1110,8 @@ function TeamConcepts() {
                         name="isInternational"
                         required
                         error={errors2.isInternational}
-                      />
+                      />)}
+
                       <div className=" mx-1 my-2">
                         <InputBox
                           label="College (Full form)"
@@ -1222,9 +1277,6 @@ function TeamConcepts() {
                 ))}
 
 
-              {/* <div className="flex justify-between"> */}
-
-
               {formStep === 3 ? (
                 paymentStatus ? (
                   <></>
@@ -1238,7 +1290,7 @@ function TeamConcepts() {
                 )
               ) : (
                 formStep === 2 &&
-                (paymentStatus ? (<div className=" text-right">
+                (paymentStatus || form2.techfiesta === "1" ? (<div className=" text-right">
                   <Buttons
                     className="mx-2"
                     value=" Previous Step"
@@ -1256,16 +1308,23 @@ function TeamConcepts() {
                   />
                 </div>
                 ) : (
-                  <Buttons
-                    className=" mx-2 my-2  "
-                    value="Next Step"
-                    onClick={nextForm}
-                    loading={
-                      registerUserMutationForm0.isLoading ||
-                      registerUserMutationForm1.isLoading ||
-                      registerUserMutationForm2.isLoading
-                    }
-                  />
+                  <div className=" text-right">
+                    <Buttons
+                      className="mx-2"
+                      value=" Previous Step"
+                      onClick={prevForm}
+                    />
+                    <Buttons
+                      className=" mx-2 my-2  "
+                      value="Next Step"
+                      onClick={nextForm}
+                      loading={
+                        registerUserMutationForm0.isLoading ||
+                        registerUserMutationForm1.isLoading ||
+                        registerUserMutationForm2.isLoading
+                      }
+                    />
+                  </div>
                 ))
               )}
               {formStep < 2 && (<div className="md:flex justify-between">

@@ -1,5 +1,5 @@
 function Card(props){
-    console.log(props.logo);
+    // console.log(props.logo);
     return (
         <div className="card   ">       
             {/* my card*/}

@@ -6,6 +6,7 @@ import hackathon_logo from "../assets/images/tech_fiesta.png";
 import game_jam_logo from "../assets/images/game_jam_logo.png";
 
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 const eventData = [
   {
@@ -20,23 +21,23 @@ const eventData = [
     //nt: "Will be displayed Soon...",
     it: "Free for International Entries",
     contact: [
-    {
-      name: "Naman",
-      phone: "84464 55659",
-    },
-    // {
-    //   name: "Mrugank",
-    //   phone: "7083823772"
+      {
+        name: "Naman",
+        phone: "84464 55659",
+      },
+      // {
+      //   name: "Mrugank",
+      //   phone: "7083823772"
 
-    // },
-    // {
-    //   name: "Vrushali",
-    //   phone: "9766176681"
-    // },
-    // {
-    //   name: "Aarti",
-    //   phone: "9405119460",
-    // }
+      // },
+      // {
+      //   name: "Vrushali",
+      //   phone: "9766176681"
+      // },
+      // {
+      //   name: "Aarti",
+      //   phone: "9405119460",
+      // }
     ]
   },
 
@@ -49,27 +50,27 @@ const eventData = [
     ct: "Final year students only.    ",
     logo: concepts_logo,
 
-     nt: "₹ 300/- For National Entries",
+    nt: "₹ 300/- For National Entries",
     //nt: "Will be displayed Soon...",
     it: "Free for International Entries",
     contact: [
       {
-      name: "Srushti",
-      phone: "99231 49170",
-    },
-    // {
-    //   name: "Kalpesh",
-    //   phone: "7769945077"
+        name: "Srushti",
+        phone: "99231 49170",
+      },
+      // {
+      //   name: "Kalpesh",
+      //   phone: "7769945077"
 
-    // },
-    // {
-    //   name: "Yamini",
-    //   phone: "7385190784"
-    // },
-    // {
-    //   name: "Vishakha",
-    //   phone: "9011628404",
-    // },
+      // },
+      // {
+      //   name: "Yamini",
+      //   phone: "7385190784"
+      // },
+      // {
+      //   name: "Vishakha",
+      //   phone: "9011628404",
+      // },
     ]
   },
 
@@ -86,15 +87,15 @@ const eventData = [
     it: "Free for International Entries",
     contact: [
       {
-      name: "Manavi",
-      phone: "7499953568",
-    },
+        name: "Manavi",
+        phone: "7499953568",
+      },
     ]
   },
   {
-  id : 4,
-    name : "HACKATHON",
-    fees : 400,
+    id: 4,
+    name: "HACKATHON",
+    fees: 400,
     members: "4-6 Members",
     ct: "First, second, third and fourth year students",
     logo: hackathon_logo,
@@ -105,40 +106,42 @@ const eventData = [
       name: "Atharva",
       phone: "82370 95572",
     },
-    
-    ]
+
+    ],
+
+    closed: "Registration closed."
 
 
   },
   {
 
-    id : 5,
+    id: 5,
 
     name: "GAME JAM",
 
-    fees : 200,
+    fees: 200,
 
     members: "1-4 Members",
 
     ct: "First, second, third and fourth year students",
 
-     logo: game_jam_logo,
+    logo: game_jam_logo,
 
-      nt: "₹ 200/- For National Entries",
+    nt: "₹ 200/- For National Entries",
 
-      it: "Free for International Entries",
+    it: "Free for International Entries",
 
- 
 
-      contact: [{
 
-        name: "Saurav",
+    contact: [{
 
-        phone: "9373270878",
+      name: "Saurav",
 
-      },
+      phone: "9373270878",
 
-      ]
+    },
+
+    ]
 
   }
 ];
@@ -147,17 +150,8 @@ function Card(props) {
   const redirectEvents = useNavigate()
 
   return (
-    <div className="card hover:cursor-pointer" onClick={() =>{if(props.name==="HACKATHON"){
-     window.open( 'https://techfiesta.pict.edu/');
+    <Link to={`/event-details/${props.name.toLowerCase()}`} rel="noopener noreferrer">
 
-    }
-    else if (props.name==="GAME JAM"){
-      window.open('https://unstop.com/p/game-jam24-sctrs-pune-institute-of-computer-technology-dhankawadi-pune-878729?lb=A1YJYb6a&utm_medium=Share&utm_source=WhatsApp');
-    }
-    else{
-      window.open('/event-details/' + props.name.toLowerCase(), '_blank');
-    }
-    }  } >
       {/* my card*/}
       <div className="py-10 mx-5 md:mx-0 ">
         <div className="md:h-[600px]  shadow-md shadow-light_blue/20 hover:bg-light_blue hover:scale-105 transition ease-in-out  bg-light_blue/30 rounded-xl  border-light_blue items-center p-4 md:p-8 border md:mx-5  mt-10">
@@ -177,18 +171,18 @@ function Card(props) {
             {/* <p className="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio magni dolorem libero pariatur nisi fugit voluptate perferendis, harum sapiente sit eius excepturi, similique repellendus explicabo dicta a ipsa iure temporibus dolorum, accusantium consequatur sequi possimus! Quas non veniam aliquid et?</p> */}
             <p className="my-4  text-lg md:text-xl border-l-2 border-gold md:font-light md:leading-6  pl-2 ">
               {" "}
-              <div className="flex"><span className="font-bold "> TEAM</span> 
-              <div className="border-dotted border-l-2 border-light_blue/20 ml-9 pl-2">{props.team}</div> </div>
-              
+              <div className="flex"><span className="font-bold "> TEAM</span>
+                <div className="border-dotted border-l-2 border-light_blue/20 ml-9 pl-2">{props.team}</div> </div>
+
             </p>
             <p className="my-4 text-lg md:text-xl border-l-2 border-gold md:font-light md:leading-6  pl-2">
               {" "}
-              <div className="flex"><span className="font-bold "> CRITERIA</span> 
-              <div className="border-dotted border-l-2 border-light_blue/20 ml-1 pl-2">{props.ct}</div> </div>
-              
+              <div className="flex"><span className="font-bold "> CRITERIA</span>
+                <div className="border-dotted border-l-2 border-light_blue/20 ml-1 pl-2">{props.ct}</div> </div>
+
             </p>
-          
-            
+
+
             {/* <div className="flex gap-3 my-10 ">
               <p className="my-4 text-lg md:text-xl flex items-baseline  border-l-2 border-gold md:font-light md:-leading-6   pl-2">
                 {" "}
@@ -207,15 +201,12 @@ function Card(props) {
               </p>
               <div className="border-dotted border-l-2 border-light_blue/20 ">
                 <p className="my-4 text-lg md:text-xl   md:font-light md:leading-6  pl-2">
-                  {props.ne}
-                </p>
-                <p className="my-4 text-lg md:text-xl   md:font-light md:leading-6  pl-2">
                   {props.ie}
                 </p>
               </div>
             </div>
-            
-   
+
+            <br />
             <div className=" flex gap-3  ">
               <p className=" my-1 text-lg md:text-xl flex place-items-center   border-l-2 border-gold md:font-light md:-leading-6   pl-2">
                 {" "}
@@ -227,7 +218,7 @@ function Card(props) {
                     props.contact.map((item) => {
                       return (
                         <li className="my-1 pl-2" >
-                          <p className="text-lg md:text-xl font-medium">{item.name} : {item.phone}</p > 
+                          <p className="text-lg md:text-xl font-medium">{item.name} : {item.phone}</p >
                         </li>
                       )
                     })
@@ -245,22 +236,26 @@ function Card(props) {
                   <li className="my-1 px-4" >
                     <strong>Aarti : </strong>9405119460
                   </li> */
-                  
+
                   }
                 </ul>
               </div>
+            </div>
+            <br /><br />
+            <div className="flex justify-center text-[#ff0000] font-bold text-2xl">
+              {props.closed ? <h1>{props.closed}</h1> : <></>}
             </div>
             <br />
             {/* <button className="bg-transparent text-white hover:text-blue-300 font-semibold hover:text-green-300 px-2">View More</button> */}
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
 function EventCards() {
-  
+
   return (
     <div id="events" className="eventCards my-10 ">
       <h1 className="mt-10 mb-2 text-center capitalize text-4xl font-bold text-white">
@@ -268,7 +263,7 @@ function EventCards() {
       </h1>
       <hr className="w-1/5 mx-auto mb-5 " />
       <div className="grid md:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 lg:gap-2">
-        {eventData.slice(0,-2).map((eva) => {
+        {eventData.slice(0, -2).map((eva) => {
           return (
             <Card
               name={eva.name}
@@ -281,7 +276,7 @@ function EventCards() {
             />
           );
         })}
-        
+
       </div>
       <div className="flex flex-col lg:flex-row md:w-[68%] md:m-auto">
         {eventData.slice(-2).map((eva) => {
@@ -294,10 +289,11 @@ function EventCards() {
               ie={eva.it}
               contact={eva.contact}
               ct={eva.ct}
+              closed={eva.closed}
             />
           );
         })}
-        </div>
+      </div>
     </div>
   );
 }

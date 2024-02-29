@@ -16,4 +16,5 @@ export {
     evaluateProject,
     getJudge,
     getLabAllocations,
+    logoutAdmin
 } from './requests';

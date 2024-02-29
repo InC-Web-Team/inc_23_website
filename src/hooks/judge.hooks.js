@@ -54,6 +54,7 @@ function useEvaluateProject(eventName) {
     return { mutate, isLoading, isSuccess, isError, data, error }
 }
 function useGetJudge(jid){
+    console.log(jid)
     const { isLoading, isError, data, error } = useQuery({ queryKey: ['judge', jid], queryFn: getJudge(jid), enabled: !!jid })
     if (isError) {
       const parsedError = errorParser(error)

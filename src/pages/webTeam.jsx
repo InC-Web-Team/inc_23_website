@@ -51,10 +51,10 @@ function WebTeam() {
     <div className='inc-teams flex flex-col justify-center gap-14'>
       {teamData.map(team => (
         <div className='team ' key={team.team}>
-          <h2 className='team-name '>{team.team}</h2>
-          <div className='members'>
+          <h2 className='team-name md:before:w-96 before:w-60 before:h-12 md:before:h-[3.4rem]'>{team.team}</h2>
+          <div className='members w-[100%]  flex flex-col md:flex-row items-center'>
             {team.members.map(member => (
-              <div className='member' key={member.name}>
+              <div className='member w-[100%] md:w-[60%] ' key={member.name}>
                 <div className='apple'>
                   <div className='apple-inner'>
                     <img

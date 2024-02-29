@@ -52,6 +52,12 @@ function VerifyEventRegistration() {
             ),
         },
         {
+            name: 'Techfiesta',
+            width: '120px',
+            selector: row => row['step_3']['tech_group_id'],
+            cellExport: row => row['payment_id'],
+        },
+        {
             name: 'Email',
             width: '360px',
             wrap: true,
