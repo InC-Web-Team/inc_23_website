@@ -103,7 +103,7 @@ function JudgeForm() {
         registerJudgeMutation.mutate(judge, {
             onSuccess: (res) => {
                 setErrors(initialErrors);
-                toast.success('Successfully Registered', { icon: '💐' });
+                toast.success('Successfully Registered!', { icon: '💐' });
                 setTimeout(() => {
                     onSuccessNavigator('/auth');
                 }, 2000);
@@ -120,7 +120,7 @@ function JudgeForm() {
                 <form onSubmit={handleSubmit} className='shadow-md shadow-light_blue/20 bg-light_blue/30 rounded-xl items-center p-4 md:p-8 border border-light_blue w-full'>
                     <NoteBox title='Note' text='This registration form is to be filled by the judges only for judging the Impetus and Concepts event.' />
                     <RadioButtons
-                        label="Select Event"
+                        label="Select an Event"
                         options={eventNames}
                         state={judge}
                         setState={setJudge}
