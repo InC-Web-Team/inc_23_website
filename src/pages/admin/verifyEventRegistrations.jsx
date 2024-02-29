@@ -11,7 +11,7 @@ function VerifyEventRegistration() {
     const verifyPaymentMutation = useVerifyPayment(event.eventName)
 
 
-    if(data) console.log(data)
+    if (data) console.log(data)
 
     const options = [
         {
@@ -52,26 +52,32 @@ function VerifyEventRegistration() {
             ),
         },
         {
+            name: 'Ticket',
+            width: '220px',
+            selector: row => row['ticket'],
+            cellExport: row => row['ticket'],
+        },
+        {
             name: 'Techfiesta',
             width: '120px',
             selector: row => row['step_3']['tech_group_id'],
             cellExport: row => row['payment_id'],
         },
+
         {
-            name: 'Email',
-            width: '360px',
-            wrap: true,
+            name: 'Team Members',
+            width: '600px',
+            selector: row => row['step_2'],
             cell: row => (
                 <span>
                     {row['step_2'].map(member => (
                         <div key={member.email}>
-                            <li>{member.email}</li>
+                            <li>{member.name} - <span className='text-gold'>{member.phone}</span> </li>
                         </div>
                     ))}
                 </span>
             ),
-            cellExport: row => row['step_2'].map(member => `${member.email}`).join(', '),
-            sortable: true,
+            cellExport: row => row['step_2'].map(member => `${member.name}`).join(', '),
         },
         {
             name: 'Transaction ID',
@@ -83,7 +89,7 @@ function VerifyEventRegistration() {
             name: 'Date',
             width: '150px',
             selector: row => row['date'],
-            cell : row => {
+            cell: row => {
                 const date = new Date(row['date']);
                 const day = date.getDate().toString().padStart(2, '0');
                 const month = (date.getMonth() + 1).toString().padStart(2, '0');
@@ -99,21 +105,7 @@ function VerifyEventRegistration() {
             },
             sortable: true,
         },
-        {
-            name: 'Team Members',
-            width: '200px',
-            selector: row => row['step_2'],
-            cell: row => (
-                <span>
-                    {row['step_2'].map(member => (
-                        <div key={member.email}>
-                            <li>{member.name}</li>
-                        </div>
-                    ))}
-                </span>
-            ),
-            cellExport: row => row['step_2'].map(member => `${member.name}`).join(', '),
-        }
+
     ], [verifyPaymentMutation, handleButtonClick])
 
     const conditionalRowStyles = [{

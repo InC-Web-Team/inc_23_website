@@ -16,7 +16,7 @@ function EventDetails(props) {
       name: "Impetus",
       short_desc: "International Level Project Exhibition and Competition ",
 
-      desc: ["Impetus is an intercollegiate international level competition and has been attracting corporate giants for not only sponsorship but also in terms of time and guidance to the participants. Industries such as eQ Technologic, Microsoft, Mobiliya, Deutsche Bank Group, Avaya, Siemens, Sagitech, Apporbit, e-Zest, HP, Indian Oil, 3 Ogeestudio, Tata, Mojo Networks, Ryussi, Tibco, Calsoft, Persistent, Pubmatic, IBM, Airtight, AthenaHealth, IEEE, ACM, were closely associated with this event. During the 3 day event, first year, second year and third year students from various colleges across India and abroad showcase their projects in domains like", <br />, `🔹Application Development `, <br />, `🔹 Communication, Networking, Security `, <br />, `🔹 Machine Learning, Pattern Recognition, Artificial Intelligence`, <br />, `🔹 Embedded systems, VLSI, IoT, Remote Sensing`, <br />, `🔹 Blockchain, Cloud Computing`, <br />, `🔹Others`],
+      desc: ["Impetus is an intercollegiate international level competition and has been attracting corporate giants for not only sponsorship but also in terms of time and guidance to the participants. Industries such as eQ Technologic, Microsoft, Mobiliya, Deutsche Bank Group, Avaya, Siemens, Sagitech, Apporbit, e-Zest, HP, Indian Oil, 3 Ogeestudio, Tata, Mojo Networks, Ryussi, Tibco, Calsoft, Persistent, Pubmatic, IBM, Airtight, AthenaHealth, IEEE, ACM, CSI, were closely associated with this event. During the 3 day event, first year, second year and third year students from various colleges across India and abroad showcase their projects in domains like", <br />, `🔹Application Development `, <br />, `🔹 Communication, Networking, Security `, <br />, `🔹 Machine Learning, Pattern Recognition, Artificial Intelligence`, <br />, `🔹 Embedded systems, VLSI, IoT, Remote Sensing`, <br />, `🔹 Blockchain, Cloud Computing`, <br />, `🔹Others`],
 
 
       domains: [
@@ -156,7 +156,7 @@ function EventDetails(props) {
         {
           name: "Wild Card Round",
           details:
-            "The wildcard round is open to both junior and senior teams, and the top 5 teams from each category will enter directly into the programming round (Round 2). This round will be conducted online on the CODECHEF platform. The wildcard round will include programming questions where the participants can code using any programming language they prefer.",
+            "The wildcard round is open to both junior and senior teams, and the top 5 teams from each category will enter directly into the programming round (Round 2). This round will be conducted online on the coding platform. The wildcard round will include programming questions where the participants can code using any programming language they prefer.",
         },
         {
           name: ["Round 1 : MCQ Round [ Day 1 ] ",

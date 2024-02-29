@@ -8,6 +8,7 @@ const Table = lazy(() => import('../../components/table.jsx'));
 function ViewEventRegistrations() {
     const [event, setEvent] = useState({ eventName: '' })
     const { isLoading, data } = useGetRegistrations(event.eventName)
+    if (data) console.log(data)
     
 
     const options = [
@@ -27,10 +28,10 @@ function ViewEventRegistrations() {
 
     const columns = useMemo(() => [
         {
-            name: 'Ticket',
-            selector: row => row['ticket'],
-            cellExport: row => row['ticket'],
-            width: '140px',
+            name: 'Payment ID',
+            selector: row => row['payment_id'],
+            cellExport: row => row['payment_id'],
+            width: '160px',
             wrap: true,
             sortable: true,
         },
@@ -46,7 +47,7 @@ function ViewEventRegistrations() {
             name: 'Team ID',
             selector: row => row['pid'],
             cellExport: row => row['pid'],
-            width: '130px',
+            width: '150px',
             sortable: true,
         },
         {

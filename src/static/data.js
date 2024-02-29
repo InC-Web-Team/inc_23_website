@@ -26,12 +26,12 @@ export const projectTypes = [
 ];
 
 export const slots = [
-  { value: "1", label: "Friday 21st April (10:00 AM - 1:00 PM)" },
-  { value: "2", label: "Friday 21st April (2:00 PM - 5:00 PM)" },
-  { value: "3", label: "Friday 21st April (5:00 PM - 7:00 PM)" },
-  { value: "4", label: "Saturday 22nd April (9:00 AM - 12:00 PM)" },
-  { value: "5", label: "Saturday 22nd April (2:00 PM - 5:00 PM)" },
-  { value: "6", label: "Saturday 22nd April (5:00 PM - 7:00 PM)" },
+  { value: "1", label: "Friday 5th April (10:00 AM - 1:00 PM)" },
+  { value: "2", label: "Friday 5th April (2:00 PM - 5:00 PM)" },
+  { value: "3", label: "Friday 5th April (5:00 PM - 7:00 PM)" },
+  { value: "4", label: "Saturday 6th April (9:00 AM - 12:00 PM)" },
+  { value: "5", label: "Saturday 6th April (2:00 PM - 5:00 PM)" },
+  { value: "6", label: "Saturday 6th April (5:00 PM - 7:00 PM)" },
 ];
 
 export const localTypes = [
