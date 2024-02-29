@@ -8,7 +8,7 @@ import './App.css';
 import Judge from './pages/judge';
 import winners_inc23 from './pages/winners_inc23.jsx';
 import JudgeProtectedRoutes from './routes/JudgeProtectedRoutes.js';
-import Cookies from 'js-cookie'
+
 
 function MainApp() {
   const [loading, setLoading] = useState(false);

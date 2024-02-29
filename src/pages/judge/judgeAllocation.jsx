@@ -7,7 +7,6 @@ import { useRef } from "react";
 function JudgeAllocation() {
   const { jid } = useParams();
   console.log(jid)
-  // const { data, isLoading } = useGetJudgeAllocations(jid);
   const { data: judgeData, isLoading: isJudgeLoading } = useGetJudge(jid)
   console.log(judgeData)
   const navigate = useNavigate()
@@ -30,7 +29,7 @@ function JudgeAllocation() {
             <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-light_blue"></div>
           </div>
         }
-        {/* <form className="mt-6">
+        <form className="mt-6">
           <InputBox label='Enter Project ID (for extra evaluation)' type='text' name='pid' placeholder='Enter Project ID' inputref={pidRef} required />
           <Buttons
             onClick={() => navigate(`/judge/concepts/evaluate/${jid}/${pidRef.current?.value}`)}
@@ -38,18 +37,18 @@ function JudgeAllocation() {
             value='Evaluate'
           />
         </form>
-        {isLoading ? (
+        {isJudgeLoading ? (
           <div className="flex flex-col items-center">
             <h1 className="text-2xl font-bold text-gold">Loading Allocated Projects...</h1>
             <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-light_blue"></div>
           </div>
         ) : (
           <>
-            {data?.data["concepts"]?.length > 0 && (
+            {judgeData?.data["concepts"]?.length > 0 && (
               <h1 className="text-4xl text-gold p-6 font-bold">Concepts</h1>
             )}
-            {data?.data["concepts"]?.length > 0 &&
-              data?.data["concepts"]?.map((project) => (
+            {judgeData?.data["concepts"]?.length > 0 &&
+            judgeData?.data["concepts"]?.map((project) => (
                 <div
                   key={project.pid}
                   className="rounded-lg outline-dashed outline-2 outline-offset-[3px] my-2 outline-light_blue px-4 py-2 bg-faint_blue/10 mb-3 w-[100%] md:w-[90%]"
@@ -102,11 +101,11 @@ function JudgeAllocation() {
                   ></Buttons>
                 </div>
               ))}
-            {data?.data["impetus"]?.length > 0 && (
+            {judgeData?.data["impetus"]?.length > 0 && (
               <h1 className="text-4xl text-gold p-6 font-bold">Impetus</h1>
             )}
-            {data?.data["impetus"]?.length > 0 &&
-              data?.data["impetus"].map((project) => (
+            {judgeData?.data["impetus"]?.length > 0 &&
+            judgeData?.data["impetus"].map((project) => (
                 <div
                   key={project.pid}
                   className="rounded-lg outline-dashed outline-2 outline-offset-[3px] my-2 outline-light_blue px-4 py-2 bg-faint_blue/10 mb-3 w-[100%] md:w-[90%]"
@@ -156,7 +155,7 @@ function JudgeAllocation() {
                 </div>
               ))}
           </>
-        )} */}
+        )}
       </div>
     </>
   );
