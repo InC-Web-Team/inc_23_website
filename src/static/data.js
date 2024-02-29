@@ -12,6 +12,14 @@ export const projectDomains = [
   { value: "OT", label: "Others" },
 ];
 
+export const departments = [
+  { value: "CO", label: "Computer Engineering" },
+  { value: "IT", label: "Information Technology" },
+  { value: "E&TC", label: "Electronics And Telecommunication" },
+  { value: "FE", label: "First Year Engineering" },
+  { value: "OT", label: "Others" },
+];
+
 export const projectTypes = [
   { value: "Open Hardware/Firmware", label: "Open Hardware/Firmware" },
   { value: "Open Software", label: "Open Software" },
