@@ -5,7 +5,7 @@ name: React CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "deploy" ]
   pull_request:
 
 jobs:
@@ -40,4 +40,4 @@ jobs:
     - name: Build
       run: npm run build --if-present
       env:
-        CI: false
+        CI: false # to silent eslint warning treated as errors in CI
