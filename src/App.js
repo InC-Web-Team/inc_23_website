@@ -12,6 +12,7 @@ import AboutUs from './components/aboutUs.jsx';
 import Committee from './components/committee.jsx';
 import ReferralConcepts from './pages/referral/referralConcepts.jsx';
 import Referral from './pages/referral/index.js';
+import Schedule from './components/schedule.jsx';
 
 
 
@@ -53,8 +54,10 @@ function MainApp() {
         <Route path='/sponsors' element={<Sponsors />} />
         <Route path='/about' element={<AboutUs />} />
         <Route path='/committee' element={<Committee />} />
+        <Route path='/schedule' element={<Schedule />} />
         {/* REFERRAL FORMS  */}
         <Route path='/referral/*' element={<Referral />} />
+
 
         {process.env.REACT_APP_ENVIRONMENT === 'development' &&
           <Route path='/test' element={
