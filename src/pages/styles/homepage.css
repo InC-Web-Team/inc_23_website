@@ -26,20 +26,24 @@
             transform: translateX(100%);
         }
         to {
-            transform: translateX(-45%);
+            transform: translateX(-90%);
         }
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 486px) {
     @keyframes moveNotice {
         from {
             transform: translateX(100%);
         }
         to {
-            transform: translateX(-75%);
+            transform: translateX(-85%);
         }
     }
+    .notice-content{
+        font-size: 15px;
+    }
+
 }
 
 @media screen and (max-width: 310px) {

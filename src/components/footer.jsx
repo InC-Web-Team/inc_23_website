@@ -19,12 +19,12 @@ function Footer() {
   return (
     <div className="footer">
       <footer className="p-4 bg-gray-800 border-t-2 border-t-gold sm:p-6 relative">
-      <div className="flex items-center justify-end mt-4 pr-5">
-          <p className="text-xl uppercase mr-3 sm:text-base">Visit Count :</p>
-          <div className="sm:flex items-center">
-            <div className="sm:w-auto sm:h-auto sm:text-base" id="sfc34zkyln4j6j3gx9bs64tx7jcms21g9wc"></div>
-          </div>
-        </div>
+      <div className="flex flex-row lg:justify-end sm:flex-row sm:justify-start items-center  mt-4 pr-5">
+    <p className="text-2xl uppercase mb-2 sm:mb-0 sm:mr-3 sm:text-base"><pre className='text-2xl'>Visit Count : </pre></p>
+    <div className="sm:flex items-center">
+      <div className="sm:w-auto sm:h-auto sm:text-base" id="sfc34zkyln4j6j3gx9bs64tx7jcms21g9wc"></div>
+    </div>
+  </div>
         <div className="md:flex md:justify-between lg:px-52 sm:m-10">
           <div className="Address md:mb-6">
             <h1 className="mb-2 text-2xl text-white uppercase">ADDRESS</h1>

@@ -29,7 +29,7 @@ function Homepage() {
       {showPopup && <Popup handleClose={handleClosePopup} />}
       <div className="notice">
         <div className="notice-content">
-         <span >Last day of registration 26th March</span>
+         <span >🛑 Last date of registration is 26th March 2024 (Tuesday) </span>
         </div>
       </div>
       <Hero />
