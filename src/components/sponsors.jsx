@@ -1,8 +1,5 @@
 import "./styles/sponsors.css";
-import imperial from "../assets/images/imperial.png"
-import Aayan from "../assets/images/Aayan.png.jpg"
-import intangle from "../assets/images/intangles.png.jpg"
-import pict from "../assets/images/pict1997.jpg"
+
 const titleSponsors = [
   {
     name: "Sarvatra Technologies",
@@ -12,7 +9,7 @@ const titleSponsors = [
 
   {
     name: "eQ Technologic",
-    logo: "https://res.cloudinary.com/job-kart/image/upload/v1677914533/eq_logo_transparent_highres_fagqvq.png",
+    logo: eq,
     website: "https://www.1eq.com/",
   },
 ];
@@ -41,20 +38,10 @@ const educationSponsors = [
 ];
 
 const eventSponsors = [
-  // {
-  //   name: "AGCO",
-  //   logo: "https://res.cloudinary.com/job-kart/image/upload/v1678885571/AGCO_logo_nfigrk.png",
-  //   website: "https://www.agcocorp.com/",
-  // },
-];
-const specialprize = [
   {
-    name:    <div>
-    <span style={{ display: 'block' }}>Computer Engineering</span>
-    <span style={{ display: 'block' }}>Batch of 1997</span>
-  </div>,
-    logo: pict,
-    website: "https://pict.edu/",
+    name: "AGCO",
+    logo: "https://res.cloudinary.com/job-kart/image/upload/v1678885571/AGCO_logo_nfigrk.png",
+    website: "https://www.agcocorp.com/",
   },
 ];
 
@@ -68,30 +55,30 @@ const eventSponsors2 = [
 
 const Other = [
   {
-    name: "Imperial",
-    logo: imperial,
-    website: "https://www.imperial-overseas.com/",
-  }
-  // {
-  //   name: "Zbyte",
-  //   logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsaYFPO8ZH4KTkju3ki8oS9g3gZFCeA8YFeN4YYAKsng&s",
-  //   website: "https://zbyte.io/",
-  // },
-  // {
-  //   name: "AlgoAnalytics",
-  //   logo: "https://res.cloudinary.com/job-kart/image/upload/v1677914536/AlgoAnalytics_Logo_1_j2xxp4.png",
-  //   website: "https://www.algoanalytics.com/",
-  // },
-  // {
-  //   name: "BNY MELLON",
-  //   logo: "https://res.cloudinary.com/dsoid12mi/image/upload/v1680198601/bnym_logo_horiz_teal_rgb_3_q5npvc.png",
-  //   website: "https://www.bnymellon.com/",
-  // },
-  // {
-  //   name: "Diacto",
-  //   logo: "https://res.cloudinary.com/dsoid12mi/image/upload/v1680201291/Screenshot_2023-03-31_000335_tvhbkj.png",
-  //   website: "https://www.diacto.com/",
-  // },
+    name: "Foldhealth",
+    logo: "https://res.cloudinary.com/job-kart/image/upload/v1677914533/foldhealth.jpeg_onmmqj.jpg",
+    website: "https://www.fold.health/",
+  },
+  {
+    name: "Zbyte",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsaYFPO8ZH4KTkju3ki8oS9g3gZFCeA8YFeN4YYAKsng&s",
+    website: "https://zbyte.io/",
+  },
+  {
+    name: "AlgoAnalytics",
+    logo: "https://res.cloudinary.com/job-kart/image/upload/v1677914536/AlgoAnalytics_Logo_1_j2xxp4.png",
+    website: "https://www.algoanalytics.com/",
+  },
+  {
+    name: "BNY MELLON",
+    logo: "https://res.cloudinary.com/dsoid12mi/image/upload/v1680198601/bnym_logo_horiz_teal_rgb_3_q5npvc.png",
+    website: "https://www.bnymellon.com/",
+  },
+  {
+    name: "Diacto",
+    logo: "https://res.cloudinary.com/dsoid12mi/image/upload/v1680201291/Screenshot_2023-03-31_000335_tvhbkj.png",
+    website: "https://www.diacto.com/",
+  },
 ];
 
 const Association = [
