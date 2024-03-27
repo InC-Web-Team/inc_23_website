@@ -2,7 +2,7 @@ import "./styles/sponsors.css";
 import imperial from "../assets/images/imperial.png"
 import Aayan from "../assets/images/Aayan.png.jpg"
 import intangle from "../assets/images/intangles.png.jpg"
-import pict from "../assets/images/pict19961.jpg"
+import pict from "../assets/images/pict1997.jpg"
 const titleSponsors = [
   {
     name: "Sarvatra Technologies",
@@ -51,7 +51,7 @@ const specialprize = [
   {
     name:    <div>
     <span style={{ display: 'block' }}>Computer Engineering</span>
-    <span style={{ display: 'block' }}>Batch of 1996</span>
+    <span style={{ display: 'block' }}>Batch of 1997</span>
   </div>,
     logo: pict,
     website: "https://pict.edu/",
