@@ -29,9 +29,12 @@
             transform: translateX(-90%);
         }
     }
+    .notice-content {
+        font-size: 95%; 
+    }
 }
 
-@media screen and (max-width: 486px) {
+@media screen and (max-width: 570px) {
     @keyframes moveNotice {
         from {
             transform: translateX(100%);
@@ -41,14 +44,39 @@
         }
     }
     .notice-content{
-        font-size: 15px;
+        font-size: 75%;
     }
 
 }
 
-@media screen and (max-width: 310px) {
+@media screen and (max-width: 448px) {
+    
     .notice-content{
-        font-size: 17px;
+        font-size: 65%;
     }
+
 }
 
+@media screen and (max-width: 389px) {
+    
+    .notice-content{
+        font-size: 60%;
+    }
+
+}
+
+@media screen and (max-width: 347px) {
+    
+    .notice-content{
+        font-size: 53%;
+    }
+
+}
+
+@media screen and (max-width: 318px) {
+    
+    .notice-content{
+        font-size: 50%;
+    }
+
+}
