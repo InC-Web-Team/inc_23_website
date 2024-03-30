@@ -29,9 +29,12 @@
             transform: translateX(-90%);
         }
     }
+    .notice-content{
+        font-size: 90%;
+    }
 }
 
-@media screen and (max-width: 486px) {
+@media screen and (max-width: 573px) {
     @keyframes moveNotice {
         from {
             transform: translateX(100%);
@@ -41,14 +44,26 @@
         }
     }
     .notice-content{
-        font-size: 15px;
+        font-size: 75%;
     }
 
 }
 
-@media screen and (max-width: 310px) {
+@media screen and (max-width: 471px) {
     .notice-content{
-        font-size: 17px;
+        font-size: 65%;
+    }
+}
+
+@media screen and (max-width: 407px) {
+    .notice-content{
+        font-size: 55%;
+    }
+}
+
+@media screen and (max-width: 343px) {
+    .notice-content{
+        font-size: 48%;
     }
 }
 
