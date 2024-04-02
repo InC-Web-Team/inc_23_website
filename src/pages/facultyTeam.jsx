@@ -27,7 +27,7 @@ export default function FacultyTeam() {
         { value: "Pradnya", names: [{ value: "1. Prof. S. A. Jakhete (IT)" }, { value: "2. Prof. S. P. Shintre (COMP)" }, { value: "3. Prof. S. L. Rane (IT))" }, { value: "4. Ms. B. M. Katewal (IT)" }] },
         { value: "InC 2023 Theme Projects Identification", names: [{ value: "1. Prof. A. A. Jewalikar (COMP)" }, { value: "2. Prof. P. P. Joshi (COMP)" }, { value: "3. Dr. S. S. Wasekar (E&TC)" }] },
         { value: "Identification of Patentable projects with External IPR Expert.", names: [{ value: "1. Dr. A. M. Deshmukh (FE)" }] },
-        { value: "Attendance & Feedback Committee for InC 2023", names: [{ value: "1. Prof. V.B Vaijapurkar (E&TC)" }, { value: "2. Prof. K. M. Masal (E&TC)" }, { value: "3. Prof. A. A. Deshpande (COMP)" }, { value: "4. Prof. A. S. Bodhe (FE)" }] },
+        { value: "Attendance & Feedback Committee for InC 2024", names: [{ value: "1. Prof. V.B Vaijapurkar (E&TC)" }, { value: "2. Prof. K. M. Masal (E&TC)" }, { value: "3. Prof. A. A. Deshpande (COMP)" }, { value: "4. Prof. A. S. Bodhe (FE)" }] },
         { value: "Finance and Budget Committee", names: [{ value: "1. Prof. A. M. Kulkarni (FE)" }, { value: "2. Dr. A.R. Deshpande (COMP)" }, { value: "3. Mrs. V. V. Karmarkar (ACCOUNTS)" }] },
         { value: "Student Volunteer Committee", names: [{ value: "1. Prof. E. M. Reddy (FE)" }, { value: "2. Prof. A. A. Chavan (FE)" }] },
         { value: "Purchase", names: [{ value: "1. Director: Dr. P. T. Kulkarni" }, { value: "2. Principal: Dr. S. T. Gandhe" }, { value: "3. Dr. G. P. Potdar (COMP)" }, { value: "4. Mr. A. V. Sapkal (PO/EM)" }] },

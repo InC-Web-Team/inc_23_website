@@ -8,16 +8,15 @@ import eQ from "../assets/images/eq_technologic_rectangle_logo.png"
 import campusTimes from "../assets/images/CampusTimesPune.png"
 const titleSponsors = [
   {
-    name: "Sarvatra Technologies",
-    logo: "https://res.cloudinary.com/job-kart/image/upload/v1677914537/logo_sarvatra_ww7sgb.png",
-    website: "https://sarvatra.tech/",
-  },
-
-  {
     name: "eQ Technologic",
     logo: eQ,
     website: "https://www.1eq.com/",
   },
+  {
+    name: "Sarvatra Technologies",
+    logo: "https://res.cloudinary.com/job-kart/image/upload/v1677914537/logo_sarvatra_ww7sgb.png",
+    website: "https://sarvatra.tech/",
+  } 
 ];
 
 const coSponsors = [
