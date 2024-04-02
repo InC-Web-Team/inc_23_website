@@ -5,6 +5,7 @@ import intangle from "../assets/images/intangles.png.jpg"
 import pict from "../assets/images/pict1997.jpg"
 import cloudhedge from "../assets/images/CloudHedge.png"
 import eQ from "../assets/images/eq_technologic_rectangle_logo.png"
+import campusTimes from "../assets/images/CampusTimesPune.png"
 const titleSponsors = [
   {
     name: "Sarvatra Technologies",
@@ -101,6 +102,14 @@ const Other = [
   // },
 ];
 
+const onlineMedia=[
+  {
+    name: "Campus Times Pune",
+    logo: campusTimes,
+    website: "https://www.campustimespune.com/",
+  }
+];
+
 const Association = [
   {
     name: "CSI",
@@ -190,6 +199,7 @@ const educationSponsorsList = getList1(educationSponsors);
 const ImpetusSponsorsList = getList1(eventSponsors);
 const PradnyaSponsorsList = getList1(eventSponsors2);
 const OtherSponsorsList = getList1(Other);
+const onlineMediaPartner = getList1(onlineMedia);
 const AssociationSponsorsList = getList1(Association);
 const specialprizeList=getList1(specialprize);
 export default function Sponsors() {
@@ -217,6 +227,8 @@ export default function Sponsors() {
 
       <div className="sponsors-head">Other Sponsors</div>
       <div className="sponsors-list">{OtherSponsorsList}</div>
+      <div className="sponsors-head">Online Media Partner</div>
+      <div className="sponsors-list">{onlineMediaPartner}</div>
       <div className="sponsors-head">In Association With</div>
       <div className="sponsors-list">{AssociationSponsorsList}</div>
     </div>
