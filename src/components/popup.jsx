@@ -27,12 +27,12 @@ const Popup = ({ handleClose }) => {
               <p className="text-xl font-semibold text-white mb-4 text-justify">
                 {/* 1. The Participants should be present on campus and the allocated labs during the time period indicated. */}
                 <br></br>
-                <span className='flex justify-between items-center'>
+                <span className='flex justify-between items-center flex-wrap'>
                 1. Concepts Winners <Buttons value="Click here" type="button" onClick={()=>{window.open(concepts_winners,'_blank')}}/></span>
                 <br />
                 <br />
                 {/* 2. At least 2 judges will be judging each project. However there will be judges from other organizations who will be evaluating projects for probable hiring or for special prizes etc. Hence none of the groups should leave the campus unless informed officially by the judging team. */}
-                <span className='flex justify-between items-center'>
+                <span className='flex justify-between items-center flex-wrap'>
                 2. Impetus Winners <Buttons value="Click here" type="button" onClick={()=>{window.open(impetus_winners,'_blank')}}/></span>
                 <br />
                 {/* <br /> */}
