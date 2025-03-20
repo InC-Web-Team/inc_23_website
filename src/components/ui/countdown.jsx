@@ -1,3 +1,7 @@
+countdown.jsx
+
+
+
 import { useAnimate } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
@@ -48,11 +52,11 @@ const ShiftingCountdown = () => {
       variants={animationVariants}
       transition={{ duration: 1, ease: "easeInOut", delay: 2 }}
       onAnimationComplete={() => setHasAnimated(false)}
-      className={`w-full max-sm:hidden z-2 pb-6`}
+      className={w-full max-sm:hidden z-2 pb-6}
       >
       {showFlipWords && <FlipWords words={words} />}
       <div className={"border-secondary border-[1px]"}>
-        <div className={`mx-auto flex w-full max-w-5xl items-center ${hasAnimated ? `backdrop-blur-sm` : `bg-[#000609]/50`}`}>
+        <div className={`mx-auto flex w-full max-w-5xl items-center ${hasAnimated ? backdrop-blur-sm : bg-[#000609]/50}`}>
           <CountdownItem unit="Day" text="day" cn={"border-r-[1px]"} />
           <CountdownItem unit="Hour" text="hours" cn={"border-r-[1px]"} />
           <CountdownItem unit="Minute" text="minutes" cn={"border-r-[1px]"} />
@@ -68,7 +72,7 @@ const CountdownItem = ({ unit, text, cn }) => {
   const { ref, time } = useTimer(unit);
 
   return (
-    <div className={`flex h-24 w-1/2 flex-col items-center justify-center gap-1 ${cn} border-white-100 font-mono md:h-36 md:gap-2 pointer-events-none`}>
+    <div className={flex h-24 w-1/2 flex-col items-center justify-center gap-1 ${cn} border-white-100 font-mono md:h-36 md:gap-2 pointer-events-none}>
       <div className="relative w-full overflow-hidden text-center">
         <span
           ref={ref}

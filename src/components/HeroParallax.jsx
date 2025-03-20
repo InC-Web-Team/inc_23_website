@@ -7,7 +7,7 @@ import {
   motion,
   animate, } from 'framer-motion'
 import { TextHoverEffect } from "./ui/text-hover-effect";
-import ShiftingCountdown from './ui/countdown';
+import ShiftingCountdown from './ui/livenow';
 
 import { light, concepts_b, impetus_b, pradnya_b } from '../assets'
 import HeroSlider from './HeroSlider';
@@ -58,17 +58,24 @@ const Hero = () => {
           <span className='text-white font-bold text-lg sm:text-5xl absolute bottom-[14%] right-[4%] sm:bottom-[29%] sm:right-[12%] pointer-events-none'>2K25</span>
         </h1>
 
-        <div className='absolute bottom-[-10%] sm:bottom-[14.8%] w-[93%] sm:w-[100%] z-10 hover:scale-[1.03] active:scale-95 duration-300'>
-          <motion.button
-            style={{
-              border,
-            }}
-            className="w-full tracking-wider font-bold bg-[#000609]/50 px-7 py-3 text-white-100 uppercase transition-colors hover:bg-[#000609]/60"
-            onClick={() => {navigate(`/register`)}}
-          >
-           going live on 21st march
-          </motion.button>
-        </div>
+
+
+
+        {/* <div className="absolute bottom-[-10%] sm:top-[800%] w-[93%] sm:w-[100%] z-10 hover:scale-[1.03] active:scale-95 duration-300"> */}
+
+        <div className="absolute bottom-[-10%] sm:top-[800%] w-[93%] sm:w-[100%] z-10 hover:scale-[1.03] active:scale-95 duration-300 translate-y-[48px] sm:translate-y-0">
+
+  <motion.button
+    style={{
+      border,
+    }}
+    className="w-full tracking-wider font-bold bg-[#000609]/50 px-7 py-3 text-white-100 uppercase transition-colors hover:bg-[#000609]/60 mt-[22px] sm:mt-12"  // mobile margin 22px, sm and up uses mt-5
+    onClick={() => { navigate(`/register`) }}
+  >
+    wE ARE OFFICIALLY LIVE NOW!
+  </motion.button>
+</div>
+
 
       </div>
       <div className='flex sm:flex-[0.65] flex-col-reverse max-sm:h-1/2 sm:flex-col sm:justify-center items-center max-sm:-mb-8 mt-10 xl:-mr-9 relative'>
@@ -87,4 +94,3 @@ const Hero = () => {
 }
 
 export default Hero
-
