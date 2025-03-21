@@ -7,7 +7,7 @@ import {
   motion,
   animate, } from 'framer-motion'
 import { TextHoverEffect } from "./ui/text-hover-effect";
-import ShiftingCountdown from './ui/livenow';
+import ShiftingCountdown from './livenow';
 
 import { light, concepts_b, impetus_b, pradnya_b } from '../assets'
 import HeroSlider from './HeroSlider';
