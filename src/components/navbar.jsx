@@ -77,7 +77,7 @@ const Navbar = () => {
         <span className='h-9 bg-white w-[1px]'></span>
         <Link to={'/'} className='flex items-center gap-2' onClick={() => {setActive("");}}>
           <img loading='lazy'  src={logo} alt="logo" className='w-9 h-9 object-cover' />
-          <p className='text-white-100 text-[18px] font-bold cursor-pointer'>PICT INC 2025</p>
+          <p className='text-white-100 text-[18px] font-bold cursor-pointer'>PICT INC 2026</p>
         </Link>
         </div>
         <ul className='list-none hidden sm:flex flex-row items-center gap-7'>

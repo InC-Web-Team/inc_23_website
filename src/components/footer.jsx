@@ -24,7 +24,7 @@ const Footer = () => {
         </div>
       </div>
       <div className='w-full max-w-7xl mx-auto flex max-sm:flex-wrap text-slate-600 text-sm items-center sm:pt-10 pt-6 justify-center'>
-        <IconCopyright />&nbsp;PICT InC 2025 All Rights Reserved&nbsp;<IconMinusVertical />&nbsp;Made by InC WEB TEAM
+        <IconCopyright />&nbsp;PICT InC 2026 All Rights Reserved&nbsp;<IconMinusVertical />&nbsp;Made by InC WEB TEAM
       </div>
     </footer>
   )

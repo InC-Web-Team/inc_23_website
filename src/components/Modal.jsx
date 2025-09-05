@@ -78,37 +78,7 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
 										<span className="flex-shrink-0">
 											<IconCircleFilled className="w-4 h-4" />
 										</span>
-										<span className="text-blue-600 underline"><a href="https://drive.google.com/file/d/1Ti_lCkh0LRIMSN4qGNXaN31OFuTgYA_Y/view?usp=sharing" target="_blank">Concepts Schedule</a></span>
-									</li>
-									<li className="text-red-600 flex items-center gap-2">
-										<span className="flex-shrink-0">
-											<IconCircleFilled className="w-4 h-4" />
-										</span>
-										<span className="text-white">Registrations for Concepts are now officially closed.</span>
-									</li>
-									<li className="text-red-600 flex items-center gap-2">
-										<span className="flex-shrink-0">
-											<IconCircleFilled className="w-4 h-4" />
-										</span>
-										<span className="text-white">Registrations for Pradnya are now officially closed.</span>
-									</li>
-									<li className="text-red-600 flex items-center gap-2">
-										<span className="flex-shrink-0">
-											<IconCircleFilled className="w-4 h-4" />
-										</span>
-										<span className="text-white">Registrations for Impetus are now officially closed.</span>
-									</li>
-									<li className="text-red-600 flex items-center gap-2">
-										<span className="flex-shrink-0">
-											<IconCircleFilled className="w-4 h-4" />
-										</span>
-										<span className="text-white">Hurry up! Registrations close on March 5 at 11:59 PM IST. Don&apos;t miss out!</span>
-									</li>
-									<li className="text-red-600 flex items-center gap-2">
-										<span className="flex-shrink-0">
-											<IconCircleFilled className="w-4 h-4" />
-										</span>
-										<span className="text-white">Registrations are Live.</span>
+										<span className="text-white">TechFiesta 2026 coming Soon !!</span>
 									</li>
 								</ul>
 								<div className="flex gap-2">

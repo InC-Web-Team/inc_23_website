@@ -33,7 +33,7 @@ const Text = () => {
   return (
     <p className='text-white-100'>
       <span className='block pb-4'>
-      <span className='font-semibold text-orange-100'>Impetus and Concepts (InC)</span> is a flagship technical event of SCTR&apos;s Pune Institute of Computer Technology, Pune, which will be held during the 3rd week of March 2025. InC is an intercollegiate international level competition that has been catching the attention of corporate giants for the quality of projects and an opportunity to recruit/mentor young talented budding entrepreneurs.
+      <span className='font-semibold text-orange-100'>Impetus and Concepts (InC)</span> is a flagship technical event of SCTR&apos;s Pune Institute of Computer Technology, Pune, which will be held during the 3rd week of March 2026. InC is an intercollegiate international level competition that has been catching the attention of corporate giants for the quality of projects and an opportunity to recruit/mentor young talented budding entrepreneurs.
       </span>
       <span className='block border-secondary pt-5 pb-4'>
       Every year InC sets a new benchmark and provides an opportunity for students to realize their ideas into effective products. Over the years, it has become the most popular and awaited event with continuous improvement in footfall, the number and quality of projects/papers, etc. This event also sets a platform for students to design, exhibit, and watch their ideas come true. This technical fest has inventive events namely - Impetus, Concepts, Pradnya.

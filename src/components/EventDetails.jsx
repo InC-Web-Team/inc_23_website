@@ -103,7 +103,7 @@ const EventDetails = ({ data }) => {
           <h2 className='text-3xl font-bold text-orange-100'>{data.name}</h2>
           <p className='font-bold text-xl sm:max-w-[70%] text-center'>{data.short_desc}</p>
           <div className='flex w-full justify-center items-center gap-4 mb-2'>
-            <p className='px-2 py-1 text-sm bg-slate-800 font-semibold rounded-md flex items-center gap-2'><IconCalendarFilled /> {data.schedule}</p>
+            {/* <p className='px-2 py-1 text-sm bg-slate-800 font-semibold rounded-md flex items-center gap-2'><IconCalendarFilled /> {data.schedule}</p> */}
             <p className='px-2 py-1 text-sm bg-slate-800 font-semibold rounded-md flex items-center gap-2'><IconUsersGroup /> {data.registrations.min_team_size}-{data.registrations.max_team_size} members</p>
           </div>
         </div>
@@ -125,12 +125,13 @@ const EventDetails = ({ data }) => {
         </div>
         <h4 className='flex gap-2 text-xl text-yellow-400'><IconTrophy /> <span dangerouslySetInnerHTML={{__html: data.prize}}></span></h4>
           <div className='flex max-sm:w-full max-sm:justify-between sm:gap-7 mb-2'>
-            <Button onClick={() => {navigate(`/register/${data.id}`)}}>
+            {/* <Button onClick={() => {navigate(`/register/${data.id}`)}}>
             <><IconUserEdit /> Register</>
-            </Button>
-            <Button onClick={() => {window.open(ruleBookLinks.get(data.id), "_blank")}}>
+            </Button> */}
+            {/* <Button onClick={() => {window.open(ruleBookLinks.get(data.id), "_blank")}}>
               <><IconDownload /> Rule Book</>
-            </Button>
+            </Button> */}
+            <h3 className='font-semibold text-orange-100 text-xl flex items-center gap-2 p-4 bg-gray-100/10 rounded-lg'>Coming Soon</h3>
           </div>
         </div>
       </div>
