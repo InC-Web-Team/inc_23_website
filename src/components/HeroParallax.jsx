@@ -2,9 +2,7 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { IncCanvas } from './canvas'
 import { 
-  useMotionTemplate,
   useMotionValue,
-  motion,
   animate, } from 'framer-motion'
 import { TextHoverEffect } from "./ui/text-hover-effect";
 // import ShiftingCountdown from './ui/countdown';
@@ -30,7 +28,7 @@ const Hero = () => {
     });
   }, []);
 
-  const border = useMotionTemplate`1px solid ${color}`;
+  // const border = useMotionTemplate`1px solid ${color}`;
 
   return (
     <section className='relative w-full h-screen'>
@@ -55,10 +53,10 @@ const Hero = () => {
           <span className='text-white font-bold text-lg sm:text-5xl absolute top-[14%] left-[3.8%] sm:top-[20.6%] sm:left-[11.4%] pointer-events-none'>PICT</span>
           <TextHoverEffect text={'INC'} />
           <span className='text-[170px] sm:hidden text-white-100/55 font-[Helvetica] font-bold tracking-tight'>INC</span>
-          <span className='text-white font-bold text-lg sm:text-5xl absolute bottom-[14%] right-[4%] sm:bottom-[29%] sm:right-[12%] pointer-events-none'>2K25</span>
+          <span className='text-white font-bold text-lg sm:text-5xl absolute bottom-[14%] right-[4%] sm:bottom-[29%] sm:right-[12%] pointer-events-none'>2K26</span>
         </h1>
 
-        <div className='absolute bottom-[-10%] sm:bottom-[14.8%] w-[93%] sm:w-[100%] z-10 hover:scale-[1.03] active:scale-95 duration-300 sm:hidden'>
+        {/* <div className='absolute bottom-[-10%] sm:bottom-[14.8%] w-[93%] sm:w-[100%] z-10 hover:scale-[1.03] active:scale-95 duration-300 sm:hidden'>
           <motion.button
             style={{
               border,
@@ -68,7 +66,7 @@ const Hero = () => {
           >
             Results are out!
           </motion.button>
-        </div>
+        </div> */}
 
       </div>
       <div className='flex sm:flex-[0.65] flex-col-reverse max-sm:h-1/2 sm:flex-col sm:justify-center items-center max-sm:-mb-8 sm:mb-6 max-sm:mt-10 xl:-mr-9 relative'>
@@ -79,7 +77,7 @@ const Hero = () => {
         {/* <ShiftingCountdown /> */}
         {/* <h2 className='text-red-500 text-[150px] font-extrabold'>LIVE</h2> */}
       </div>
-      <div className='absolute bottom-[0%] sm:bottom-[11%] min-w-[50%] z-10 hover:scale-[1.03] active:scale-95 duration-300 max-sm:hidden'>
+      {/* <div className='absolute bottom-[0%] sm:bottom-[11%] min-w-[50%] z-10 hover:scale-[1.03] active:scale-95 duration-300 max-sm:hidden'>
         <motion.button
           style={{
             border,
@@ -89,7 +87,7 @@ const Hero = () => {
         >
           Results are out!
         </motion.button>
-      </div>
+      </div> */}
     </div>  
     <div className="absolute left-0 top-0 bottom-0 sm:w-10 w-4 bg-gradient-to-l from-[#000609]/0 to-[#000609]" />
     <div className="absolute bottom-0 top-0 right-0 sm:w-10 w-4 bg-gradient-to-r from-[#000609]/0 to-[#000609]" />

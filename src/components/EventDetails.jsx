@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { Tabs } from "./ui/tabs";
 
-import { eventsData, ruleBookLinks } from '../constants';
+import { eventsData } from '../constants';
 
 import InfiniteLoopSlider from './ui/infinite-loop-slider';
-import { IconCalendarFilled, IconCheckupList, IconCurrencyDollar, IconDiamondsFilled, IconDownload, IconFileDescription, IconTrophy, IconUserCheck, IconUserEdit, IconUsersGroup } from '@tabler/icons-react'
+import {IconCheckupList, IconCurrencyDollar, IconDiamondsFilled, IconFileDescription, IconTrophy, IconUserCheck, IconUsersGroup } from '@tabler/icons-react'
 import { Accordion, AccordionHeader, AccordionItem, AccordionPanel } from './ui/accordian';
 import scrollToTop from '../utils/scrollToTop'
 import { cn } from '../lib/utils';
@@ -91,8 +91,6 @@ function TabsDemo() {
 export default TabsDemo; 
 
 const EventDetails = ({ data }) => {
-  const navigate = useNavigate()
-  
   return (
     <div
     className='flex flex-col w-full justify-between items-center p-4 sm:p-8 gap-3 bg-tertiary relative'
@@ -103,7 +101,7 @@ const EventDetails = ({ data }) => {
           <h2 className='text-3xl font-bold text-orange-100'>{data.name}</h2>
           <p className='font-bold text-xl sm:max-w-[70%] text-center'>{data.short_desc}</p>
           <div className='flex w-full justify-center items-center gap-4 mb-2'>
-            <p className='px-2 py-1 text-sm bg-slate-800 font-semibold rounded-md flex items-center gap-2'><IconCalendarFilled /> {data.schedule}</p>
+            {/* <p className='px-2 py-1 text-sm bg-slate-800 font-semibold rounded-md flex items-center gap-2'><IconCalendarFilled /> {data.schedule}</p> */}
             <p className='px-2 py-1 text-sm bg-slate-800 font-semibold rounded-md flex items-center gap-2'><IconUsersGroup /> {data.registrations.min_team_size}-{data.registrations.max_team_size} members</p>
           </div>
         </div>
@@ -125,12 +123,13 @@ const EventDetails = ({ data }) => {
         </div>
         <h4 className='flex gap-2 text-xl text-yellow-400'><IconTrophy /> <span dangerouslySetInnerHTML={{__html: data.prize}}></span></h4>
           <div className='flex max-sm:w-full max-sm:justify-between sm:gap-7 mb-2'>
-            <Button onClick={() => {navigate(`/register/${data.id}`)}}>
+            {/* <Button onClick={() => {navigate(`/register/${data.id}`)}}>
             <><IconUserEdit /> Register</>
-            </Button>
-            <Button onClick={() => {window.open(ruleBookLinks.get(data.id), "_blank")}}>
+            </Button> */}
+            {/* <Button onClick={() => {window.open(ruleBookLinks.get(data.id), "_blank")}}>
               <><IconDownload /> Rule Book</>
-            </Button>
+            </Button> */}
+            <h3 className='font-semibold text-orange-100 text-xl flex items-center gap-2 p-4 bg-gray-100/10 rounded-lg'>Coming Soon</h3>
           </div>
         </div>
       </div>
@@ -211,10 +210,10 @@ const EventDetails = ({ data }) => {
 };
 
 
-const Button = ({children, ...props}) => {
-  return (
-    <button {...props} className='bg-gradient-to-br from-dark-blue via-light-blue to-orange-100 p-px hover:scale-105 duration-300'>
-      <span className='py-3 px-3 sm:px-6 sm:text-xl bg-black-100 flex gap-2 h-full'>{children}</span>
-    </button>
-  )
-}
+// const Button = ({children, ...props}) => {
+//   return (
+//     <button {...props} className='bg-gradient-to-br from-dark-blue via-light-blue to-orange-100 p-px hover:scale-105 duration-300'>
+//       <span className='py-3 px-3 sm:px-6 sm:text-xl bg-black-100 flex gap-2 h-full'>{children}</span>
+//     </button>
+//   )
+// }
