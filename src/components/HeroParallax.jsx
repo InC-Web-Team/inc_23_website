@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { IncCanvas } from './canvas'
 import { 
-  useMotionTemplate,
   useMotionValue,
   animate, } from 'framer-motion'
 import { TextHoverEffect } from "./ui/text-hover-effect";

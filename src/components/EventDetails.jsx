@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { Tabs } from "./ui/tabs";
 
 import { eventsData } from '../constants';
@@ -210,10 +210,10 @@ const EventDetails = ({ data }) => {
 };
 
 
-const Button = ({children, ...props}) => {
-  return (
-    <button {...props} className='bg-gradient-to-br from-dark-blue via-light-blue to-orange-100 p-px hover:scale-105 duration-300'>
-      <span className='py-3 px-3 sm:px-6 sm:text-xl bg-black-100 flex gap-2 h-full'>{children}</span>
-    </button>
-  )
-}
+// const Button = ({children, ...props}) => {
+//   return (
+//     <button {...props} className='bg-gradient-to-br from-dark-blue via-light-blue to-orange-100 p-px hover:scale-105 duration-300'>
+//       <span className='py-3 px-3 sm:px-6 sm:text-xl bg-black-100 flex gap-2 h-full'>{children}</span>
+//     </button>
+//   )
+// }
