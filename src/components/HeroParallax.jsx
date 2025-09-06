@@ -4,7 +4,6 @@ import { IncCanvas } from './canvas'
 import { 
   useMotionTemplate,
   useMotionValue,
-  motion,
   animate, } from 'framer-motion'
 import { TextHoverEffect } from "./ui/text-hover-effect";
 // import ShiftingCountdown from './ui/countdown';
@@ -30,7 +29,7 @@ const Hero = () => {
     });
   }, []);
 
-  const border = useMotionTemplate`1px solid ${color}`;
+  // const border = useMotionTemplate`1px solid ${color}`;
 
   return (
     <section className='relative w-full h-screen'>

@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { Tabs } from "./ui/tabs";
 
-import { eventsData, ruleBookLinks } from '../constants';
+import { eventsData } from '../constants';
 
 import InfiniteLoopSlider from './ui/infinite-loop-slider';
-import { IconCalendarFilled, IconCheckupList, IconCurrencyDollar, IconDiamondsFilled, IconDownload, IconFileDescription, IconTrophy, IconUserCheck, IconUserEdit, IconUsersGroup } from '@tabler/icons-react'
+import {IconCheckupList, IconCurrencyDollar, IconDiamondsFilled, IconFileDescription, IconTrophy, IconUserCheck, IconUsersGroup } from '@tabler/icons-react'
 import { Accordion, AccordionHeader, AccordionItem, AccordionPanel } from './ui/accordian';
 import scrollToTop from '../utils/scrollToTop'
 import { cn } from '../lib/utils';
@@ -91,8 +91,6 @@ function TabsDemo() {
 export default TabsDemo; 
 
 const EventDetails = ({ data }) => {
-  const navigate = useNavigate()
-  
   return (
     <div
     className='flex flex-col w-full justify-between items-center p-4 sm:p-8 gap-3 bg-tertiary relative'
