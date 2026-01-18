@@ -10,14 +10,33 @@ import {
     non_stop,
   } from "../assets";
 
-  const notifications = ["🚀 Don’t just watch innovation—be part of it! Register today! 🚀", "⚡ Code, create, and conquer—your journey begins here. ⚡"]
+  const notifications = ["🚀 Don’t just watch innovation be part of it! Register today! 🚀", "⚡ Code, create, and conquer your journey begins here. ⚡"]
   
+//   export const navItems = [
+//   { id: "about", isHome: true, title: "About" },
+//   { id: "events", isHome: true, title: "Events" },
+//   { id: "committee/core", isHome: false, title: "Committee", path: "/committee/core" },
+//   { id: "register", isHome: false, title: "Register" },
+// ];
+
+
+export const navItems = [
+  { id: "home", title: "Home", type: "hash" },
+  { id: "about", title: "About", type: "hash" },
+  { id: "events", title: "Events", type: "hash" },
+  { id: "committee", title: "Committee", type: "route", path: "/committee/core" },
+  { id: "register", title: "Register", type: "route", path: "/register" }
+];
+
+
+
+
   const navLinks = [
-    {
-      id: "results/impetus",
-      isHome: false,
-      title: "Results",
-    },
+    // {
+    //   id: "results/impetus",
+    //   isHome: false,
+    //   title: "Results",
+    // },
     {
       id: "about",
       isHome: true,
@@ -154,13 +173,29 @@ import {
   }
 
   
+  // const events = [
+  //   { id: 1, _id: 'impetus', title: "Impetus", description: "International Level Project Exhibition and Competition.", logo: impetus, color:"bg-slate-700", team_size: '2-5 members', type: 'Project Expo', date: "Registration Closed" },
+  //   { id: 2, _id: 'pradnya', title: "Pradnya", description: "Compete with the best minds in the National Level Coding Contest.", logo:pradnya, color:"bg-slate-700", team_size: '1-2 members', type: 'Coding Competition', date: "Registration Closed" },
+  //   { id: 3, _id: 'concepts', title: "Concepts", description: "The most grand project exhibition event Concepts for final year student.", logo: concepts, color:"bg-slate-700", team_size: '2-5 members', type: 'Project Expo', date: "Registration Closed" },
+  //   { id: 4, _id: 'techfiesta', title: "TechFiesta", description: "International Hackathon", logo: techfiesta, color:"bg-slate-700", team_size: '4-5 members', type: 'Hackathon', date: "Registration Closed" },
+  //   { id: 5, _id: 'impetus', title: "Special Event", description: "An exciting surprise awaits! Stay tuned for something unforgettable.", logo: logo, color:"bg-slate-700", team_size: '1-5 members', type: 'Unveiling Soon', date: "To Be Announced" },
+  // ];
+
+
   const events = [
-    { id: 1, _id: 'impetus', title: "Impetus", description: "International Level Project Exhibition and Competition.", logo: impetus, color:"bg-slate-700", team_size: '2-5 members', type: 'Project Expo', date: "Registration Closed" },
-    { id: 2, _id: 'pradnya', title: "Pradnya", description: "Compete with the best minds in the National Level Coding Contest.", logo:pradnya, color:"bg-slate-700", team_size: '1-2 members', type: 'Coding Competition', date: "Registration Closed" },
-    { id: 3, _id: 'concepts', title: "Concepts", description: "The most grand project exhibition event Concepts for final year student.", logo: concepts, color:"bg-slate-700", team_size: '2-5 members', type: 'Project Expo', date: "Registration Closed" },
+    { id: 1, _id: 'impetus', title: "Impetus", description: "International Level Project Exhibition and Competition.", logo: impetus, color:"bg-slate-700", team_size: '2-5 members', type: 'Project Expo', date: "Registration Opening Soon!!" },
+    { id: 2, _id: 'pradnya', title: "Pradnya", description: "Compete with the best minds in the National Level Coding Contest.", logo:pradnya, color:"bg-slate-700", team_size: '1-2 members', type: 'Coding Competition', date: "Registration Opening Soon!!" },
+    { id: 3, _id: 'concepts', title: "Concepts", description: "The most grand project exhibition event Concepts for final year student.", logo: concepts, color:"bg-slate-700", team_size: '2-5 members', type: 'Project Expo', date: "Registration Opening Soon!!" },
     { id: 4, _id: 'techfiesta', title: "TechFiesta", description: "International Hackathon", logo: techfiesta, color:"bg-slate-700", team_size: '4-5 members', type: 'Hackathon', date: "Registration Closed" },
     { id: 5, _id: 'impetus', title: "Special Event", description: "An exciting surprise awaits! Stay tuned for something unforgettable.", logo: logo, color:"bg-slate-700", team_size: '1-5 members', type: 'Unveiling Soon', date: "To Be Announced" },
   ];
+  // const events = [
+  //   { id: 1, _id: 'impetus', title: "Impetus", description: "International Level Project Exhibition and Competition.", logo: impetus, color:"bg-slate-700", team_size: '2-5 members', type: 'Project Expo', date: "Registration Opening Soon!!" },
+  //   { id: 2, _id: 'pradnya', title: "Pradnya", description: "Compete with the best minds in the National Level Coding Contest.", logo:pradnya, color:"bg-slate-700", team_size: '1-2 members', type: 'Coding Competition', date: "Registration Opening Soon!!" },
+  //   { id: 3, _id: 'concepts', title: "Concepts", description: "The most grand project exhibition event Concepts for final year student.", logo: concepts, color:"bg-slate-700", team_size: '2-5 members', type: 'Project Expo', date: "Registration Opening Soon!!" },
+  //   { id: 4, _id: 'techfiesta', title: "TechFiesta", description: "International Hackathon", logo: techfiesta, color:"bg-slate-700", team_size: '4-5 members', type: 'Hackathon', date: "Registration Closed" },
+  //   { id: 5, _id: 'impetus', title: "Special Event", description: "An exciting surprise awaits! Stay tuned for something unforgettable.", logo: logo, color:"bg-slate-700", team_size: '1-5 members', type: 'Unveiling Soon', date: "To Be Announced" },
+  // ];
 
   const eventsData = {
     impetus: {
@@ -216,13 +251,13 @@ import {
 
       // contact: ['Apoorvaraj 8530191073 ', 'Mrugank 7083823772', 'Vrushali 9766176681', 'Aarti 9405119460'],
       button_link: "https://pictinc.org/register/events/impetus",
-      schedule: "March 21, 2025",
+      schedule: "March 21, 2026",
     }, 
     concepts: {
       id: 'concepts',
       logo: concepts,
       criteria: "Final year students enrolled in BE / BTech degree.",
-      schedule: "March 21, 2025",
+      schedule: "March 21, 2026",
       name: "Concepts",
       notices: [
         "1. The Participants should be present on campus and the labs during the time period allocated.",
@@ -289,7 +324,7 @@ import {
       prize: "Total Cash prizes worth &#8377;7 Lakh",
       note1: `🔹Judge's decision will be final.`,
       note3: `🔹Already registered candidatess need not register again.`,
-      schedule: "March 21, 2025",
+      schedule: "March 21, 2026",
       criteria: `Junior Level - First or Second year students of any undergraduate degree/course.#$Senior Level - Third and Final year students of any undergraduate degree/course.`,
       logo: pradnya,
       name: "Pradnya",
@@ -413,15 +448,15 @@ import {
 
       // contact: ['Apoorvaraj 8530191073 ', 'Mrugank 7083823772', 'Vrushali 9766176681', 'Aarti 9405119460'],
       button_link: "https://pictinc.org/register/events/impetus",
-      schedule: "March 21, 2025",
+      schedule: "March 21, 2026",
     }, 
     */
   };
 
   const ruleBookLinks = new Map([
-    ["impetus", "https://drive.google.com/file/d/1n2Ksym9IS7eORj2VyhvhZb2vMZwTZgM2/view?usp=sharing"],
-    ["concepts", "https://drive.google.com/file/d/1SS87y18kA5TbseNXieuszv84eFqQf1YI/view?usp=sharing"],
-    ["pradnya", "https://drive.google.com/file/d/1SZKhQM-5kQAT_rshHYQdZLtOlWTfXiEt/view?usp=sharing"],
+    ["impetus", "https://drive.google.com/file/d/1DTuHnhVu7lB86bv3Q9EEftgazO1n9-p4/view?usp=sharing?usp=sharing"],
+    ["concepts", "https://drive.google.com/file/d/1LM-MSPiFd6zu553_E0KYUneLgTXme90U/view?usp=sharing?usp=sharing"],
+    ["pradnya", "https://drive.google.com/file/d/1rn0ZefC-s9GLbdRhFsHmfqaFX4hlw-5r/view?usp=sharing?usp=sharing"],
   ])
 
   const faculty = [
@@ -575,7 +610,7 @@ import {
       ]
     },
     {
-      value: "InC 2025 Theme Projects Identification",
+      value: "InC 2026 Theme Projects Identification",
       names: [
         { value: "1. Prof. A. A. Jewalikar (COMP)" },
         { value: "2. Prof. P. P. Joshi (COMP)" },
