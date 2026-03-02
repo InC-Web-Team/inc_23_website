@@ -52,22 +52,22 @@ const yesNoOptions = [
 
 const getJudgingSlots = (event_name) => {
 	const judgingSlotsImpetus = [
-		{ value: "1", label: "Friday, 21st March (11:00 AM - 2:00 PM)" },
-		{ value: "2", label: "Friday, 21st March (2:00 PM - 5:00 PM)"},
-		{ value: "3", label: "Friday, 21st March (5:00 PM - 7:00 PM)"},
-		{ value: "4", label: "Saturday, 22nd March (9:00 AM - 12:00 PM)" },
-		{ value: "5", label: "Saturday, 22nd March (1:00 PM - 3:00 PM)" },
-		{ value: "6", label: "Saturday, 22nd March (4:00 PM - 6:00 PM)" },
+		{ value: "1", label: "Friday, 27th March (11:00 AM - 2:00 PM)" },
+		{ value: "2", label: "Friday, 27th March (2:00 PM - 5:00 PM)"},
+		{ value: "3", label: "Friday, 27th March (5:00 PM - 7:00 PM)"},
+		{ value: "4", label: "Saturday, 29th March (9:00 AM - 12:00 PM)" },
+		{ value: "5", label: "Saturday, 29th March (1:00 PM - 3:00 PM)" },
+		{ value: "6", label: "Saturday, 29th March (4:00 PM - 6:00 PM)" },
 	];
 
 
 const judgingSlotsConcepts = [
-  { value: "1", label: "Friday, 21st March (11:00 AM - 2:00 PM)" },
-  { value: "2", label: "Friday, 21st March (2:00 PM - 4:00 PM)"},
-  { value: "3", label: "Friday, 21st March (4:00 PM - 7:00 PM)"},
-  { value: "4", label: "Saturday, 22nd March (10:00 AM - 1:00 PM)" },
-  { value: "5", label: "Saturday, 22nd March (1:00 PM - 4:00 PM)" },
-  { value: "6", label: "Saturday, 22nd March (4:00 PM - 7:00 PM)" },
+  { value: "1", label: "Friday, 27th March (11:00 AM - 2:00 PM)" },
+  { value: "2", label: "Friday, 27th March (2:00 PM - 4:00 PM)"},
+  { value: "3", label: "Friday, 27th March (4:00 PM - 7:00 PM)"},
+  { value: "4", label: "Saturday, 29th March (10:00 AM - 1:00 PM)" },
+  { value: "5", label: "Saturday, 29th March (1:00 PM - 4:00 PM)" },
+  { value: "6", label: "Saturday, 29th March (4:00 PM - 7:00 PM)" },
 ];
 
 	if(event_name === 'impetus'){
