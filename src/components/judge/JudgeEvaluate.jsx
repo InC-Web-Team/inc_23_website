@@ -35,16 +35,42 @@ const JudgeEvaluate = () => {
     setFormData(initialState);
   }
 
+  // const fetchAllocatedProjects = async () => {
+  //   try {
+  //     const data = await getAllocatedProjects(judge_data?.jid).unwrap();
+  //     setAllocatedProjects(data);
+  //     console.log(data);
+  //   } catch(error){
+  //     console.error(error);
+  //     toast.error(error?.data?.message || error?.message || 'Something went wrong');
+  //   }
+  // }
+
   const fetchAllocatedProjects = async () => {
-    try {
-      const data = await getAllocatedProjects(judge_data?.jid).unwrap();
-      setAllocatedProjects(data);
-      console.log(data);
-    } catch(error){
-      console.error(error);
-      toast.error(error?.data?.message || error?.message || 'Something went wrong');
+  try {
+
+    const jids = judge_data?.jids || [];
+    let allProjects = { impetus: [], concepts: [] };
+
+    for (const jid of jids) {
+      const data = await getAllocatedProjects(jid).unwrap();
+
+      if (data?.impetus) {
+        allProjects.impetus.push(...data.impetus);
+      }
+
+      if (data?.concepts) {
+        allProjects.concepts.push(...data.concepts);
+      }
     }
+
+    setAllocatedProjects(allProjects);
+
+  } catch(error){
+    console.error(error);
+    toast.error(error?.data?.message || error?.message || 'Something went wrong');
   }
+}
 
   const handleEvaluate = (pid) => {
     if(pid?.slice(0, 2).toLowerCase() === "im"){

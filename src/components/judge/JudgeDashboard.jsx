@@ -4,12 +4,30 @@ import { logo } from '../../assets'
 import { useNavigate } from 'react-router-dom'
 
 const JudgeDashboard = () => {
-  const judge_data = JSON.parse(window.sessionStorage.getItem("judge_data"))
-  const { data, isSuccess } = useGetJudgeQuery(judge_data.jid);
+ 
+const judge_data = JSON.parse(window.sessionStorage.getItem("judge_data") || "{}");
+
+const jids = Array.isArray(judge_data?.jids) ? judge_data.jids : [judge_data?.jids];
+
+const { data: data1, isSuccess: success1 } = useGetJudgeQuery(jids[0], { skip: !jids[0] });
+const { data: data2, isSuccess: success2 } = useGetJudgeQuery(jids[1], { skip: !jids[1] });
+
+console.log(data1,data2);
+const data = data1 || data2;
+const isSuccess = success1 || success2;
+
+console.log(data,jids);
   
   useEffect(() => {
 
   }, [isSuccess, data])
+
+  useEffect(() => {
+  if (success1 || success2) {
+    const data = data1 || data2;
+    console.log(data1,data2,data, jids);
+  }
+}, [success1, success2, data1, data2]);
 
   return (
     <section className='max-w-7xl mx-auto pt-5'>
