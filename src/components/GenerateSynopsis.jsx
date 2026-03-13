@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 import Loader from './ui/Loader';
 import { IconNotebook } from '@tabler/icons-react';
 
-const GenerateSynopsis = () => {
+const   GenerateSynopsis = () => {
   const [getSynopsis, { isFetching }] = useLazyGetSynopsisQuery();
   const [ team_ids, setTeam_ids] = useState('');
   const { event_name } = useParams();

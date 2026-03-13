@@ -252,9 +252,24 @@ const JudgeRegister = () => {
 
       {/* Select Slot(s) for Judging */}
       <div className="sm:col-span-2">
-        <Label htmlFor="min_projects" required>Select Slot(s) for Judging</Label>
-        <Checkboxes label='Select Slot(s) for Judging' name='slots' state={formData} setState={setFormData} options={getJudgingSlots(event_name)} error={initialState.domains} required />
-      </div>
+  <Label htmlFor="min_projects" required>
+    Select Slot(s) for Judging
+  </Label>
+
+  <p className="text-red-500 text-sm mt-1">
+    Note: If you wish to judge both <b>Impetus</b> and <b>Concepts</b>, please select different time slots for each event.
+  </p>
+
+  <Checkboxes
+    label="Select Slot(s) for Judging"
+    name="slots"
+    state={formData}
+    setState={setFormData}
+    options={getJudgingSlots(event_name)}
+    error={initialState.domains}
+    required
+  />
+</div>
 
       {/* Are you a PICT Alumini? */}
       <div className="">

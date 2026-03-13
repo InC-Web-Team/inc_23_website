@@ -242,13 +242,13 @@ export const navItems = [
 
       // contact: ['Apoorvaraj 8530191073 ', 'Mrugank 7083823772', 'Vrushali 9766176681', 'Aarti 9405119460'],
       button_link: "https://pictinc.org/register/events/impetus",
-      schedule: "March 21, 2026",
+      schedule: "March 27, 2026",
     }, 
     concepts: {
       id: 'concepts',
       logo: concepts,
       criteria: "Final year students enrolled in BE / BTech degree.",
-      schedule: "March 21, 2026",
+      schedule: "March 27, 2026",
       name: "Concepts",
       notices: [
         "1. The Participants should be present on campus and the labs during the time period allocated.",
@@ -315,7 +315,7 @@ export const navItems = [
       prize: "Total Cash prizes worth &#8377;7 Lakh",
       note1: `🔹Judge's decision will be final.`,
       note3: `🔹Already registered candidates need not register again.`,
-      schedule: "March 21, 2026",
+      schedule: "March 27, 2026",
       criteria: `Junior Level - First or Second year students of any undergraduate degree/course.#$Senior Level - Third and Final year students of any undergraduate degree/course.`,
       logo: pradnya,
       name: "Pradnya",
@@ -439,15 +439,15 @@ export const navItems = [
 
       // contact: ['Apoorvaraj 8530191073 ', 'Mrugank 7083823772', 'Vrushali 9766176681', 'Aarti 9405119460'],
       button_link: "https://pictinc.org/register/events/impetus",
-      schedule: "March 21, 2026",
+      schedule: "March 27, 2026",
     }, 
     */
   };
 
    const ruleBookLinks = new Map([
-    ["impetus", "https://drive.google.com/file/d/1DTuHnhVu7lB86bv3Q9EEftgazO1n9-p4/view?usp=sharing"],
-    ["concepts", "https://drive.google.com/file/d/1LM-MSPiFd6zu553_E0KYUneLgTXme90U/view?usp=sharing"],
-    ["pradnya", "https://drive.google.com/file/d/1rn0ZefC-s9GLbdRhFsHmfqaFX4hlw-5r/view?usp=sharing"],
+    ["impetus", "https://drive.google.com/file/d/1HOvxmEpWjBN6-3gsAs13Xa8_XRGFOZ-o/view?usp=sharing"],
+    ["concepts", "https://drive.google.com/file/d/1ofNZDXE4amY7tHBzFlsheI7AeWKoVb7b/view?usp=sharing"],
+    ["pradnya", "https://drive.google.com/file/d/13tY1rm6j5eaJYHj9qgkHTYU58Y99OYF1/view?usp=sharing"],
   ])
   const faculty = [
     {
