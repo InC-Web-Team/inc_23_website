@@ -20,6 +20,8 @@ const initialState = {
 const EvaluateConcepts = () => {
 
   const judge_data = JSON.parse(window.sessionStorage.getItem("judge_data"));
+  const jids = judge_data?.jids || [];
+  const jid = jids.find(id => id.startsWith("CO"));
   const [conceptsResult, setConceptsResult] = useState(initialState);
   const { pid } = useParams();
   const [evaluateProject, { isLoading, isError, error }] = useEvaluateProjectMutation();
@@ -28,7 +30,7 @@ const EvaluateConcepts = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try{
-      await evaluateProject({data: {...conceptsResult, pid, jid: judge_data?.jid}, event_name: 'concepts'}).unwrap();
+      await evaluateProject({data: {...conceptsResult, pid, jid:jid}, event_name: 'concepts'}).unwrap();
       if(isError){
         throw error;
       }

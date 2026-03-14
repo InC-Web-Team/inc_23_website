@@ -21,16 +21,21 @@ const initialState = {
 
 const EvaluateImpetus = () => {
 
-  const judge_data = JSON.parse(window.sessionStorage.getItem("judge_data"));
+  // const judge_data = JSON.parse(window.sessionStorage.getItem("judge_data"));
+  const judge_data = JSON.parse(window.sessionStorage.getItem("judge_data") || "{}");
+
+const jids = judge_data?.jids || [];
+const jid = jids.find(id => id.startsWith("IM"));
+
   const [impetusResult, setImpetusResult] = useState(initialState);
   const { pid } = useParams();
+  console.log(pid, jid);
   const [evaluateProject, { isLoading, isError, error }] = useEvaluateProjectMutation();
   const navigate = useNavigate();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try{
-      await evaluateProject({data: {...impetusResult, pid, jid: judge_data?.jid}, event_name: 'impetus'}).unwrap();
+      await evaluateProject({data: {...impetusResult, pid, jid:jid}, event_name: 'impetus'}).unwrap();
       if(isError){
         throw error;
       }

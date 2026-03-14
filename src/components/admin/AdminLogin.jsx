@@ -20,9 +20,13 @@ const AdminLogin = () => {
     e.preventDefault();
     try {
       const data = await processLogin({ username, password }).unwrap();
-      dispatch(setLogin({ username: '', roles: data.roles, isAuthenticated: true, jid: data?.jid }));
+      dispatch(setLogin({ username: '', roles: data.roles, isAuthenticated: true, jids: data?.jids }));
+       window.sessionStorage.setItem(
+    "judge_data",
+    JSON.stringify({ jids: data?.jids })
+  );
       toast.success("Login Success.");
-      data?.jid ? navigate('/judge') : navigate('/admin');
+    data?.jids?.length ? navigate('/judge') : navigate('/admin');
     } catch (error) {
       console.error(error);
       toast.error(error?.data?.message || error?.message || 'Failed to Login.');

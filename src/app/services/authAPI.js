@@ -1,22 +1,22 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // const baseURL = ("https://api.pyush.site") + "/admin";
-const baseURL = ("https://inc-backend-wrx5.onrender.com") + "/admin";
-// const baseURL = "https://leandro-humoursome-violinistically.ngrok-free.dev/admin";
-// const baseURL = "http://localhost:3001/admin";
+// const baseURL = ("https://inc-2026-backend.onrender.com") + "/admin";
+// const baseURL = "https://inc-2026-backend.onrender.com/admin";
+const baseURL = "https://api.pictinc.org/admin";
 
 
 export const authAPI = createApi({
     reducerPath: "auths",
-    baseQuery: fetchBaseQuery({ baseUrl: baseURL }),
+    baseQuery: fetchBaseQuery({ baseUrl: baseURL ,credentials: 'include'}),
     endpoints: (builder) => ({
         processLogin: builder.mutation({
             query: (data) => ({
                 url: `/login`,
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                credentials: 'include',
-                body: data
+                body: data,
+                credentials: 'include', 
             })
         }),
         processLogout: builder.query({

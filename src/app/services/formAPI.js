@@ -1,21 +1,20 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // const baseURL = ("https://api.pyush.site") + "/events";
-const baseURL = ("https://inc-backend-wrx5.onrender.com") + "/events";
-//  const baseURL = "https://leandro-humoursome-violinistically.ngrok-free.dev/events";
-// const baseURL = "http://localhost:3001/events";
+// const baseURL = ("https://inc-2026-backend.onrender.com") + "/events";
+//  const baseURL = "https://inc-2026-backend.onrender.com/events";
+const baseURL = "https://api.pictinc.org/events";
 
 
 export const formAPI = createApi({
     reducerPath: "forms",
-    baseQuery: fetchBaseQuery({ baseUrl: baseURL }),
+    baseQuery: fetchBaseQuery({ baseUrl: baseURL,credentials: 'include', }),
     endpoints: (builder) => ({
         stepOne: builder.mutation({
             query: ({event_name, ticket, data}) => ({
                 url: `/step_1?event_name=${event_name}&ticket=${ticket}`,
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                credentials: 'include',
                 body: data
             })
         }),
