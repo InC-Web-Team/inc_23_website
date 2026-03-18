@@ -53,6 +53,19 @@ const Register = () => {
     );
   }
 
+  const isRegistrationOpen = eventData.registrations?.isRegistrationOpen ?? true;
+
+  if (!isRegistrationOpen) {
+    return (
+      <div className="text-center text-white pt-32 px-3">
+        <h2 className="text-3xl font-bold">Registrations Closed</h2>
+        <p className="text-lg text-gray-400 mt-2">
+          Registrations for {eventData.name} are currently closed.
+        </p>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="pt-24 p-2">

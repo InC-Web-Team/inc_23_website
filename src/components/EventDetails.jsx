@@ -87,6 +87,7 @@ export default TabsDemo;
 
 const EventDetails = ({ data }) => {
   const navigate = useNavigate()
+  const isRegistrationOpen = data.registrations?.isRegistrationOpen ?? true
   
   return (
     <div
@@ -120,8 +121,15 @@ const EventDetails = ({ data }) => {
         </div>
         <h4 className='flex gap-2 text-xl text-yellow-400'><IconTrophy /> <span dangerouslySetInnerHTML={{__html: data.prize}}></span></h4>
           <div className='flex max-sm:w-full max-sm:justify-between sm:gap-7 mb-2'>
-            <Button onClick={() => {navigate(`/register/${data.id}`)}}>
-            <><IconUserEdit /> Register</>
+            <Button
+              onClick={() => {
+                if (isRegistrationOpen) {
+                  navigate(`/register/${data.id}`)
+                }
+              }}
+              disabled={!isRegistrationOpen}
+            >
+            <>{isRegistrationOpen ? <><IconUserEdit /> Register</> : 'Registration Closed'}</>
             </Button>
             <Button onClick={() => {window.open(ruleBookLinks.get(data.id), "_blank")}}>
               <><IconDownload /> Rule Book</>
@@ -208,7 +216,7 @@ const EventDetails = ({ data }) => {
 
 const Button = ({children, ...props}) => {
   return (
-    <button {...props} className='bg-gradient-to-br from-dark-blue via-light-blue to-orange-100 p-px hover:scale-105 duration-300'>
+    <button {...props} className='bg-gradient-to-br from-dark-blue via-light-blue to-orange-100 p-px hover:scale-105 duration-300 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100'>
       <span className='py-3 px-3 sm:px-6 sm:text-xl bg-black-100 flex gap-2 h-full'>{children}</span>
     </button>
   )
