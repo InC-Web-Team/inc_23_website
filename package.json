@@ -19,7 +19,7 @@
     "@react-three/fiber": "^8.17.12",
     "@react-three/postprocessing": "^2.19.1",
     "@reduxjs/toolkit": "^2.5.0",
-    "@tabler/icons-react": "^3.26.0",
+    "@tabler/icons-react": "^3.40.0",
     "canvas-confetti": "^1.9.3",
     "chart.js": "^4.4.7",
     "clsx": "^2.1.1",

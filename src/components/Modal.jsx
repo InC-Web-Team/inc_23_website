@@ -108,13 +108,13 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
 										<span className="flex-shrink-0">
 											<IconCircleFilled className="w-4 h-4" />
 										</span>
-										<span className="text-white">Registrations for Impetus officially started.</span>
-									</li><li className="text-red-600 flex items-center gap-2">
+										<span className="text-white">Registrations for Impetus are now officially closed.</span>
+									</li><li className="text-green-500 flex items-center gap-2">
 										<span className="flex-shrink-0">
 											<IconCircleFilled className="w-4 h-4" />
 										</span>
 										<span className="text-white">Registrations for Concepts officially started.</span>
-									</li><li className="text-red-600 flex items-center gap-2">
+									</li><li className="text-green-500 flex items-center gap-2">
 										<span className="flex-shrink-0">
 											<IconCircleFilled className="w-4 h-4" />
 										</span>
