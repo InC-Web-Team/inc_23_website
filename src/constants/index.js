@@ -12,7 +12,7 @@ import {
 
   const notifications = [
     "🔴 Impetus registrations are now closed.",
-    "🟢 Concepts and Pradnya registrations are open now.",
+    "🔴 Concepts registrations are now closed.",
   ]
   
 //   export const navItems = [
@@ -186,7 +186,7 @@ export const navItems = [
   const events = [
     { id: 1, _id: 'impetus', title: "Impetus", description: "International Level Project Exhibition and Competition.", logo: impetus, color:"bg-slate-700", team_size: '2-5 members', type: 'Project Expo', date: "Registration Closed" },
     { id: 2, _id: 'pradnya', title: "Pradnya", description: "Compete with the best minds in the National Level Coding Contest.", logo:pradnya, color:"bg-slate-700", team_size: '1-2 members', type: 'Coding Competition', date: "Registration Started!" },
-    { id: 3, _id: 'concepts', title: "Concepts", description: "The most grand project exhibition event Concepts for final year student.", logo: concepts, color:"bg-slate-700", team_size: '1-6 members', type: 'Project Expo', date: "Registration Started!" },
+    { id: 3, _id: 'concepts', title: "Concepts", description: "The most grand project exhibition event Concepts for final year student.", logo: concepts, color:"bg-slate-700", team_size: '1-6 members', type: 'Project Expo', date: "Registration Closed" },
     { id: 4, _id: 'techfiesta', title: "TechFiesta", description: "International Hackathon", logo: techfiesta, color:"bg-slate-700", team_size: '4-5 members', type: 'Hackathon', date: "Registration Closed" },
     { id: 5, _id: 'impetus', title: "Special Event", description: "An exciting surprise awaits! Stay tuned for something unforgettable.", logo: logo, color:"bg-slate-700", team_size: '1-5 members', type: 'Unveiling Soon', date: "To Be Announced" },
   ];
@@ -293,6 +293,7 @@ export const navItems = [
       // ],
 
       registrations: {
+        isRegistrationOpen: false,
         fees: {
           national: `&#8377;300/-`,
           international: `Free`,
