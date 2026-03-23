@@ -188,7 +188,7 @@ const Hero = () => {
                 />
               </div> */}
 
-              <h1 className=" tracking-[0.22em] text-[24px] uppercase mt-2">
+              <h1 className=" tracking-[0.22em] text-3xl uppercase mt-2">
                 INC 2026
               </h1>
             </div>
@@ -241,7 +241,7 @@ const Hero = () => {
     muted
     playsInline
   >
-    <source src="https://res.cloudinary.com/dms4soxsi/video/upload/v1772437708/h0v7mbqosb1d0wed0dsa.mp4" type="video/mp4" />
+    <source src="https://res.cloudinary.com/dwvkine0i/video/upload/v1774278832/higherquality_jfa9rb.mp4" type="video/mp4" />
   </video>
 
   {/* --- TOP GRADIENT LINE --- */}
