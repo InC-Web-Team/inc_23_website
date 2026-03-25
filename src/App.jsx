@@ -18,6 +18,8 @@ import AdminLogin from "./components/admin/AdminLogin";
 import JudgeRegister from "./components/forms/JudgeRegister";
 import Judge from "./components/judge/JudgeRoot";
 import GenerateSynopsis from "./components/GenerateSynopsis";
+import AdminReallocate from "./components/admin/AdminReallocate";
+import AdminJudgingSchedule from "./components/admin/AdminJudgingSchedule";
 
 import { AnimatePresence } from "framer-motion";
 import Preloader from "./components/Preloader";
@@ -195,6 +197,22 @@ const App = () => {
               /> */}
 
               <Route path="/test" element={<Test />} />
+              <Route
+                path="/admin-reallocate"
+                element={
+                  <div className="pt-24">
+                    <AdminReallocate />
+                  </div>
+                }
+              />
+              <Route
+                path="/admin-judging-schedule"
+                element={
+                  <div className="pt-24">
+                    <AdminJudgingSchedule />
+                  </div>
+                }
+              />
 
               {/* ADMIN ROUTES */}
               <Route path="/auth/login" element={<AdminLogin />} />
