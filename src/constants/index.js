@@ -1,20 +1,21 @@
 import {
-    logo,
-    impetus,
-    concepts,
-    pradnya,
-    techfiesta,
-    csi, intangles, eq, imocha, pasc, pisb, marketcast,
-    cloudhedge,
-    fold_health,
-    non_stop,
-  } from "../assets";
+  logo,
+  impetus,
+  concepts,
+  pradnya,
+  techfiesta,
+  csi, intangles, eq, imocha, pasc, pisb, marketcast,
+  cloudhedge,
+  fold_health,
+  non_stop,
+  ch_white, fold_health_new, intangles_white, josh, agribid, eq_new, imocha_new, zetakode, gfg
+} from "../assets";
 
-  const notifications = [
-    "🔴 Impetus registrations are now closed.",
-    "🔴 Concepts registrations are now closed.",
-  ]
-  
+const notifications = [
+  "🔴 Impetus registrations are now closed.",
+  "🔴 Concepts registrations are now closed.",
+]
+
 //   export const navItems = [
 //   { id: "about", isHome: true, title: "About" },
 //   { id: "events", isHome: true, title: "Events" },
@@ -35,76 +36,76 @@ export const navItems = [
 
 
 
-  const navLinks = [
-    // {
-    //   id: "results/impetus",
-    //   isHome: false,
-    //   title: "Results",
-    // },
-    {
-      id: "about",
-      isHome: true,
-      title: "About",
-    },
-    {
-      id: "events",
-      isHome: true,
-      title: "Events",
-    },
-    // {
-    //   id: "committee/core",
-    //   isHome: false,
-    //   title: "Committee",
-    // },
-    {
+const navLinks = [
+  // {
+  //   id: "results/impetus",
+  //   isHome: false,
+  //   title: "Results",
+  // },
+  {
+    id: "about",
+    isHome: true,
+    title: "About",
+  },
+  {
+    id: "events",
+    isHome: true,
+    title: "Events",
+  },
+  // {
+  //   id: "committee/core",
+  //   isHome: false,
+  //   title: "Committee",
+  // },
+  {
     id: "schedule",
     isHome: false,
     title: "Schedule",
   },
-    {
-      id: "register",
-      isHome: false,
-      title: "Register",
-    },
-  ];
+  {
+    id: "register",
+    isHome: false,
+    title: "Register",
+  },
+];
 
-  const adminNavlinks = [
-    {
-      id: "admin",
-      isHome: false,
-      title: "Dashboard",
-    },
-    {
-      id: "admin/verify/impetus",
-      isHome: false,
-      title: "Verify",
-    },
-    {
-      id: "admin/incomplete-registrations/impetus",
-      isHome: false,
-      title: "Follow-up",
-    },
-    {
-      id: "admin/registrations/impetus",
-      isHome: false,
-      title: "Teams",
-    },
-    {
-      id: "admin/allocate/impetus",
-      isHome: false,
-      title: "Allocate",
-    },
-    {
-      id: "admin/deallocate/impetus",
-      isHome: false,
-      title: "Deallocate",
-    },
-    {
-      id: "admin/results/imp_project_score",
-      isHome: false,
-      title: "Results",
-    },
-    {
+const adminNavlinks = [
+  {
+    id: "admin",
+    isHome: false,
+    title: "Dashboard",
+  },
+  {
+    id: "admin/verify/impetus",
+    isHome: false,
+    title: "Verify",
+  },
+  {
+    id: "admin/incomplete-registrations/impetus",
+    isHome: false,
+    title: "Follow-up",
+  },
+  {
+    id: "admin/registrations/impetus",
+    isHome: false,
+    title: "Teams",
+  },
+  {
+    id: "admin/allocate/impetus",
+    isHome: false,
+    title: "Allocate",
+  },
+  {
+    id: "admin/deallocate/impetus",
+    isHome: false,
+    title: "Deallocate",
+  },
+  {
+    id: "admin/results/imp_project_score",
+    isHome: false,
+    title: "Results",
+  },
+  {
     id: "admin/view/allocation",
     isHome: false,
     title: "View Allocations",
@@ -124,362 +125,335 @@ export const navItems = [
     isHome: false,
     title: "Reallocate",
   },
-    {
-      id: "admin/logout",
-      isHome: false,
-      title: "Logout",
-    },
-  ];
+  {
+    id: "admin/logout",
+    isHome: false,
+    title: "Logout",
+  },
+];
 
-  const judgeNavLinks = [
-    {
-      id: "judge",
-      isHome: false,
-      title: "Home",
-    },
-    {
-      id: "judge/evaluate",
-      isHome: false,
-      title: "Evaluate",
-    },
-    {
-      id: "judge/profile",
-      isHome: false,
-      title: "Profile",
-    },
-    {
-      id: "admin/logout",
-      isHome: false,
-      title: "Logout",
-    },
-  ];
+const judgeNavLinks = [
+  {
+    id: "judge",
+    isHome: false,
+    title: "Home",
+  },
+  {
+    id: "judge/evaluate",
+    isHome: false,
+    title: "Evaluate",
+  },
+  {
+    id: "judge/profile",
+    isHome: false,
+    title: "Profile",
+  },
+  {
+    id: "admin/logout",
+    isHome: false,
+    title: "Logout",
+  },
+];
 
-  const about_text = "Impetus and Concepts (InC) is a flagship technical event of SCTR's Pune Institute of Computer Technology (PICT), Pune , which will be held during the 1st week of April 2024. InC is an intercollegiate international level competition that has been catching the attention of corporate giants for the quality of projects and an opportunity to recruit/mentor young talented budding entrepreneurs. Every year InC sets a new benchmark and provides an opportunity for students to realize their ideas into effective products. Over the years, it has become the most popular and awaited event with continuous improvement in footfall, the number and quality of projects/papers, etc. This event also sets a platform for students to design, exhibit, and watch their ideas come true. This technical fest has inventive events namely - Impetus, Concepts, Pradnya.Impetus is a Project Competition for FE to TE students, all engineering branches confined to specific domains ; Concepts is a Project Competition for Final Year Students, all engineering branches confined to specific domains ; and Pradnya - An International Coding Competition. Students are invited with projects addressing the societal needs like Health, Agriculture, Kids/Women Safety, Education, etc. and the best project judged by the juries will be awarded with a cash prize of ₹ 1 Lakh Cash Prize from PICT."
-  
-  const sponsors = {
-    title: [
-      {src: eq,
-      name: 'eq',},
+const about_text = "Impetus and Concepts (InC) is a flagship technical event of SCTR's Pune Institute of Computer Technology (PICT), Pune , which will be held during the 1st week of April 2024. InC is an intercollegiate international level competition that has been catching the attention of corporate giants for the quality of projects and an opportunity to recruit/mentor young talented budding entrepreneurs. Every year InC sets a new benchmark and provides an opportunity for students to realize their ideas into effective products. Over the years, it has become the most popular and awaited event with continuous improvement in footfall, the number and quality of projects/papers, etc. This event also sets a platform for students to design, exhibit, and watch their ideas come true. This technical fest has inventive events namely - Impetus, Concepts, Pradnya.Impetus is a Project Competition for FE to TE students, all engineering branches confined to specific domains ; Concepts is a Project Competition for Final Year Students, all engineering branches confined to specific domains ; and Pradnya - An International Coding Competition. Students are invited with projects addressing the societal needs like Health, Agriculture, Kids/Women Safety, Education, etc. and the best project judged by the juries will be awarded with a cash prize of ₹ 1 Lakh Cash Prize from PICT."
+
+const sponsors = {
+  title: [
+    { src: eq_new, name: 'eq' },
+  ],
+  co: [
+    { src: agribid, name: 'agribid' },
+    { src: intangles_white, name: 'intangles' },
+    { src: ch_white, name: 'cloudhedge' },
+    { src: imocha_new, name: 'imocha' },
+  ],
+  other: [
+    { src: fold_health_new, name: 'fold_health' },
+    { src: josh, name: 'josh' },
+    { src: zetakode, name: 'zetakode' },
+    { src: gfg, name: 'gfg' },
+  ],
+}
+
+
+// const events = [
+//   { id: 1, _id: 'impetus', title: "Impetus", description: "International Level Project Exhibition and Competition.", logo: impetus, color:"bg-slate-700", team_size: '2-5 members', type: 'Project Expo', date: "Registration Closed" },
+//   { id: 2, _id: 'pradnya', title: "Pradnya", description: "Compete with the best minds in the National Level Coding Contest.", logo:pradnya, color:"bg-slate-700", team_size: '1-2 members', type: 'Coding Competition', date: "Registration Closed" },
+//   { id: 3, _id: 'concepts', title: "Concepts", description: "The most grand project exhibition event Concepts for final year student.", logo: concepts, color:"bg-slate-700", team_size: '2-5 members', type: 'Project Expo', date: "Registration Closed" },
+//   { id: 4, _id: 'techfiesta', title: "TechFiesta", description: "International Hackathon", logo: techfiesta, color:"bg-slate-700", team_size: '4-5 members', type: 'Hackathon', date: "Registration Closed" },
+//   { id: 5, _id: 'impetus', title: "Special Event", description: "An exciting surprise awaits! Stay tuned for something unforgettable.", logo: logo, color:"bg-slate-700", team_size: '1-5 members', type: 'Unveiling Soon', date: "To Be Announced" },
+// ];
+const events = [
+  { id: 1, _id: 'impetus', title: "Impetus", description: "International Level Project Exhibition and Competition.", logo: impetus, color: "bg-slate-700", team_size: '2-5 members', type: 'Project Expo', date: "Registration Closed" },
+  { id: 2, _id: 'pradnya', title: "Pradnya", description: "Compete with the best minds in the National Level Coding Contest.", logo: pradnya, color: "bg-slate-700", team_size: '1-2 members', type: 'Coding Competition', date: "Registration Started!" },
+  { id: 3, _id: 'concepts', title: "Concepts", description: "The most grand project exhibition event Concepts for final year student.", logo: concepts, color: "bg-slate-700", team_size: '1-6 members', type: 'Project Expo', date: "Registration Closed" },
+  { id: 4, _id: 'techfiesta', title: "TechFiesta", description: "International Hackathon", logo: techfiesta, color: "bg-slate-700", team_size: '4-5 members', type: 'Hackathon', date: "Registration Closed" },
+  { id: 5, _id: 'impetus', title: "Special Event", description: "An exciting surprise awaits! Stay tuned for something unforgettable.", logo: logo, color: "bg-slate-700", team_size: '1-5 members', type: 'Unveiling Soon', date: "To Be Announced" },
+];
+
+const eventsData = {
+  impetus: {
+    id: 'impetus',
+    logo: impetus,
+    criteria:
+      "First, Second and Third Year Engineering Students.",
+    name: "Impetus",
+
+    short_desc: "International Level Project Exhibition and Competition.",
+
+    description: ["Impetus is an intercollegiate international level competition and has been attracting corporate giants for not only sponsorship but also in terms of time and guidance to the participants. Industries such as eQ Technologic, Microsoft, Mobiliya, Deutsche Bank Group, Avaya, Siemens, Sagitech, Apporbit, e-Zest, HP, Indian Oil, 3 Ogeestudio, Tata, Mojo Networks, Ryussi, Tibco, Calsoft, Persistent, Pubmatic, IBM, Airtight, AthenaHealth, IEEE, ACM, CSI, were closely associated with this event. During the 3 day event, first year, second year and third year students from various colleges across India and abroad showcase their projects in domains like", `Application Development `, `Communication, Networking, Security `, `git Learning, Pattern Recognition, Artificial Intelligence`, `Embedded systems, VLSI, IoT, Remote Sensing`, `Blockchain, Cloud Computing`, `Others`],
+
+    domains: [`Application Development `, `Communication Networking`, `Security`, `Pattern Recognition, Artificial Intelligence`, `Digital / Image / Speech / Video Processing`, `Others`],
+
+    // domains: [
+    //   {
+    //     domain: "APPLICATION DEVELOPMENT",
+    //     sub_domains:
+    //       "Mobile Applications-Android, Web Applications, Database applications, others),(Big Earth Data Analytics, Geo Informatics, Data Mining on Big Data, Digital marketing optimization, Data exploration and discovery, Fraud detection and prevention, Social network and relationship analysis, Machine generated data analytics, Data retention, Others)",
+    //   },
+    //   {
+    //     domain: "COMMUNICATION NETWORKS & SECURITY SYSTEMS",
+    //     sub_domains:
+    //       "(Computer networks, Internet of Things, Software Defined Network, Vehicular Networks, Wireless and Mobile Networks, Information and Network Security, GPS | GSM Projects, Wireless Communication, Antenna & RF Communication, Optical Communication & Network, Others), (Blockchain applications: cryptocurrency systems, healthcare system, advertising processes, insurance processes, copyright protection system, energy system, tracking system, monitoring system, Security system, societal applications, others), (Virtualization and Autonomic Computing, High Speed Network, Security in Cloud, Cloud Computing, Data center Management, Handling Big Data on Cloud, Mobile Cloud, Cloud Forensics, Fog Computing, Others)",
+    //   },
+    //   {
+    //     domain: "DIGITAL / IMAGE/ SPEECH / VIDEO PROCESSING",
+    //     sub_domains:
+    //       "(Digital Signal processing, Image processing, Speech recognition, Video processing, Speech to text / Text to speech, Others)",
+    //   },
+    //   {
+    //     domain: "EMBEDDED/VLSI SYSTEMS",
+    //     sub_domains:
+    //       "(Image Processing & Remote Sensing, Machine Learning for Embedded Systems, Embedded Vision, Internet of Things, others), (Analog & Mixed Signal VLSI Design, Testing & Verification of VLSI Design, others)",
+    //   },
+    // ],
+
+    registrations: {
+      isRegistrationOpen: false,
+      fees: {
+        national: `&#8377;100/-`,
+        international: `Free`,
+      },
+      min_team_size: 1,
+      max_team_size: 6,
+    },
+    prize: `Total Cash prizes worth &#8377;7 Lakh.`,
+    rules: [
+      `Judge's decision will be final.`,
+      `Project status must be in "Ready to Demonstrate".`,
     ],
-    co: [
-      {src: imocha,
-      name: 'imocha',},
+    note: `Project addressing the societal needs like Health, Agriculture, Kids/Women Safety, Education etc. & selected project shall be awarded &#8377;1 Lakh Cash Prize from PICT.`,
 
-      {src: marketcast,
-      name: 'marketcast',
-      },
-
-      {src: intangles,
-      name: 'intangles',},
-
-      {src: cloudhedge,
-        name: 'cloudhedge',
-      },
+    // contact: ['Apoorvaraj 8530191073 ', 'Mrugank 7083823772', 'Vrushali 9766176681', 'Aarti 9405119460'],
+    button_link: "https://pictinc.org/register/events/impetus",
+    schedule: "March 27, 2026",
+  },
+  concepts: {
+    id: 'concepts',
+    logo: concepts,
+    criteria: "Final year students enrolled in BE / BTech degree.",
+    schedule: "March 27, 2026",
+    name: "Concepts",
+    notices: [
+      "1. The Participants should be present on campus and the labs during the time period allocated.",
+      "2. At least 2 judges will be judging each project. However there will be judges from other organizations who will be evaluating projects for probable hiring or for special prizes etc. Hence none of the groups should leave the campus unless informed officially by the judging team.",
+      "3. The judging criteria includes the following points :- , <p>i. Innovative Ideas Involved.</p>, <p>ii. Approach to Exploit Ideas.</p>, <p> iii. Approach towards Implementing the system and Future Applications.</p>, <p> iv. Implementation of engineering Principles. </p>, <p>v. Presentation and Q & A</p>",
+      "4. We request all the group members to visit the stalls put up in the campus.",
+      "5. For any judging related queries contact the lab coordinator associated with the respective lab only. Their contact details are written on each lab white board.",
     ],
-    pradnya: [
-      {src: cloudhedge,
-        name: 'cloudhedge',
+
+    short_desc:
+      "The Premier Project Exhibition showcasing Innovation and Achievement",
+
+    description: ["Concepts is an inter-collegiate international-level competition and has been attracting corporate giants for not only sponsorship but also  for guiding and mentoring the participants for their Quality products/projects and providing on spot job offers & internships. It offers Patent registration fees for Innovative and Patentable projects. During the 3 day event, Final Year students from various colleges across India and abroad showcase their projects.",],
+
+    domains: [`Application Development `, `Communication Networking`, `Security`, `Pattern Recognition, Artificial Intelligence`, `Digital / Image / Speech / Video Processing`, `Others`],
+
+    // domains: [
+    //   {
+    //     domain: "APPLICATION DEVELOPMENT",
+    //     sub_domains:
+    //       "Mobile Applications-Android, Web Applications, Database applications, others),(Big Earth Data Analytics, Geo Informatics, Data Mining on Big Data, Digital marketing optimization, Data exploration and discovery, Fraud detection and prevention, Social network and relationship analysis, Machine generated data analytics, Data retention, Others)",
+    //   },
+    //   {
+    //     domain: "COMMUNICATION NETWORKS & SECURITY SYSTEMS",
+    //     sub_domains:
+    //       "(Computer networks, Internet of Things, Software Defined Network, Vehicular Networks, Wireless and Mobile Networks, Information and Network Security, GPS | GSM Projects, Wireless Communication, Antenna & RF Communication, Optical Communication & Network, Others), (Blockchain applications: cryptocurrency systems, healthcare system, advertising processes, insurance processes, copyright protection system, energy system, tracking system, monitoring system, Security system, societal applications, others), (Virtualization and Autonomic Computing, High Speed Network, Security in Cloud, Cloud Computing, Data center Management, Handling Big Data on Cloud, Mobile Cloud, Cloud Forensics, Fog Computing, Others)",
+    //   },
+    //   {
+    //     domain: "DIGITAL / IMAGE / SPEECH / VIDEO PROCESSING",
+    //     sub_domains:
+    //       "(Digital Signal processing, Image processing, Speech recognition, Video processing, Speech to text / Text to speech, Others)",
+    //   },
+    //   {
+    //     domain: "EMBEDDED/VLSI SYSTEMS",
+    //     sub_domains:
+    //       "(Image Processing & Remote Sensing, Machine Learning for Embedded Systems, Embedded Vision, Internet of Things, others), (Analog & Mixed Signal VLSI Design, Testing & Verification of VLSI Design, others)",
+    //   },
+    // ],
+
+    registrations: {
+      isRegistrationOpen: false,
+      fees: {
+        national: `&#8377;300/-`,
+        international: `Free`,
       },
-    ],
-    other: [
-      {src: fold_health,
-        name: 'fold_health',
-      },
-      {src: non_stop,
-        name: 'non_stop',
-      },
-    ],
-    association: [
-      {src: pasc,
-        name: 'pasc',},
-      
-      {src: pisb,
-      name: 'pisb',},
-
-      {src: csi,
-      name: 'csi',},
-    ],  
-  }
-
-  
-  // const events = [
-  //   { id: 1, _id: 'impetus', title: "Impetus", description: "International Level Project Exhibition and Competition.", logo: impetus, color:"bg-slate-700", team_size: '2-5 members', type: 'Project Expo', date: "Registration Closed" },
-  //   { id: 2, _id: 'pradnya', title: "Pradnya", description: "Compete with the best minds in the National Level Coding Contest.", logo:pradnya, color:"bg-slate-700", team_size: '1-2 members', type: 'Coding Competition', date: "Registration Closed" },
-  //   { id: 3, _id: 'concepts', title: "Concepts", description: "The most grand project exhibition event Concepts for final year student.", logo: concepts, color:"bg-slate-700", team_size: '2-5 members', type: 'Project Expo', date: "Registration Closed" },
-  //   { id: 4, _id: 'techfiesta', title: "TechFiesta", description: "International Hackathon", logo: techfiesta, color:"bg-slate-700", team_size: '4-5 members', type: 'Hackathon', date: "Registration Closed" },
-  //   { id: 5, _id: 'impetus', title: "Special Event", description: "An exciting surprise awaits! Stay tuned for something unforgettable.", logo: logo, color:"bg-slate-700", team_size: '1-5 members', type: 'Unveiling Soon', date: "To Be Announced" },
-  // ];
-  const events = [
-    { id: 1, _id: 'impetus', title: "Impetus", description: "International Level Project Exhibition and Competition.", logo: impetus, color:"bg-slate-700", team_size: '2-5 members', type: 'Project Expo', date: "Registration Closed" },
-    { id: 2, _id: 'pradnya', title: "Pradnya", description: "Compete with the best minds in the National Level Coding Contest.", logo:pradnya, color:"bg-slate-700", team_size: '1-2 members', type: 'Coding Competition', date: "Registration Started!" },
-    { id: 3, _id: 'concepts', title: "Concepts", description: "The most grand project exhibition event Concepts for final year student.", logo: concepts, color:"bg-slate-700", team_size: '1-6 members', type: 'Project Expo', date: "Registration Closed" },
-    { id: 4, _id: 'techfiesta', title: "TechFiesta", description: "International Hackathon", logo: techfiesta, color:"bg-slate-700", team_size: '4-5 members', type: 'Hackathon', date: "Registration Closed" },
-    { id: 5, _id: 'impetus', title: "Special Event", description: "An exciting surprise awaits! Stay tuned for something unforgettable.", logo: logo, color:"bg-slate-700", team_size: '1-5 members', type: 'Unveiling Soon', date: "To Be Announced" },
-  ];
-
-  const eventsData = {
-    impetus: {
-      id: 'impetus',
-      logo: impetus,
-      criteria:
-        "First, Second and Third Year Engineering Students.",
-      name: "Impetus",
-
-      short_desc: "International Level Project Exhibition and Competition.",
-
-      description: ["Impetus is an intercollegiate international level competition and has been attracting corporate giants for not only sponsorship but also in terms of time and guidance to the participants. Industries such as eQ Technologic, Microsoft, Mobiliya, Deutsche Bank Group, Avaya, Siemens, Sagitech, Apporbit, e-Zest, HP, Indian Oil, 3 Ogeestudio, Tata, Mojo Networks, Ryussi, Tibco, Calsoft, Persistent, Pubmatic, IBM, Airtight, AthenaHealth, IEEE, ACM, CSI, were closely associated with this event. During the 3 day event, first year, second year and third year students from various colleges across India and abroad showcase their projects in domains like", `Application Development `, `Communication, Networking, Security `, `git Learning, Pattern Recognition, Artificial Intelligence`, `Embedded systems, VLSI, IoT, Remote Sensing`, `Blockchain, Cloud Computing`, `Others`],
-      
-      domains: [`Application Development `, `Communication Networking`, `Security`, `Pattern Recognition, Artificial Intelligence`, `Digital / Image / Speech / Video Processing`, `Others`],
-
-      // domains: [
-      //   {
-      //     domain: "APPLICATION DEVELOPMENT",
-      //     sub_domains:
-      //       "Mobile Applications-Android, Web Applications, Database applications, others),(Big Earth Data Analytics, Geo Informatics, Data Mining on Big Data, Digital marketing optimization, Data exploration and discovery, Fraud detection and prevention, Social network and relationship analysis, Machine generated data analytics, Data retention, Others)",
-      //   },
-      //   {
-      //     domain: "COMMUNICATION NETWORKS & SECURITY SYSTEMS",
-      //     sub_domains:
-      //       "(Computer networks, Internet of Things, Software Defined Network, Vehicular Networks, Wireless and Mobile Networks, Information and Network Security, GPS | GSM Projects, Wireless Communication, Antenna & RF Communication, Optical Communication & Network, Others), (Blockchain applications: cryptocurrency systems, healthcare system, advertising processes, insurance processes, copyright protection system, energy system, tracking system, monitoring system, Security system, societal applications, others), (Virtualization and Autonomic Computing, High Speed Network, Security in Cloud, Cloud Computing, Data center Management, Handling Big Data on Cloud, Mobile Cloud, Cloud Forensics, Fog Computing, Others)",
-      //   },
-      //   {
-      //     domain: "DIGITAL / IMAGE/ SPEECH / VIDEO PROCESSING",
-      //     sub_domains:
-      //       "(Digital Signal processing, Image processing, Speech recognition, Video processing, Speech to text / Text to speech, Others)",
-      //   },
-      //   {
-      //     domain: "EMBEDDED/VLSI SYSTEMS",
-      //     sub_domains:
-      //       "(Image Processing & Remote Sensing, Machine Learning for Embedded Systems, Embedded Vision, Internet of Things, others), (Analog & Mixed Signal VLSI Design, Testing & Verification of VLSI Design, others)",
-      //   },
-      // ],
-
-      registrations: {
-        isRegistrationOpen: false,
-        fees: {
-          national: `&#8377;100/-`,
-          international: `Free`,
-        },
-        min_team_size: 1,
-        max_team_size: 6,
-      },
-      prize: `Total Cash prizes worth &#8377;7 Lakh.`,
-      rules: [
-        `Judge's decision will be final.`,
-        `Project status must be in "Ready to Demonstrate".`,
-      ],
-      note: `Project addressing the societal needs like Health, Agriculture, Kids/Women Safety, Education etc. & selected project shall be awarded &#8377;1 Lakh Cash Prize from PICT.`,
-
-      // contact: ['Apoorvaraj 8530191073 ', 'Mrugank 7083823772', 'Vrushali 9766176681', 'Aarti 9405119460'],
-      button_link: "https://pictinc.org/register/events/impetus",
-      schedule: "March 27, 2026",
-    }, 
-    concepts: {
-      id: 'concepts',
-      logo: concepts,
-      criteria: "Final year students enrolled in BE / BTech degree.",
-      schedule: "March 27, 2026",
-      name: "Concepts",
-      notices: [
-        "1. The Participants should be present on campus and the labs during the time period allocated.",
-        "2. At least 2 judges will be judging each project. However there will be judges from other organizations who will be evaluating projects for probable hiring or for special prizes etc. Hence none of the groups should leave the campus unless informed officially by the judging team.",
-        "3. The judging criteria includes the following points :- , <p>i. Innovative Ideas Involved.</p>, <p>ii. Approach to Exploit Ideas.</p>, <p> iii. Approach towards Implementing the system and Future Applications.</p>, <p> iv. Implementation of engineering Principles. </p>, <p>v. Presentation and Q & A</p>",
-        "4. We request all the group members to visit the stalls put up in the campus.",
-        "5. For any judging related queries contact the lab coordinator associated with the respective lab only. Their contact details are written on each lab white board.",
-      ],
-
-      short_desc:
-        "The Premier Project Exhibition showcasing Innovation and Achievement",
-
-      description: ["Concepts is an inter-collegiate international-level competition and has been attracting corporate giants for not only sponsorship but also  for guiding and mentoring the participants for their Quality products/projects and providing on spot job offers & internships. It offers Patent registration fees for Innovative and Patentable projects. During the 3 day event, Final Year students from various colleges across India and abroad showcase their projects.",],
-
-      domains: [`Application Development `, `Communication Networking`, `Security`, `Pattern Recognition, Artificial Intelligence`, `Digital / Image / Speech / Video Processing`, `Others`],
-
-      // domains: [
-      //   {
-      //     domain: "APPLICATION DEVELOPMENT",
-      //     sub_domains:
-      //       "Mobile Applications-Android, Web Applications, Database applications, others),(Big Earth Data Analytics, Geo Informatics, Data Mining on Big Data, Digital marketing optimization, Data exploration and discovery, Fraud detection and prevention, Social network and relationship analysis, Machine generated data analytics, Data retention, Others)",
-      //   },
-      //   {
-      //     domain: "COMMUNICATION NETWORKS & SECURITY SYSTEMS",
-      //     sub_domains:
-      //       "(Computer networks, Internet of Things, Software Defined Network, Vehicular Networks, Wireless and Mobile Networks, Information and Network Security, GPS | GSM Projects, Wireless Communication, Antenna & RF Communication, Optical Communication & Network, Others), (Blockchain applications: cryptocurrency systems, healthcare system, advertising processes, insurance processes, copyright protection system, energy system, tracking system, monitoring system, Security system, societal applications, others), (Virtualization and Autonomic Computing, High Speed Network, Security in Cloud, Cloud Computing, Data center Management, Handling Big Data on Cloud, Mobile Cloud, Cloud Forensics, Fog Computing, Others)",
-      //   },
-      //   {
-      //     domain: "DIGITAL / IMAGE / SPEECH / VIDEO PROCESSING",
-      //     sub_domains:
-      //       "(Digital Signal processing, Image processing, Speech recognition, Video processing, Speech to text / Text to speech, Others)",
-      //   },
-      //   {
-      //     domain: "EMBEDDED/VLSI SYSTEMS",
-      //     sub_domains:
-      //       "(Image Processing & Remote Sensing, Machine Learning for Embedded Systems, Embedded Vision, Internet of Things, others), (Analog & Mixed Signal VLSI Design, Testing & Verification of VLSI Design, others)",
-      //   },
-      // ],
-
-      registrations: {
-        isRegistrationOpen: false,
-        fees: {
-          national: `&#8377;300/-`,
-          international: `Free`,
-        },
-        min_team_size: 1,
-        max_team_size: 6,
-      },
-
-      prize: "Total Cash prizes worth &#8377;7 Lakh.",
-      note: ` Project addressing the societal needs like Health, Agriculture, Kids/Women Safety, Education etc. & selected project shall be awarded &#8377;1 Lakh Cash Prize from PICT.`,
-
-      rules: [
-        'Judges decision will be final.',
-        'Project status must be in "Ready to Demonstrate".',
-      ],
-      button_link: "https://pictinc.org/register/events/concepts",
+      min_team_size: 1,
+      max_team_size: 6,
     },
-    pradnya: {
-      // contact: [
-      //   "Pratik 9145439727",
-      //   "Neha 9579678142"
-      // ],
-      id: 'pradnya',
-      prize: "Total Cash prizes worth &#8377;7 Lakh",
-      note1: `🔹Judge's decision will be final.`,
-      note3: `🔹Already registered candidates need not register again.`,
-      schedule: "March 27, 2026",
-      criteria: `Junior Level - First or Second year students of any undergraduate degree/course.#$Senior Level - Third and Final year students of any undergraduate degree/course.`,
-      logo: pradnya,
-      name: "Pradnya",
-      short_desc: "Competitive Programming",
 
-      description: ["PRADNYA is a one of a kind programming event meticulously forged by our finest, catering to rookies and veterans alike, from all over the world. This Contest puts the programmer's logical thinking and Problem solving skills to the test using programming languages, which guarantees to appraise their skills as a programmer.",],
+    prize: "Total Cash prizes worth &#8377;7 Lakh.",
+    note: ` Project addressing the societal needs like Health, Agriculture, Kids/Women Safety, Education etc. & selected project shall be awarded &#8377;1 Lakh Cash Prize from PICT.`,
 
-      eligibility: [
-        { tag: "Number of members in team", details: "maximum 2 members" },
-        {
-          tag: "Junior Level",
-          details:
-            "First year engineering, Second year engineering, other background students such as BCS etc.",
-        },
-        {
-          tag: "Senior Level",
-          details:
-            "Third year engineering, final year engineering, and PG students.",
-        },
-      ],
-      
-      rounds: [
-        {
-          name: "Wild Card Round",
-          details:
-            "The wildcard round is open to both junior and senior teams, and the top 5 teams from each category will enter directly into the programming round (Round 2). This round will be conducted online on the coding platform. The wildcard round will include programming questions where the participants can code using any programming language they prefer.",
-        },
-        {
-          name: "Round 1 : MCQ Round [Day 1] ",
-          details:
-            "In this event the participants are given multiple-choice and short-answer questions. This round is conducted for both levels using a web platform specially designed by the PICT Pradnya team. The team will communicate information regarding scheduled slots for this round to the participants one day before the event.",
-        },
-        {
-          name: "Round 2: Programming Round [Day 2]",
-          details:
-            "Winners in the MCQ-based round and wild card winners are eligible for the programming contest. Five problem statements are allotted to each level, i.e., the junior and senior levels.  This round is held on an online programming platform. The team will communicate information regarding scheduled slots for this round to the participants one day before the event.",
-        },
-        {
-          name: "Round 3: Judges Round  [Day 2]",
-          details:
-            "In the final round, the top 5 teams qualified for round 2 will enter the judging round. Esteemed industry professionals are invited to serve as judges for this competition stage. During the judging round, the judges will evaluate the five teams based on their solutions from round 2. The judges will then select the top three winning teams.",
-        },
-      ],
-      registrations: {
-        fees: {
-          national: `&#8377;100/-`,
-          international: `Free`,
-        },
-        min_team_size: 1,
-        max_team_size: 2,
+    rules: [
+      'Judges decision will be final.',
+      'Project status must be in "Ready to Demonstrate".',
+    ],
+    button_link: "https://pictinc.org/register/events/concepts",
+  },
+  pradnya: {
+    // contact: [
+    //   "Pratik 9145439727",
+    //   "Neha 9579678142"
+    // ],
+    id: 'pradnya',
+    prize: "Total Cash prizes worth &#8377;7 Lakh",
+    note1: `🔹Judge's decision will be final.`,
+    note3: `🔹Already registered candidates need not register again.`,
+    schedule: "March 27, 2026",
+    criteria: `Junior Level - First or Second year students of any undergraduate degree/course.#$Senior Level - Third and Final year students of any undergraduate degree/course.`,
+    logo: pradnya,
+    name: "Pradnya",
+    short_desc: "Competitive Programming",
+
+    description: ["PRADNYA is a one of a kind programming event meticulously forged by our finest, catering to rookies and veterans alike, from all over the world. This Contest puts the programmer's logical thinking and Problem solving skills to the test using programming languages, which guarantees to appraise their skills as a programmer.",],
+
+    eligibility: [
+      { tag: "Number of members in team", details: "maximum 2 members" },
+      {
+        tag: "Junior Level",
+        details:
+          "First year engineering, Second year engineering, other background students such as BCS etc.",
       },
-      rules: [
-        "All students whose colleges are located within the Pune district are required to attend this round in person at the PICT Campus.", "For students residing outside of the Pune district, there is an option to take the round in hybrid mode.",
-      ],
-      button_link: "https://pictinc.org/register/events/pradnya",
-      rule_book: ""
+      {
+        tag: "Senior Level",
+        details:
+          "Third year engineering, final year engineering, and PG students.",
+      },
+    ],
+
+    rounds: [
+      {
+        name: "Wild Card Round",
+        details:
+          "The wildcard round is open to both junior and senior teams, and the top 5 teams from each category will enter directly into the programming round (Round 2). This round will be conducted online on the coding platform. The wildcard round will include programming questions where the participants can code using any programming language they prefer.",
+      },
+      {
+        name: "Round 1 : MCQ Round [Day 1] ",
+        details:
+          "In this event the participants are given multiple-choice and short-answer questions. This round is conducted for both levels using a web platform specially designed by the PICT Pradnya team. The team will communicate information regarding scheduled slots for this round to the participants one day before the event.",
+      },
+      {
+        name: "Round 2: Programming Round [Day 2]",
+        details:
+          "Winners in the MCQ-based round and wild card winners are eligible for the programming contest. Five problem statements are allotted to each level, i.e., the junior and senior levels.  This round is held on an online programming platform. The team will communicate information regarding scheduled slots for this round to the participants one day before the event.",
+      },
+      {
+        name: "Round 3: Judges Round  [Day 2]",
+        details:
+          "In the final round, the top 5 teams qualified for round 2 will enter the judging round. Esteemed industry professionals are invited to serve as judges for this competition stage. During the judging round, the judges will evaluate the five teams based on their solutions from round 2. The judges will then select the top three winning teams.",
+      },
+    ],
+    registrations: {
+      fees: {
+        national: `&#8377;100/-`,
+        international: `Free`,
+      },
+      min_team_size: 1,
+      max_team_size: 2,
     },
-    /*
-    nova: {
-      id: 'nova',
-      logo: nova,
-      criteria:
-        "First to Fourth Year Students.",
-      name: "Nova",
+    rules: [
+      "All students whose colleges are located within the Pune district are required to attend this round in person at the PICT Campus.", "For students residing outside of the Pune district, there is an option to take the round in hybrid mode.",
+    ],
+    button_link: "https://pictinc.org/register/events/pradnya",
+    rule_book: ""
+  },
+  /*
+  nova: {
+    id: 'nova',
+    logo: nova,
+    criteria:
+      "First to Fourth Year Students.",
+    name: "Nova",
 
-      short_desc: "International-level Game Development and 3D Design Project Exhibition and Competition.",
+    short_desc: "International-level Game Development and 3D Design Project Exhibition and Competition.",
 
-      description: [`Nova is one of the very few platforms in India dedicated to game developers and designers to showcase their talent.Whether you're passionate about crafting compelling games or creating stunning 3D visuals, Nova offers the perfect stage to let your imagination take center stage. Gain recognition, connect with like-minded creators, and be part of a growing community, redefining the future of game development and design.`,],
-      
-      domains: [`Arena`, `Mindspark`, `Creative 3D models`, `Animations`, `Assets for games or standalone projects`, `Others`],
+    description: [`Nova is one of the very few platforms in India dedicated to game developers and designers to showcase their talent.Whether you're passionate about crafting compelling games or creating stunning 3D visuals, Nova offers the perfect stage to let your imagination take center stage. Gain recognition, connect with like-minded creators, and be part of a growing community, redefining the future of game development and design.`,],
+    
+    domains: [`Arena`, `Mindspark`, `Creative 3D models`, `Animations`, `Assets for games or standalone projects`, `Others`],
 
-      // domains: [
-      //   {
-      //     domain: "APPLICATION DEVELOPMENT",
-      //     sub_domains:
-      //       "Mobile Applications-Android, Web Applications, Database applications, others),(Big Earth Data Analytics, Geo Informatics, Data Mining on Big Data, Digital marketing optimization, Data exploration and discovery, Fraud detection and prevention, Social network and relationship analysis, Machine generated data analytics, Data retention, Others)",
-      //   },
-      //   {
-      //     domain: "COMMUNICATION NETWORKS & SECURITY SYSTEMS",
-      //     sub_domains:
-      //       "(Computer networks, Internet of Things, Software Defined Network, Vehicular Networks, Wireless and Mobile Networks, Information and Network Security, GPS | GSM Projects, Wireless Communication, Antenna & RF Communication, Optical Communication & Network, Others), (Blockchain applications: cryptocurrency systems, healthcare system, advertising processes, insurance processes, copyright protection system, energy system, tracking system, monitoring system, Security system, societal applications, others), (Virtualization and Autonomic Computing, High Speed Network, Security in Cloud, Cloud Computing, Data center Management, Handling Big Data on Cloud, Mobile Cloud, Cloud Forensics, Fog Computing, Others)",
-      //   },
-      //   {
-      //     domain: "DIGITAL / IMAGE/ SPEECH / VIDEO PROCESSING",
-      //     sub_domains:
-      //       "(Digital Signal processing, Image processing, Speech recognition, Video processing, Speech to text / Text to speech, Others)",
-      //   },
-      //   {
-      //     domain: "EMBEDDED/VLSI SYSTEMS",
-      //     sub_domains:
-      //       "(Image Processing & Remote Sensing, Machine Learning for Embedded Systems, Embedded Vision, Internet of Things, others), (Analog & Mixed Signal VLSI Design, Testing & Verification of VLSI Design, others)",
-      //   },
-      // ],
+    // domains: [
+    //   {
+    //     domain: "APPLICATION DEVELOPMENT",
+    //     sub_domains:
+    //       "Mobile Applications-Android, Web Applications, Database applications, others),(Big Earth Data Analytics, Geo Informatics, Data Mining on Big Data, Digital marketing optimization, Data exploration and discovery, Fraud detection and prevention, Social network and relationship analysis, Machine generated data analytics, Data retention, Others)",
+    //   },
+    //   {
+    //     domain: "COMMUNICATION NETWORKS & SECURITY SYSTEMS",
+    //     sub_domains:
+    //       "(Computer networks, Internet of Things, Software Defined Network, Vehicular Networks, Wireless and Mobile Networks, Information and Network Security, GPS | GSM Projects, Wireless Communication, Antenna & RF Communication, Optical Communication & Network, Others), (Blockchain applications: cryptocurrency systems, healthcare system, advertising processes, insurance processes, copyright protection system, energy system, tracking system, monitoring system, Security system, societal applications, others), (Virtualization and Autonomic Computing, High Speed Network, Security in Cloud, Cloud Computing, Data center Management, Handling Big Data on Cloud, Mobile Cloud, Cloud Forensics, Fog Computing, Others)",
+    //   },
+    //   {
+    //     domain: "DIGITAL / IMAGE/ SPEECH / VIDEO PROCESSING",
+    //     sub_domains:
+    //       "(Digital Signal processing, Image processing, Speech recognition, Video processing, Speech to text / Text to speech, Others)",
+    //   },
+    //   {
+    //     domain: "EMBEDDED/VLSI SYSTEMS",
+    //     sub_domains:
+    //       "(Image Processing & Remote Sensing, Machine Learning for Embedded Systems, Embedded Vision, Internet of Things, others), (Analog & Mixed Signal VLSI Design, Testing & Verification of VLSI Design, others)",
+    //   },
+    // ],
 
-      registrations: {
-        fees: {
-          national: `&#8377;300/-`,
-          international: `Free`,
-        },
-        min_team_size: 1,
-        max_team_size: 5,
+    registrations: {
+      fees: {
+        national: `&#8377;300/-`,
+        international: `Free`,
       },
-      prize: `Total Cash prizes worth &#8377;7 Lakh.`,
-      rules: [
-        `Judge's decision will be final.`,
-        `Project status must be in "Ready to Demonstrate".`,
-      ],
-      additional: [
-        {
-          domain: "Game Development",
-          details:
-            ["Arena: Action, platformers, survival, shooters (FPS/TPS), roguelikes, open-world adventures, racing, rhythm games, stealth, sports, arcade games, fighting games, modded action games." , "Mindscape: Strategy (RTS, turn-based, tower defense), puzzles, simulation (life, business, and physics), tycoon games, card games, board game adaptations, resource management, educational games, gamification projects, games for real-world training, AI-controlled games, and games that involve system optimization or automation.", "2-5 members per team."],
-        },
-        {
-          domain: "Design",
-          details:
-            ["Creative 3D models, animations, and assets for games or standalone projects.", "1-3 members per team."],
-        },
-      ],
-      note: `Project addressing the societal needs like Health, Agriculture, Kids/Women Safety, Education etc. & selected project shall be awarded &#8377;1 Lakh Cash Prize from PICT.`,
+      min_team_size: 1,
+      max_team_size: 5,
+    },
+    prize: `Total Cash prizes worth &#8377;7 Lakh.`,
+    rules: [
+      `Judge's decision will be final.`,
+      `Project status must be in "Ready to Demonstrate".`,
+    ],
+    additional: [
+      {
+        domain: "Game Development",
+        details:
+          ["Arena: Action, platformers, survival, shooters (FPS/TPS), roguelikes, open-world adventures, racing, rhythm games, stealth, sports, arcade games, fighting games, modded action games." , "Mindscape: Strategy (RTS, turn-based, tower defense), puzzles, simulation (life, business, and physics), tycoon games, card games, board game adaptations, resource management, educational games, gamification projects, games for real-world training, AI-controlled games, and games that involve system optimization or automation.", "2-5 members per team."],
+      },
+      {
+        domain: "Design",
+        details:
+          ["Creative 3D models, animations, and assets for games or standalone projects.", "1-3 members per team."],
+      },
+    ],
+    note: `Project addressing the societal needs like Health, Agriculture, Kids/Women Safety, Education etc. & selected project shall be awarded &#8377;1 Lakh Cash Prize from PICT.`,
 
-      // contact: ['Apoorvaraj 8530191073 ', 'Mrugank 7083823772', 'Vrushali 9766176681', 'Aarti 9405119460'],
-      button_link: "https://pictinc.org/register/events/impetus",
-      schedule: "March 27, 2026",
-    }, 
-    */
-  };
+    // contact: ['Apoorvaraj 8530191073 ', 'Mrugank 7083823772', 'Vrushali 9766176681', 'Aarti 9405119460'],
+    button_link: "https://pictinc.org/register/events/impetus",
+    schedule: "March 27, 2026",
+  }, 
+  */
+};
 
-   const ruleBookLinks = new Map([
-    ["impetus", "https://drive.google.com/file/d/1HOvxmEpWjBN6-3gsAs13Xa8_XRGFOZ-o/view?usp=sharing"],
-    ["concepts", "https://drive.google.com/file/d/1ofNZDXE4amY7tHBzFlsheI7AeWKoVb7b/view?usp=sharing"],
-    ["pradnya", "https://drive.google.com/file/d/13tY1rm6j5eaJYHj9qgkHTYU58Y99OYF1/view?usp=sharing"],
-  ])
+const ruleBookLinks = new Map([
+  ["impetus", "https://drive.google.com/file/d/1HOvxmEpWjBN6-3gsAs13Xa8_XRGFOZ-o/view?usp=sharing"],
+  ["concepts", "https://drive.google.com/file/d/1ofNZDXE4amY7tHBzFlsheI7AeWKoVb7b/view?usp=sharing"],
+  ["pradnya", "https://drive.google.com/file/d/13tY1rm6j5eaJYHj9qgkHTYU58Y99OYF1/view?usp=sharing"],
+])
 const faculty = [
   {
     value: "Advisory Committee",
@@ -1071,9 +1045,9 @@ const core = [
   },
 ];
 const results = {
-  impetus : [
+  impetus: [
     {
-      dname: 'APPLICATION DEVELOPMENT (AD)', 
+      dname: 'APPLICATION DEVELOPMENT (AD)',
       values: [
         {
           position: 'Winner',
@@ -1099,7 +1073,7 @@ const results = {
       ]
     },
     {
-      dname: 'COMMUNICATION NETWORK AND SECURITY SYSTEMS (CN)', 
+      dname: 'COMMUNICATION NETWORK AND SECURITY SYSTEMS (CN)',
       values: [
         {
           position: 'Winner',
@@ -1125,7 +1099,7 @@ const results = {
       ]
     },
     {
-      dname: 'DIGITAL/ IMAGE/ SPEECH/ VIDEO PROCESSING (DSP)', 
+      dname: 'DIGITAL/ IMAGE/ SPEECH/ VIDEO PROCESSING (DSP)',
       values: [
         {
           position: 'Winner',
@@ -1151,7 +1125,7 @@ const results = {
       ]
     },
     {
-      dname: 'EMBEDDED/ VLSI SYSTEMS (ES)', 
+      dname: 'EMBEDDED/ VLSI SYSTEMS (ES)',
       values: [
         {
           position: 'Winner',
@@ -1177,7 +1151,7 @@ const results = {
       ]
     },
     {
-      dname: 'MACHINE LEARNING AND PATTERN RECOGNITION (ML)', 
+      dname: 'MACHINE LEARNING AND PATTERN RECOGNITION (ML)',
       values: [
         {
           position: 'Winner',
@@ -1203,7 +1177,7 @@ const results = {
       ]
     },
     {
-      dname: 'OTHERS (OT)', 
+      dname: 'OTHERS (OT)',
       values: [
         {
           position: 'Winner',
@@ -1229,9 +1203,9 @@ const results = {
       ]
     }
   ],
-  concepts : [
+  concepts: [
     {
-      dname: 'APPLICATION DEVELOPMENT (AD)', 
+      dname: 'APPLICATION DEVELOPMENT (AD)',
       values: [
         {
           position: 'Winner',
@@ -1257,7 +1231,7 @@ const results = {
       ]
     },
     {
-      dname: 'COMMUNICATION NETWORK AND SECURITY SYSTEMS (CN)', 
+      dname: 'COMMUNICATION NETWORK AND SECURITY SYSTEMS (CN)',
       values: [
         {
           position: 'Winner',
@@ -1283,7 +1257,7 @@ const results = {
       ]
     },
     {
-      dname: 'DIGITAL/ IMAGE/ SPEECH/ VIDEO PROCESSING (DSP)', 
+      dname: 'DIGITAL/ IMAGE/ SPEECH/ VIDEO PROCESSING (DSP)',
       values: [
         {
           position: 'Winner',
@@ -1309,7 +1283,7 @@ const results = {
       ]
     },
     {
-      dname: 'EMBEDDED/VLSI SYSTEMS (ES)', 
+      dname: 'EMBEDDED/VLSI SYSTEMS (ES)',
       values: [
         {
           position: 'Winner',
@@ -1335,7 +1309,7 @@ const results = {
       ]
     },
     {
-      dname: 'MACHINE LEARNING AND PATTERN RECOGNITION (ML)', 
+      dname: 'MACHINE LEARNING AND PATTERN RECOGNITION (ML)',
       values: [
         {
           position: 'Winner',
@@ -1361,7 +1335,7 @@ const results = {
       ]
     },
     {
-      dname: 'OTHERS (OT)', 
+      dname: 'OTHERS (OT)',
       values: [
         {
           position: 'Winner',
@@ -1387,7 +1361,7 @@ const results = {
       ]
     },
     {
-      dname: 'OPEN HARDWARE', 
+      dname: 'OPEN HARDWARE',
       values: [
         {
           position: 'Winner',
@@ -1413,7 +1387,7 @@ const results = {
       ]
     },
     {
-      dname: 'OPEN SOFTWARE', 
+      dname: 'OPEN SOFTWARE',
       values: [
         {
           position: 'Winner',
@@ -1439,7 +1413,7 @@ const results = {
       ]
     },
     {
-      dname: 'RURAL', 
+      dname: 'RURAL',
       values: [
         {
           position: 'Winner',
@@ -1451,7 +1425,7 @@ const results = {
       ]
     },
     {
-      dname: 'OUT OF MAHARASHTRA', 
+      dname: 'OUT OF MAHARASHTRA',
       values: [
         {
           position: 'Winner',
@@ -1463,7 +1437,7 @@ const results = {
       ]
     }
   ],
-  pradnya : [
+  pradnya: [
     {
       dname: 'Senior Category',
       values: [
@@ -1518,65 +1492,65 @@ const results = {
     },
   ],
 }
-  
-  const timeline = [
-    {
-      title: "Impetus",
-      company_name: "2-5 members",
-      icon: logo,
-      iconBg: "#383E56",
-      date: "Jan 14 - Jan 15",
-      points: [
-        "Impetus and Concepts (InC) is a flagship technical event.",
-        "InC is an intercollegiate international level competition that has been catching the attention of corporate giants.",
-        "Impetus is a Project Competition for FE to TE students, all engineering branches confined to specific domains.",
-        ],
-      contact: ["Naman: 9999999999", "Naman: 9999999999",],
-      fees: "500",
-    },
-    {
-      title: "Concepts",
-      company_name: "2-5 members",
-      icon: logo,
-      iconBg: "#383E56",
-      date: "Jan 14 - Jan 15",
-      points: [
-        "Impetus and Concepts (InC) is a flagship technical event.",
-        "InC is an intercollegiate international level competition that has been catching the attention of corporate giants.",
-        "Impetus is a Project Competition for FE to TE students, all engineering branches confined to specific domains.",
-        ],
-      contact: ["Naman: 9999999999", "Naman: 9999999999",],
-      fees: "500",
-    },
-    {
-      title: "Pradnya",
-      company_name: "2-5 members",
-      icon: logo,
-      iconBg: "#383E56",
-      date: "Jan 14 - Jan 15",
-      points: [
-        "Impetus and Concepts (InC) is a flagship technical event.",
-        "InC is an intercollegiate international level competition that has been catching the attention of corporate giants.",
-        "Impetus is a Project Competition for FE to TE students, all engineering branches confined to specific domains.",
-        ],
-      contact: ["Naman: 9999999999", "Naman: 9999999999",],
-      fees: "500",
-    },
-    {
-      title: "Techfiesta",
-      company_name: "2-5 members",
-      icon: logo,
-      iconBg: "#383E56",
-      date: "Jan 14 - Jan 15",
-      points: [
-        "Impetus and Concepts (InC) is a flagship technical event.",
-        "InC is an intercollegiate international level competition that has been catching the attention of corporate giants.",
-        "Impetus is a Project Competition for FE to TE students, all engineering branches confined to specific domains.",
-        ],
-      contact: ["Naman: 9999999999", "Naman: 9999999999",],
-      fees: "500",
-    },
-  ];
-  
-  
+
+const timeline = [
+  {
+    title: "Impetus",
+    company_name: "2-5 members",
+    icon: logo,
+    iconBg: "#383E56",
+    date: "Jan 14 - Jan 15",
+    points: [
+      "Impetus and Concepts (InC) is a flagship technical event.",
+      "InC is an intercollegiate international level competition that has been catching the attention of corporate giants.",
+      "Impetus is a Project Competition for FE to TE students, all engineering branches confined to specific domains.",
+    ],
+    contact: ["Naman: 9999999999", "Naman: 9999999999",],
+    fees: "500",
+  },
+  {
+    title: "Concepts",
+    company_name: "2-5 members",
+    icon: logo,
+    iconBg: "#383E56",
+    date: "Jan 14 - Jan 15",
+    points: [
+      "Impetus and Concepts (InC) is a flagship technical event.",
+      "InC is an intercollegiate international level competition that has been catching the attention of corporate giants.",
+      "Impetus is a Project Competition for FE to TE students, all engineering branches confined to specific domains.",
+    ],
+    contact: ["Naman: 9999999999", "Naman: 9999999999",],
+    fees: "500",
+  },
+  {
+    title: "Pradnya",
+    company_name: "2-5 members",
+    icon: logo,
+    iconBg: "#383E56",
+    date: "Jan 14 - Jan 15",
+    points: [
+      "Impetus and Concepts (InC) is a flagship technical event.",
+      "InC is an intercollegiate international level competition that has been catching the attention of corporate giants.",
+      "Impetus is a Project Competition for FE to TE students, all engineering branches confined to specific domains.",
+    ],
+    contact: ["Naman: 9999999999", "Naman: 9999999999",],
+    fees: "500",
+  },
+  {
+    title: "Techfiesta",
+    company_name: "2-5 members",
+    icon: logo,
+    iconBg: "#383E56",
+    date: "Jan 14 - Jan 15",
+    points: [
+      "Impetus and Concepts (InC) is a flagship technical event.",
+      "InC is an intercollegiate international level competition that has been catching the attention of corporate giants.",
+      "Impetus is a Project Competition for FE to TE students, all engineering branches confined to specific domains.",
+    ],
+    contact: ["Naman: 9999999999", "Naman: 9999999999",],
+    fees: "500",
+  },
+];
+
+
 export { about_text, events, timeline, navLinks, sponsors, notifications, eventsData, faculty, web, core, adminNavlinks, ruleBookLinks, judgeNavLinks, results, };

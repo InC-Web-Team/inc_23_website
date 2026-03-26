@@ -1,4 +1,4 @@
- import { sponsors } from "../constants";
+import { sponsors } from "../constants";
 // import { styles } from "../styles";
 import { cn } from "../lib/utils";
 import {
@@ -13,13 +13,9 @@ import {
 
 const Sponsors = () => {
   return (
-<section className="w-full flex flex-col items-center pt-4 pb-24 relative overflow-hidden">
+    <section className="w-full flex flex-col items-center pt-4 pb-24 relative overflow-hidden">
       {/* <h2 className={`${styles.sectionHeadText} text-center`}>Our Sponsors.</h2> */}
-<div className="w-full flex items-center justify-center py-16">
-      <p className="text-base sm:text-lg font-light text-white/60 tracking-wide">
-        Sponsors revealing soon.
-      </p>
-    </div> <div
+      <div
         className="pointer-events-none absolute inset-0 opacity-[0.22] -z-10"
         style={{
           backgroundImage: `
@@ -29,42 +25,41 @@ const Sponsors = () => {
           backgroundSize: "46px 46px",
         }}
       />
-       <div className="flex flex-col w-full items-center gap-14 sm:py-16 py-8">
+      <div className="flex flex-col w-full items-center gap-14 sm:py-16 py-8">
         {Object.keys(sponsors).map((key) => {
           const heading =
             key === "association"
               ? "In Association With"
               : key === "co"
-              ? "Co-sponsors"
-              : key + (sponsors[key].length > 1 ? " sponsors" : " sponsor");
+                ? "Co-sponsors"
+                : key + (sponsors[key].length > 1 ? " sponsors" : " sponsor");
 
           return (
-            <div key={key} className="flex flex-col gap-8 items-center">
+            <div key={key} className="flex flex-col gap-8 items-center w-full px-4">
               <h3 className="text-center text-3xl font-bold capitalize pb-2 border-b-2 border-orange-200">
                 {heading}
               </h3>
 
-              <div className="flex flex-wrap items-center justify-center gap-10 max-w-6xl">
-                {/* {sponsors[key].map((s) => (
+              <div className="flex flex-wrap items-center justify-center gap-10 max-w-6xl w-full">
+                {sponsors[key].map((s) => (
                   <SponsorCard
                     key={s.name}
                     width={key === "title" ? 300 : 230}
-                    height={key === "title" ? 200 : 150}
+                    height={key === "title" ? 120 : 100}
                   >
                     <img
                       loading="lazy"
                       src={s.src}
                       alt={s.name}
-                      className="w-full h-full object-contain select-none"
+                      className="w-full h-full object-contain select-none p-4"
                     />
                   </SponsorCard>
-                ))} */}
+                ))}
               </div>
             </div>
           );
         })}
-      </div> 
-
+      </div>
     </section>
   );
 };
@@ -73,25 +68,25 @@ export default Sponsors;
 
 /* -------------------- SPONSOR CARD -------------------- */
 
-// const SponsorCard = ({ children, width, height }) => {
-//   return (
-//     <CardContainer
-//       containerClassName="bg-gradient-to-br from-[#173B78] via-[#5F9DF7] to-[#E89A35] rounded-xl"
-//     >
-//       <CardBody
-//         className="relative group/card shadow-xl shadow-orange-200/40 bg-white border border-primary p-4 rounded-xl"
-//         style={{ width, height }}
-//       >
-//         <CardItem
-//           translateZ={70}
-//           className="w-full h-full group-hover/card:shadow-2xl group-hover/card:shadow-blue-300/50 rounded-xl"
-//         >
-//           {children}
-//         </CardItem>
-//       </CardBody>
-//     </CardContainer>
-//   );
-// };
+const SponsorCard = ({ children, width, height }) => {
+  return (
+    <CardContainer
+      containerClassName="bg-gradient-to-br from-[#173B78] via-[#5F9DF7] to-[#E89A35] rounded-xl"
+    >
+      <CardBody
+        className="relative group/card shadow-xl shadow-orange-200/40 bg-white/5 backdrop-blur-sm border border-white/10 p-2 rounded-xl"
+        style={{ width, height }}
+      >
+        <CardItem
+          translateZ={50}
+          className="w-full h-full group-hover/card:shadow-2xl group-hover/card:shadow-blue-300/50 rounded-xl flex items-center justify-center"
+        >
+          {children}
+        </CardItem>
+      </CardBody>
+    </CardContainer>
+  );
+};
 
 /* -------------------- TILT 3D ENGINE -------------------- */
 
