@@ -28,7 +28,8 @@ export const navItems = [
   { id: "about", title: "About", type: "hash" },
   { id: "events", title: "Events", type: "hash" },
   { id: "committee", title: "Committee", type: "route", path: "/committee/core" },
-  { id: "register", title: "Register", type: "route", path: "/register" }
+  { id: "register", title: "Register", type: "route", path: "/register" },
+  { id: "schedule", title: "Schedule", type: "route", path: "/schedule" }
 ];
 
 
@@ -55,6 +56,11 @@ export const navItems = [
     //   isHome: false,
     //   title: "Committee",
     // },
+    {
+    id: "schedule",
+    isHome: false,
+    title: "Schedule",
+  },
     {
       id: "register",
       isHome: false,
@@ -98,6 +104,26 @@ export const navItems = [
       isHome: false,
       title: "Results",
     },
+    {
+    id: "admin/view/allocation",
+    isHome: false,
+    title: "View Allocations",
+  },
+  {
+    id: "admin/view/project-judge",
+    isHome: false,
+    title: "Project Judges",
+  },
+  // {
+  //   id: "admin/view/analytics",
+  //   isHome: false,
+  //   title: "Analytics",
+  // },
+  {
+    id: "admin/reallocate",
+    isHome: false,
+    title: "Reallocate",
+  },
     {
       id: "admin/logout",
       isHome: false,
