@@ -132,7 +132,7 @@ const VirtualAssistant = () => {
           {/* FIXED MODEL */}
           <model-viewer
             id="assistant-model"
-            src="/videos/Untitled.glb"
+            src="https://res.cloudinary.com/dwvkine0i/image/upload/v1774279344/Untitled_we775k.glb"
             autoplay
             loop
             disable-zoom
@@ -229,12 +229,10 @@ const VirtualAssistant = () => {
 
 
 
-      <button
-                // onClick={() => navigate("https://virtual-assitant-ienn.vercel.app/")}
+      {/* <button
                 className="relative -mt-12 inline-block p-px font-semibold leading-6 text-white-100 bg-tertiary shadow-2xl cursor-pointer shadow-zinc-900 
              transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95 z-10 group/canvas-card"
               >
-                {/* visible border (soft → bright on hover) */}
                 <span className="absolute inset-0 bg-gradient-to-r from-dark-blue via-light-blue to-orange-100 p-[4px] 
                    opacity-90 transition-opacity duration-500 group-hover/canvas-card:opacity-100"></span>
 
@@ -258,13 +256,13 @@ const VirtualAssistant = () => {
                     </svg>
                   </div>
                 </span>
-              </button>
+              </button> */}
 
 
 
 
       {/* FOOTER TEXT */}
-      <p className="text-[11px] mt-4 text-center px-3 leading-relaxed">
+      {/* <p className="text-[11px] mt-4 text-center px-3 leading-relaxed">
         <span
           className="text-white/90"
           style={{ textShadow: "0 0 4px rgba(0,0,0,0.8)" }}
@@ -286,7 +284,7 @@ const VirtualAssistant = () => {
           {" "}
           for INC 2026.
         </span>
-      </p>
+      </p> */}
 
 
       {/* ANIMATIONS */}
