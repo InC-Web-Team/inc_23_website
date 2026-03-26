@@ -1,9 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { API_BASE } from '../../app/config/api';
 
-// const baseURL = ("https://api.pyush.site") + "/allocations";
-// const baseURL = ("https://inc-2026-backend.onrender.com") + "/allocations";
-//  const baseURL = "https://inc-2026-backend.onrender.com/allocations";
-const baseURL = "https://api.pictinc.org/allocations";
+const baseURL = `${API_BASE}/allocations`;
 
 
 export const allocationAPI = createApi({

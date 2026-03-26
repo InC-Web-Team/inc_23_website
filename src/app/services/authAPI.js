@@ -1,9 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { API_BASE } from '../../app/config/api';
 
-// const baseURL = ("https://api.pyush.site") + "/admin";
-// const baseURL = ("https://inc-2026-backend.onrender.com") + "/admin";
-// const baseURL = "https://inc-2026-backend.onrender.com/admin";
-const baseURL = "https://api.pictinc.org/admin";
+const baseURL = `${API_BASE}/admin`;
 
 
 export const authAPI = createApi({
