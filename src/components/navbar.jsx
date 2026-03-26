@@ -104,7 +104,13 @@ const Navbar = () => {
               : 
               <li key={link.id} className={`${active == link.title ? 'text-orange-100 border-b-2 border-orange-100' : 'text-white-100'} hover:text-orange-100 text-[16px] font-medium cursor-pointer`} onClick={() => {setActive(link.title); setToggle(!toggle);}}>
                 {
-                  <Link to={link.isHome ? `/#${link.id}` : `/${link.id}`}>{link.title}</Link>
+                  // <Link to={link.isHome ? `/#${link.id}` : `/${link.id}`}>{link.title}</Link>
+
+                  <Link 
+  to={link.isHome ? `/#${link.id}` : `/${link.id}`}
+>
+  {link.title}
+</Link>
                 }
               </li>
             ))}

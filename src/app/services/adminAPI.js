@@ -1,8 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { API_BASE } from '../../app/config/api';
 
-// const baseURL = ("https://api.pyush.site") + "/events";
-// const baseURL="https://inc-2026-backend.onrender.com" + "/events"
-const baseURL = "https://api.pictinc.org/events";
+const baseURL = `${API_BASE}/events`;
 
 export const adminAPI = createApi({
   reducerPath: "admins",
