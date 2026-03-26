@@ -7,6 +7,7 @@ import { authAPI } from './services/authAPI'
 import { adminAPI } from './services/adminAPI'
 import { judgeAPI } from './services/judgeAPI'
 import { allocationAPI } from './services/allocationAPI'
+import { analyticsAPI } from './services/analyticsAPI'
 
 export const store = configureStore({
   reducer: {
@@ -17,9 +18,10 @@ export const store = configureStore({
     [adminAPI.reducerPath]: adminAPI.reducer,
     [judgeAPI.reducerPath]: judgeAPI.reducer,
     [allocationAPI.reducerPath]: allocationAPI.reducer,
+    [analyticsAPI.reducerPath]: analyticsAPI.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat([formAPI.middleware, authAPI.middleware, adminAPI.middleware, judgeAPI.middleware, allocationAPI.middleware]),
+    getDefaultMiddleware().concat([formAPI.middleware, authAPI.middleware, adminAPI.middleware, judgeAPI.middleware, allocationAPI.middleware, analyticsAPI.middleware]),
 })
 
 setupListeners(store.dispatch)

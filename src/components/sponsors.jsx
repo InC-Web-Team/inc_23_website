@@ -1,4 +1,4 @@
-// import { sponsors } from "../constants";
+ import { sponsors } from "../constants";
 // import { styles } from "../styles";
 import { cn } from "../lib/utils";
 import {
@@ -29,7 +29,7 @@ const Sponsors = () => {
           backgroundSize: "46px 46px",
         }}
       />
-      {/* <div className="flex flex-col w-full items-center gap-14 sm:py-16 py-8">
+       <div className="flex flex-col w-full items-center gap-14 sm:py-16 py-8">
         {Object.keys(sponsors).map((key) => {
           const heading =
             key === "association"
@@ -45,7 +45,7 @@ const Sponsors = () => {
               </h3>
 
               <div className="flex flex-wrap items-center justify-center gap-10 max-w-6xl">
-                {sponsors[key].map((s) => (
+                {/* {sponsors[key].map((s) => (
                   <SponsorCard
                     key={s.name}
                     width={key === "title" ? 300 : 230}
@@ -58,12 +58,12 @@ const Sponsors = () => {
                       className="w-full h-full object-contain select-none"
                     />
                   </SponsorCard>
-                ))}
+                ))} */}
               </div>
             </div>
           );
         })}
-      </div> */}
+      </div> 
 
     </section>
   );

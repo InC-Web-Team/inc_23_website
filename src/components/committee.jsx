@@ -130,7 +130,7 @@ export default Committee;
 
 const Faculty = ({ data: faculty }) => {
   const cleanFacultyName = (value = "") =>
-    value.replace(/^\s*\d+[\).\s-]*/, "").trim();
+    value.replace(/^\s*\d+[).\s-]*/, "").trim();
 
   return (
     <Accordion>
