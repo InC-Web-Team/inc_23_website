@@ -390,7 +390,7 @@ const handleSubmit = async (e) => {
                   onChange={handleChange}
                   className="h-5 w-5"
                 />
-                Has NDA Signed Your Project?
+Is this project covered by a Non-Disclosure Agreement?
               </Label>
             </div>
           )}
