@@ -41,11 +41,10 @@
 //       setError(null);
 //       try {
 //         const response = await fetch(`${API_BASE}/view/admin/project-allocations?event=${activeTab}`, {
-//   method: 'GET',      
-//   headers: { 'Content-Type': 'application/json' },
-//   credentials: 'include',        
-// });
-//         // const response = await fetch(`http://localhost:3001/view/admin/project-allocations?event=${activeTab}`);
+//           method: 'GET',      
+//           headers: { 'Content-Type': 'application/json' },
+//           credentials: 'include',        
+//         });
 //         if (!response.ok) throw new Error('Failed to fetch data');
 //         const data = await response.json();
 //         if (data.success) {
@@ -345,10 +344,16 @@
 //             pageSizeOptions={[5, 10, 15, 25, 50]}
 //             pagination
 //             disableRowSelectionOnClick
-//             getRowHeight={() => 130}
+//             rowHeight={130}
 //             sx={{
 //               border: 'none',
-//               '& .MuiDataGrid-cell': { color: '#e2e8f0', fontSize: '0.9rem', borderRight: '1px solid #3f3f46', padding: '8px 12px' },
+//               '& .MuiDataGrid-cell': { 
+//                 color: '#e2e8f0', 
+//                 fontSize: '0.9rem', 
+//                 borderRight: '1px solid #3f3f46', 
+//                 padding: '8px 12px',
+//                 overflow: 'auto',  // Allows scrolling within cell if content overflows
+//               },
 //               '& .MuiDataGrid-columnHeader': { backgroundColor: '#18181b', color: '#a1a1aa', fontWeight: 600, fontSize: '0.9rem' },
 //               '& .MuiDataGrid-row:hover': { backgroundColor: '#27272a' },
 //               '& .MuiDataGrid-toolbarContainer': { backgroundColor: '#18181b', color: '#e2e8f0' },
@@ -371,12 +376,10 @@
 
 // export default ProjectJudgesAllocation;
 
-
 import { useEffect, useState, useMemo } from 'react';
 import { DataGrid, GridToolbar } from '@mui/x-data-grid';
-import { Chip, Box, Typography, CircularProgress, Alert } from '@mui/material';
+import { Chip, Box, Typography, CircularProgress, Alert, Card, CardContent } from '@mui/material';
 import { API_BASE } from '../../app/config/api';
-
 
 const ProjectJudgesAllocation = () => {
   const [activeTab, setActiveTab] = useState('impetus');
@@ -507,7 +510,7 @@ const ProjectJudgesAllocation = () => {
   const onlineTotal = useMemo(() => projects.filter((p) => p.mode === 'Online').length, [projects]);
   const offlineTotal = useMemo(() => projects.filter((p) => p.mode === 'Offline').length, [projects]);
 
-  // Rows for DataGrid
+  // Rows for DataGrid with serial numbers
   const rows = useMemo(() => {
     return filteredProjects.map((project, index) => {
       const judgesList = [...(project.judges || [])];
@@ -518,6 +521,7 @@ const ProjectJudgesAllocation = () => {
       });
       return {
         id: index,
+        serialNo: index + 1,  // Add serial number
         pid: project.pid,
         title: project.title,
         session: project.session || 'N/A',
@@ -559,6 +563,14 @@ const ProjectJudgesAllocation = () => {
   }, [maxJudges]);
 
   const columns = [
+    { 
+      field: 'serialNo', 
+      headerName: 'S.No', 
+      width: 80, 
+      minWidth: 80,
+      sortable: false,
+      filterable: false
+    },
     { field: 'pid', headerName: 'PID', width: 100, renderCell: (params) => <Typography fontWeight={700} fontSize="1rem" color="#60a5fa">{params.value}</Typography> },
     { field: 'title', headerName: 'Project Title', width: 280, renderCell: (params) => <Typography sx={{ lineHeight: 1.4, fontSize: '0.92rem' }}>{params.value}</Typography> },
     { field: 'session', headerName: 'Session / Lab', width: 140 },
@@ -604,8 +616,8 @@ const ProjectJudgesAllocation = () => {
 
         {error && <Alert severity="error" sx={{ mb: 3 }}>{error}</Alert>}
 
-        {/* Top Summary Cards: Online + Offline + Domain-wise */}
-        <div className="grid grid-cols-8 gap-4 mb-8">
+        {/* Top Summary Cards: Online + Offline + Filtered Results + Domain-wise */}
+        <div className="grid grid-cols-9 gap-4 mb-8">
           <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-4 text-center">
             <div className="text-emerald-400 text-xs font-medium tracking-widest mb-1">ONLINE</div>
             <div className="text-4xl font-bold text-white">{onlineTotal}</div>
@@ -614,6 +626,27 @@ const ProjectJudgesAllocation = () => {
             <div className="text-amber-400 text-xs font-medium tracking-widest mb-1">OFFLINE</div>
             <div className="text-4xl font-bold text-white">{offlineTotal}</div>
           </div>
+          
+          {/* Filtered Results Card */}
+          <Card sx={{ 
+            bgcolor: '#18181b', 
+            border: '1px solid #3f3f46', 
+            borderRadius: 3,
+            background: 'linear-gradient(135deg, #1e1e2f 0%, #18181b 100%)'
+          }}>
+            <CardContent className="text-center" sx={{ py: 2 }}>
+              <Typography color="#60a5fa" variant="body2" gutterBottom fontWeight={600}>
+                Filtered Results
+              </Typography>
+              <Typography variant="h4" fontWeight={700} color="#60a5fa">
+                {filteredProjects.length}
+              </Typography>
+              <Typography variant="caption" color="#94a3b8" sx={{ mt: 0.5, display: 'block' }}>
+                out of {projects.length} projects
+              </Typography>
+            </CardContent>
+          </Card>
+
           {Object.entries(domainOptions).map(([key, name]) => {
             const count = domainCounts[key] || 0;
             const isActive = domainFilter === key;
