@@ -47,10 +47,10 @@ export function AccordionHeader({ children }) {
   
   return (
     <motion.div
-      className={`py-2 px-4 sm:px-6 cursor-pointer transition-colors duration-150 ease-in-out uppercase font-medium bg-slate-800 text-white-100 flex items-center justify-between gap-2`}
+      className={`py-2 px-4 sm:px-6 cursor-pointer transition-colors duration-150 ease-in-out uppercase font-medium bg-slate-800 text-white-100 flex items-start justify-between gap-2`}
       onClick={() => onChangeIndex(index)}
     >
-      <span>{children}</span><span className="">{isActive ? '-' : '+'}</span>
+      <span className="flex-1 min-w-0 whitespace-normal break-words leading-snug">{children}</span><span className="shrink-0 text-lg leading-none">{isActive ? '-' : '+'}</span>
     </motion.div>
   );
 }

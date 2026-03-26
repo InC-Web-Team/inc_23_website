@@ -4,7 +4,7 @@ import { styles } from '../styles';
 import { faculty, web, core } from '../constants';
 import { Accordion, AccordionHeader, AccordionItem, AccordionPanel } from './ui/accordian';
 import { cn } from "../lib/utils";
-// import { IconBrandGithubFilled, IconBrandInstagramFilled, IconBrandLinkedinFilled } from '@tabler/icons-react';
+import { IconBrandGithubFilled, IconBrandInstagramFilled, IconBrandLinkedinFilled } from '@tabler/icons-react';
 import { TypewriterEffectSmooth } from './ui/typewriter-effect';
 import scrollToTop from '../utils/scrollToTop';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
@@ -108,32 +108,12 @@ const Committee = () => {
 
           {/* ---------------- CORE (announcement placeholder) ---------------- */}
           {activeCommittee === 'core' && (
-            <div className="w-full flex flex-col items-center py-20">
-              <p className="text-base sm:text-lg font-light text-white/60 tracking-wide">
-                Core coordinators will be announced soon.
-              </p>
-
-              {/**
-               * ORIGINAL CORE STRUCTURE — DO NOT DELETE
-               *
-               * <WebnCore data={committees[activeCommittee]} />
-               */}
-            </div>
+            <WebnCore data={committees[activeCommittee]} />
           )}
 
           {/* ---------------- WEB (announcement placeholder) ---------------- */}
           {activeCommittee === 'web' && (
-            <div className="w-full flex flex-col items-center py-20">
-              <p className="text-base sm:text-lg font-light text-white/60 tracking-wide">
-                Web team coordinators will be announced soon.
-              </p>
-
-              {/**
-               * ORIGINAL WEB STRUCTURE — DO NOT DELETE
-               *
-               * <WebnCore data={committees[activeCommittee]} />
-               */}
-            </div>
+            <WebnCore data={committees[activeCommittee]} />
           )}
 
         </div>
@@ -149,15 +129,18 @@ export default Committee;
 /* ------------------------------------------------------------------ */
 
 const Faculty = ({ data: faculty }) => {
+  const cleanFacultyName = (value = "") =>
+    value.replace(/^\s*\d+[).\s-]*/, "").trim();
+
   return (
     <Accordion>
       {faculty?.map(position => (
         <AccordionItem key={position.value}>
           <AccordionHeader>{position.value}</AccordionHeader>
           <AccordionPanel>
-            <ul className='text-white-100 list-disc list-inside'>
+            <ul className='text-white-100 list-disc list-inside whitespace-normal break-words leading-relaxed'>
               {position.names.map((name) => (
-                <li key={name.value}>{name.value.trim().slice(3)}</li>
+                <li key={name.value} className='py-0.5'>{cleanFacultyName(name.value)}</li>
               ))}
             </ul>
           </AccordionPanel>
@@ -171,113 +154,141 @@ const Faculty = ({ data: faculty }) => {
 /* ------------------------ WEB / CORE SECTION ---------------------- */
 /* ------------------------------------------------------------------ */
 
-// const WebnCore = ({ data }) => {
-//   const handleLinkClick = (link) => window.open(link, "_blank");
+const WebnCore = ({ data }) => {
+  const handleLinkClick = (link) => window.open(link, "_blank");
+  const hasLink = (value) => typeof value === "string" && value.trim().length > 0;
+  const getFallbackPhoto = (name) =>
+    `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=111827&color=ffffff&size=256`;
 
-//   return (
-//     <div className='flex flex-col items-center w-full gap-[4rem]'>
-//       {data.map(team => (
-//         <div className='flex flex-col items-center gap-10 bg-tertiary w-full p-px bg-gradient-to-r from-dark-blue via-light-blue to-orange-100' key={team.team}>
-//           
-//           <div className='bg-tertiary py-14 w-full relative'>
-//             <h3 className='sm:text-3xl font-semibold absolute left-1/2 -translate-x-1/2 sm:-top-6 -top-5 bg-black-100 border border-white-100 max-sm:w-[80%] px-4 py-1 text-xl text-center'>
-//               {team.team}
-//             </h3>
+  const getPhotoSrc = (member) => {
+    if (!member?.photo) return getFallbackPhoto(member?.name || "Member");
 
-//             <div className='flex flex-wrap w-full justify-center items-stretch gap-10'>
-//               {team.members.map(m => (
-//                 <div className='sm:w-[300px] w-[270px]' key={m.name}>
-//                   
-//                   <BackgroundGradient className="p-4 bg-black-100 flex flex-col items-center gap-4">
-//                     
-//                     <img
-//                       loading='lazy'
-//                       src={m.photo}
-//                       alt="member"
-//                       className="rounded-full max-sm:h-[150px] max-sm:w-[150px] w-[180px] h-[180px] object-cover object-top"
-//                     />
+    // Convert Google Drive share links to direct thumbnail URLs.
+    const idFromQuery = member.photo.match(/[?&]id=([^&]+)/)?.[1];
+    const idFromPath = member.photo.match(/\/d\/([^/]+)/)?.[1];
+    const fileId = idFromQuery || idFromPath;
 
-//                     <div>
-//                       <h4 className='text-2xl font-bold text-white-100'>{m.name}</h4>
-//                       <p className='text-sm text-secondary text-center'>{m.post}</p>
-//                     </div>
+    if (fileId) {
+      return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000`;
+    }
 
-//                     <div className='flex items-center gap-4'>
-//                       <IconBrandLinkedinFilled onClick={() => handleLinkClick(m.linkedin)} className='cursor-pointer' />
-//                       <IconBrandGithubFilled onClick={() => handleLinkClick(m.github)} className='cursor-pointer' />
-//                       <IconBrandInstagramFilled onClick={() => handleLinkClick(m.instagram)} className='cursor-pointer' />
-//                     </div>
+    return member.photo;
+  };
 
-//                   </BackgroundGradient>
-//                 </div>
-//               ))}
-//             </div>
-//           </div>
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
+  return (
+    <div className='flex flex-col items-center w-full gap-[4rem]'>
+      {data.map(team => (
+        <div className='flex flex-col items-center gap-10 bg-tertiary w-full p-px bg-gradient-to-r from-dark-blue via-light-blue to-orange-100' key={team.team}>
+          
+          <div className='bg-tertiary py-14 w-full relative'>
+            <h3 className='sm:text-3xl font-semibold absolute left-1/2 -translate-x-1/2 sm:-top-6 -top-5 bg-black-100 border border-white-100 max-sm:w-[80%] px-4 py-1 text-xl text-center'>
+              {team.team}
+            </h3>
+
+            <div className='flex flex-wrap w-full justify-center items-stretch gap-10'>
+              {team.members.map(m => (
+                <div className='sm:w-[300px] w-[270px]' key={m.name}>
+                  
+                  <BackgroundGradient className="p-4 bg-black-100 flex flex-col items-center gap-4">
+                    
+                    <img
+                      loading='lazy'
+                      src={getPhotoSrc(m)}
+                      alt="member"
+                      onError={(e) => {
+                        e.currentTarget.onerror = null;
+                        e.currentTarget.src = getFallbackPhoto(m.name);
+                      }}
+                      className="rounded-full max-sm:h-[150px] max-sm:w-[150px] w-[180px] h-[180px] object-cover object-top"
+                    />
+
+                    <div>
+                      <h4 className='text-2xl font-bold text-white-100'>{m.name}</h4>
+                      <p className='text-sm text-secondary text-center'>{m.post}</p>
+                    </div>
+
+                    <div className='flex items-center gap-4 min-h-6'>
+                      {hasLink(m.linkedin) && (
+                        <IconBrandLinkedinFilled onClick={() => handleLinkClick(m.linkedin)} className='cursor-pointer' />
+                      )}
+                      {hasLink(m.github) && (
+                        <IconBrandGithubFilled onClick={() => handleLinkClick(m.github)} className='cursor-pointer' />
+                      )}
+                      {hasLink(m.instagram) && (
+                        <IconBrandInstagramFilled onClick={() => handleLinkClick(m.instagram)} className='cursor-pointer' />
+                      )}
+                    </div>
+
+                  </BackgroundGradient>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 /* ------------------------------------------------------------------ */
 /* ---------------------- BACKGROUND GRADIENT WRAPPER --------------- */
 /* ------------------------------------------------------------------ */
 
-// const BackgroundGradient = ({
-//   children,
-//   className,
-//   containerClassName,
-//   animate = true
-// }) => {
-//   const variants = {
-//     initial: { backgroundPosition: "0% 50%" },
-//     animate: { backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] },
-//   };
+const BackgroundGradient = ({
+  children,
+  className,
+  containerClassName,
+  animate = true
+}) => {
+  const variants = {
+    initial: { backgroundPosition: "0% 50%" },
+    animate: { backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] },
+  };
 
-//   return (
-//     <div className={cn("relative p-[1px] group", containerClassName)}>
-//       <motion.div
-//         variants={animate ? variants : undefined}
-//         initial={animate ? "initial" : undefined}
-//         animate={animate ? "animate" : undefined}
-//         transition={
-//           animate
-//             ? { duration: 3, repeat: Infinity, repeatType: "reverse" }
-//             : undefined
-//         }
-//         style={{
-//           backgroundSize: animate ? "200% 200%" : undefined,
-//         }}
-//         className={cn(
-//           "absolute inset-0 z-[1] opacity-30 group-hover:opacity-100 blur-md transition duration-500",
-//           "bg-[linear-gradient(90deg,#1746A2,#5F9DF7,#d4621c,#5F9DF7,#1746A2)]"
-//         )}
-//       />
+  return (
+    <div className={cn("relative p-[1px] group", containerClassName)}>
+      <motion.div
+        variants={animate ? variants : undefined}
+        initial={animate ? "initial" : undefined}
+        animate={animate ? "animate" : undefined}
+        transition={
+          animate
+            ? { duration: 3, repeat: Infinity, repeatType: "reverse" }
+            : undefined
+        }
+        style={{
+          backgroundSize: animate ? "200% 200%" : undefined,
+        }}
+        className={cn(
+          "absolute inset-0 z-[1] opacity-30 group-hover:opacity-100 blur-md transition duration-500",
+          "bg-[linear-gradient(90deg,#1746A2,#5F9DF7,#d4621c,#5F9DF7,#1746A2)]"
+        )}
+      />
 
-//       <motion.div
-//         variants={animate ? variants : undefined}
-//         initial={animate ? "initial" : undefined}
-//         animate={animate ? "animate" : undefined}
-//         transition={
-//           animate
-//             ? { duration: 3, repeat: Infinity, repeatType: "reverse" }
-//             : undefined
-//         }
-//         style={{
-//           backgroundSize: animate ? "200% 200%" : undefined,
-//         }}
-//         className={cn(
-//           "absolute inset-0 z-[1]",
-//           "bg-[linear-gradient(90deg,#1746A2,#5F9DF7,#d4621c,#5F9DF7,#1746A2)]"
-//         )}
-//       />
+      <motion.div
+        variants={animate ? variants : undefined}
+        initial={animate ? "initial" : undefined}
+        animate={animate ? "animate" : undefined}
+        transition={
+          animate
+            ? { duration: 3, repeat: Infinity, repeatType: "reverse" }
+            : undefined
+        }
+        style={{
+          backgroundSize: animate ? "200% 200%" : undefined,
+        }}
+        className={cn(
+          "absolute inset-0 z-[1]",
+          "bg-[linear-gradient(90deg,#1746A2,#5F9DF7,#d4621c,#5F9DF7,#1746A2)]"
+        )}
+      />
 
-//       <div className={cn("relative z-10", className)}>
-//         {children}
-//       </div>
-//     </div>
-//   );
-// };
+      <div className={cn("relative z-10", className)}>
+        {children}
+      </div>
+    </div>
+  );
+};
 
 /* ------------------------------------------------------------------ */
 /* ------------------------- SPOTLIGHT EFFECT ----------------------- */

@@ -1,689 +1,424 @@
-// import { useState } from 'react';
-// import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { useMemo, useState } from 'react';
+import { useGetDashboardQuery } from '../../app/services/analyticsAPI';
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  PieChart,
+  Pie,
+  Cell,
+} from 'recharts';
 
-// // Sample Data Structure
-// const initialDomainData = [
-//   { domain: "Web Development", dailyProjects: { "2025-03-20": 12, "2025-03-21": 14, "2025-03-22": 10, "2025-03-23": 15, "2025-03-24": 18, "2025-03-25": 20 }, evaluated: 45, partiallyEvaluated: 28, completelyEvaluated: 32, judges: 8 },
-//   { domain: "AI/ML", dailyProjects: { "2025-03-20": 8, "2025-03-21": 10, "2025-03-22": 12, "2025-03-23": 9, "2025-03-24": 11, "2025-03-25": 14 }, evaluated: 38, partiallyEvaluated: 22, completelyEvaluated: 28, judges: 6 },
-//   { domain: "Mobile Apps", dailyProjects: { "2025-03-20": 6, "2025-03-21": 7, "2025-03-22": 9, "2025-03-23": 8, "2025-03-24": 10, "2025-03-25": 11 }, evaluated: 28, partiallyEvaluated: 18, completelyEvaluated: 22, judges: 5 },
-//   { domain: "Cloud Computing", dailyProjects: { "2025-03-20": 5, "2025-03-21": 6, "2025-03-22": 7, "2025-03-23": 8, "2025-03-24": 9, "2025-03-25": 10 }, evaluated: 25, partiallyEvaluated: 15, completelyEvaluated: 20, judges: 4 },
-//   { domain: "Cybersecurity", dailyProjects: { "2025-03-20": 4, "2025-03-21": 5, "2025-03-22": 6, "2025-03-23": 7, "2025-03-24": 8, "2025-03-25": 9 }, evaluated: 22, partiallyEvaluated: 12, completelyEvaluated: 18, judges: 4 }
-// ];
-
-// const geographicData = {
-//   outsideMaharashtra: 28,
-//   fromMaharashtra: 72,
-//   international: 15,
-//   national: 85,
-//   withinPune: 45,
-//   outsidePune: 55
-// };
-
-// const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec489a'];
-
-// const AnalyticsDashboard = () => {
-//   const [domainData] = useState(initialDomainData);
-  
-//   // Prepare data for daily allocated projects across domains
-//   const getAllDates = () => {
-//     const datesSet = new Set();
-//     domainData.forEach(domain => {
-//       Object.keys(domain.dailyProjects).forEach(date => datesSet.add(date));
-//     });
-//     return Array.from(datesSet).sort();
-//   };
-  
-//   const dates = getAllDates();
-  
-//   const getDailyProjectData = () => {
-//     return dates.map(date => {
-//       const dataPoint = { date };
-//       domainData.forEach(domain => {
-//         dataPoint[domain.domain] = domain.dailyProjects[date] || 0;
-//       });
-//       return dataPoint;
-//     });
-//   };
-  
-//   const dailyProjectData = getDailyProjectData();
-  
-//   // Prepare evaluation summary data
-//   const evaluationData = domainData.map(domain => ({
-//     domain: domain.domain,
-//     Evaluated: domain.evaluated,
-//     PartiallyEvaluated: domain.partiallyEvaluated,
-//     CompletelyEvaluated: domain.completelyEvaluated
-//   }));
-  
-//   // Pie data for geographic distribution
-//   const locationTypeData = [
-//     { name: 'Outside Maharashtra', value: geographicData.outsideMaharashtra },
-//     { name: 'From Maharashtra', value: geographicData.fromMaharashtra }
-//   ];
-  
-//   const scopeData = [
-//     { name: 'International', value: geographicData.international },
-//     { name: 'National', value: geographicData.national }
-//   ];
-  
-//   const puneData = [
-//     { name: 'Within Pune', value: geographicData.withinPune },
-//     { name: 'Outside Pune', value: geographicData.outsidePune }
-//   ];
-  
-//   // Calculate totals for cards
-//   const totalProjectsAllocated = domainData.reduce((sum, domain) => {
-//     const dailySum = Object.values(domain.dailyProjects).reduce((a, b) => a + b, 0);
-//     return sum + dailySum;
-//   }, 0);
-  
-//   const totalEvaluated = domainData.reduce((sum, domain) => sum + domain.evaluated, 0);
-//   const totalPartiallyEvaluated = domainData.reduce((sum, domain) => sum + domain.partiallyEvaluated, 0);
-//   const totalCompletelyEvaluated = domainData.reduce((sum, domain) => sum + domain.completelyEvaluated, 0);
-//   const totalJudges = domainData.reduce((sum, domain) => sum + domain.judges, 0);
-  
-//   return (
-//     <div className="p-6 bg-gray-50 min-h-screen">
-//       {/* Header */}
-//       <div className="mb-8">
-//         <h1 className="text-3xl font-bold text-gray-800">📊 Project Evaluation Analytics Dashboard</h1>
-//         <p className="text-gray-600 mt-2">Domain-wise tracking | Judge metrics | Geographic insights</p>
-//       </div>
-      
-//       {/* KPI Cards Row */}
-//       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
-//         <div className="bg-white rounded-2xl shadow-md p-5 border-l-8 border-blue-500">
-//           <div className="flex items-center justify-between">
-//             <div>
-//               <p className="text-gray-500 text-sm">Total Allocated Projects</p>
-//               <p className="text-3xl font-bold text-gray-800">{totalProjectsAllocated}</p>
-//             </div>
-//             <i className="fas fa-tasks text-4xl text-blue-300"></i>
-//           </div>
-//         </div>
-        
-//         <div className="bg-white rounded-2xl shadow-md p-5 border-l-8 border-green-500">
-//           <div className="flex items-center justify-between">
-//             <div>
-//               <p className="text-gray-500 text-sm">Evaluated Projects</p>
-//               <p className="text-3xl font-bold text-green-600">{totalEvaluated}</p>
-//             </div>
-//             <i className="fas fa-check-circle text-4xl text-green-300"></i>
-//           </div>
-//         </div>
-        
-//         <div className="bg-white rounded-2xl shadow-md p-5 border-l-8 border-yellow-500">
-//           <div className="flex items-center justify-between">
-//             <div>
-//               <p className="text-gray-500 text-sm">Partially Evaluated</p>
-//               <p className="text-3xl font-bold text-yellow-600">{totalPartiallyEvaluated}</p>
-//             </div>
-//             <i className="fas fa-hourglass-half text-4xl text-yellow-300"></i>
-//           </div>
-//         </div>
-        
-//         <div className="bg-white rounded-2xl shadow-md p-5 border-l-8 border-emerald-500">
-//           <div className="flex items-center justify-between">
-//             <div>
-//               <p className="text-gray-500 text-sm">Completely Evaluated</p>
-//               <p className="text-3xl font-bold text-emerald-600">{totalCompletelyEvaluated}</p>
-//             </div>
-//             <i className="fas fa-clipboard-check text-4xl text-emerald-300"></i>
-//           </div>
-//         </div>
-        
-//         <div className="bg-white rounded-2xl shadow-md p-5 border-l-8 border-purple-500">
-//           <div className="flex items-center justify-between">
-//             <div>
-//               <p className="text-gray-500 text-sm">Total Judges (All Domains)</p>
-//               <p className="text-3xl font-bold text-purple-600">{totalJudges}</p>
-//             </div>
-//             <i className="fas fa-gavel text-4xl text-purple-300"></i>
-//           </div>
-//         </div>
-//       </div>
-      
-//       {/* Charts Section: Bar Chart for Daily Allocated Projects */}
-//       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-//         <div className="bg-white p-5 rounded-2xl shadow-md">
-//           <h2 className="text-xl font-semibold text-gray-700 mb-4"><i className="fas fa-chart-line mr-2 text-blue-500"></i> Daily Allocated Projects (Per Domain)</h2>
-//           <ResponsiveContainer width="100%" height={350}>
-//             <BarChart data={dailyProjectData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-//               <CartesianGrid strokeDasharray="3 3" />
-//               <XAxis dataKey="date" />
-//               <YAxis />
-//               <Tooltip />
-//               <Legend />
-//               {domainData.map((domain, idx) => (
-//                 <Bar key={domain.domain} dataKey={domain.domain} fill={COLORS[idx % COLORS.length]} />
-//               ))}
-//             </BarChart>
-//           </ResponsiveContainer>
-//           <p className="text-xs text-gray-400 mt-2 text-center">Daily projects allocated across domains (last 6 days)</p>
-//         </div>
-        
-//         {/* Evaluation Status Stacked Bar */}
-//         <div className="bg-white p-5 rounded-2xl shadow-md">
-//           <h2 className="text-xl font-semibold text-gray-700 mb-4"><i className="fas fa-chart-simple mr-2 text-green-500"></i> Evaluation Summary: Evaluated / Partially / Completely</h2>
-//           <ResponsiveContainer width="100%" height={350}>
-//             <BarChart data={evaluationData} layout="vertical" margin={{ top: 20, right: 30, left: 100, bottom: 5 }}>
-//               <CartesianGrid strokeDasharray="3 3" />
-//               <XAxis type="number" />
-//               <YAxis type="category" dataKey="domain" />
-//               <Tooltip />
-//               <Legend />
-//               <Bar dataKey="Evaluated" stackId="a" fill="#3b82f6" />
-//               <Bar dataKey="PartiallyEvaluated" stackId="a" fill="#f59e0b" />
-//               <Bar dataKey="CompletelyEvaluated" stackId="a" fill="#10b981" />
-//             </BarChart>
-//           </ResponsiveContainer>
-//           <p className="text-xs text-gray-400 mt-2 text-center">Horizontal stacked view: total evaluated projects breakdown per domain</p>
-//         </div>
-//       </div>
-      
-//       {/* Domain-wise Judges Cards */}
-//       <div className="mb-8">
-//         <h2 className="text-xl font-semibold text-gray-700 mb-4"><i className="fas fa-users mr-2 text-purple-500"></i> Judges per Domain</h2>
-//         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-//           {domainData.map((domain, idx) => (
-//             <div key={domain.domain} className="bg-gradient-to-br from-white to-gray-50 rounded-xl shadow p-4 text-center border-t-4" style={{ borderTopColor: COLORS[idx % COLORS.length] }}>
-//               <i className="fas fa-user-tie text-3xl mb-2" style={{ color: COLORS[idx % COLORS.length] }}></i>
-//               <h3 className="font-bold text-gray-700">{domain.domain}</h3>
-//               <p className="text-2xl font-bold">{domain.judges}</p>
-//               <p className="text-xs text-gray-500">Active Judges</p>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-      
-//       {/* Geographic Analytics: Cards + Pie Charts */}
-//       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-//         {/* Maharashtra vs Outside Maharashtra Card + Pie */}
-//         <div className="bg-white rounded-2xl shadow-md p-5">
-//           <h3 className="text-lg font-semibold text-gray-700 mb-3"><i className="fas fa-map-marker-alt text-red-500 mr-2"></i> Maharashtra Origin</h3>
-//           <div className="flex justify-between items-center mb-4">
-//             <div className="text-center flex-1">
-//               <p className="text-sm text-gray-500">Outside Maharashtra</p>
-//               <p className="text-2xl font-bold text-blue-600">{geographicData.outsideMaharashtra}</p>
-//             </div>
-//             <div className="text-center flex-1">
-//               <p className="text-sm text-gray-500">From Maharashtra</p>
-//               <p className="text-2xl font-bold text-green-600">{geographicData.fromMaharashtra}</p>
-//             </div>
-//           </div>
-//           <div className="h-48 w-full">
-//             <ResponsiveContainer width="100%" height="100%">
-//               <PieChart>
-//                 <Pie data={locationTypeData} cx="50%" cy="50%" innerRadius={40} outerRadius={70} paddingAngle={2} dataKey="value" label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}>
-//                   {locationTypeData.map((entry, index) => (
-//                     <Cell key={`cell-${index}`} fill={index === 0 ? '#3b82f6' : '#10b981'} />
-//                   ))}
-//                 </Pie>
-//                 <Tooltip />
-//               </PieChart>
-//             </ResponsiveContainer>
-//           </div>
-//           <p className="text-center text-xs text-gray-400 mt-2">Intern/participant distribution by Maharashtra state</p>
-//         </div>
-        
-//         {/* International vs National Card */}
-//         <div className="bg-white rounded-2xl shadow-md p-5">
-//           <h3 className="text-lg font-semibold text-gray-700 mb-3"><i className="fas fa-globe text-indigo-500 mr-2"></i> International vs National</h3>
-//           <div className="flex justify-between items-center mb-4">
-//             <div className="text-center flex-1">
-//               <p className="text-sm text-gray-500">International</p>
-//               <p className="text-2xl font-bold text-indigo-600">{geographicData.international}</p>
-//             </div>
-//             <div className="text-center flex-1">
-//               <p className="text-sm text-gray-500">National</p>
-//               <p className="text-2xl font-bold text-cyan-600">{geographicData.national}</p>
-//             </div>
-//           </div>
-//           <div className="h-48 w-full">
-//             <ResponsiveContainer width="100%" height="100%">
-//               <PieChart>
-//                 <Pie data={scopeData} cx="50%" cy="50%" innerRadius={40} outerRadius={70} dataKey="value" label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}>
-//                   {scopeData.map((entry, index) => (
-//                     <Cell key={`cell-${index}`} fill={index === 0 ? '#8b5cf6' : '#06b6d4'} />
-//                   ))}
-//                 </Pie>
-//                 <Tooltip />
-//               </PieChart>
-//             </ResponsiveContainer>
-//           </div>
-//           <p className="text-center text-xs text-gray-400 mt-2">Scope: International participants vs National participants</p>
-//         </div>
-        
-//         {/* Within Pune vs Outside Pune Card */}
-//         <div className="bg-white rounded-2xl shadow-md p-5">
-//           <h3 className="text-lg font-semibold text-gray-700 mb-3"><i className="fas fa-city text-orange-500 mr-2"></i> Pune Region Distribution</h3>
-//           <div className="flex justify-between items-center mb-4">
-//             <div className="text-center flex-1">
-//               <p className="text-sm text-gray-500">Within Pune</p>
-//               <p className="text-2xl font-bold text-orange-600">{geographicData.withinPune}</p>
-//             </div>
-//             <div className="text-center flex-1">
-//               <p className="text-sm text-gray-500">Outside Pune</p>
-//               <p className="text-2xl font-bold text-amber-600">{geographicData.outsidePune}</p>
-//             </div>
-//           </div>
-//           <div className="h-48 w-full">
-//             <ResponsiveContainer width="100%" height="100%">
-//               <PieChart>
-//                 <Pie data={puneData} cx="50%" cy="50%" innerRadius={40} outerRadius={70} dataKey="value" label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}>
-//                   {puneData.map((entry, index) => (
-//                     <Cell key={`cell-${index}`} fill={index === 0 ? '#f97316' : '#fbbf24'} />
-//                   ))}
-//                 </Pie>
-//                 <Tooltip />
-//               </PieChart>
-//             </ResponsiveContainer>
-//           </div>
-//           <p className="text-center text-xs text-gray-400 mt-2">Based on intern / participant location (Pune district)</p>
-//         </div>
-//       </div>
-      
-//       {/* Additional Summary Cards for quick stats */}
-//       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-//         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 shadow-sm flex items-center">
-//           <i className="fas fa-chalkboard-user text-3xl text-blue-600 mr-4"></i>
-//           <div>
-//             <p className="text-sm text-gray-500">Total Domain Categories</p>
-//             <p className="text-2xl font-bold">{domainData.length}</p>
-//           </div>
-//         </div>
-//         <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4 shadow-sm flex items-center">
-//           <i className="fas fa-chart-pie text-3xl text-green-600 mr-4"></i>
-//           <div>
-//             <p className="text-sm text-gray-500">Avg. Completion Rate</p>
-//             <p className="text-2xl font-bold">{Math.round((totalCompletelyEvaluated / (totalEvaluated || 1)) * 100)}%</p>
-//           </div>
-//         </div>
-//         <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 shadow-sm flex items-center">
-//           <i className="fas fa-people-arrows text-3xl text-purple-600 mr-4"></i>
-//           <div>
-//             <p className="text-sm text-gray-500">Judges to Projects Ratio</p>
-//             <p className="text-2xl font-bold">{(totalProjectsAllocated / totalJudges).toFixed(1)}</p>
-//           </div>
-//         </div>
-//       </div>
-      
-//       {/* Detailed Domain Table (extra info) */}
-//       <div className="mt-8 bg-white rounded-2xl shadow-md overflow-hidden">
-//         <div className="px-6 py-4 bg-gray-100 border-b">
-//           <h2 className="text-lg font-semibold text-gray-700"><i className="fas fa-table mr-2"></i> Domain-wise Detailed Metrics</h2>
-//         </div>
-//         <div className="overflow-x-auto">
-//           <table className="min-w-full divide-y divide-gray-200">
-//             <thead className="bg-gray-50">
-//               <tr>
-//                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Domain</th>
-//                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Allocated (Last 6d)</th>
-//                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Evaluated</th>
-//                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Partially Eval.</th>
-//                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Completely Eval.</th>
-//                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Judges Count</th>
-//               </tr>
-//             </thead>
-//             <tbody className="bg-white divide-y divide-gray-200">
-//               {domainData.map((domain) => {
-//                 const totalAllocatedDomain = Object.values(domain.dailyProjects).reduce((a, b) => a + b, 0);
-//                 return (
-//                   <tr key={domain.domain} className="hover:bg-gray-50">
-//                     <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">{domain.domain}</td>
-//                     <td className="px-6 py-4 whitespace-nowrap text-gray-600">{totalAllocatedDomain}</td>
-//                     <td className="px-6 py-4 whitespace-nowrap text-blue-600 font-medium">{domain.evaluated}</td>
-//                     <td className="px-6 py-4 whitespace-nowrap text-yellow-600">{domain.partiallyEvaluated}</td>
-//                     <td className="px-6 py-4 whitespace-nowrap text-green-600">{domain.completelyEvaluated}</td>
-//                     <td className="px-6 py-4 whitespace-nowrap text-purple-600 font-bold">{domain.judges}</td>
-//                   </tr>
-//                 );
-//               })}
-//             </tbody>
-//           </table>
-//         </div>
-//       </div>
-      
-//       <footer className="mt-8 text-center text-xs text-gray-400 border-t pt-4">
-//         <p>Analytics Dashboard — Real-time domain insights | Project evaluation status | Geographic segmentation (Maharashtra, Pune, National/International)</p>
-//       </footer>
-//     </div>
-//   );
-// };
-
-// export default AnalyticsDashboard;
-
-import { useState } from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
-
-// Sample Data Structure
-const initialDomainData = [
-  { domain: "Web Development", dailyProjects: { "2025-03-20": 12, "2025-03-21": 14, "2025-03-22": 10, "2025-03-23": 15, "2025-03-24": 18, "2025-03-25": 20 }, evaluated: 45, partiallyEvaluated: 28, completelyEvaluated: 32, judges: 8 },
-  { domain: "AI/ML", dailyProjects: { "2025-03-20": 8, "2025-03-21": 10, "2025-03-22": 12, "2025-03-23": 9, "2025-03-24": 11, "2025-03-25": 14 }, evaluated: 38, partiallyEvaluated: 22, completelyEvaluated: 28, judges: 6 },
-  { domain: "Mobile Apps", dailyProjects: { "2025-03-20": 6, "2025-03-21": 7, "2025-03-22": 9, "2025-03-23": 8, "2025-03-24": 10, "2025-03-25": 11 }, evaluated: 28, partiallyEvaluated: 18, completelyEvaluated: 22, judges: 5 },
-  { domain: "Cloud Computing", dailyProjects: { "2025-03-20": 5, "2025-03-21": 6, "2025-03-22": 7, "2025-03-23": 8, "2025-03-24": 9, "2025-03-25": 10 }, evaluated: 25, partiallyEvaluated: 15, completelyEvaluated: 20, judges: 4 },
-  { domain: "Cybersecurity", dailyProjects: { "2025-03-20": 4, "2025-03-21": 5, "2025-03-22": 6, "2025-03-23": 7, "2025-03-24": 8, "2025-03-25": 9 }, evaluated: 22, partiallyEvaluated: 12, completelyEvaluated: 18, judges: 4 }
-];
-
-const geographicData = {
-  outsideMaharashtra: 28,
-  fromMaharashtra: 72,
-  international: 15,
-  national: 85,
-  withinPune: 45,
-  outsidePune: 55
+const COLORS = ['#1746A2', '#5F9DF7', '#d4621c', '#2e7aa0', '#4cb6ff', '#ff9d4a'];
+const DOMAIN_COLOR_MAP = {
+  AD: '#3B82F6',
+  CN: '#22C55E',
+  DS: '#F59E0B',
+  ES: '#A855F7',
+  ML: '#EF4444',
+  OT: '#14B8A6',
 };
 
-const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec489a'];
+const DOMAIN_FULL_NAME_MAP = {
+  AD: 'Application Development',
+  CN: 'Communication Networks and Security Systems',
+  DS: 'Digital / Image / Speech / Video Processing',
+  ES: 'Embedded / VLSI Systems',
+  ML: 'Machine Learning and Pattern Recognition',
+  OT: 'Others',
+};
 
-// Reusable Dashboard Content Component
-const DashboardContent = ({ domainData, geographicData, colors }) => {
-  // Prepare data for daily allocated projects across domains
-  const getAllDates = () => {
+const CHART_THEME = {
+  grid: 'rgba(95, 157, 247, 0.18)',
+  axis: '#94a3b8',
+  tooltipBg: '#021720',
+  tooltipBorder: '#1746A2',
+  tooltipText: '#FFF7E9',
+  hoverBand: 'rgba(95, 157, 247, 0.14)',
+};
+
+const cardBase =
+  'bg-primary rounded-2xl backdrop-blur-sm shadow-[0_20px_56px_rgba(0,0,0,0.6)] border-2 border-white/15';
+const sectionWrap = 'space-y-3 p-4 sm:p-5 rounded-2xl bg-primary/20';
+
+const formatDateLabel = (dateString) => {
+  const date = new Date(dateString);
+  if (Number.isNaN(date.getTime())) return dateString;
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+};
+
+const clampPercent = (value) => Math.max(0, Math.min(100, value));
+
+const CustomTooltip = ({ active, payload, label }) => {
+  if (!active || !payload || !payload.length) return null;
+
+  return (
+    <div
+      className="rounded-lg px-3 py-2 shadow-[0_8px_30px_rgba(0,0,0,0.4)]"
+      style={{
+        backgroundColor: CHART_THEME.tooltipBg,
+        color: CHART_THEME.tooltipText,
+      }}
+    >
+      {label ? <p className="text-xs text-white-100/80 mb-1">{formatDateLabel(label)}</p> : null}
+      {payload.map((entry) => (
+        <p key={entry.name} className="text-xs" style={{ color: entry.color }}>
+          {entry.name}: <span className="font-semibold">{entry.value}</span>
+        </p>
+      ))}
+    </div>
+  );
+};
+
+const KpiCard = ({ title, value, valueClassName, accent }) => (
+  <div className={`${cardBase} p-4 sm:p-5 relative overflow-hidden`}>
+    <span className="absolute inset-x-0 top-0 h-[2px]" style={{ backgroundColor: accent }} />
+    <p className="text-[11px] uppercase tracking-[0.16em] text-white-100/70">{title}</p>
+    <p className={`mt-2 text-2xl sm:text-3xl font-bold ${valueClassName}`}>{value}</p>
+  </div>
+);
+
+const ExecutiveCard = ({ label, value, tone = 'text-white-100', subtext }) => (
+  <div className={`${cardBase} p-4 sm:p-5`}>
+    <p className="text-[11px] uppercase tracking-[0.16em] text-white-100/60">{label}</p>
+    <p className={`mt-2 text-xl sm:text-2xl font-bold ${tone}`}>{value}</p>
+    {subtext ? <p className="mt-1 text-xs text-secondary">{subtext}</p> : null}
+  </div>
+);
+
+const SectionTitle = ({ children }) => (
+  <h2 className="text-base sm:text-lg font-semibold tracking-wide text-white-100/95">{children}</h2>
+);
+
+const getDomainColor = (domain, idx) => DOMAIN_COLOR_MAP[domain] || COLORS[idx % COLORS.length];
+const getDomainFullName = (domain) => DOMAIN_FULL_NAME_MAP[domain] || domain;
+
+const DashboardContent = ({ domainData, geographicData }) => {
+  const computed = useMemo(() => {
     const datesSet = new Set();
-    domainData.forEach(domain => {
-      Object.keys(domain.dailyProjects).forEach(date => datesSet.add(date));
+    domainData.forEach((domain) => {
+      Object.keys(domain.dailyProjects).forEach((date) => datesSet.add(date));
     });
-    return Array.from(datesSet).sort();
-  };
-  
-  const dates = getAllDates();
-  
-  const getDailyProjectData = () => {
-    return dates.map(date => {
-      const dataPoint = { date };
-      domainData.forEach(domain => {
-        dataPoint[domain.domain] = domain.dailyProjects[date] || 0;
+    const dates = Array.from(datesSet).sort();
+
+    const dailyProjectData = dates.map((date) => {
+      const point = { date };
+      domainData.forEach((domain) => {
+        point[domain.domain] = domain.dailyProjects[date] || 0;
       });
-      return dataPoint;
+      return point;
     });
-  };
-  
-  const dailyProjectData = getDailyProjectData();
-  
-  // Prepare evaluation summary data
-  const evaluationData = domainData.map(domain => ({
-    domain: domain.domain,
-    Evaluated: domain.evaluated,
-    PartiallyEvaluated: domain.partiallyEvaluated,
-    CompletelyEvaluated: domain.completelyEvaluated
-  }));
-  
-  // Pie data for geographic distribution
+
+    const evaluationData = domainData.map((domain) => ({
+      domain: domain.domain,
+      Evaluated: domain.evaluated,
+      PartiallyEvaluated: domain.partiallyEvaluated,
+      CompletelyEvaluated: domain.completelyEvaluated,
+    }));
+
+    const totalProjectsAllocated = domainData.reduce((sum, domain) => {
+      const dailySum = Object.values(domain.dailyProjects).reduce((a, b) => a + b, 0);
+      return sum + dailySum;
+    }, 0);
+
+    const totalEvaluated = domainData.reduce((sum, domain) => sum + domain.evaluated, 0);
+    const totalPartiallyEvaluated = domainData.reduce(
+      (sum, domain) => sum + domain.partiallyEvaluated,
+      0
+    );
+    const totalCompletelyEvaluated = domainData.reduce(
+      (sum, domain) => sum + domain.completelyEvaluated,
+      0
+    );
+    const totalJudges = domainData.reduce((sum, domain) => sum + domain.judges, 0);
+
+    const avgCompletionRate = clampPercent(
+      Math.round((totalCompletelyEvaluated / (totalEvaluated || 1)) * 100)
+    );
+    const datesWithTotals = dates.map((date) => ({
+      date,
+      total: domainData.reduce((sum, domain) => sum + (domain.dailyProjects[date] || 0), 0),
+    }));
+    const latest = datesWithTotals[datesWithTotals.length - 1] || { total: 0 };
+    const previous = datesWithTotals[datesWithTotals.length - 2] || { total: 0 };
+    const delta = latest.total - previous.total;
+    const deltaPct =
+      previous.total > 0 ? Math.round((delta / previous.total) * 100) : latest.total > 0 ? 100 : 0;
+
+    return {
+      dailyProjectData,
+      evaluationData,
+      totalProjectsAllocated,
+      totalEvaluated,
+      totalPartiallyEvaluated,
+      totalCompletelyEvaluated,
+      totalJudges,
+      totalDomains: domainData.length,
+      avgCompletionRate,
+      judgesToProjectsRatio: (totalProjectsAllocated / (totalJudges || 1)).toFixed(1),
+      latestDailyAllocation: latest.total,
+      dailyDelta: delta,
+      dailyDeltaPct: deltaPct,
+    };
+  }, [domainData]);
+
   const locationTypeData = [
     { name: 'Outside Maharashtra', value: geographicData.outsideMaharashtra },
-    { name: 'From Maharashtra', value: geographicData.fromMaharashtra }
+    { name: 'From Maharashtra', value: geographicData.fromMaharashtra },
   ];
-  
+
   const scopeData = [
     { name: 'International', value: geographicData.international },
-    { name: 'National', value: geographicData.national }
+    { name: 'National', value: geographicData.national },
   ];
-  
+
   const puneData = [
     { name: 'Within Pune', value: geographicData.withinPune },
-    { name: 'Outside Pune', value: geographicData.outsidePune }
+    { name: 'Outside Pune', value: geographicData.outsidePune },
   ];
-  
-  // Calculate totals for cards
-  const totalProjectsAllocated = domainData.reduce((sum, domain) => {
-    const dailySum = Object.values(domain.dailyProjects).reduce((a, b) => a + b, 0);
-    return sum + dailySum;
-  }, 0);
-  
-  const totalEvaluated = domainData.reduce((sum, domain) => sum + domain.evaluated, 0);
-  const totalPartiallyEvaluated = domainData.reduce((sum, domain) => sum + domain.partiallyEvaluated, 0);
-  const totalCompletelyEvaluated = domainData.reduce((sum, domain) => sum + domain.completelyEvaluated, 0);
-  const totalJudges = domainData.reduce((sum, domain) => sum + domain.judges, 0);
-  
-  return (
-    <div>
-      {/* KPI Cards Row */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
-        <div className="bg-white rounded-2xl shadow-md p-5 border-l-8 border-blue-500">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-gray-500 text-sm">Total Allocated Projects</p>
-              <p className="text-3xl font-bold text-gray-800">{totalProjectsAllocated}</p>
-            </div>
-            <i className="fas fa-tasks text-4xl text-blue-300"></i>
-          </div>
-        </div>
-        
-        <div className="bg-white rounded-2xl shadow-md p-5 border-l-8 border-green-500">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-gray-500 text-sm">Evaluated Projects</p>
-              <p className="text-3xl font-bold text-green-600">{totalEvaluated}</p>
-            </div>
-            <i className="fas fa-check-circle text-4xl text-green-300"></i>
-          </div>
-        </div>
-        
-        <div className="bg-white rounded-2xl shadow-md p-5 border-l-8 border-yellow-500">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-gray-500 text-sm">Partially Evaluated</p>
-              <p className="text-3xl font-bold text-yellow-600">{totalPartiallyEvaluated}</p>
-            </div>
-            <i className="fas fa-hourglass-half text-4xl text-yellow-300"></i>
-          </div>
-        </div>
-        
-        <div className="bg-white rounded-2xl shadow-md p-5 border-l-8 border-emerald-500">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-gray-500 text-sm">Completely Evaluated</p>
-              <p className="text-3xl font-bold text-emerald-600">{totalCompletelyEvaluated}</p>
-            </div>
-            <i className="fas fa-clipboard-check text-4xl text-emerald-300"></i>
-          </div>
-        </div>
-        
-        <div className="bg-white rounded-2xl shadow-md p-5 border-l-8 border-purple-500">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-gray-500 text-sm">Total Judges (All Domains)</p>
-              <p className="text-3xl font-bold text-purple-600">{totalJudges}</p>
-            </div>
-            <i className="fas fa-gavel text-4xl text-purple-300"></i>
-          </div>
-        </div>
+
+  if (!domainData.length) {
+    return (
+      <div className={`${cardBase} p-8 text-center`}>
+        <p className="text-white-100/90 font-medium">No analytics data available.</p>
+        <p className="text-secondary text-sm mt-1">Please refresh once project metrics are synced.</p>
       </div>
-      
-      {/* Charts Section: Bar Chart for Daily Allocated Projects */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-        <div className="bg-white p-5 rounded-2xl shadow-md">
-          <h2 className="text-xl font-semibold text-gray-700 mb-4"><i className="fas fa-chart-line mr-2 text-blue-500"></i> Daily Allocated Projects (Per Domain)</h2>
-          <ResponsiveContainer width="100%" height={350}>
-            <BarChart data={dailyProjectData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="date" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
+    );
+  }
+
+  return (
+    <div className="space-y-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+        <ExecutiveCard
+          label="Today Allocation"
+          value={computed.latestDailyAllocation}
+          tone="text-light-blue"
+          subtext="Latest day in selected range"
+        />
+        <ExecutiveCard
+          label="Daily Trend"
+          value={`${computed.dailyDelta > 0 ? '+' : ''}${computed.dailyDelta} (${computed.dailyDeltaPct > 0 ? '+' : ''}${computed.dailyDeltaPct}%)`}
+          tone={computed.dailyDelta >= 0 ? 'text-emerald-400' : 'text-orange-100'}
+          subtext="Compared to previous day"
+        />
+        <ExecutiveCard
+          label="Completion Health"
+          value={`${computed.avgCompletionRate}%`}
+          tone="text-secondary"
+          subtext="Completely evaluated / evaluated"
+        />
+        <ExecutiveCard
+          label="Projects Per Judge"
+          value={computed.judgesToProjectsRatio}
+          tone="text-white-100"
+          subtext="Allocation efficiency indicator"
+        />
+      </div>
+
+      <div className={`${sectionWrap}`}>
+        <div className="flex items-center justify-between gap-2">
+          <span className="text-[11px] px-2 py-1 rounded-full bg-tertiary/70 text-secondary">
+            Live Snapshot
+          </span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+        <KpiCard
+          title="Total Allocated"
+          value={computed.totalProjectsAllocated}
+          valueClassName="text-white-100"
+          accent="#5F9DF7"
+        />
+        <KpiCard
+          title="Evaluated"
+          value={computed.totalEvaluated}
+          valueClassName="text-light-blue"
+          accent="#1746A2"
+        />
+        <KpiCard
+          title="Partially Evaluated"
+          value={computed.totalPartiallyEvaluated}
+          valueClassName="text-orange-100"
+          accent="#d4621c"
+        />
+        <KpiCard
+          title="Completely Evaluated"
+          value={computed.totalCompletelyEvaluated}
+          valueClassName="text-emerald-400"
+          accent="#34d399"
+        />
+        <KpiCard
+          title="Total Judges"
+          value={computed.totalJudges}
+          valueClassName="text-secondary"
+          accent="#5593ad"
+        />
+      </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <div className={`${cardBase} p-4 sm:p-5`}>
+          <SectionTitle>Daily Allocated Projects (Per Domain)</SectionTitle>
+          <p className="text-xs text-white-100/60 mt-1 mb-4">Last 6 days across all active domains.</p>
+          <ResponsiveContainer width="100%" height={340}>
+            <BarChart data={computed.dailyProjectData} margin={{ top: 10, right: 20, left: 0, bottom: 5 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke={CHART_THEME.grid} />
+              <XAxis
+                dataKey="date"
+                stroke={CHART_THEME.axis}
+                tick={{ fill: CHART_THEME.axis, fontSize: 11 }}
+                tickFormatter={formatDateLabel}
+              />
+              <YAxis stroke={CHART_THEME.axis} tick={{ fill: CHART_THEME.axis, fontSize: 11 }} />
+              <Tooltip content={<CustomTooltip />} cursor={{ fill: CHART_THEME.hoverBand }} />
+              <Legend wrapperStyle={{ color: CHART_THEME.axis, fontSize: 12 }} />
               {domainData.map((domain, idx) => (
-                <Bar key={domain.domain} dataKey={domain.domain} fill={colors[idx % colors.length]} />
+                <Bar
+                  key={domain.domain}
+                  dataKey={domain.domain}
+                  fill={getDomainColor(domain.domain, idx)}
+                  radius={[4, 4, 0, 0]}
+                />
               ))}
             </BarChart>
           </ResponsiveContainer>
-          <p className="text-xs text-gray-400 mt-2 text-center">Daily projects allocated across domains (last 6 days)</p>
         </div>
-        
-        {/* Evaluation Status Stacked Bar */}
-        <div className="bg-white p-5 rounded-2xl shadow-md">
-          <h2 className="text-xl font-semibold text-gray-700 mb-4"><i className="fas fa-chart-simple mr-2 text-green-500"></i> Evaluation Summary: Evaluated / Partially / Completely</h2>
-          <ResponsiveContainer width="100%" height={350}>
-            <BarChart data={evaluationData} layout="vertical" margin={{ top: 20, right: 30, left: 100, bottom: 5 }}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis type="number" />
-              <YAxis type="category" dataKey="domain" />
-              <Tooltip />
-              <Legend />
-              <Bar dataKey="Evaluated" stackId="a" fill="#3b82f6" />
-              <Bar dataKey="PartiallyEvaluated" stackId="a" fill="#f59e0b" />
+
+        <div className={`${cardBase} p-4 sm:p-5`}>
+          <SectionTitle>Evaluation Summary</SectionTitle>
+          <p className="text-xs text-white-100/60 mt-1 mb-4">Evaluated vs partial vs complete by domain.</p>
+          <ResponsiveContainer width="100%" height={340}>
+            <BarChart
+              data={computed.evaluationData}
+              layout="vertical"
+              margin={{ top: 10, right: 10, left: 35, bottom: 5 }}
+            >
+              <CartesianGrid strokeDasharray="3 3" stroke={CHART_THEME.grid} />
+              <XAxis type="number" stroke={CHART_THEME.axis} tick={{ fill: CHART_THEME.axis, fontSize: 11 }} />
+              <YAxis
+                type="category"
+                dataKey="domain"
+                stroke={CHART_THEME.axis}
+                tick={{ fill: CHART_THEME.axis, fontSize: 11 }}
+                width={120}
+              />
+              <Tooltip content={<CustomTooltip />} cursor={{ fill: CHART_THEME.hoverBand }} />
+              <Legend wrapperStyle={{ color: CHART_THEME.axis, fontSize: 12 }} />
+              <Bar dataKey="Evaluated" stackId="a" fill="#5F9DF7" />
+              <Bar dataKey="PartiallyEvaluated" stackId="a" fill="#d4621c" />
               <Bar dataKey="CompletelyEvaluated" stackId="a" fill="#10b981" />
             </BarChart>
           </ResponsiveContainer>
-          <p className="text-xs text-gray-400 mt-2 text-center">Horizontal stacked view: total evaluated projects breakdown per domain</p>
         </div>
       </div>
-      
-      {/* Domain-wise Judges Cards */}
-      <div className="mb-8">
-        <h2 className="text-xl font-semibold text-gray-700 mb-4"><i className="fas fa-users mr-2 text-purple-500"></i> Judges per Domain</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+
+      <div className={sectionWrap}>
+        <SectionTitle>Judges per Domain</SectionTitle>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3">
           {domainData.map((domain, idx) => (
-            <div key={domain.domain} className="bg-gradient-to-br from-white to-gray-50 rounded-xl shadow p-4 text-center border-t-4" style={{ borderTopColor: colors[idx % colors.length] }}>
-              <i className="fas fa-user-tie text-3xl mb-2" style={{ color: colors[idx % colors.length] }}></i>
-              <h3 className="font-bold text-gray-700">{domain.domain}</h3>
-              <p className="text-2xl font-bold">{domain.judges}</p>
-              <p className="text-xs text-gray-500">Active Judges</p>
+            <div
+              key={domain.domain}
+              className={`${cardBase} p-4 relative`}
+            >
+              <span
+                className="absolute top-3 right-4 h-2 w-2 rounded-full"
+                style={{ backgroundColor: getDomainColor(domain.domain, idx) }}
+              />
+              <p className="text-xs uppercase tracking-[0.16em] text-white-100/60">{domain.domain}</p>
+              <p className="mt-2 text-3xl font-bold text-white-100">{domain.judges}</p>
+              <p className="text-xs text-secondary">{getDomainFullName(domain.domain)}</p>
             </div>
           ))}
         </div>
       </div>
-      
-      {/* Geographic Analytics: Cards + Pie Charts */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-        {/* Maharashtra vs Outside Maharashtra Card + Pie */}
-        <div className="bg-white rounded-2xl shadow-md p-5">
-          <h3 className="text-lg font-semibold text-gray-700 mb-3"><i className="fas fa-map-marker-alt text-red-500 mr-2"></i> Maharashtra Origin</h3>
-          <div className="flex justify-between items-center mb-4">
-            <div className="text-center flex-1">
-              <p className="text-sm text-gray-500">Outside Maharashtra</p>
-              <p className="text-2xl font-bold text-blue-600">{geographicData.outsideMaharashtra}</p>
-            </div>
-            <div className="text-center flex-1">
-              <p className="text-sm text-gray-500">From Maharashtra</p>
-              <p className="text-2xl font-bold text-green-600">{geographicData.fromMaharashtra}</p>
-            </div>
-          </div>
-          <div className="h-48 w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie data={locationTypeData} cx="50%" cy="50%" innerRadius={40} outerRadius={70} paddingAngle={2} dataKey="value" label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}>
-                  {locationTypeData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={index === 0 ? '#3b82f6' : '#10b981'} />
-                  ))}
-                </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-          <p className="text-center text-xs text-gray-400 mt-2">Intern/participant distribution by Maharashtra state</p>
-        </div>
-        
-        {/* International vs National Card */}
-        <div className="bg-white rounded-2xl shadow-md p-5">
-          <h3 className="text-lg font-semibold text-gray-700 mb-3"><i className="fas fa-globe text-indigo-500 mr-2"></i> International vs National</h3>
-          <div className="flex justify-between items-center mb-4">
-            <div className="text-center flex-1">
-              <p className="text-sm text-gray-500">International</p>
-              <p className="text-2xl font-bold text-indigo-600">{geographicData.international}</p>
-            </div>
-            <div className="text-center flex-1">
-              <p className="text-sm text-gray-500">National</p>
-              <p className="text-2xl font-bold text-cyan-600">{geographicData.national}</p>
-            </div>
-          </div>
-          <div className="h-48 w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie data={scopeData} cx="50%" cy="50%" innerRadius={40} outerRadius={70} dataKey="value" label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}>
-                  {scopeData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={index === 0 ? '#8b5cf6' : '#06b6d4'} />
-                  ))}
-                </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-          <p className="text-center text-xs text-gray-400 mt-2">Scope: International participants vs National participants</p>
-        </div>
-        
-        {/* Within Pune vs Outside Pune Card */}
-        <div className="bg-white rounded-2xl shadow-md p-5">
-          <h3 className="text-lg font-semibold text-gray-700 mb-3"><i className="fas fa-city text-orange-500 mr-2"></i> Pune Region Distribution</h3>
-          <div className="flex justify-between items-center mb-4">
-            <div className="text-center flex-1">
-              <p className="text-sm text-gray-500">Within Pune</p>
-              <p className="text-2xl font-bold text-orange-600">{geographicData.withinPune}</p>
-            </div>
-            <div className="text-center flex-1">
-              <p className="text-sm text-gray-500">Outside Pune</p>
-              <p className="text-2xl font-bold text-amber-600">{geographicData.outsidePune}</p>
-            </div>
-          </div>
-          <div className="h-48 w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie data={puneData} cx="50%" cy="50%" innerRadius={40} outerRadius={70} dataKey="value" label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}>
-                  {puneData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={index === 0 ? '#f97316' : '#fbbf24'} />
-                  ))}
-                </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-          <p className="text-center text-xs text-gray-400 mt-2">Based on intern / participant location (Pune district)</p>
-        </div>
+
+      <div className={`${sectionWrap}`}>
+        <SectionTitle>Geographic Breakdown</SectionTitle>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+        <GeoCard
+          title="Maharashtra Origin"
+          leftLabel="Outside Maharashtra"
+          leftValue={geographicData.outsideMaharashtra}
+          rightLabel="From Maharashtra"
+          rightValue={geographicData.fromMaharashtra}
+          data={locationTypeData}
+          colors={['#1746A2', '#10b981']}
+        />
+        <GeoCard
+          title="International vs National"
+          leftLabel="International"
+          leftValue={geographicData.international}
+          rightLabel="National"
+          rightValue={geographicData.national}
+          data={scopeData}
+          colors={['#5F9DF7', '#d4621c']}
+        />
+        <GeoCard
+          title="Pune Region Distribution"
+          leftLabel="Within Pune"
+          leftValue={geographicData.withinPune}
+          rightLabel="Outside Pune"
+          rightValue={geographicData.outsidePune}
+          data={puneData}
+          colors={['#2e7aa0', '#ff9d4a']}
+        />
       </div>
-      
-      {/* Additional Summary Cards for quick stats */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 shadow-sm flex items-center">
-          <i className="fas fa-chalkboard-user text-3xl text-blue-600 mr-4"></i>
-          <div>
-            <p className="text-sm text-gray-500">Total Domain Categories</p>
-            <p className="text-2xl font-bold">{domainData.length}</p>
-          </div>
-        </div>
-        <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4 shadow-sm flex items-center">
-          <i className="fas fa-chart-pie text-3xl text-green-600 mr-4"></i>
-          <div>
-            <p className="text-sm text-gray-500">Avg. Completion Rate</p>
-            <p className="text-2xl font-bold">{Math.round((totalCompletelyEvaluated / (totalEvaluated || 1)) * 100)}%</p>
-          </div>
-        </div>
-        <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 shadow-sm flex items-center">
-          <i className="fas fa-people-arrows text-3xl text-purple-600 mr-4"></i>
-          <div>
-            <p className="text-sm text-gray-500">Judges to Projects Ratio</p>
-            <p className="text-2xl font-bold">{(totalProjectsAllocated / totalJudges).toFixed(1)}</p>
-          </div>
-        </div>
       </div>
-      
-      {/* Detailed Domain Table (extra info) */}
-      <div className="mt-8 bg-white rounded-2xl shadow-md overflow-hidden">
-        <div className="px-6 py-4 bg-gray-100 border-b">
-          <h2 className="text-lg font-semibold text-gray-700"><i className="fas fa-table mr-2"></i> Domain-wise Detailed Metrics</h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <SummaryCard
+          title="Domain Categories"
+          value={computed.totalDomains}
+          description="Total active domain groups"
+        />
+        <SummaryCard
+          title="Avg. Completion Rate"
+          value={`${computed.avgCompletionRate}%`}
+          description="Completely evaluated / evaluated"
+        />
+        <SummaryCard
+          title="Judges to Projects"
+          value={computed.judgesToProjectsRatio}
+          description="Allocated projects per judge"
+        />
+      </div>
+
+      <div className={`${cardBase} overflow-hidden`}>
+        <div className="px-5 py-4 bg-gradient-to-r from-dark-blue/20 to-orange-100/10">
+          <SectionTitle>Domain-wise Detailed Metrics</SectionTitle>
         </div>
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Domain</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Allocated (Last 6d)</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Evaluated</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Partially Eval.</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Completely Eval.</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Judges Count</th>
+          <table className="min-w-full">
+            <thead className="sticky top-0 z-10">
+              <tr className="text-left text-xs uppercase tracking-wider text-white-100/65 bg-primary">
+                <th className="px-5 py-3">Domain</th>
+                <th className="px-5 py-3">Total Allocated (6d)</th>
+                <th className="px-5 py-3">Evaluated</th>
+                <th className="px-5 py-3">Partially Eval.</th>
+                <th className="px-5 py-3">Completely Eval.</th>
+                <th className="px-5 py-3">Judges</th>
+                <th className="px-5 py-3">Completion %</th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              {domainData.map((domain) => {
+            <tbody>
+              {domainData.map((domain, idx) => {
                 const totalAllocatedDomain = Object.values(domain.dailyProjects).reduce((a, b) => a + b, 0);
+                const completionPct = clampPercent(
+                  Math.round((domain.completelyEvaluated / (domain.evaluated || 1)) * 100)
+                );
                 return (
-                  <tr key={domain.domain} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">{domain.domain}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-gray-600">{totalAllocatedDomain}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-blue-600 font-medium">{domain.evaluated}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-yellow-600">{domain.partiallyEvaluated}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-green-600">{domain.completelyEvaluated}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-purple-600 font-bold">{domain.judges}</td>
+                  <tr key={domain.domain} className={idx % 2 ? 'bg-tertiary/80' : 'bg-primary/45'}>
+                    <td className="px-5 py-3 font-medium text-white-100">{domain.domain}</td>
+                    <td className="px-5 py-3 text-white-100/85">{totalAllocatedDomain}</td>
+                    <td className="px-5 py-3 text-light-blue font-semibold">{domain.evaluated}</td>
+                    <td className="px-5 py-3 text-orange-100">{domain.partiallyEvaluated}</td>
+                    <td className="px-5 py-3 text-emerald-400">{domain.completelyEvaluated}</td>
+                    <td className="px-5 py-3 text-secondary font-semibold">{domain.judges}</td>
+                    <td className="px-5 py-3 text-white-100/90">{completionPct}%</td>
                   </tr>
                 );
               })}
@@ -695,90 +430,230 @@ const DashboardContent = ({ domainData, geographicData, colors }) => {
   );
 };
 
-// Main Dashboard Component with Tabs
+const GeoCard = ({ title, leftLabel, leftValue, rightLabel, rightValue, data, colors }) => (
+  <div className={`${cardBase} p-4 h-full`}>
+    <SectionTitle>{title}</SectionTitle>
+    <div className="grid grid-cols-2 gap-2 my-3">
+      <div className="rounded-md bg-primary/50 p-1.5 text-center">
+        <p className="text-[10px] text-white-100/65">{leftLabel}</p>
+        <p className="text-lg font-semibold leading-tight" style={{ color: colors[0] }}>
+          {leftValue}
+        </p>
+      </div>
+      <div className="rounded-md bg-primary/50 p-1.5 text-center">
+        <p className="text-[10px] text-white-100/65">{rightLabel}</p>
+        <p className="text-lg font-semibold leading-tight" style={{ color: colors[1] }}>
+          {rightValue}
+        </p>
+      </div>
+    </div>
+    <div className="h-36">
+      <ResponsiveContainer width="100%" height="100%">
+        <PieChart>
+          <Pie data={data} cx="50%" cy="50%" innerRadius={30} outerRadius={56} dataKey="value" paddingAngle={2}>
+            {data.map((entry, idx) => (
+              <Cell key={`${title}-${entry.name}`} fill={colors[idx % colors.length]} />
+            ))}
+          </Pie>
+          <Tooltip content={<CustomTooltip />} />
+        </PieChart>
+      </ResponsiveContainer>
+    </div>
+  </div>
+);
+
+const SummaryCard = ({ title, value, description }) => (
+  <div className={`${cardBase} p-4 sm:p-5`}>
+    <p className="text-xs uppercase tracking-[0.14em] text-white-100/65">{title}</p>
+    <p className="text-[2rem] leading-none font-bold text-white-100 mt-2">{value}</p>
+    <p className="text-xs text-secondary mt-1">{description}</p>
+  </div>
+);
+
+const TabButton = ({ label, active, onClick }) => (
+  <button
+    type="button"
+    aria-pressed={active}
+    onClick={onClick}
+    className={`relative px-3 sm:px-4 py-3 text-sm sm:text-base font-medium transition-colors duration-200 ${
+      active ? 'text-white-100' : 'text-white-100/55 hover:text-white-100/85'
+    }`}
+  >
+    {label}
+    <span
+      className={`absolute left-0 bottom-0 h-[2px] w-full transition-opacity duration-200 bg-gradient-to-r from-dark-blue via-light-blue to-orange-100 ${
+        active ? 'opacity-100' : 'opacity-0'
+      }`}
+    />
+  </button>
+);
+
+const normalizeDashboardData = (apiData) => {
+  if (!apiData) {
+    return {
+      domainData: [],
+      geographicData: {
+        outsideMaharashtra: 0,
+        fromMaharashtra: 0,
+        international: 0,
+        national: 0,
+        withinPune: 0,
+        outsidePune: 0,
+      },
+    };
+  }
+
+  const dailyTrend = Array.isArray(apiData.dailyTrend) ? apiData.dailyTrend : [];
+  const evaluationSummary = Array.isArray(apiData.evaluationSummary) ? apiData.evaluationSummary : [];
+  const judgesByDomain = Array.isArray(apiData.judgesByDomain) ? apiData.judgesByDomain : [];
+
+  const domainMap = new Map();
+
+  dailyTrend.forEach((row) => {
+    const domain = row?.domain || 'Unknown';
+    const rawDate = row?.allocation_date;
+    const date =
+      typeof rawDate === 'string' ? rawDate.split('T')[0] : rawDate instanceof Date ? rawDate.toISOString().split('T')[0] : '';
+    if (!domainMap.has(domain)) {
+      domainMap.set(domain, {
+        domain,
+        dailyProjects: {},
+        evaluated: 0,
+        partiallyEvaluated: 0,
+        completelyEvaluated: 0,
+        judges: 0,
+      });
+    }
+    if (date) {
+      domainMap.get(domain).dailyProjects[date] = Number(row?.allocated_projects || 0);
+    }
+  });
+
+  evaluationSummary.forEach((row) => {
+    const domain = row?.domain || 'Unknown';
+    if (!domainMap.has(domain)) {
+      domainMap.set(domain, {
+        domain,
+        dailyProjects: {},
+        evaluated: 0,
+        partiallyEvaluated: 0,
+        completelyEvaluated: 0,
+        judges: 0,
+      });
+    }
+    const target = domainMap.get(domain);
+    target.evaluated = Number(row?.evaluated_projects || 0);
+    target.partiallyEvaluated = Number(row?.partially_evaluated_projects || 0);
+    target.completelyEvaluated = Number(row?.completely_evaluated_projects || 0);
+  });
+
+  judgesByDomain.forEach((row) => {
+    const domain = row?.domain || 'Unknown';
+    if (!domainMap.has(domain)) {
+      domainMap.set(domain, {
+        domain,
+        dailyProjects: {},
+        evaluated: 0,
+        partiallyEvaluated: 0,
+        completelyEvaluated: 0,
+        judges: 0,
+      });
+    }
+    domainMap.get(domain).judges = Number(row?.judges_count || 0);
+  });
+
+  const geographic = apiData?.geographic || {};
+
+  return {
+    domainData: Array.from(domainMap.values()),
+    geographicData: {
+      outsideMaharashtra: Number(geographic.outside_maharashtra ?? 0),
+      fromMaharashtra: Number(geographic.from_maharashtra ?? 0),
+      international: Number(geographic.international ?? 0),
+      national: Number(geographic.national ?? 0),
+      withinPune: Number(geographic.within_pune ?? 0),
+      outsidePune: Number(geographic.outside_pune ?? 0),
+    },
+  };
+};
+
 const Dashboard = () => {
-  const [activeTab, setActiveTab] = useState('impeteus');
-  
-  // You can use different data for each tab if needed
-  // For now, both tabs show the same data
-  const impeteusData = {
-    domainData: initialDomainData,
-    geographicData: geographicData
+  const [activeTab, setActiveTab] = useState('impetus');
+  const { data: dashboardData, isFetching, isError } = useGetDashboardQuery(activeTab);
+
+  const tabData = {
+    impetus: {
+      info: 'Impetus track analytics and judging status overview.',
+      infoAccent: 'bg-light-blue',
+    },
+    concepts: {
+      info: 'Concepts track analytics and judging status overview.',
+      infoAccent: 'bg-orange-100',
+    },
   };
-  
-  const conceptsData = {
-    domainData: initialDomainData,
-    geographicData: geographicData
-  };
-  
+
+  const currentBase = tabData[activeTab] || tabData.impetus;
+  const current = useMemo(() => {
+    const normalized = normalizeDashboardData(dashboardData);
+
+    return {
+      ...currentBase,
+      domainData: normalized.domainData,
+      geographicData: normalized.geographicData,
+    };
+  }, [dashboardData, currentBase]);
+
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-800">📊 Project Evaluation Analytics Dashboard</h1>
-        <p className="text-gray-600 mt-2">Domain-wise tracking | Judge metrics | Geographic insights</p>
-      </div>
-      
-      {/* Tab Navigation */}
-      <div className="mb-8 border-b border-gray-200">
-        <div className="flex space-x-8">
-          <button
-            onClick={() => setActiveTab('impeteus')}
-            className={`py-4 px-1 text-lg font-medium transition-all duration-200 relative ${
-              activeTab === 'impeteus'
-                ? 'text-blue-600 border-b-2 border-blue-600'
-                : 'text-gray-500 hover:text-gray-700'
-            }`}
-          >
-            <i className="fas fa-rocket mr-2"></i>
-            Impeteus
-          </button>
-          <button
-            onClick={() => setActiveTab('concepts')}
-            className={`py-4 px-1 text-lg font-medium transition-all duration-200 relative ${
-              activeTab === 'concepts'
-                ? 'text-blue-600 border-b-2 border-blue-600'
-                : 'text-gray-500 hover:text-gray-700'
-            }`}
-          >
-            <i className="fas fa-lightbulb mr-2"></i>
-            Concepts
-          </button>
+    <div className="relative min-h-screen pt-20 sm:pt-24 p-3 sm:p-6 text-white-100 overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(95,157,247,0.18),transparent_55%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom,_rgba(212,98,28,0.14),transparent_55%)]" />
+      <div className="relative z-10 max-w-[1280px] mx-auto space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+          <div>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-wide">Project Evaluation Analytics</h1>
+          <p className="text-sm text-secondary mt-1">
+            Domain tracking, evaluation flow, judge metrics, and geographic insights
+          </p>
+          </div>
+          <span className="text-xs px-2.5 py-1.5 rounded-md bg-tertiary/70 text-white-100/75 w-fit">
+            Admin Dashboard
+          </span>
         </div>
-      </div>
-      
-      {/* Tab Content */}
-      <div className="tab-content">
-        {activeTab === 'impeteus' && (
-          <div>
-            <div className="mb-4 p-3 bg-blue-50 rounded-lg border border-blue-200">
-              <p className="text-blue-700"><i className="fas fa-info-circle mr-2"></i>Impeteus Track - Project evaluation and judge analytics</p>
-            </div>
-            <DashboardContent 
-              domainData={impeteusData.domainData} 
-              geographicData={impeteusData.geographicData}
-              colors={COLORS}
+
+        <div className="w-full">
+          <div className="flex gap-1 sm:gap-2">
+            <TabButton
+              label="Impetus"
+              active={activeTab === 'impetus'}
+              onClick={() => setActiveTab('impetus')}
+            />
+            <TabButton
+              label="Concepts"
+              active={activeTab === 'concepts'}
+              onClick={() => setActiveTab('concepts')}
             />
           </div>
-        )}
-        
-        {activeTab === 'concepts' && (
-          <div>
-            <div className="mb-4 p-3 bg-purple-50 rounded-lg border border-purple-200">
-              <p className="text-purple-700"><i className="fas fa-info-circle mr-2"></i>Concepts Track - Project evaluation and judge analytics</p>
-            </div>
-            <DashboardContent 
-              domainData={conceptsData.domainData} 
-              geographicData={conceptsData.geographicData}
-              colors={COLORS}
-            />
+        </div>
+
+        <div className="space-y-6">
+          <div className={`${cardBase} p-3 flex items-center gap-2`}>
+            <span className={`h-2 w-2 rounded-full ${current.infoAccent}`} />
+            <p className="text-sm text-white-100/90">
+              {current.info}
+              {isFetching ? ' Refreshing...' : ''}
+              {isError ? ' Failed to load analytics data.' : ''}
+            </p>
           </div>
-        )}
+          <DashboardContent
+            domainData={current.domainData}
+            geographicData={current.geographicData}
+          />
+        </div>
+
+        <footer className="pt-4 text-center text-xs text-white-100/55">
+          Analytics Dashboard | Real-time domain insights, evaluation status, and location segmentation
+        </footer>
       </div>
-      
-      <footer className="mt-8 text-center text-xs text-gray-400 border-t pt-4">
-        <p>Analytics Dashboard — Real-time domain insights | Project evaluation status | Geographic segmentation (Maharashtra, Pune, National/International)</p>
-      </footer>
     </div>
   );
 };

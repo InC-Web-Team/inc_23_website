@@ -51,11 +51,11 @@ export const navItems = [
       isHome: true,
       title: "Events",
     },
-    // {
-    //   id: "committee/core",
-    //   isHome: false,
-    //   title: "Committee",
-    // },
+    {
+      id: "committee/core",
+      isHome: false,
+      title: "Committee",
+    },
     {
     id: "schedule",
     isHome: false,
@@ -114,11 +114,11 @@ export const navItems = [
     isHome: false,
     title: "Project Judges",
   },
-  // {
-  //   id: "admin/view/analytics",
-  //   isHome: false,
-  //   title: "Analytics",
-  // },
+  {
+    id: "admin/view/analytics",
+    isHome: false,
+    title: "Analytics",
+  },
   {
     id: "admin/reallocate",
     isHome: false,
@@ -480,632 +480,596 @@ export const navItems = [
     ["concepts", "https://drive.google.com/file/d/1ofNZDXE4amY7tHBzFlsheI7AeWKoVb7b/view?usp=sharing"],
     ["pradnya", "https://drive.google.com/file/d/13tY1rm6j5eaJYHj9qgkHTYU58Y99OYF1/view?usp=sharing"],
   ])
-  const faculty = [
-    {
-      value: "Advisory Committee",
-      names: [
-        { value: "1. Director: Dr. P. T. Kulkarni" },
-        { value: "2. Principal: Dr. S. T. Gandhe" },
-        { value: "3. Convenor: Dr. G. P. Potdar" },
-        { value: "4. Co-Convenor: Prof. M R Khodaskar" },
-        { value: "5. HOCD: Dr. G.V. Kale" },
-        { value: "6. HOED: Dr. M.V. Munot" },
-        { value: "7. HOID: Dr. A. R. Ghotkar" },
-        { value: "8. HOAIDS: Dr. S.C. Dharmadhikari" },
-        { value: "9. HOECE: Dr. S.K. Moon" },
-        { value: "10. HOFD: Prof. E. M. Reddy" }
-      ]
-    },
-    {
-      value: "Coordination Team",
-      names: [
-        { value: "1. Prof. T A Rane (I.T)" },
-        { value: "2. Prof. H.B. Mali (EnTC)" },
-        { value: "3. Dr. S. V. Mundhe (BS&E)" }
-      ]
-    },
-    {
-      value: "Marketing",
-      names: [
-        { value: "1. Dr. S. S. Narkhede (E&TC)" },
-        { value: "2. Dr. A. M. Bagade (IT)" },
-        { value: "3. Dr. S. S. Sonawane (COMP)" },
-        { value: "4. Prof. P. R. Patil (COMP)" }
-      ]
-    },
-    {
-      value: "Guest Invitation & Hospitality",
-      names: [
-        { value: "1. Prof. M V Mane (COMP)" },
-        { value: "2. Prof. S. A Pawar (COMP)" },
-        { value: "3. Prof. P. A. Shinde (I.T)" },
-        { value: "4. Ms.S.L. Rane (I.T)" },
-        { value: "5. Ms. J N Buradkar (BS&E)" }
-      ]
-    },
-    {
-      value: "Publicity",
-      names: [
-        { value: "1. Dr. M. P. Turuk (E&TC)" },
-        { value: "2. Dr.A. S. Aphale (COMP)" },
-        { value: "3. Dr. G. S. Mundada & Dr. Emmanuel M." },
-        { value: "4. Prof. S. S. Pande (IT)" },
-        { value: "5. Dr. Achala Deshpande (COMP)" },
-        { value: "6. Prof. R.B. Murumkar (I.T)" },
-        { value: "7. Prof. H. S. Thakar (E&TC)" },
-        { value: "8. Prof. M. N. Kakade (E&TC)" },
-        { value: "9. Prof. S. R. Hiray (IT)" },
-        { value: "10. Prof. A. C. Karve (IT)" },
-        { value: "11. Dr. J. B. Jagdale (I.T)" },
-        { value: "12. Prof. P. S. Shahane (AIDS)" },
-        { value: "13. Prof. Y. A. Handge (COMP)" }
-      ]
-    },
-    {
-      value: "InC Synopsis book, Certificates Design Team",
-      names: [
-        { value: "1. Prof. B. P. Masram & Prof. A. G. Dhamankar" },
-        { value: "2. Mr. D. M. Mankar (E&TC)" }
-      ]
-    },
-    {
-      value: "Certificate Preparation & Distribution Committee",
-      names: [
-        { value: "1. Prof. V. B. Patole (BS&E)" },
-        { value: "2. Prof. A. V. Sagare (COMP)" },
-        { value: "3. Mr. V. A. Manmode (BS&E)" },
-        { value: "4. Mr. B. S. Jadhav (IT)" }
-      ]
-    },
-    {
-      value: "Website Management, Payment Gateways, Domain Registration, SSL Certificate",
-      names: [
-        { value: "1. Prof. P. J. Jambhulkar (COMP)" },
-        { value: "2. Mr. S. R. Shelar (IT)" }
-      ]
-    },
-    {
-      value: "Program Committee",
-      names: [
-        { value: "1. Prof. S. D. Hade (BS&E)" },
-        { value: "2. Prof. M.S Ghadage (BS&E)" }
-      ]
-    },
-    {
-      value: "Inauguration of InC in Labs",
-      names: [
-        { value: "1. Dr. K.C. Waghmare (COMP)" },
-        { value: "2. Prof. A. S. Kadam (IT)" },
-        { value: "3. Prof. S.C. Nahatkar (E&CE)" }
-      ]
-    },
-    {
-      value: "Memento Distribution to Judges/ Guests",
-      names: [
-        { value: "1. Prof. S. S. Khot (E&TC)" },
-        { value: "2. Prof. S A. Barde (BS&E)" },
-        { value: "3. Prof. A G Ghule (IT)" }
-      ]
-    },
-    {
-      value: "Judging - Concepts",
-      names: [
-        { value: "1. Dr. S. B. Deshmukh & Prof. M.S. Chavan" },
-        { value: "2. Prof. A. A. Chandorkar (COMP)" },
-        { value: "3. Prof. M.A. Chimanna (E&TC)" },
-        { value: "4. Prof. P S Agnihotri (E&TC)" },
-        { value: "5. Prof. V. Tribhuvan (IT)" },
-        { value: "6. Prof. Ameya. A Kadam (IT)" }
-      ]
-    },
-    {
-      value: "Judging - Impetus",
-      names: [
-        { value: "1. Prof. M. S. Wakode (COMP)" },
-        { value: "2. Prof. V. V. Bagade (COMP)" },
-        { value: "3. Prof. H. S. Kumbhar (COMP)" },
-        { value: "4. Prof. R. S. Chhattani (I.T)" },
-        { value: "5. Dr. S. T. Gawhale (BS&E)" }
-      ]
-    },
-    {
-      value: "Judging - Pradnya",
-      names: [
-        { value: "1. Prof. S.A. Jakhete (IT)" },
-        { value: "2. Prof. S.P. Shintre (COMP)" },
-        { value: "3. Ms. S. Gujar (COMP)" },
-        { value: "4. Ms. B.M. Katewal (IT)" }
-      ]
-    },
-    {
-      value: "Judging - TechFiesta",
-      names: [
-        { value: "1. Prof. M.S. Chavan (COMP)" },
-        { value: "2. Prof. S. N Upasani (E&TC)" },
-        { value: "3. Prof. S. D Hade (BS&E)" },
-        { value: "4. Prof. D P Salapurkar (IT)" },
-        { value: "5. Prof. P.B Tathe (E&TC)" },
-        { value: "6. Prof. A.C Karve (IT)" },
-        { value: "7. Mr. H V Kasar (COMP)" },
-        { value: "8. Mr. L M Pawal (E&TC)" }
-      ]
-    },
-    {
-      value: "InC 2026 Theme Projects Identification",
-      names: [
-        { value: "1. Prof. A. A. Jewalikar (COMP)" },
-        { value: "2. Prof. P. P. Joshi (COMP)" },
-        { value: "3. Dr. S. S. Wasekar (E&TC)" }
-      ]
-    },
-    {
-      value: "Identification of Patentable projects",
-      names: [
-        { value: "1. Dr. A. M. Deshmukh (BS&E)" },
-        { value: "2. Dr. A.G. Phakatkar (COMP)" }
-      ]
-    },
-    {
-      value: "Attendance & Feedback Committee",
-      names: [
-        { value: "1. Prof. V.B. Vaijapurkar (E&TC)" },
-        { value: "2. Prof. A. R Bankar (E&TC)" },
-        { value: "3. Prof. M.S Patil (COMP)" },
-        { value: "4. Prof. S. S. Shinde (IT)" },
-        { value: "5. Prof. K.L Bhoite (BS&E)" },
-        { value: "6. Prof. A. S. Bodhe (BS&E)" }
-      ]
-    },
-    {
-      value: "Finance and Budget Committee",
-      names: [
-        { value: "1. Prof. A. M. Kulkarni (BS&E)" },
-        { value: "2. Dr. A. R. Deshpande (COMP)" }
-      ]
-    },
-    {
-      value: "Student Volunteer Committee",
-      names: [
-        { value: "1. Prof. E. M. Reddy (BS&E)" },
-        { value: "2. Prof. A. A. Chavan (BS&E)" },
-        { value: "3. Prof. R. R. Vardhaman (BS&E)" },
-        { value: "4. Prof. M.Y Gandhi (BS&E)" }
-      ]
-    },
-    {
-      value: "Purchase",
-      names: [
-        { value: "1. Director: Dr. P. T. Kulkarni" },
-        { value: "2. Principal: Dr. S. T. Gandhe" },
-        { value: "3. Dr. G. P. Potdar (COMP)" },
-        { value: "4. Prof. M R Khodaskar (IT)" },
-        { value: "5. Mr. A. V. Sapkal (PO/EM)" }
-      ]
-    },
-    {
-      value: "Preparation of all relevant Documents/ ISO Files",
-      names: [
-        { value: "1. Prof. N. G. Nirmal (E&TC)" },
-        { value: "2. Prof. D. M. Shinde (E&TC)" },
-        { value: "3. Prof. K K Kolhatkar (BS&E)" },
-        { value: "4. Mr. S. Renuse (AIDS)" },
-        { value: "5. Mr. A. V. Torne (BS&E)" }
-      ]
-    },
-    {
-      value: "Network Administration and BW management",
-      names: [
-        { value: "1. Mr. P. P. Parkhi (COMP)" },
-        { value: "2. Mr. S. S. Metkari (COMP)" }
-      ]
-    },
-    {
-      value: "VNL",
-      names: [
-        { value: "1. Prof. R. S. Paswan (COMP)" },
-        { value: "2. Prof. S. D. Shelke (IT)" },
-        { value: "3. Prof. A. K. Patel (E&TC)" },
-        { value: "4. Prof. S. K. Shah (COMP)" },
-        { value: "5. Prof. N N Jamdar (IT)" },
-        { value: "6. Mr. K. S. Ugale (E&TC)" },
-        { value: "7. Mr. S. H. Karsulkar (COMP)" },
-        { value: "8. Mr. S. N. Deokate (BS&E)" },
-        { value: "9. Mr. N. S. Mirajkar (BS&E)" }
-      ]
-    },
-    {
-      value: "Stage Setup",
-      names: [
-        { value: "1. Prof. P. S. Joshi (COMP)" },
-        { value: "2. Prof. S.G. Gaikwad (IT)" },
-        { value: "3. Prof. S. M. Hosamani (E&TC)" },
-        { value: "4. Prof. U. S. Pawar (COMP)" },
-        { value: "5. Prof. A. N. Sayyad (BS&E)" },
-        { value: "6. Prof. R. J. Sutar (E&TC)" },
-        { value: "7. Prof. T.S Londhe (E&TC)" },
-        { value: "8. Prof. S Y Nikam (BS&E)" },
-        { value: "9. Ms. A. M. Kulkarni (IT)" },
-        { value: "10. Ms. S Patil (IT)" }
-      ]
-    },
-    {
-      value: "T-Shirts",
-      names: [
-        { value: "1. Prof. V. S. Gaikwad (COMP)" },
-        { value: "2. Mr. K Kadambande (IT)" }
-      ]
-    },
-    {
-      value: "Hardware",
-      names: [
-        { value: "1. Prof. V. R. Jaiswal & Prof. N. V. Buradkar (IT)" },
-        { value: "2. Prof. S. R. Warhade (IT)" },
-        { value: "3. Prof. A. S. Ramteke (E&TC)" }
-      ]
-    },
-    {
-      value: "Canteen Arrangement",
-      names: [
-        { value: "1. Prof. Hake (E&TC)" },
-        { value: "2. Prof. R. R. Jadhav (COMP)" },
-        { value: "3. Prof. V. R. Kandekar (COMP)" },
-        { value: "4. Prof. J H Jadhav (IT)" },
-        { value: "5. Prof. A A Patil (IT)" },
-        { value: "6. Mr. K.S. Bhosale (OFFICE)" }
-      ]
-    },
-    {
-      value: "P A System/ Telephone/ Network/ Electrical facilities",
-      names: [
-        { value: "1. Prof. L.P. Patil (Overall Incharge)" },
-        { value: "2. Mr. K.S. Ugale (PA System)" },
-        { value: "3. Mr. S. M. Pawar (Electrical Maintenance)" },
-        { value: "4. Mr. S. S. Metkari (Network Admin)" },
-        { value: "5. Mr. S.M. Shinde (Telephone)" },
-        { value: "6. Mr. A M Chavan (Electrical Maintenance)" }
-      ]
-    },
-    {
-      value: "Transport Management",
-      names: [
-        { value: "1. Prof. P. D Jadhav & Mr. A. V. Sapkal" },
-        { value: "2. Prof. H. S. Khatri (BS&E)" },
-        { value: "3. Prof. K. D. Kulkarni (BS&E)" },
-        { value: "4. Mr. R. V. Badekar (COMP)" },
-        { value: "5. Mr. A. B. Wagh (Purchase)" }
-      ]
-    },
-    {
-      value: "Parking & Police Arrangement",
-      names: [
-        { value: "1. Mr. A.V Sapkal (PO/EM)" },
-        { value: "2. Mr. A. B. Wagh (Purchase)" },
-        { value: "3. Mr. R C. Badekar (COMP)" }
-      ]
-    },
-    {
-      value: "Trophies +Memento +Photos",
-      names: [
-        { value: "1. Prof. K. R. Jadhav (Trophies) (BS&E)" },
-        { value: "2. Prof. R.R. Vardhaman (BS&E)" },
-        { value: "3. Prof. R. A. Karnavat (Memento) (IT)" },
-        { value: "4. Prof. A.A. Bidkar (E&TC)" },
-        { value: "5. Prof. S. M. Hosamani (Souvenir) (E&TC)" },
-        { value: "6. Prof. J S Mahajan (COMP)" }
-      ]
-    }
-  ];
+const faculty = [
+  {
+    value: "Advisory Committee",
+    names: [
+      { value: "Director: Dr. P. T. Kulkarni" },
+      { value: "Principal: Dr. S. T. Gandhe" },
+      { value: "HOD CE: Dr. B. A. Sonkamble" },
+      { value: "HOD E&TC: Dr. G. S. Mundada" },
+      { value: "HOD IT: Dr. Emmanuel M." },
+      { value: "HOD AI&DS: Dr. S. C. Dharmadhikari" },
+      { value: "HOD ECE: Dr. S. K. Moon" },
+      { value: "HOD BS&E: Prof. E. M. Reddy" },
+      { value: "Convenor: Dr. G. P. Potdar" },
+      { value: "Co-Convenor: Prof. S. S. Pande" }
+    ]
+  },
+
+  {
+    value: "Coordination Team",
+    names: [
+      { value: "Prof. M. R. Khodaskar" },
+      { value: "Prof. T. A. Rane" },
+      { value: "Prof. H. B. Mali" }
+    ]
+  },
+
+  {
+    value: "Marketing",
+    names: [
+      { value: "Dr. S. S. Narkhede" },
+      { value: "Dr. G. V. Kale" },
+      { value: "Dr. A. G. Phakaktar" },
+      { value: "Dr. A. M. Bagade" },
+      { value: "Dr. S. S. Sonawane" }
+    ]
+  },
+
+  {
+    value: "Guest Invitation, Hospitality, Schedule & Agenda",
+    names: [
+      { value: "Prof. M. V. Mane" },
+      { value: "Prof. S. A. Pawar" },
+      { value: "Prof. M. S. Patil" },
+      { value: "Prof. Kopal Gangrade" },
+      { value: "Prof. P. A. Shinde" },
+      { value: "Prof. N. Jamdar" },
+      { value: "Prof. M. M. Mule" },
+      { value: "Prof. N. N. Jamdar" },
+      { value: "Ms. B. S. Koteval" },
+      { value: "Ms. J. N. Buradkar" }
+    ]
+  },
+
+  {
+    value: "Publicity",
+    names: [
+      { value: "International: Dr. M. V. Munot" },
+      { value: "International: Dr. M. P. Turuk" },
+      { value: "Advisor: Dr. G. S. Mundada" },
+      { value: "Advisor: Dr. Emmanuel" },
+      { value: "Prof. R. B. Murumkar" },
+      { value: "Prof. M. N. Kakade" },
+      { value: "Prof. S. R. Warhade" },
+      { value: "Prof. A. C. Karve" },
+      { value: "All B.E Project Coordinators" },
+      { value: "Social Media: Prof. Y. A. Handage" },
+      { value: "Social Media: Prof. M. R. Jansari" }
+    ]
+  },
+
+  {
+    value: "Synopsis & Certificates Design",
+    names: [
+      { value: "Prof. A. G. Dhamankar" },
+      { value: "Prof. B. P. Masram" },
+      { value: "Mr. D. M. Mankar" }
+    ]
+  },
+
+  {
+    value: "Certificate Preparation & Distribution",
+    names: [
+      { value: "Prof. V. B. Patole" },
+      { value: "Mr. V. A. Manmode" },
+      { value: "Mr. B. S. Jadhav" }
+    ]
+  },
+
+  {
+    value: "Website, Payment, Domain, SSL",
+    names: [
+      { value: "Prof. P. J. Jambhulkar" },
+      { value: "Mr. S. R. Shelar" }
+    ]
+  },
+
+  {
+    value: "Inauguration Arrangements",
+    names: [
+      { value: "Prof. Shweta Shah" },
+      { value: "Prof. A. A. Kadam" },
+      { value: "Prof. B. D. Kadam" }
+    ]
+  },
+
+  {
+    value: "Memento Distribution",
+    names: [
+      { value: "Prof. S. S. Khot" },
+      { value: "Prof. S. A. Barde" },
+      { value: "Prof. H. C. Deshmukh" },
+      { value: "Prof. D. B. Mane" }
+    ]
+  },
+
+  {
+    value: "Judging - Concepts",
+    names: [
+      { value: "Dr. S. B. Deshmukh" },
+      { value: "Prof. M. S. Chavan" },
+      { value: "Prof. A. A. Chandorkar" },
+      { value: "Prof. V. S. Kulkarni" },
+      { value: "Prof. P. S. Agnihotri" },
+      { value: "Prof. S. D. Shelke" },
+      { value: "Prof. V. R. Tribhuvan" }
+    ]
+  },
+
+  {
+    value: "Judging - Impetus",
+    names: [
+      { value: "Prof. M. S. Wakode" },
+      { value: "Prof. V. V. Bagade" },
+      { value: "Prof. H. S. Kumbhar" },
+      { value: "Prof. S. G. Gaikwad" },
+      { value: "Dr. S. T. Gawhale" }
+    ]
+  },
+
+  {
+    value: "Judging - Pradnya",
+    names: [
+      { value: "Prof. S. A. Jakhete" },
+      { value: "Prof. S. P. Shintre" },
+      { value: "Mr. Sandeep Renuse" },
+      { value: "Ms. Snehalata Rane" }
+    ]
+  },
+
+  {
+    value: "Judging - TechFiesta",
+    names: [
+      { value: "Prof. M. S. Chavan" },
+      { value: "Prof. S. N. Upasani" },
+      { value: "Prof. M. R. Jansari" },
+      { value: "Prof. S. D. Hade" },
+      { value: "Prof. D. P. Salpurkar" },
+      { value: "Prof. P. B. Tuhe" },
+      { value: "Prof. A. C. Karve" },
+      { value: "Mr. H. V. Kasar" },
+      { value: "Mr. I. M. Pawal" },
+      { value: "Mr. M. K. Shegaonkar" },
+      { value: "Mr. R. P. Patil" }
+    ]
+  },
+
+  {
+    value: "Theme Projects Identification",
+    names: [
+      { value: "Prof. A. A. Jewalikar" },
+      { value: "Prof. M. A. Chimanna" }
+    ]
+  },
+
+  {
+    value: "Patent Projects / IPR",
+    names: [
+      { value: "Dr. A. R. Deshpande" },
+      { value: "Dr. A. M. Deshmukh" }
+    ]
+  },
+
+  {
+    value: "Attendance & Feedback",
+    names: [
+      { value: "Prof. V. B. Vaijapurkar" },
+      { value: "Prof. A. R. Bankar" },
+      { value: "Prof. S. Pawar" },
+      { value: "Prof. S. S. Shinde" },
+      { value: "Prof. K. L. Bhodhe" },
+      { value: "Prof. A. S. Bodhe" }
+    ]
+  },
+
+  {
+    value: "Finance & Budget",
+    names: [
+      { value: "Prof. A. M. Kulkarni" },
+      { value: "Prof. K. Y. Digholkar" }
+    ]
+  },
+
+  {
+    value: "Student Volunteer Committee",
+    names: [
+      { value: "Prof. E. M. Reddy" },
+      { value: "Prof. A. A. Chavan" },
+      { value: "Prof. R. R. Vardhaman" },
+      { value: "Prof. M. Y. Gandhi" }
+    ]
+  },
+
+  {
+    value: "Purchase",
+    names: [
+      { value: "Dr. P. T. Kulkarni" },
+      { value: "Dr. S. T. Gandhe" },
+      { value: "Dr. G. P. Potdar" },
+      { value: "Prof. S. S. Pande" },
+      { value: "Mr. A. V. Sapkal" }
+    ]
+  },
+
+  {
+    value: "Documentation / ISO",
+    names: [
+      { value: "Prof. N. G. Nirmal" },
+      { value: "Prof. D. M. Shinde" },
+      { value: "Prof. K. K. Kolhatkar" },
+      { value: "Mr. A. V. Torne" }
+    ]
+  },
+
+  {
+    value: "Network & Bandwidth",
+    names: [
+      { value: "Mr. P. P. Parkhi" },
+      { value: "Mr. S. S. Metkari" }
+    ]
+  },
+
+  {
+    value: "VNL",
+    names: [
+      { value: "Prof. R. S. Paswan" },
+      { value: "Prof. A. K. Patel" },
+      { value: "Prof. S. K. Shah" },
+      { value: "Prof. N. N. Jamdar" },
+      { value: "Mr. K. S. Ugale" },
+      { value: "Mr. S. H. Karsulkar" },
+      { value: "Mr. S. N. Deokate" },
+      { value: "Mr. N. S. Mirajkar" },
+      { value: "Mr. K. B. Kadambande" }
+    ]
+  },
+
+  {
+    value: "Stage Setup",
+    names: [
+      { value: "Prof. R. J. Sutar" },
+      { value: "Prof. S. G. Gaikwad" },
+      { value: "Prof. S. H. Hosamani" },
+      { value: "Prof. U. S. Pawar" },
+      { value: "Prof. A. N. Sayyad" },
+      { value: "Prof. T. S. Londhe" },
+      { value: "Prof. S. Y. Nikam" },
+      { value: "Ms. A. M. Kulkarni" },
+      { value: "Ms. S. G. Patil" }
+    ]
+  },
+
+  {
+    value: "T-Shirts",
+    names: [
+      { value: "Prof. A. D. Vidhate" },
+      { value: "Mr. Shaligram" }
+    ]
+  },
+
+  {
+    value: "Hardware",
+    names: [
+      { value: "Prof. V. R. Jaiswal" },
+      { value: "Prof. N. V. Buradkar" },
+      { value: "All Lab Assistants" }
+    ]
+  },
+
+  {
+    value: "Canteen",
+    names: [
+      { value: "Prof. Hake" },
+      { value: "Prof. A. S. Ramteke" },
+      { value: "Mr. K. S. Bhosale" }
+    ]
+  },
+
+  {
+    value: "PA System / Electrical / Network / Telephone",
+    names: [
+      { value: "Prof. L. P. Patil (Overall Incharge)" },
+      { value: "Mr. K. S. Ugale (PA System)" },
+      { value: "Mr. S. M. Pawar (Electrical)" },
+      { value: "Mr. S. S. Metkari (Network)" },
+      { value: "Mr. S. M. Shinde (Telephone)" },
+      { value: "Mr. A. M. Chavan (Electrical)" }
+    ]
+  },
+
+  {
+    value: "Transport , Parking & Police Arrangment",
+    names: [
+      { value: "Prof. P. D. Jadhav" },
+      { value: "Prof. H. S. Khatri" },
+      { value: "Prof. K. D. Kulkarni" },
+      { value: "Mr. R. V. Badekar" },
+      { value: "Mr. A. B. Wagh" }
+    ]
+  },
+
+  {
+    value: "Trophies, Memento & Photos",
+    names: [
+      { value: "Prof. K. R. Jadhav" },
+      { value: "Prof. R. R. Vardhaman" },
+      { value: "Prof. S. M. Hosamani" },
+      { value: "Prof. J. S. Mahajan" },
+      { value: "Prof. A. A. Bidkar" }
+    ]
+  }
+];
 
 const web = [
   {
-    team: 'Technical Heads', 
+    team: "Web Team",
     members: [
       {
-        name: "Piyush Dahake",
-        post: "Frontend, Backend, DevOps",
-        linkedin: "https://www.linkedin.com/in/piyush-dahake/",
-        github: "https://github.com/piyush960",
-        instagram: "https://www.instagram.com/piyushdahake_/",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741561794/core-committee/kuwhp8dktthlaiflewxx.jpg",
+        name: "Kalyani Gade",
+        linkedin: "https://www.linkedin.com/in/kalyani-gade-b03b39292/",
+        github: "https://github.com/KALYANI100",
+        instagram: "",
+        photo: "https://drive.google.com/open?id=1cTN0qA7sNh6t0HoUtanJFbSVhbJup2ne",
       },
       {
-        name: "Prathamesh Malu",
-        post: "Frontend, Backend, DevOps",
-        linkedin: "https://www.linkedin.com/in/prathamesh-malu-53655321a",
-        github: "https://github.com/pmalu9211",
-        instagram: "https://www.instagram.com/prathamalu/",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560128/core-committee/emywak7bpk0xp6phfi7q.jpg",
-      },
-    ],
-  },
-  {
-    team: 'Web Team', members: [
-      {
-        name: "Hritik Patil",
-        post: "Frontend",
-        linkedin: "https://www.linkedin.com/in/hritik-patil-147293252/",
-        github: "https://github.com/",
-        instagram: "https://www.instagram.com/hritikpatil.05?utm_source=qr&igsh=eDVmNHEwNnFrZ3V0",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741561374/core-committee/t7ejpoyizdvqpgzfcyqi.jpg",
-      },
-    ]
-  },
-]
-
-const core = [
-  {
-    team: "Overall Co-ordinators",
-    members: [
-      {
-        name: "Mukund Karwa",
-        post: "Overall Co-ordinator",
-        linkedin: "https://www.linkedin.com/in/mukund-karwa-552b67321/",
-        github: "https://github.com/mukundkarwa22",
-        instagram: "https://www.instagram.com/mukund_karwa22/",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560124/core-committee/yiqdbhjv7f6djim4cda5.jpg",
+        name: "Sanket Rajput",
+        linkedin: "",
+        github: "",
+        instagram: "",
+        photo: "",
       },
       {
-        name: "Punit Marda",
-        post: "Overall Co-ordinator",
-        linkedin: "https://www.linkedin.com/in/punit-marda-14a8b224b/",
-        github: "https://github.com/",
-        instagram: "https://www.instagram.com/punitmarda_3530/",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741984684/core-committee/ebbrbzlbfar9hscnux9g.jpg",
-      },
-      {
-        name: "Piyush Kinekar",
-        post: "Overall Co-ordinator",
-        linkedin: "https://www.linkedin.com/in/piyush-kinekar-883163272?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        github: "https://github.com/",
-        instagram: "https://www.instagram.com/piyush_kinekar?igsh=N2N2azMybGJlbWl3",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560124/core-committee/p6noxjjbnahmboiaqe1x.jpg",
-      },
-    ],
-  },
-  {
-    team: "Concepts Heads",
-    members: [
-      {
-        name: "Anjali Rambhad",
-        post: "Concepts Head",
-        linkedin: "https://www.linkedin.com/in/anjalirambhad28?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        github: "https://github.com/anjalirambhad",
-        instagram: "https://www.instagram.com/annjjaliii?igsh=aXdhaDU3Y2RlenN6&utm_source=qr",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560425/core-committee/w1qf0ggz0vdzrbxaoo1f.jpg",
-      },
-      {
-        name: "Soham Kottawar",
-        post: "Concepts Head",
-        linkedin: "https://www.linkedin.com/in/soham-kottawar-b0079925b/",
-        github: "https://github.com/Sohamkottawar",
-        instagram: "https://www.instagram.com/sohamkottawar/",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560125/core-committee/lzzhqng2rssrsodtgb9j.jpg",
-      },
-      {
-        name: "Tanish Chaudhari",
-        post: "Concepts Head",
-        linkedin: "http://www.linkedin.com/in/tanishchaudhari",
-        github: "https://github.com/Cratan228",
-        instagram: "https://www.instagram.com/tanishc228/",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741984684/core-committee/sfghlecfqw8luvy3hyoy.jpg",
-      },
-      {
-        name: "Gauri Desale",
-        post: "Concepts Head",
-        linkedin: "https://www.linkedin.com/in/gauri-desale-311514254/",
-        github: "https://github.com/gauridesale25",
-        instagram: "https://www.instagram.com/__gauriiii25/",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1742240496/core-committee/t9j2hzz01y35f2gxjjkm.jpg",
-      },
-    ],
-  },
-  {
-    team: "Impetus Heads",
-    members: [
-      {
-        name: "Kshitij Goswami",
-        post: "Impetus Head",
-        linkedin: "https://www.linkedin.com/in/kshitij-goswami-527100258",
-        github: "https://github.com/",
-        instagram: "https://www.instagram.com/kshitijaps_23/",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560124/core-committee/xhrzfydh3bbt0dbzd2nk.jpg",
-      },
-      {
-        name: "Madhura Pawar",
-        post: "Impetus Head",
-        linkedin: "https://www.linkedin.com/in/madhura-pawar-98b728291/",
-        github: "https://github.com/Madhura2004",
-        instagram: "https://www.instagram.com/madhurapawar17?igsh=YW5uc2MyOTIxY2Fr",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560126/core-committee/e8dtq6fgaqqvtst5b6dn.jpg",
-      },
-      {
-        name: "Aditya Choudhary",
-        post: "Impetus Head",
-        linkedin: "www.linkedin.com/in/aditya-choudhary-2aa382263",
-        github: "https://github.com/",
-        instagram: "https://www.instagram.com/",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560127/core-committee/j83xtxkgdut1jcpvjxn0.jpg",
-      },
-      {
-        name: "Arpita Bhandari",
-        post: "Impetus Head",
-        linkedin: "https://www.linkedin.com/in/arpita-bhandari2511",
-        instagram: "https://www.instagram.com/arpiita_2511",
-        github: "https://github.com",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560126/core-committee/t0rfo9ofbixnetmojb63.jpg",
-      },
-      {
-        name: "Reva Dixit",
-        post: "Impetus Head",
-        linkedin: "https://www.linkedin.com/in/reva-dixit-",
-        instagram: "https://www.instagram.com/rev_dixi?igsh=ODA0cjdudnZwdXFj&utm_source=qr",
-        github: "https://github.com",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741984685/core-committee/pvkqho3uilhc5mkwqidu.jpg",
-      },
-    ],
-  },
-  {
-    team: "Pradnya Heads",
-    members: [
-      {
-        name: "Omkar Deshmukh",
-        post: "Pradnya Head",
-        linkedin: "https://www.linkedin.com/in/omkar-deshmukh-213bb1230/",
-        github: "https://github.com/omkar-afk",
-        instagram: "https://www.instagram.com/omkardsmk/",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560128/core-committee/eu1s3crhngu9rvjl5rrt.jpg",
-      },
-      {
-        name: "Anushree Gattani",
-        post: "Pradnya Head",
-        linkedin: "https://www.linkedin.com/in/anushree-gattani",
-        github: "https://github.com/adgattani",
-        instagram: "https://www.instagram.com/anushreegattani_?igsh=NDd3YmJ1OHp2cTBt&utm_source=qr",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560425/core-committee/ovzwoiszeazdslscx3g6.jpg",
-      },
-      {
-        name: "Nirbhay Shah",
-        post: "Pradnya Head",
-        linkedin: "https://www.linkedin.com/in/nirbhay-shah/",
-        github: "https://github.com/NirbhayShah",
-        instagram: "https://www.instagram.com/imnirbhayshah/",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741984685/core-committee/s5vs0reo4amaksinat7o.jpg",
-      },
-    ],
-  },
-  {
-    team: "Operations Heads",
-    members: [
-      {
-        name: "Vedang Gharat",
-        post: "Head of Operations",
-        linkedin: "https://www.linkedin.com/in/vedang-gharat/",
-        github: "https://github.com/SMUGLER79",
-        instagram: "https://www.instagram.com/_.vedang___/",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560125/core-committee/u9kofir5m0vmfypanxfl.jpg",
-      },
-      {
-        name: "Mayur Doiphode",
-        post: "Head of Operations",
-        linkedin: "https://www.linkedin.com/in/mayur-doiphode-991a8b220/",
-        instagram: "https://www.instagram.com/mayurdoiphode55/",
-        github: "https://github.com/",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560127/core-committee/zthrq8fuc1bbrsna3hk8.jpg",
-      },
-      {
-        name: "Kartik Tichkule",
-        post: "Head of Operations",
-        linkedin: "https://www.linkedin.com/in/kartik-tichkule",
-        instagram: "https://www.instagram.com/ksaptichkule?igsh=OHg0ODg1dG43bmFp",
-        github: "https://github.com/kartich18",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741984685/core-committee/ncg4qml16gaqdd6nhfjs.jpg",
-      },
-    ],
-  },
-  {
-    team: "Marketing Heads",
-    members: [
-      {
-        name: "Kanak Agrawal",
-        post: "Marketing Head",
-        linkedin: "https://www.linkedin.com/in/kanak-agrawal89/",
-        github: "https://github.com/",
-        instagram: "https://www.instagram.com/kanakagrawal89?igsh=MXd4aDM4aWZhbmRueA==",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560126/core-committee/gd7iygywj0b1qa9akxzw.jpg",
-      },
-    ],
-  },
-  {
-    team: "Social Media Heads",
-    members: [
-      {
-        name: "Manaswi Hiremath",
-        post: "Social Media Head",
-        linkedin: "www.linkedin.com/in/manaswi-hiremath",
-        github: "https://github.com/",
-        instagram: "https://www.instagram.com/manaswi._17/",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560128/core-committee/ambwx7exjix0lz3dob9a.jpg",
-      },
-    ],
-  },
-  {
-    team: "Design Heads",
-    members: [
-      {
-        name: "Diya Bhat",
-        post: "Design Head",
-        linkedin: "http://www.linkedin.com/in/diya-bhat-877377258",
-        github: "https://github.com/DiyaBhat20",
-        instagram: "https://www.instagram.com/_diyabhat_/",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560124/core-committee/uqni9y2sl3ku2kflejx4.jpg",
-      },
-      {
-        name: "Sakshi Mahajan",
-        post: "Design Head",
-        linkedin: "http://www.linkedin.com/in/sakshimahajan372",
-        github: "https://github.com/",
-        instagram: "https://www.instagram.com/",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1742240497/core-committee/untqeqr94cvlyiadetyq.jpg",
-      },
-    ],
-  },
-  {
-    team: "Escorting Heads",
-    members: [
-      {
-        name: "Tanvi Pattewar",
-        post: "Escorting Head",
-        linkedin: "https://www.linkedin.com/in/tanvi-pattewar-9a9159258",
-        github: "https://github.com/",
-        instagram: "https://www.instagram.com/",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560129/core-committee/nmgpp4fhwl6efbrhntfp.jpg",
-      },
-    ],
-  },
-  {
-    team: "Publicity Heads",
-    members: [
-      {
-        name: "Raghav Zanwar",
-        post: "Publicity Head",
-        linkedin: "https://www.linkedin.com/in/raghav-zanwar-71133a25b/",
-        github: "https://github.com/",
-        instagram: "https://www.instagram.com/_zawarraghav_/",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560129/core-committee/hluosqbwagptygo9rrmr.jpg",
-      },
-      {
-        name: "Purva Kamat",
-        post: "Publicity Head",
-        linkedin: "http://linkedin.com/in/poorva-kamat-8321b6332",
-        github: "https://github.com/",
-        instagram: "https://www.instagram.com/purwa_kamat?igsh=NDd4NDFmOGgyN2k1&utm_source=qr",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560125/core-committee/lzzaauxlaxmexjswcurx.jpg",
-      },
-      {
-        name: "Ria Narode",
-        post: "Publicity Head",
-        linkedin: "https://www.linkedin.com/in/ria-narode",
-        github: "https://github.com/",
-        instagram: "https://www.instagram.com/",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1741560126/core-committee/w9jxarnjldlq7afe80yo.jpg",
-      },
-    ],
-  },
-  {
-    team: "Anchoring Lead",
-    members: [
-      {
-        name: "Bhajnit Singh Hooda ",
-        post: "",
-        linkedin: "https://www.linkedin.com/in/bhajnit-singh-hooda-7200a8268?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-        github: "https://github.com/",
-        instagram: "https://www.instagram.com/",
-        photo: "https://res.cloudinary.com/dms4soxsi/image/upload/v1742640935/core-committee/uh2g1mgythrszrai64qg.jpg",
+        name: "Tanay Raundale",
+        linkedin: "https://www.linkedin.com/in/tanay-raundale-726086303",
+        github: "https://github.com/TanayRaundale",
+        instagram: "https://www.instagram.com/tanayraundale",
+        photo: "https://drive.google.com/open?id=1CR8XkzEiPBMzBakw9mJAKuKkfRwwCzTQ",
       },
     ],
   },
 ];
+const core = [
+  {
+    team: "Overall Coordinators",
+    members: [
+      {
+        name: "Ansh Shah",
+        linkedin: "http://linkedin.com/in/ansh-shah5",
+        github: "https://github.com/Ansh-shah5",
+        instagram: "https://www.instagram.com/ansh_shahh",
+        photo: "https://drive.google.com/open?id=1QYaUlpjTL3JmF3Bn1MPPcgUU9V8yqMWd",
+      },
+      {
+        name: "Puneet Rathi",
+        linkedin: "https://www.linkedin.com/in/puneet-rathi-513465286",
+        github: "https://github.com/Rathi1307",
+        instagram: "",
+        photo: "https://drive.google.com/open?id=1e8BDiQ0av9-vUf7V5zYS5Z9M8oxlkwk8",
+      },
+      {
+        name: "Shreehari Soni",
+        linkedin: "",
+        github: "",
+        instagram: "",
+        photo: "",
+      },
+    ],
+  },
 
+  {
+    team: "Concept Heads",
+    members: [
+      {
+        name: "Arya Bejalwar",
+        linkedin: "https://www.linkedin.com/in/arya-bejalwar-a23a46303/",
+        github: "https://github.com/Ryzen86",
+        instagram: "arya_bejalwar",
+        photo: "https://drive.google.com/open?id=1RAWf18fYFRjoX_aOJOPVVQ7sBoXP-dq8",
+      },
+      {
+        name: "Om Yerkar",
+        linkedin: "https://www.linkedin.com/in/om-yerkar",
+        github: "https://github.com/Omyerkar",
+        instagram: "https://www.instagram.com/omyerkar",
+        photo: "https://drive.google.com/open?id=1mqyapVFkcQURNQJ237EPeRHG9OeXbkaX",
+      },
+      {
+        name: "Sukanya Gupta",
+        linkedin: "https://www.linkedin.com/in/sukanya-gupta-b40a132a2/",
+        github: "https://github.com/Sukanya0704",
+        instagram: "https://www.instagram.com/__07__sukanya/",
+        photo: "https://drive.google.com/open?id=1mDRzFl09sxt1vAExK4CLNv3uyvCSamVg",
+      },
+      {
+        name: "Utsavi Bagri",
+        linkedin: "",
+        github: "",
+        instagram: "",
+        photo: "",
+      },
+    ],
+  },
+
+  {
+    team: "Impetus Heads",
+    members: [
+      {
+        name: "Abhimanyu Sharma",
+        linkedin: "https://www.linkedin.com/in/abhimanyu-sharma-035997357",
+        github: "https://github.com/abhimanyu2511",
+        instagram: "https://www.instagram.com/abhimanyu_11",
+        photo: "https://drive.google.com/open?id=1V_W39w0sS_4KUiVi643s8NZMY9CehnxB",
+      },
+      {
+        name: "Parth Honrao",
+        linkedin: "https://www.linkedin.com/in/parth-honrao-5905932b6/",
+        github: "https://github.com/ParthHonrao05",
+        instagram: "https://www.instagram.com/parth_h24",
+        photo: "https://drive.google.com/open?id=1oJryvztAy5UPSJ17F0dz3Tgzt98662jg",
+      },
+      {
+        name: "Sarvesh Bagad",
+        linkedin: "https://www.linkedin.com/in/sarvesh-bagad-42286228b",
+        github: "https://github.com/Sarveshbagad13",
+        instagram: "https://www.instagram.com/sarvesh_bagad_13",
+        photo: "https://drive.google.com/open?id=1fSgG0-ZTwMGtpmlVn3Qvh-5KWWkv6JGr",
+      },
+      {
+        name: "Unnati Jain",
+        linkedin: "https://www.linkedin.com/in/unnati-jain-b42297276",
+        github: "",
+        instagram: "https://www.instagram.com/unnati_3007",
+        photo: "https://drive.google.com/open?id=1hpOWkS-aGypm3eKC5cwOfOgY5yADJP6D",
+      },
+    ],
+  },
+
+  {
+    team: "Pradnya Heads",
+    members: [
+      {
+        name: "Naman Ostwal",
+        linkedin: "https://www.linkedin.com/in/naman-ostwal-918894230",
+        github: "https://github.com/NamanOstwal",
+        instagram: "https://www.instagram.com/naman_ostwal",
+        photo: "https://drive.google.com/open?id=1eYnEutlPSuNkxzackqQ8GEvakdDBEZ27",
+      },
+      {
+        name: "Mahi Shah",
+        linkedin: "https://www.linkedin.com/in/mahi-shah-417975212/",
+        github: "https://github.com/smahi87",
+        instagram: "@mahishah_28",
+        photo: "https://drive.google.com/open?id=1WYR5lYFJW6x51wVffVn_axnxJhRA-X9Z",
+      },
+      {
+        name: "Samarth Bajaj",
+        linkedin: "",
+        github: "https://github.com/SamarthBajaj26",
+        instagram: "https://www.instagram.com/samarthbajaj26/",
+        photo: "https://drive.google.com/open?id=1nGoP3XpXqZQMNHQS4uxoTLfCAm3OwCrM",
+      },
+    ],
+  },
+
+  {
+    team: "Publicity Heads",
+    members: [
+      {
+        name: "Aarjav Jain",
+        linkedin: "https://www.linkedin.com/in/aarjav-jain-2ab1932ba",
+        github: "https://github.com/Jaarjav",
+        instagram: "https://www.instagram.com/aarjav001",
+        photo: "https://drive.google.com/open?id=1uaOOE-Q0wOu_nKeUrVZLJ4WHb5BsCUlG",
+      },
+      {
+        name: "Chaitanya Patil",
+        linkedin: "https://www.linkedin.com/in/chaitanya-patil-7769b1292/",
+        github: "https://github.com/Cyp5556",
+        instagram: "https://www.instagram.com/chaitanya.patil24",
+        photo: "https://drive.google.com/open?id=148n_GjPS4uzneH4hnePa8BRLSH_nF2Rz",
+      },
+      {
+        name: "Ishita Sodhiya",
+        linkedin: "https://linkedin.com/in/ishita-sodhiya-93a37932a/",
+        github: "https://github.com/ishitaaa18",
+        instagram: "https://www.instagram.com/ishitaaa_1804",
+        photo: "https://drive.google.com/open?id=1M5E8OdXYHNZmPp4r2SwmnHoVvW2ZQpJI",
+      },
+      {
+        name: "Konark Nehete",
+        linkedin: "https://www.linkedin.com/in/konark-nehete",
+        github: "https://github.com/konarknehete",
+        instagram: "https://www.instagram.com/konark_nehete",
+        photo: "https://drive.google.com/open?id=1s-LgdK7XZ370Uamhr3pkzDIQbd3dsAN6",
+      },
+    ],
+  },
+
+  {
+    team: "Operations Heads",
+    members: [
+      {
+        name: "Achal Acharya",
+        linkedin: "",
+        github: "",
+        instagram: "",
+        photo: "",
+      },
+      {
+        name: "Kaustubh Banerjee",
+        linkedin: "https://www.linkedin.com/in/kaustubh-banerjee-00296a25b",
+        github: "https://github.com/demonartigo",
+        instagram: "https://www.instagram.com/_banerjeeeee",
+        photo: "https://drive.google.com/open?id=1QCnnBHScpKkYHLBNi0x38VjHK5KWustJ",
+      },
+      {
+        name: "Krishna Thakur",
+        linkedin: "https://linkedin.com/in/krishhhhh",
+        github: "https://github.com/kkrishhhh",
+        instagram: "https://www.instagram.com/kkkrishhhhhh",
+        photo: "https://drive.google.com/open?id=1yMfkU763vRxt2Jl2i4d4_l7O_q3YM_2w",
+      },
+    ],
+  },
+
+  {
+    team: "Social Media Head",
+    members: [
+      {
+        name: "Nandini Mitkare",
+        linkedin: "https://www.linkedin.com/in/nandini-mitkare-611188328",
+        github: "https://github.com/nandinimitkare",
+        instagram: "nandini.mitkare",
+        photo: "https://drive.google.com/open?id=1SCyl9iHh6qnGFDwMLn59XuCEYA4cnFgV",
+      },
+    ],
+  },
+
+  {
+    team: "Design Heads",
+    members: [
+      {
+        name: "Mrugaja Nitin Joshi",
+        linkedin: "https://www.linkedin.com/in/mrugaja-joshi-975468288",
+        github: "https://github.com/MrugajaJ",
+        instagram: "",
+        photo: "https://drive.google.com/open?id=1TBZHGhpweVabL_oomzMeAUtG71ddKnU1",
+      },
+      {
+        name: "Vedika Bopche",
+        linkedin: "https://www.linkedin.com/in/vedika-bopche-588538376/",
+        github: "https://github.com/vedikabops",
+        instagram: "https://www.instagram.com/aki_dev_39/",
+        photo: "https://drive.google.com/open?id=15UNsCOvvO0qfCcxlbyAK9krtzpczm39C",
+      },
+    ],
+  },
+
+  {
+    team: "Marketing Head",
+    members: [
+      {
+        name: "Vibha Shah",
+        linkedin: "https://www.linkedin.com/in/vibha-shah-35b680346/",
+        github: "https://github.com/vibhashah0108",
+        instagram: "https://www.instagram.com/_vibha_18_",
+        photo: "https://drive.google.com/open?id=12GkNA-W2XAJIHMLEAPUGdxWLu6MTMuDF",
+      },
+    ],
+  },
+];
 const results = {
   impetus : [
     {
