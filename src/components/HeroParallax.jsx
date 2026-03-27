@@ -1,6 +1,6 @@
 // import React from "react";
 // import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -27,7 +27,7 @@ import { useEffect } from "react";
 
 
 const Hero = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   // const location = useLocation();
   // const [menuOpen, setMenuOpen] = useState(false);
 
