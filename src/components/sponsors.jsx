@@ -42,16 +42,19 @@ const Sponsors = () => {
 
               <div className="flex flex-wrap items-center justify-center gap-10 max-w-6xl w-full">
                 {sponsors[key].map((s) => (
-                  <SponsorCard
-                    key={s.name}
-                    width={key === "title" ? 300 : 230}
-                    height={key === "title" ? 120 : 100}
-                  >
+                  <SponsorCard key={s.name} width={300} height={120}>
                     <img
                       loading="lazy"
                       src={s.src}
                       alt={s.name}
-                      className="w-full h-full object-contain select-none p-4"
+                      className={cn(
+                        "w-full h-full object-contain select-none",
+                        s.name === "cloudhedge"
+                          ? "p-0 scale-[1.4]"
+                          : s.name === "fold_health"
+                            ? "p-0 scale-[1.1]"
+                            : "p-4"
+                      )}
                     />
                   </SponsorCard>
                 ))}
@@ -117,7 +120,7 @@ export const CardContainer = ({ children, className, containerClassName }) => {
     <MouseEnterContext.Provider value={[isMouseEntered, setIsMouseEntered]}>
       <div
         className={cn(
-          "p-[2px] flex items-center justify-center rounded-xl",
+          "p-0 flex items-center justify-center rounded-xl",
           containerClassName
         )}
         style={{ perspective: "1200px" }}

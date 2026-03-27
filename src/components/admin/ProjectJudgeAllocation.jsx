@@ -1,8 +1,7 @@
 // import { useEffect, useState, useMemo } from 'react';
 // import { DataGrid, GridToolbar } from '@mui/x-data-grid';
-// import { Chip, Box, Typography, CircularProgress, Alert } from '@mui/material';
+// import { Chip, Box, Typography, CircularProgress, Alert, Card, CardContent } from '@mui/material';
 // import { API_BASE } from '../../app/config/api';
-
 
 // const ProjectJudgesAllocation = () => {
 //   const [activeTab, setActiveTab] = useState('impetus');
@@ -133,7 +132,7 @@
 //   const onlineTotal = useMemo(() => projects.filter((p) => p.mode === 'Online').length, [projects]);
 //   const offlineTotal = useMemo(() => projects.filter((p) => p.mode === 'Offline').length, [projects]);
 
-//   // Rows for DataGrid
+//   // Rows for DataGrid with serial numbers
 //   const rows = useMemo(() => {
 //     return filteredProjects.map((project, index) => {
 //       const judgesList = [...(project.judges || [])];
@@ -144,6 +143,7 @@
 //       });
 //       return {
 //         id: index,
+//         serialNo: index + 1,  // Add serial number
 //         pid: project.pid,
 //         title: project.title,
 //         session: project.session || 'N/A',
@@ -185,6 +185,14 @@
 //   }, [maxJudges]);
 
 //   const columns = [
+//     { 
+//       field: 'serialNo', 
+//       headerName: 'S.No', 
+//       width: 80, 
+//       minWidth: 80,
+//       sortable: false,
+//       filterable: false
+//     },
 //     { field: 'pid', headerName: 'PID', width: 100, renderCell: (params) => <Typography fontWeight={700} fontSize="1rem" color="#60a5fa">{params.value}</Typography> },
 //     { field: 'title', headerName: 'Project Title', width: 280, renderCell: (params) => <Typography sx={{ lineHeight: 1.4, fontSize: '0.92rem' }}>{params.value}</Typography> },
 //     { field: 'session', headerName: 'Session / Lab', width: 140 },
@@ -230,8 +238,8 @@
 
 //         {error && <Alert severity="error" sx={{ mb: 3 }}>{error}</Alert>}
 
-//         {/* Top Summary Cards: Online + Offline + Domain-wise */}
-//         <div className="grid grid-cols-8 gap-4 mb-8">
+//         {/* Top Summary Cards: Online + Offline + Filtered Results + Domain-wise */}
+//         <div className="grid grid-cols-9 gap-4 mb-8">
 //           <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-4 text-center">
 //             <div className="text-emerald-400 text-xs font-medium tracking-widest mb-1">ONLINE</div>
 //             <div className="text-4xl font-bold text-white">{onlineTotal}</div>
@@ -240,6 +248,27 @@
 //             <div className="text-amber-400 text-xs font-medium tracking-widest mb-1">OFFLINE</div>
 //             <div className="text-4xl font-bold text-white">{offlineTotal}</div>
 //           </div>
+          
+//           {/* Filtered Results Card */}
+//           <Card sx={{ 
+//             bgcolor: '#18181b', 
+//             border: '1px solid #3f3f46', 
+//             borderRadius: 3,
+//             background: 'linear-gradient(135deg, #1e1e2f 0%, #18181b 100%)'
+//           }}>
+//             <CardContent className="text-center" sx={{ py: 2 }}>
+//               <Typography color="#60a5fa" variant="body2" gutterBottom fontWeight={600}>
+//                 Filtered Results
+//               </Typography>
+//               <Typography variant="h4" fontWeight={700} color="#60a5fa">
+//                 {filteredProjects.length}
+//               </Typography>
+//               <Typography variant="caption" color="#94a3b8" sx={{ mt: 0.5, display: 'block' }}>
+//                 out of {projects.length} projects
+//               </Typography>
+//             </CardContent>
+//           </Card>
+
 //           {Object.entries(domainOptions).map(([key, name]) => {
 //             const count = domainCounts[key] || 0;
 //             const isActive = domainFilter === key;
@@ -376,6 +405,8 @@
 
 // export default ProjectJudgesAllocation;
 
+
+
 import { useEffect, useState, useMemo } from 'react';
 import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 import { Chip, Box, Typography, CircularProgress, Alert, Card, CardContent } from '@mui/material';
@@ -390,9 +421,10 @@ const ProjectJudgesAllocation = () => {
   // All Filters
   const [selectedDate, setSelectedDate] = useState('');
   const [domainFilter, setDomainFilter] = useState('');
-  const [modeFilter, setModeFilter] = useState('');        // New: 'Online' | 'Offline' | 'Hybrid' | ''
-  const [statusFilter, setStatusFilter] = useState(null);  // 'complete' | 'partial' | 'incomplete' | 'pending'
+  const [modeFilter, setModeFilter] = useState('');
+  const [statusFilter, setStatusFilter] = useState(null);
   const [judgeCountFilter, setJudgeCountFilter] = useState(null);
+  const [labFilter, setLabFilter] = useState('');           // New: Lab/Session filter
   const [paginationModel, setPaginationModel] = useState({ page: 0, pageSize: 10 });
 
   // Domain mapping
@@ -418,9 +450,9 @@ const ProjectJudgesAllocation = () => {
       setError(null);
       try {
         const response = await fetch(`${API_BASE}/view/admin/project-allocations?event=${activeTab}`, {
-          method: 'GET',      
+          method: 'GET',
           headers: { 'Content-Type': 'application/json' },
-          credentials: 'include',        
+          credentials: 'include',
         });
         if (!response.ok) throw new Error('Failed to fetch data');
         const data = await response.json();
@@ -454,6 +486,18 @@ const ProjectJudgesAllocation = () => {
     return Math.max(4, ...projects.map((p) => (p.judges || []).length));
   }, [projects]);
 
+  // Get unique lab/session values for dropdown
+  const labOptions = useMemo(() => {
+    const labs = new Set();
+    projects.forEach((project) => {
+      const lab = project.session?.trim();
+      if (lab && lab !== 'N/A' && lab !== '') {
+        labs.add(lab);
+      }
+    });
+    return Array.from(labs).sort();
+  }, [projects]);
+
   // Main filtered projects — ALL filters applied together
   const filteredProjects = useMemo(() => {
     return projects.filter((project) => {
@@ -482,9 +526,29 @@ const ProjectJudgesAllocation = () => {
         if (getEvaluationStatus(project) !== statusFilter) return false;
       }
 
+      // Lab / Session Filter
+      if (labFilter) {
+        const projectLab = (project.session || '').trim();
+        if (labFilter === 'unassigned') {
+          // Show projects with no lab assigned
+          if (projectLab && projectLab !== 'N/A') return false;
+        } else {
+          // Specific lab selected
+          if (projectLab !== labFilter) return false;
+        }
+      }
+
       return true;
     });
-  }, [projects, selectedDate, domainFilter, modeFilter, judgeCountFilter, statusFilter]);
+  }, [
+    projects,
+    selectedDate,
+    domainFilter,
+    modeFilter,
+    judgeCountFilter,
+    statusFilter,
+    labFilter
+  ]);
 
   // Summary counts (based on filteredProjects so cards reflect all filters)
   const domainCounts = useMemo(() => {
@@ -506,7 +570,7 @@ const ProjectJudgesAllocation = () => {
     return counts;
   }, [filteredProjects]);
 
-  // Online / Offline totals (always full data)
+  // Online / Offline totals (always from full data)
   const onlineTotal = useMemo(() => projects.filter((p) => p.mode === 'Online').length, [projects]);
   const offlineTotal = useMemo(() => projects.filter((p) => p.mode === 'Offline').length, [projects]);
 
@@ -521,7 +585,7 @@ const ProjectJudgesAllocation = () => {
       });
       return {
         id: index,
-        serialNo: index + 1,  // Add serial number
+        serialNo: index + 1,
         pid: project.pid,
         title: project.title,
         session: project.session || 'N/A',
@@ -535,18 +599,44 @@ const ProjectJudgesAllocation = () => {
   const renderJudgeCard = (judge) => {
     if (!judge) {
       return (
-        <Box sx={{ bgcolor: '#1f1f23', border: '1px dashed #52525b', borderRadius: '12px', p: 1.5, minHeight: 92, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <Typography color="#52525b" fontStyle="italic" fontSize="0.85rem">Slot Available</Typography>
+        <Box sx={{ 
+          bgcolor: '#1f1f23', 
+          border: '1px dashed #52525b', 
+          borderRadius: '12px', 
+          p: 1.5, 
+          minHeight: 92, 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'center' 
+        }}>
+          <Typography color="#52525b" fontStyle="italic" fontSize="0.85rem">
+            Slot Available
+          </Typography>
         </Box>
       );
     }
     return (
-      <Box sx={{ bgcolor: '#27272a', border: '1px solid #3f3f46', borderRadius: '12px', p: 1.5, minHeight: 92 }}>
+      <Box sx={{ 
+        bgcolor: '#27272a', 
+        border: '1px solid #3f3f46', 
+        borderRadius: '12px', 
+        p: 1.5, 
+        minHeight: 92 
+      }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 0.5 }}>
-          <Typography fontWeight={600} color="#e2e8f0" fontSize="0.85rem">{judge.jid}</Typography>
-          <Chip label={judge.evaluated ? 'Evaluated' : 'Pending'} color={judge.evaluated ? 'success' : 'warning'} size="small" sx={{ fontSize: '0.7rem', height: 20 }} />
+          <Typography fontWeight={600} color="#e2e8f0" fontSize="0.85rem">
+            {judge.jid}
+          </Typography>
+          <Chip 
+            label={judge.evaluated ? 'Evaluated' : 'Pending'} 
+            color={judge.evaluated ? 'success' : 'warning'} 
+            size="small" 
+            sx={{ fontSize: '0.7rem', height: 20 }} 
+          />
         </Box>
-        <Typography variant="body2" color="#cbd5e1" sx={{ fontWeight: 500, fontSize: '0.82rem' }}>{judge.name}</Typography>
+        <Typography variant="body2" color="#cbd5e1" sx={{ fontWeight: 500, fontSize: '0.82rem' }}>
+          {judge.name}
+        </Typography>
       </Box>
     );
   };
@@ -567,13 +657,34 @@ const ProjectJudgesAllocation = () => {
       field: 'serialNo', 
       headerName: 'S.No', 
       width: 80, 
-      minWidth: 80,
       sortable: false,
-      filterable: false
+      filterable: false 
     },
-    { field: 'pid', headerName: 'PID', width: 100, renderCell: (params) => <Typography fontWeight={700} fontSize="1rem" color="#60a5fa">{params.value}</Typography> },
-    { field: 'title', headerName: 'Project Title', width: 280, renderCell: (params) => <Typography sx={{ lineHeight: 1.4, fontSize: '0.92rem' }}>{params.value}</Typography> },
-    { field: 'session', headerName: 'Session / Lab', width: 140 },
+    { 
+      field: 'pid', 
+      headerName: 'PID', 
+      width: 100, 
+      renderCell: (params) => (
+        <Typography fontWeight={700} fontSize="1rem" color="#60a5fa">
+          {params.value}
+        </Typography>
+      ) 
+    },
+    { 
+      field: 'title', 
+      headerName: 'Project Title', 
+      width: 280, 
+      renderCell: (params) => (
+        <Typography sx={{ lineHeight: 1.4, fontSize: '0.92rem' }}>
+          {params.value}
+        </Typography>
+      ) 
+    },
+    { 
+      field: 'session', 
+      headerName: 'Session / Lab', 
+      width: 140 
+    },
     {
       field: 'mode',
       headerName: 'Mode',
@@ -594,7 +705,14 @@ const ProjectJudgesAllocation = () => {
       width: 130,
       renderCell: (params) => (
         <Typography>
-          {params.value ? new Date(params.value).toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' }) : '—'}
+          {params.value 
+            ? new Date(params.value).toLocaleDateString('en-IN', { 
+                year: 'numeric', 
+                month: 'short', 
+                day: 'numeric' 
+              }) 
+            : '—'
+          }
         </Typography>
       ),
     },
@@ -609,14 +727,24 @@ const ProjectJudgesAllocation = () => {
         {/* Tabs */}
         <div className="flex justify-center mb-10">
           <div className="flex bg-zinc-900 rounded-xl p-1 border border-zinc-800">
-            <button onClick={() => setActiveTab('impetus')} className={`px-10 py-3 rounded-lg font-medium transition-all ${activeTab === 'impetus' ? 'bg-zinc-800 text-white shadow-lg' : 'text-zinc-400 hover:text-zinc-200'}`}>Impetus</button>
-            <button onClick={() => setActiveTab('concepts')} className={`px-10 py-3 rounded-lg font-medium transition-all ${activeTab === 'concepts' ? 'bg-zinc-800 text-white shadow-lg' : 'text-zinc-400 hover:text-zinc-200'}`}>Concepts</button>
+            <button 
+              onClick={() => setActiveTab('impetus')} 
+              className={`px-10 py-3 rounded-lg font-medium transition-all ${activeTab === 'impetus' ? 'bg-zinc-800 text-white shadow-lg' : 'text-zinc-400 hover:text-zinc-200'}`}
+            >
+              Impetus
+            </button>
+            <button 
+              onClick={() => setActiveTab('concepts')} 
+              className={`px-10 py-3 rounded-lg font-medium transition-all ${activeTab === 'concepts' ? 'bg-zinc-800 text-white shadow-lg' : 'text-zinc-400 hover:text-zinc-200'}`}
+            >
+              Concepts
+            </button>
           </div>
         </div>
 
         {error && <Alert severity="error" sx={{ mb: 3 }}>{error}</Alert>}
 
-        {/* Top Summary Cards: Online + Offline + Filtered Results + Domain-wise */}
+        {/* Top Summary Cards */}
         <div className="grid grid-cols-9 gap-4 mb-8">
           <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-4 text-center">
             <div className="text-emerald-400 text-xs font-medium tracking-widest mb-1">ONLINE</div>
@@ -669,32 +797,90 @@ const ProjectJudgesAllocation = () => {
           {/* Date Filter */}
           <div className="flex items-center gap-3">
             <Typography className="text-zinc-400 font-medium whitespace-nowrap">Date:</Typography>
-            <input type="date" value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)} className="bg-zinc-900 border border-zinc-700 focus:border-blue-500 rounded-2xl px-5 py-3 text-white outline-none w-52" />
-            {selectedDate && <button onClick={() => setSelectedDate('')} className="px-5 py-3 text-sm bg-zinc-800 hover:bg-zinc-700 rounded-2xl text-zinc-300">Clear</button>}
+            <input 
+              type="date" 
+              value={selectedDate} 
+              onChange={(e) => setSelectedDate(e.target.value)} 
+              className="bg-zinc-900 border border-zinc-700 focus:border-blue-500 rounded-2xl px-5 py-3 text-white outline-none w-52" 
+            />
+            {selectedDate && (
+              <button 
+                onClick={() => setSelectedDate('')} 
+                className="px-5 py-3 text-sm bg-zinc-800 hover:bg-zinc-700 rounded-2xl text-zinc-300"
+              >
+                Clear
+              </button>
+            )}
           </div>
 
-          {/* Domain Dropdown */}
+          {/* Domain Filter */}
           <div className="flex items-center gap-3">
             <Typography className="text-zinc-400 font-medium whitespace-nowrap">Domain:</Typography>
-            <select value={domainFilter} onChange={(e) => setDomainFilter(e.target.value)} className="bg-zinc-900 border border-zinc-700 focus:border-blue-500 rounded-2xl px-5 py-3 text-white outline-none min-w-[280px]">
+            <select 
+              value={domainFilter} 
+              onChange={(e) => setDomainFilter(e.target.value)} 
+              className="bg-zinc-900 border border-zinc-700 focus:border-blue-500 rounded-2xl px-5 py-3 text-white outline-none min-w-[280px]"
+            >
               <option value="">All Domains</option>
               {Object.entries(domainOptions).map(([key, name]) => (
                 <option key={key} value={key}>{key} — {name}</option>
               ))}
             </select>
-            {domainFilter && <button onClick={() => setDomainFilter('')} className="px-5 py-3 text-sm bg-zinc-800 hover:bg-zinc-700 rounded-2xl text-zinc-300">Clear</button>}
+            {domainFilter && (
+              <button 
+                onClick={() => setDomainFilter('')} 
+                className="px-5 py-3 text-sm bg-zinc-800 hover:bg-zinc-700 rounded-2xl text-zinc-300"
+              >
+                Clear
+              </button>
+            )}
           </div>
 
           {/* Mode Filter */}
           <div className="flex items-center gap-3">
             <Typography className="text-zinc-400 font-medium whitespace-nowrap">Mode:</Typography>
-            <select value={modeFilter} onChange={(e) => setModeFilter(e.target.value)} className="bg-zinc-900 border border-zinc-700 focus:border-blue-500 rounded-2xl px-5 py-3 text-white outline-none min-w-[180px]">
+            <select 
+              value={modeFilter} 
+              onChange={(e) => setModeFilter(e.target.value)} 
+              className="bg-zinc-900 border border-zinc-700 focus:border-blue-500 rounded-2xl px-5 py-3 text-white outline-none min-w-[180px]"
+            >
               <option value="">All Modes</option>
               <option value="Online">Online</option>
               <option value="Offline">Offline</option>
               <option value="Hybrid">Hybrid</option>
             </select>
-            {modeFilter && <button onClick={() => setModeFilter('')} className="px-5 py-3 text-sm bg-zinc-800 hover:bg-zinc-700 rounded-2xl text-zinc-300">Clear</button>}
+            {modeFilter && (
+              <button 
+                onClick={() => setModeFilter('')} 
+                className="px-5 py-3 text-sm bg-zinc-800 hover:bg-zinc-700 rounded-2xl text-zinc-300"
+              >
+                Clear
+              </button>
+            )}
+          </div>
+
+          {/* Lab / Session Filter */}
+          <div className="flex items-center gap-3">
+            <Typography className="text-zinc-400 font-medium whitespace-nowrap">Lab / Session:</Typography>
+            <select 
+              value={labFilter} 
+              onChange={(e) => setLabFilter(e.target.value)} 
+              className="bg-zinc-900 border border-zinc-700 focus:border-blue-500 rounded-2xl px-5 py-3 text-white outline-none min-w-[240px]"
+            >
+              <option value="">All Labs</option>
+              <option value="unassigned">No Lab Assigned (N/A)</option>
+              {labOptions.map((lab) => (
+                <option key={lab} value={lab}>{lab}</option>
+              ))}
+            </select>
+            {labFilter && (
+              <button 
+                onClick={() => setLabFilter('')} 
+                className="px-5 py-3 text-sm bg-zinc-800 hover:bg-zinc-700 rounded-2xl text-zinc-300"
+              >
+                Clear
+              </button>
+            )}
           </div>
         </div>
 
@@ -759,12 +945,21 @@ const ProjectJudgesAllocation = () => {
                 fontSize: '0.9rem', 
                 borderRight: '1px solid #3f3f46', 
                 padding: '8px 12px',
-                overflow: 'auto',  // Allows scrolling within cell if content overflows
+                overflow: 'auto',
               },
-              '& .MuiDataGrid-columnHeader': { backgroundColor: '#18181b', color: '#a1a1aa', fontWeight: 600, fontSize: '0.9rem' },
+              '& .MuiDataGrid-columnHeader': { 
+                backgroundColor: '#18181b', 
+                color: '#a1a1aa', 
+                fontWeight: 600, 
+                fontSize: '0.9rem' 
+              },
               '& .MuiDataGrid-row:hover': { backgroundColor: '#27272a' },
               '& .MuiDataGrid-toolbarContainer': { backgroundColor: '#18181b', color: '#e2e8f0' },
-              '& .MuiDataGrid-footerContainer': { color: '#e2e8f0', backgroundColor: '#18181b', borderTop: '1px solid #3f3f46' },
+              '& .MuiDataGrid-footerContainer': { 
+                color: '#e2e8f0', 
+                backgroundColor: '#18181b', 
+                borderTop: '1px solid #3f3f46' 
+              },
               '& .MuiTablePagination-root, & .MuiTablePagination-selectLabel, & .MuiTablePagination-displayedRows': { color: '#e2e8f0' },
               '& .MuiIconButton-root': { color: '#e2e8f0' },
             }}

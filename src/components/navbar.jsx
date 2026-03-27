@@ -68,7 +68,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className={`max-md:px-4 w-full mx-auto flex items-center py-4 fixed backdrop-blur-sm top-0 z-20 transition-transform duration-300 ${!isVisible ? 'transform-none' : '-translate-y-16'}`}>
+    <nav className={`max-md:px-4 w-full mx-auto flex items-center py-4 fixed backdrop-blur-sm top-0 z-10 transition-transform duration-300 ${!isVisible ? 'transform-none' : '-translate-y-16'}`}>
       <div className='w-full flex justify-between items-center mx-auto max-w-[82rem]'>
         <div className='flex items-center gap-2'>
         <a href="https://pict.edu" target="_blank" rel="noopener noreferrer" onClick={() => setActive("")}>
