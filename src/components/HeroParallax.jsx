@@ -1,6 +1,6 @@
 // import React from "react";
 // import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -27,7 +27,7 @@ import { useEffect } from "react";
 
 
 const Hero = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   // const location = useLocation();
   // const [menuOpen, setMenuOpen] = useState(false);
 
@@ -382,7 +382,7 @@ const Hero = () => {
           <div className="flex flex-col items-center gap-5 mt-1">
             <div className="flex flex-col sm:flex-row gap-4">
              <button
-  onClick={() => navigate("/register")}
+  // onClick={() => navigate("/register")}
   className="relative inline-block p-px font-semibold leading-6 text-white-100 bg-tertiary shadow-2xl cursor-pointer shadow-zinc-900 
              transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95 z-10 group/canvas-card"
 >
@@ -393,10 +393,10 @@ const Hero = () => {
   <span className="relative z-10 block px-4 py-2 bg-gray-950 ">
     <div className="relative z-10 flex items-center space-x-2">
       <span className="transition-all duration-500 group-hover/canvas-card:translate-x-1">
-        Register Now
+        Registeration Closed
       </span>
 
-      <svg
+      {/* <svg
         className="w-6 h-6 transition-transform duration-500 group-hover/canvas-card:translate-x-1"
         aria-hidden="true"
         fill="currentColor"
@@ -407,7 +407,7 @@ const Hero = () => {
           fillRule="evenodd"
           d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
         />
-      </svg>
+      </svg> */}
     </div>
   </span>
 </button>
