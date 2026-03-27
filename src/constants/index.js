@@ -365,6 +365,7 @@ const eventsData = {
       },
     ],
     registrations: {
+      isRegistrationOpen: false,
       fees: {
         national: `&#8377;100/-`,
         international: `Free`,
