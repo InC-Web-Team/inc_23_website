@@ -26,6 +26,7 @@ import ProjectJudgesAllocation from "./components/admin/ProjectJudgeAllocation.j
 import AnalyticsDashboard from "./components/admin/AnalyticsDashboard.jsx";
 import AdminReallocate from "./components/admin/ProjectReallocate.jsx";
 import AdminJudgingSchedule from "./components/admin/ProjectSchedule.jsx";
+import Attendance from "./components/admin/Attendance.jsx";
 
 // Lazy components
 const Register = lazy(() => import("./components/Register.jsx"));
@@ -170,10 +171,11 @@ const App = () => {
 
               <Route path="/register" element={<RegisterHome />} />
               <Route path="/admin/view/allocation" element={<AdminViewAllocations />} />
-              <Route path="/admin/view/project-judge" element={<ProjectJudgesAllocation />} />
-              <Route path="/view/analytics" element={<AnalyticsDashboard />} />
-              <Route path="/admin/reallocate" element={<AdminReallocate />} />
-              <Route path="/schedule" element={<AdminJudgingSchedule />} />
+               <Route path="/admin/view/project-judge" element={<ProjectJudgesAllocation />} />
+                <Route path="/admin/view/analytics" element={<AnalyticsDashboard />} />
+                <Route path="/admin/reallocate" element={<AdminReallocate />} />
+                <Route path="/attendance" element={<Attendance />} />
+                <Route path="/schedule" element={<AdminJudgingSchedule/>} />
               <Route
                 path="/register/judge/:event_name"
                 element={<JudgeRegister />}
