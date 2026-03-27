@@ -1,5 +1,4 @@
 import { sponsors } from "../constants";
-// import { styles } from "../styles";
 import { cn } from "../lib/utils";
 import {
   createContext,
@@ -12,6 +11,18 @@ import {
 /* -------------------- SPONSORS SECTION -------------------- */
 
 const Sponsors = () => {
+  const logoClassMap = {
+    cloudhedge: "p-1 scale-[1.28]",
+    fold_health: "p-2 scale-[1.08]",
+    gfg: "p-2 scale-[1.06]",
+    josh: "p-3",
+    agribid: "p-3",
+    intangles: "p-2",
+    imocha: "p-3",
+    eq: "p-3",
+    zetakode: "p-3",
+  };
+
   return (
     <section className="w-full flex flex-col items-center pt-4 pb-24 relative overflow-hidden">
       {/* <h2 className={`${styles.sectionHeadText} text-center`}>Our Sponsors.</h2> */}
@@ -43,17 +54,12 @@ const Sponsors = () => {
               <div className="flex flex-wrap items-center justify-center gap-10 max-w-6xl w-full">
                 {sponsors[key].map((s) => (
                   <SponsorCard key={s.name} width={300} height={120}>
-                    <img
-                      loading="lazy"
+                    <SponsorLogo
                       src={s.src}
                       alt={s.name}
                       className={cn(
-                        "w-full h-full object-contain select-none",
-                        s.name === "cloudhedge"
-                          ? "p-0 scale-[1.4]"
-                          : s.name === "fold_health"
-                            ? "p-0 scale-[1.1]"
-                            : "p-4"
+                        "w-full h-full object-contain select-none transition-transform duration-300",
+                        logoClassMap[s.name] ?? "p-3"
                       )}
                     />
                   </SponsorCard>
@@ -68,6 +74,44 @@ const Sponsors = () => {
 };
 
 export default Sponsors;
+
+const getDriveFileId = (url) => {
+  if (!url) return null;
+  const fromPath = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+  if (fromPath?.[1]) return fromPath[1];
+  const fromQuery = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+  if (fromQuery?.[1]) return fromQuery[1];
+  return null;
+};
+
+const buildDriveCandidates = (src) => {
+  const fileId = getDriveFileId(src);
+  if (!fileId) return [src];
+  return [
+    `https://drive.google.com/thumbnail?id=${fileId}&sz=w1200`,
+    `https://drive.google.com/uc?export=view&id=${fileId}`,
+    `https://drive.google.com/uc?export=download&id=${fileId}`,
+  ];
+};
+
+const SponsorLogo = ({ src, alt, className }) => {
+  const candidates = buildDriveCandidates(src);
+  const [idx, setIdx] = useState(0);
+
+  return (
+    <img
+      loading="lazy"
+      src={candidates[idx]}
+      alt={alt}
+      referrerPolicy="no-referrer"
+      decoding="async"
+      className={className}
+      onError={() => {
+        if (idx < candidates.length - 1) setIdx((prev) => prev + 1);
+      }}
+    />
+  );
+};
 
 /* -------------------- SPONSOR CARD -------------------- */
 

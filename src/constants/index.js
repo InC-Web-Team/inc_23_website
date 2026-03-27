@@ -4,7 +4,6 @@ import {
   concepts,
   pradnya,
   techfiesta,
-  ch_white, fold_health_new, intangles_white, josh, agribid, eq_new, imocha_new, zetakode, gfg
 } from "../assets";
 
 const notifications = [
@@ -155,19 +154,19 @@ const about_text = "Impetus and Concepts (InC) is a flagship technical event of 
 
 const sponsors = {
   title: [
-    { src: eq_new, name: 'eq' },
+    { src: 'https://drive.google.com/uc?export=view&id=1l9n1YpXyvmqCcRD5-5c3phnO2DvLwaIv', name: 'eq' },
   ],
   co: [
-    { src: agribid, name: 'agribid' },
-    { src: intangles_white, name: 'intangles' },
-    { src: ch_white, name: 'cloudhedge' },
-    { src: imocha_new, name: 'imocha' },
+    { src: 'https://drive.google.com/uc?export=view&id=189x5iaVfKM3RMDwRf1QucG1o_jyyRXs6', name: 'agribid' },
+    { src: 'https://drive.google.com/uc?export=view&id=1HVESZDWB04QUZqqmDXsprh0JTBRNQIpG', name: 'intangles' },
+    { src: 'https://drive.google.com/uc?export=view&id=1cYUspMi6FjbNwnqo1f1Ur_3GSvU7jL4D', name: 'cloudhedge' },
+    { src: 'https://drive.google.com/uc?export=view&id=1ELGrezaLTZaFDQ2VReIjQFt_j1PQMjnA', name: 'imocha' },
   ],
   other: [
-    { src: fold_health_new, name: 'fold_health' },
-    { src: josh, name: 'josh' },
-    { src: zetakode, name: 'zetakode' },
-    { src: gfg, name: 'gfg' },
+    { src: 'https://drive.google.com/uc?export=view&id=1PAGEoTMV2oOtFlpYPxICcI7JWSa34_ud', name: 'fold_health' },
+    { src: 'https://drive.google.com/uc?export=view&id=1xAkmfOZyx0zukYdLYvMU1LdXpqXJPQZM', name: 'josh' },
+    { src: 'https://drive.google.com/uc?export=view&id=1ZfdsT68VDmufopg-L1Z85dBtj4AIcxeZ', name: 'zetakode' },
+    { src: 'https://drive.google.com/uc?export=view&id=18olvNpl-BG1HWVvDh9kXk8hITia1vV-G', name: 'gfg' },
   ],
 }
 
@@ -796,10 +795,10 @@ const web = [
       },
       {
         name: "Sanket Rajput",
-        linkedin: "",
-        github: "",
+        linkedin: "https://www.linkedin.com/in/sanket-rajput-1b522b240/",
+        github: "https://github.com/sanket-rajput",
         instagram: "",
-        photo: "",
+        photo: "https://drive.google.com/file/d/1Zl4lFQhoOioaBWrBLyHYvqURCQldGJTd/view?usp=drive_link",
       },
       {
         name: "Tanay Raundale",
@@ -827,14 +826,14 @@ const core = [
         linkedin: "https://www.linkedin.com/in/puneet-rathi-513465286",
         github: "https://github.com/Rathi1307",
         instagram: "",
-        photo: "https://drive.google.com/open?id=1e8BDiQ0av9-vUf7V5zYS5Z9M8oxlkwk8",
+        photo: "https://drive.google.com/file/d/1i5hIOi96q_f3Lpd2VlRg34epxbqeFDIC/view?usp=drive_link",
       },
       {
         name: "Shreehari Soni",
         linkedin: "",
         github: "",
         instagram: "",
-        photo: "",
+        photo: "https://drive.google.com/file/d/1p-j2nHbcf8C_VnAxw8gGIRlSKG_YwHys/view?usp=drive_link",
       },
     ],
   },
@@ -847,7 +846,7 @@ const core = [
         linkedin: "https://www.linkedin.com/in/arya-bejalwar-a23a46303/",
         github: "https://github.com/Ryzen86",
         instagram: "arya_bejalwar",
-        photo: "https://drive.google.com/open?id=1RAWf18fYFRjoX_aOJOPVVQ7sBoXP-dq8",
+        photo: "https://drive.google.com/file/d/1mZxnMYBHywBcXDsnnos1Mz0sgT1Ct5zH/view?usp=drive_link",
       },
       {
         name: "Om Yerkar",
@@ -922,7 +921,7 @@ const core = [
         linkedin: "https://www.linkedin.com/in/mahi-shah-417975212/",
         github: "https://github.com/smahi87",
         instagram: "@mahishah_28",
-        photo: "https://drive.google.com/open?id=1WYR5lYFJW6x51wVffVn_axnxJhRA-X9Z",
+        photo: "https://drive.google.com/file/d/1P_6AN9eijBdVWiEg8Vxtcmh-d4khYPB0/view?usp=drive_link",
       },
       {
         name: "Samarth Bajaj",
@@ -983,7 +982,7 @@ const core = [
         linkedin: "https://www.linkedin.com/in/kaustubh-banerjee-00296a25b",
         github: "https://github.com/demonartigo",
         instagram: "https://www.instagram.com/_banerjeeeee",
-        photo: "https://drive.google.com/open?id=1QCnnBHScpKkYHLBNi0x38VjHK5KWustJ",
+        photo: "https://drive.google.com/file/d/1ua90OmyRnPAhksbebvv32Zu50pI1YrZT/view?usp=drive_link",
       },
       {
         name: "Krishna Thakur",
