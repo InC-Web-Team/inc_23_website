@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { About, Navbar, Sponsors } from "./components";
 import Hero from "./components/HeroParallax";
 import Events from "./components/Events";
@@ -32,7 +32,7 @@ import Attendance from "./components/admin/Attendance.jsx";
 const Register = lazy(() => import("./components/Register.jsx"));
 const Committee = lazy(() => import("./components/committee"));
 const EventDetails = lazy(() => import("./components/EventDetails"));
-// const Results = lazy(() => import("./components/Results"));
+const Results = lazy(() => import("./components/Results"));
 
 // Suspense wrappers
 const RegisterWithSuspense = () => (
@@ -89,6 +89,25 @@ const CommitteeWithSuspense = () => (
     }
   >
     <Committee />
+  </Suspense>
+);
+
+const ResultsWithSuspense = () => (
+  <Suspense
+    fallback={
+      <div
+        style={{
+          textAlign: "center",
+          padding: "150px 0",
+          color: "white",
+          fontSize: "18px",
+        }}
+      >
+        Loading Results...
+      </div>
+    }
+  >
+    <Results />
   </Suspense>
 );
 
@@ -195,6 +214,12 @@ const App = () => {
                 path="/committee/:id"
                 element={<CommitteeWithSuspense />}
               />
+
+              <Route
+                path="/results/:id"
+                element={<ResultsWithSuspense />}
+              />
+              <Route path="/results" element={<Navigate to="/results/concepts" replace />} />
 
               <Route
                 path="/generate-synopsis/:event_name"

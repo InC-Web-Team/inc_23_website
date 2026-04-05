@@ -47,10 +47,15 @@ export const navItems = [
       isHome: true,
       title: "Events",
     },
-    {
+  {
       id: "committee/core",
       isHome: false,
       title: "Committee",
+    },
+    {
+      id: "results/concepts",
+      isHome: false,
+      title: "Results",
     },
     {
     id: "schedule",
