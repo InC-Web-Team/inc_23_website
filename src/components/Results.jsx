@@ -1,15 +1,34 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import { styles } from '../styles';
-import scrollToTop from '../utils/scrollToTop';
-import { Navigate, useParams } from 'react-router-dom';
 import winners2026 from '../data/winners2026.json';
+import { cn } from "../lib/utils";
+import { TypewriterEffectSmooth } from './ui/typewriter-effect';
+import scrollToTop from '../utils/scrollToTop';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 
+const results = {
+  concepts: winners2026.map((domain) => ({
+    dname: domain.dname,
+    values: domain.values.map((m) => ({
+      position: m.position,
+      team_id: m.team_id,
+      title: m.title,
+      names: m.members.map((member) => member.name),
+      institute: m.institute,
+    })),
+  })),
+};
+
 const Results = () => {
+  const [activeResult, setActiveResult] = useState('concepts');
+	const navigate = useNavigate();
 	const { id } = useParams();
 
 	useEffect(() => {     
-    scrollToTop();     
+    scrollToTop();
+    if (id) setActiveResult(id);
   }, [id]);
 
   useEffect(() => {
@@ -32,98 +51,187 @@ const Results = () => {
     return () => clearTimeout(timeoutRef);
   }, []);
 
-  const allowed = ['concepts'];
-  if (!id) return null;
-  if (!allowed.includes(id)) return <Navigate to="*" replace />;
 
-  const orderedWinners = winners2026.map((group) => {
-    const order = { 'Winner': 0, '1st Runner Up': 1, '2nd Runner Up': 2 };
-    const sorted = [...group.values].sort((a, b) => (order[a.position] ?? 99) - (order[b.position] ?? 99));
-    return { ...group, values: sorted };
-  });
-
-  const positionMeta = {
-    'Winner': {
-      badge: 'bg-emerald-500/15 text-emerald-300 border-emerald-400/30',
-      bar: 'from-emerald-500/40 to-transparent'
-    },
-    '1st Runner Up': {
-      badge: 'bg-sky-500/15 text-sky-300 border-sky-400/30',
-      bar: 'from-sky-500/40 to-transparent'
-    },
-    '2nd Runner Up': {
-      badge: 'bg-orange-500/15 text-orange-300 border-orange-400/30',
-      bar: 'from-orange-500/40 to-transparent'
-    },
-  };
+	const words = [
+		{
+			text: "Results ",
+		},
+		{
+			text: "of ",
+		},
+		{
+			text: "InC ",
+		},
+		{
+			text: "2026. ",
+		},
+	];
 
   return (
-    <div className="bg-primary w-full">
-      <section className="py-24 relative bg-primary w-full flex flex-col items-center min-h-screen">
-        <h2 className={`${styles.sectionHeadText} text-white-100 pb-8 px-2 text-center`}>
-          InC Results 2026
-        </h2>
-
-        <div className='w-full max-w-[90rem] max-sm:px-2'>
-          {orderedWinners.map((g) => (
-            <section className='flex flex-col items-center w-full gap-8 mb-16' key={g.id}>
-              <div className='w-full bg-[#0b1324] border border-white-100/10 rounded-3xl px-4 sm:px-8 py-10'>
-                <div className='w-full flex flex-col gap-2 mb-8'>
-                  <h3 className='text-2xl sm:text-3xl font-semibold text-white-100'>
-                    {g.dname}
-                  </h3>
-                  <div className='h-1 w-24 bg-gradient-to-r from-orange-100 via-light-blue to-dark-blue rounded-full'></div>
-                </div>
-
-                <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8'>
-                  {g.values.map((m) => {
-                    const meta = positionMeta[m.position] || positionMeta['2nd Runner Up'];
-                    return (
-                      <article key={m.team_id} className="bg-[#0a0f1d] border border-white-100/10 rounded-2xl overflow-hidden shadow-[0_12px_32px_rgba(0,0,0,0.28)]">
-                        <div className={`h-1 bg-gradient-to-r ${meta.bar}`}></div>
-                        <div className='p-5 flex flex-col gap-4'>
-                          <div className='flex items-center justify-between gap-4'>
-                            <span className={`text-[11px] uppercase tracking-[0.22em] border px-2 py-1 rounded-full ${meta.badge}`}>
-                              {m.position}
+    Object.keys(results).includes(id) ?
+      <section className="py-24 relative bg-primary w-full flex flex-col items-center">
+			
+			<motion.div
+				initial={{ y: 100, opacity: 0 }}
+				whileInView={{ y: 0, opacity: 1 }}
+				viewport={{ once: true }}
+				transition={{ ease: "easeInOut", duration: 0.75 }}
+			>
+				<h2 className={`${styles.sectionHeadText} flex flex-col sm:-space-y-2 text-white-100 pb-4 px-2 items-center`}>
+                            <span className='sm:text-[50px] xs:text-[40px] text-[25px] sm:hidden'>
+						Results of InC 2026.
                             </span>
-                            <span className='text-xs font-semibold text-white-100 bg-white-100/10 px-2 py-1 rounded-full'>
-                              {m.team_id}
+                            <TypewriterEffectSmooth words={words} className={'max-sm:hidden'} />
+				</h2>
+			</motion.div>
+
+
+
+			<div className="flex max-sm:flex-wrap max-sm:justify-center items-center gap-4 sm:gap-8 mt-4 mb-14 w-full bg-primary">
+				<span className='bg-gradient-to-l from-dark-blue via-light-blue to-orange-100 w-full h-1'></span>
+				{Object.keys(results).map((result) => (
+					<button
+						key={result}
+						onClick={() => navigate(`/results/${result}`)}
+						className={`group/button relative inline-block p-px font-semibold leading-6 text-white-100 shadow-2xl cursor-pointer shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95 z-10
+							${activeResult === result ? 'bg-tertiary' : 'bg-gray-800'}`}
+					>
+						<span className="absolute inset-0 bg-gradient-to-r from-dark-blue via-light-blue to-orange-100 p-[2px] opacity-0 transition-opacity duration-500 group-hover/button:opacity-100"></span>
+
+						<span className="relative z-10 block px-6 py-2 bg-tertiary">
+							<div className="relative z-10 flex items-center space-x-2">
+								<span className="transition-all duration-500 group-hover/button:translate-x-1 tracking-wide">
+                              {result.toUpperCase()}
                             </span>
+<svg
+									className="w-6 h-6 transition-transform duration-500 group-hover/button:translate-x-1"
+									data-slot="icon"
+									aria-hidden="true"
+									fill="currentColor"
+									viewBox="0 0 20 20"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										clipRule="evenodd"
+										d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+										fillRule="evenodd"
+									></path>
+								</svg>
+                          </div>
+</span>
+                            </button>
+				))}
+				<span className='bg-gradient-to-r from-dark-blue via-light-blue to-orange-100 w-full h-1'></span>
                           </div>
 
-                          <div className='flex flex-col gap-2'>
-                            <h4 className='text-lg font-semibold text-white-100 leading-snug'>
-                              {m.title}
-                            </h4>
-                            <p className='text-sm text-secondary'>{m.institute}</p>
-                          </div>
+			<h3 className='text-3xl capitalize font-bold mb-16'>
+				{activeResult}&nbsp; Results
+			</h3>
 
-                          <div className='pt-2 border-t border-white-100/10 flex flex-col gap-3'>
-                            <p className='text-xs uppercase tracking-[0.2em] text-secondary'>Team Members</p>
-                            <div className='flex flex-col gap-3'>
-                              {m.members.map((member, i) => (
-                                <div className='flex flex-col gap-1' key={i}>
-                                  <span className='text-sm text-white-100 font-medium'>{member.name}</span>
-                                  <div className='text-xs text-secondary flex flex-wrap gap-4'>
-                                    {member.phone && <span>Phone: {member.phone}</span>}
-                                    {member.email && <span>Email: {member.email}</span>}
+			<div className='w-full max-w-[90rem] max-sm:px-2'>
+        {activeResult === 'concepts' && <DisplayResult data={results[activeResult]} />}
                                   </div>
+</section>
+		:
+		<Navigate to={'/page-not-found'} />
+	);
+};
+
+export default Results;
+
+const DisplayResult = ({ data }) => {
+	return (
+		<div className='flex flex-col items-center w-full gap-[4rem]'>
+			{data.map(domain => (
+				<div className='flex flex-col items-center gap-10 bg-tertiary w-full p-px bg-gradient-to-r from-dark-blue via-light-blue to-orange-100' key={domain.dname}>
+					<div className='bg-tertiary py-14 w-full relative'>
+					<h3 className='font-semibold absolute left-[50%] translate-x-[-50%] -top-5 bg-black-100 border-[1px] border-white-100 px-4 py-1 text-xl text-center max-sm:hidden'>{domain.dname}</h3>
+          <h3 className='font-semibold absolute left-[50%] translate-x-[-50%] -top-5 bg-black-100 border-[1px] border-white-100 w-[290px] px-4 py-1 text-xl text-center sm:hidden'>{domain.dname.lastIndexOf('(') > 0 ? domain.dname.slice(domain.dname.lastIndexOf('(')+1, domain.dname.lastIndexOf(')')) : domain.dname}</h3>
+					<div className='flex flex-wrap w-full justify-center items-stretch gap-10'>
+            {domain.values.map(m => (
+                <BackgroundGradient key={m.team_id} className="sm:w-[350px] w-[290px] p-4 bg-black-100 flex flex-col items-center gap-2 h-full">
+                  <p className='font-semibold text-secondary text-center'>{m.position}</p>
+                  <div className='flex flex-col items-start w-full gap-2'>
+                    <h4 className='text-xl text-white-100 flex justify-between w-full gap-4'><span className='font-bold text-nowrap'>{m.team_id}</span><span className='text-sm text-secondary break-all'>{m.institute}</span></h4>
+                    <p className='font-semibold'>{m.title} </p>
                                 </div>
+<ul className='list-disc'>
+                    {m.names.map((n, i) => <li className='text-sm' key={i}>{n}</li>)}
+                  </ul>
+                </BackgroundGradient>
                               ))}
                             </div>
                           </div>
                         </div>
-                      </article>
-                    );
-                  })}
-                </div>
-              </div>
-            </section>
-          ))}
+                                ))}
         </div>
-      </section>
+      )
+}
+
+const BackgroundGradient = ({
+  children,
+  className,
+  containerClassName,
+  animate = true
+}) => {
+  const variants = {
+    initial: {
+      backgroundPosition: "0% 50%",
+    },
+    animate: {
+      backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+    },
+  };
+  
+  return (
+    <div className={cn("relative p-[1px] group", containerClassName)}>
+      <motion.div
+        variants={animate ? variants : undefined}
+        initial={animate ? "initial" : undefined}
+        animate={animate ? "animate" : undefined}
+        transition={
+          animate
+            ? {
+                duration: 3,
+                repeat: Infinity,
+                repeatType: "reverse",
+              }
+            : undefined
+        }
+        style={{
+          backgroundSize: animate ? "200% 200%" : undefined,
+        }}
+        className={cn(
+          "absolute inset-0 z-[1] opacity-30 group-hover:opacity-100 blur-md transition duration-500",
+          "bg-[linear-gradient(90deg,#1746A2,#5F9DF7,#d4621c,#5F9DF7,#1746A2)]"
+        )}
+      />
+      
+      <motion.div
+        variants={animate ? variants : undefined}
+        initial={animate ? "initial" : undefined}
+        animate={animate ? "animate" : undefined}
+        transition={
+          animate
+            ? {
+                duration: 3,
+                repeat: Infinity,
+                repeatType: "reverse",
+              }
+            : undefined
+        }
+        style={{
+          backgroundSize: animate ? "200% 200%" : undefined,
+        }}
+        className={cn(
+          "absolute inset-0 z-[1]",
+          "bg-[linear-gradient(90deg,#1746A2,#5F9DF7,#d4621c,#5F9DF7,#1746A2)]"
+        )}
+      />
+      
+      <div className={cn("relative z-10", className)}>
+        {children}
+      </div>
     </div>
   );
 };
-
-export default Results;
