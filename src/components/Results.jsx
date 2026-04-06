@@ -1,22 +1,49 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { styles } from '../styles';
-import { results } from '../constants';
+import winners2026 from '../data/winners2026.json';
 import { cn } from "../lib/utils";
 import { TypewriterEffectSmooth } from './ui/typewriter-effect';
 import scrollToTop from '../utils/scrollToTop';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 
+const mapDomain = (domain) => ({
+    dname: domain.dname,
+    values: domain.values.map((m) => ({
+      position: m.position,
+      team_id: m.team_id,
+      title: m.title,
+      names: m.members.map((member) => member.name),
+      institute: m.institute,
+    })),
+  });
+
+const results = {
+  concepts: winners2026
+    .filter((domain) => !domain.id.startsWith('im-') && !domain.id.startsWith('pradnya-'))
+    .map(mapDomain),
+  impetus: winners2026
+    .filter((domain) => domain.id.startsWith('im-'))
+    .map(mapDomain),
+  pradnya: winners2026
+    .filter((domain) => domain.id.startsWith('pradnya-'))
+    .map(mapDomain),
+};
+
 const Results = () => {
-	const [activeResult, setActiveResult] = useState('impetus');
+  const [activeResult, setActiveResult] = useState('concepts');
 	const navigate = useNavigate();
-	const { event_name } = useParams();
+	const { id } = useParams();
 
 	useEffect(() => {     
-    scrollToTop();     
-    setActiveResult(event_name);
-  }, [event_name]);
+    scrollToTop();
+    if (id && Object.keys(results).includes(id)) {
+      setActiveResult(id);
+      return;
+    }
+    setActiveResult('concepts');
+  }, [id]);
 
   useEffect(() => {
     const burst = (originX, originY) => {
@@ -41,7 +68,7 @@ const Results = () => {
 
 	const words = [
 		{
-			text: "Winners ",
+			text: "Results ",
 		},
 		{
 			text: "of ",
@@ -50,13 +77,13 @@ const Results = () => {
 			text: "InC ",
 		},
 		{
-			text: "2025. ",
+			text: "2026. ",
 		},
 	];
 
-	return (
-		(event_name === 'impetus' || event_name === 'concepts' || event_name === 'pradnya') ?
-		<section className="py-24 relative bg-primary w-full flex flex-col items-center">
+  return (
+    Object.keys(results).includes(id) ?
+      <section className="py-24 relative bg-primary w-full flex flex-col items-center">
 			
 			<motion.div
 				initial={{ y: 100, opacity: 0 }}
@@ -65,10 +92,10 @@ const Results = () => {
 				transition={{ ease: "easeInOut", duration: 0.75 }}
 			>
 				<h2 className={`${styles.sectionHeadText} flex flex-col sm:-space-y-2 text-white-100 pb-4 px-2 items-center`}>
-					<span className='sm:text-[50px] xs:text-[40px] text-[25px] sm:hidden'>
-						Winners of InC 2025.
-					</span>
-					<TypewriterEffectSmooth words={words} className={'max-sm:hidden'} />
+                            <span className='sm:text-[50px] xs:text-[40px] text-[25px] sm:hidden'>
+						Results of InC 2026.
+                            </span>
+                            <TypewriterEffectSmooth words={words} className={'max-sm:hidden'} />
 				</h2>
 			</motion.div>
 
@@ -88,9 +115,9 @@ const Results = () => {
 						<span className="relative z-10 block px-6 py-2 bg-tertiary">
 							<div className="relative z-10 flex items-center space-x-2">
 								<span className="transition-all duration-500 group-hover/button:translate-x-1 tracking-wide">
-									{result.toUpperCase()}
-								</span>
-								<svg
+                              {result.toUpperCase()}
+                            </span>
+<svg
 									className="w-6 h-6 transition-transform duration-500 group-hover/button:translate-x-1"
 									data-slot="icon"
 									aria-hidden="true"
@@ -104,23 +131,21 @@ const Results = () => {
 										fillRule="evenodd"
 									></path>
 								</svg>
-							</div>
-						</span>
-					</button>
+                          </div>
+</span>
+                            </button>
 				))}
 				<span className='bg-gradient-to-r from-dark-blue via-light-blue to-orange-100 w-full h-1'></span>
-			</div>
+                          </div>
 
 			<h3 className='text-3xl capitalize font-bold mb-16'>
-				{activeResult}&nbsp; Winners
+				{activeResult}&nbsp; Results
 			</h3>
 
 			<div className='w-full max-w-[90rem] max-sm:px-2'>
-        {activeResult === 'impetus' && <DisplayResult data={results[activeResult]} />}
-        {activeResult === 'concepts' && <DisplayResult data={results[activeResult]} />}
-        {activeResult === 'pradnya' && <DisplayResult data={results[activeResult]} />}
-			</div>
-		</section>
+        {results[activeResult] && <DisplayResult data={results[activeResult]} />}
+                                  </div>
+</section>
 		:
 		<Navigate to={'/page-not-found'} />
 	);
@@ -143,18 +168,18 @@ const DisplayResult = ({ data }) => {
                   <div className='flex flex-col items-start w-full gap-2'>
                     <h4 className='text-xl text-white-100 flex justify-between w-full gap-4'><span className='font-bold text-nowrap'>{m.team_id}</span><span className='text-sm text-secondary break-all'>{m.institute}</span></h4>
                     <p className='font-semibold'>{m.title} </p>
-                  </div>
-                  <ul className='list-disc'>
+                                </div>
+<ul className='list-disc'>
                     {m.names.map((n, i) => <li className='text-sm' key={i}>{n}</li>)}
                   </ul>
                 </BackgroundGradient>
-            ))}
-          </div>
-					</div>
-				</div>
-			))}
-		</div>
-	)
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                                ))}
+        </div>
+      )
 }
 
 const BackgroundGradient = ({

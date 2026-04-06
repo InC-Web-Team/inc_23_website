@@ -1,0 +1,698 @@
+[
+  {
+    "id": "others",
+    "label": "OTHERS",
+    "dname": "OTHERS",
+    "values": [
+      {
+        "position": "Winner",
+        "team_id": "CO-OT1034",
+        "title": "HIGH THROUGHPUT WRITE-OPTIMIZED KEY-VALUE STORE USING LSM TREE BASED STORAGE ENGINE",
+        "institute": "Pune Institute of Computer Technology",
+        "members": [
+          {"name": "Chaitanya Paraskar", "phone": "7875805772", "email": "cvparaskar2004@gmail.com"},
+          {"name": "Shreyas Gopnarayan", "phone": "7720059064", "email": "gopnarayanshreyas2004@gmail.com"},
+          {"name": "Shreyash Gajbhiye", "phone": "7499349126", "email": "shreyashgajbhiye90@gmail.com"},
+          {"name": "Shreyash Dhas", "phone": "8766725367", "email": "shreyashrdhas@gmail.com"}
+        ]
+      },
+      {
+        "position": "1st Runner Up",
+        "team_id": "CO-OT1030",
+        "title": "SUOA: Lightweight Autoscaling for the Future of Cloud Computing",
+        "institute": "Pune Institute of Computer Technology",
+        "members": [
+          {"name": "Anish Dabhane", "phone": "8668870161", "email": "anishdabhane@gmail.com"},
+          {"name": "Aryan Kadole", "phone": "8788803991", "email": "aryankadole95@gmail.com"},
+          {"name": "Avadhut Giri", "phone": "7057420931", "email": "avadg252@gmail.com"},
+          {"name": "Sujal Bhor", "phone": "9146967273", "email": "bhorsujal@gmail.com"}
+        ]
+      },
+      {
+        "position": "2nd Runner Up",
+        "team_id": "CO-OT1043",
+        "title": "Dynamic Corridor Clearing Problem",
+        "institute": "Pune Institute of Computer Technology",
+        "members": [
+          {"name": "Tanisha Jain", "phone": "9834050189", "email": "tanisha109@gmail.com"},
+          {"name": "Pranav Sonawane", "phone": "9322388185", "email": "pranavsonawane479@gmail.com"},
+          {"name": "Soham Lagad", "phone": "9158532333", "email": "sohamlagad2003@gmail.com"},
+          {"name": "Titeer Deshpande", "phone": "8669969253", "email": "titeerdeshpande@gmail.com"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ml",
+    "label": "ML",
+    "dname": "MACHINE LEARNING AND PATTERN RECOGNITION (ML)",
+    "values": [
+      {
+        "position": "Winner",
+        "team_id": "CO-ML1044",
+        "title": "DocBase - AI-enabled Knowledge Base for Doctors",
+        "institute": "Pune Institute of Computer Technology",
+        "members": [
+          {"name": "Soham Phadke", "phone": "7620106310", "email": "phadkesoham2004@gmail.com"},
+          {"name": "Prathamesh Malu", "phone": "8668856662", "email": "pmalu9211@gmail.com"},
+          {"name": "Sharvil Chirputkar", "phone": "9823278372", "email": "sharvilchirputkar@gmail.com"},
+          {"name": "Vaibhav Rahalkar", "phone": "8855031525", "email": "vaibhavrahalkar7@gmail.com"}
+        ]
+      },
+      {
+        "position": "1st Runner Up",
+        "team_id": "CO-ML0032",
+        "title": "Marketdesk AI",
+        "institute": "Dr. D. Y. Patil Vidyapeeth, Pimpri, Pune",
+        "members": [
+          {"name": "Avdesh Mandal", "phone": "7775025561", "email": "avdeshmandal924@gmail.com"},
+          {"name": "Vivek Mandal", "phone": "9156582661", "email": "vivekmandal7355@gmail.com"}
+        ]
+      },
+      {
+        "position": "2nd Runner Up",
+        "team_id": "CO-ML0008",
+        "title": "Transforming Drug Discovery and Development: The Synergistic Role of AI, Machine Learning, and Deep Learning",
+        "institute": "Marathwada Mitra Mandal's College of Engineering",
+        "members": [
+          {"name": "Anuj Dengale", "phone": "9359276907", "email": "anujdengale55@gmail.com"},
+          {"name": "Anvita Kashikar", "phone": "9958370988", "email": "anvitakashikar29@gmail.com"},
+          {"name": "Esha Ratnaparkhi", "phone": "8552081910", "email": "esha7oct@gmail.com"},
+          {"name": "Tejas Mankeshwar", "phone": "8767383170", "email": "mtejas619@gmail.com"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ad",
+    "label": "AD",
+    "dname": "APPLICATION DEVELOPMENT (AD)",
+    "values": [
+      {
+        "position": "Winner",
+        "team_id": "CO-AD1031",
+        "title": "NeuroDB-INTELLIGENT SELF-ADAPTIVE DISTRIBUTED DATABASE SOLUTION",
+        "institute": "Pune Institute of Computer Technology",
+        "members": [
+          {"name": "Ayush Chanekar", "phone": "919422518097", "email": "chanekarayush@gmail.com"},
+          {"name": "Nikita Londhe", "phone": "919975932043", "email": "londhenikita58@gmail.com"},
+          {"name": "Amey Kulkarni", "phone": "918329654110", "email": "sn2204amey@gmail.com"},
+          {"name": "Vardhan Dongre", "phone": "918007183659", "email": "Vardhandongre67@gmail.com"}
+        ]
+      },
+      {
+        "position": "1st Runner Up",
+        "team_id": "CO-AD0034",
+        "title": "Interactive Industrial Plant Virtualization",
+        "institute": "Vishwakarma Institute Of Technology Pune",
+        "members": [
+          {"name": "Mayur Rokade", "phone": "918010307285", "email": "mayur89v@gmail.com"}
+        ]
+      },
+      {
+        "position": "2nd Runner Up",
+        "team_id": "CO-AD1016",
+        "title": "AI-Based Audit and Remediation Script Automation For Operating System Security Compliance",
+        "institute": "Pune Institute of Computer Technology",
+        "members": [
+          {"name": "Vedant Ghumare", "phone": "9226424258", "email": "ghumarevedant25@gmail.com"},
+          {"name": "Aniket Kardile", "phone": "9960350851", "email": "kardileaniket706@gmail.com"},
+          {"name": "Siddhesh Sangale", "phone": "8856862577", "email": "siddheshsangale0705@gmail.com"},
+          {"name": "Tanay Duddalwar", "phone": "9309558432", "email": "tanay.dudalwar@gmail.com"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dsp",
+    "label": "DSP",
+    "dname": "DIGITAL/IMAGE/SPEECH/VIDEO PROCESSING (DSP)",
+    "values": [
+      {
+        "position": "Winner",
+        "team_id": "CO-DS1026",
+        "title": "RaagAI",
+        "institute": "Pune Institute of Computer Technology",
+        "members": [
+          {"name": "Advait Kedar Joshi", "phone": "7249252910", "email": "advaitkjoshi@gmail.com"},
+          {"name": "Rinit Mayur Jain", "phone": "9518923620", "email": "rinitjain9@gmail.com"},
+          {"name": "Tirthraj Jitendra Mahajan", "phone": "9767945210", "email": "tirthraj2004@gmail.com"}
+        ]
+      },
+      {
+        "position": "1st Runner Up",
+        "team_id": "CO-DS1008",
+        "title": "Modulation Aware Voice Cloning (Film Industry)",
+        "institute": "Pune Institute of Computer Technology",
+        "members": [
+          {"name": "Abhijeet Ravindra Sakule", "phone": "8605263304", "email": "abhisakule1522@gmail.com"},
+          {"name": "Katta Naga Venkata Sai Abhishek", "phone": "8788082646", "email": "kattanagavenkatasaiabhishek@gmail.com"},
+          {"name": "Nirmit Rakesh Kumar Gardhariya", "phone": "9970011109", "email": "nirmitgardhariya92@gmail.com"}
+        ]
+      },
+      {
+        "position": "2nd Runner Up",
+        "team_id": "CO-DS1007",
+        "title": "Smart Sign Language using AI",
+        "institute": "Pune Institute of Computer Technology",
+        "members": [
+          {"name": "Aarush Kumawate", "phone": "8459501267", "email": "28aarushk@gmail.com"},
+          {"name": "Koumudi Sahasrabudhe", "phone": "7420037878", "email": "sahasrakoumudi278@gmail.com"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "es",
+    "label": "ES",
+    "dname": "EMBEDDED/VLSI SYSTEMS (ES)",
+    "values": [
+      {
+        "position": "Winner",
+        "team_id": "CO-ES0036",
+        "title": "Smart Egg Hatchery System",
+        "institute": "Terna Engineering College",
+        "members": [
+          {"name": "Aditya Sangale", "phone": "7972771928", "email": "adityasangale771@gmail.com"},
+          {"name": "Rushikesh Sawant", "phone": "9561789599", "email": "rushikeshsawant7777777@gmail.com"},
+          {"name": "Prasad Kalyan Shinde", "phone": "8767250300", "email": "shindeprasad8767@gmail.com"},
+          {"name": "Viraj Borade", "phone": "9370099869", "email": "virajborade22@gmail.com"}
+        ]
+      },
+      {
+        "position": "1st Runner Up",
+        "team_id": "CO-ES0027",
+        "title": "AquaSense",
+        "institute": "Sinhgad College",
+        "members": [
+          {"name": "Roshan Rajpure", "phone": "9067259612", "email": "roshanrajpure.entc.nbnstic@gmail.com"},
+          {"name": "Sanket Kumkar", "phone": "7262929210", "email": "sanketkumkar2002@gmail.com"},
+          {"name": "Saurav Waghole", "phone": "8855845684", "email": "sauravwaghole9@gmail.com"},
+          {"name": "Sneha Shedge", "phone": "9322072136", "email": "shedgesneha241@gmail.com"},
+          {"name": "Sushant Yadav", "phone": "9657312528", "email": "sushantyadav6679@gmail.com"}
+        ]
+      },
+      {
+        "position": "2nd Runner Up",
+        "team_id": "CO-ES1041",
+        "title": "Design and analysis of FPGA based Approximate Multiplier for error tolerant application",
+        "institute": "Pune Institute of Computer Technology",
+        "members": [
+          {"name": "Krishnakanta Pattanaik", "phone": "8275595254", "email": "krishnakant21pattanaik@gmail.com"},
+          {"name": "Akash Satish Sonawane", "phone": "9373861856", "email": "sonawaneakash2004@gmail.com"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cn",
+    "label": "CN",
+    "dname": "COMMUNICATION NETWORK AND SECURITY SYSTEMS (CN)",
+    "values": [
+      {
+        "position": "Winner",
+        "team_id": "CO-CN1014",
+        "title": "VLM Shield",
+        "institute": "Pune Institute of Computer Technology",
+        "members": [
+          {"name": "Vedang Gharat", "phone": "919152591490", "email": "rvvgharat@gmail.com"},
+          {"name": "Swarup Pokharkar", "phone": "917385165396", "email": "swaruppokharkar8@outlook.com"},
+          {"name": "Tanmay Shigavi", "phone": "917448267050", "email": "tanmayshingavi1@gmail.com"},
+          {"name": "Atharva Zanjad", "phone": "919359344500", "email": "zanjadatharva@gmail.com"}
+        ]
+      },
+      {
+        "position": "1st Runner Up",
+        "team_id": "CO-CN1006",
+        "title": "Network Intrusion Detection System",
+        "institute": "Pune Institute of Computer Technology",
+        "members": [
+          {"name": "Abhinandan Anil Patil", "phone": "8999514392", "email": "abhinandanpatil002@gmail.com"},
+          {"name": "Aniruddha Sukesh Kulkarni", "phone": "7620049081", "email": "aniruddhakulkarni1175@gmail.com"},
+          {"name": "Onkar Dhanaji Patil", "phone": "9699673129", "email": "onkardpatil07@gmail.com"},
+          {"name": "Sahil Gajanan Patil", "phone": "9021894575", "email": "sahilgpatil0007@gmail.com"}
+        ]
+      },
+      {
+        "position": "2nd Runner Up",
+        "team_id": "CO-CN1007",
+        "title": "TCP/IP protocol stack attack detection and mitigation",
+        "institute": "Pune Institute of Computer Technology",
+        "members": [
+          {"name": "Balaji Saw", "phone": "9527723250", "email": "balajisaw07@gmail.com"},
+          {"name": "Vaishnavi Shinde", "phone": "8177853105", "email": "vaishnavishinde3205@gmail.com"},
+          {"name": "Vinit Shinde", "phone": "9623912441", "email": "vineetshinde2559@gmail.com"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "open-hardware",
+    "label": "OPEN HARDWARE",
+    "dname": "OPEN HARDWARE",
+    "values": [
+      {
+        "position": "Winner",
+        "team_id": "CO-OT0048",
+        "title": "Sutradhar: Connecting Every Soul to Technology",
+        "institute": "Vishwakarma Institute Of Technology, Pune",
+        "members": [
+          {"name": "Yash Sandip Mahajan", "phone": "9730889531", "email": "yashmahajan01082003@gmail.com"}
+        ]
+      },
+      {
+        "position": "1st Runner Up",
+        "team_id": "CO-ES0023",
+        "title": "Autonomous Hospital Service Robot",
+        "institute": "Modern Education Society's Wadia College Of Engineering",
+        "members": [
+          {"name": "Alok Khandare", "phone": "7588781734", "email": "alokkhandare2003@gmail.com"},
+          {"name": "Atharva Surve", "phone": "8956500761", "email": "atharv21122004@gmail.com"},
+          {"name": "Deep Sonawane", "phone": "8669189617", "email": "deepsonawane.robotics@gmail.com"}
+        ]
+      },
+      {
+        "position": "2nd Runner Up",
+        "team_id": "CO-ES1018",
+        "title": "Design and Control of a Quadruped Robot for Adaptive Locomotion on Unstructured Environments",
+        "institute": "Pune Institute of Computer Technology",
+        "members": [
+          {"name": "Spandan Karwade", "phone": "9074426210", "email": "spandan.karwade@gmail.com"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "open-software",
+    "label": "OPEN SOFTWARE",
+    "dname": "OPEN SOFTWARE",
+    "values": [
+      {
+        "position": "Winner",
+        "team_id": "CO-AD1012",
+        "title": "Printslelo - A Step Towards automation in printing services",
+        "institute": "Pune Institute of Computer Technology",
+        "members": [
+          {"name": "Samruddhi Shahale", "phone": "8767398992", "email": "samruddhishahale10@gmail.com"},
+          {"name": "Harsh Shallya", "phone": "8130800166", "email": "shallyaharsh@gmail.com"},
+          {"name": "Harsimranjit Singh Bagga", "phone": "", "email": "hsbagga03@gmail.com"}
+        ]
+      },
+      {
+        "position": "1st Runner Up",
+        "team_id": "CO-DS1006",
+        "title": "Smart-Vision: A Real-Time Voice-Assisted Visual Interpreter for the Visually Impaired",
+        "institute": "Pune Institute of Computer Technology",
+        "members": [
+          {"name": "Achal Kulkarni", "phone": "9975982371", "email": "achalkulkarni07@gmail.com"},
+          {"name": "Gauri Lokhande", "phone": "7798232557", "email": "gaurilokhande1604@gmail.com"},
+          {"name": "Shrihari Kulkarni", "phone": "8806871540", "email": "shriharik032@gmail.com"}
+        ]
+      },
+      {
+        "position": "2nd Runner Up",
+        "team_id": "CO-OT1042",
+        "title": "Evaluation of RAG systems",
+        "institute": "Pune Institute of Computer Technology",
+        "members": [
+          {"name": "Yash Bhoomkar", "phone": "9405390030", "email": "bhoomkar4@gmail.com"},
+          {"name": "Harsh Butle", "phone": "7741088400", "email": "harshbutle09@gmail.com"},
+          {"name": "Nilay Tayade", "phone": "9370088933", "email": "nilaytayade69@gmail.com"},
+          {"name": "Soham Deshpande", "phone": "7887880377", "email": "sohamvinaydeshpande@gmail.com"}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dell-award",
+    "label": "DELL AWARD",
+    "dname": "DELL: BEST INNOVATION AWARD IN AGENTIC AI",
+    "values": [
+      {
+        "position": "Winner",
+        "team_id": "CO-ML1024",
+        "title": "Vantage: An Intelligence Layer for Real-Time Interaction Systems",
+        "institute": "Pune Institute of Computer Technology",
+        "members": [
+          {"name": "Alisha Shaikh", "phone": "917843005539", "email": "alisha9571@gmail.com"},
+          {"name": "Anshul Kalbande", "phone": "918308276391", "email": "anshulkalbande17@gmail.com"},
+          {"name": "Anurag Mandke", "phone": "917385100700", "email": "anurag.mandke@gmail.com"},
+          {"name": "Sarthak Kangane", "phone": "919834940628", "email": "sarthakkangane30@gmail.com"}
+        ]
+      },
+      {
+        "position": "1st Runner Up",
+        "team_id": "CO-ML0021",
+        "title": "BidFlow-AI: AI-Powered Tender Analysis and Bid Management System",
+        "institute": "Vishwakarma Institute of Technology, Pune",
+        "members": [
+          {"name": "Piyush Tanaji Ghadge", "phone": "8180951397", "email": "piyushghadge2504@gmail.com"},
+          {"name": "Shreyas Shrivallabh Ruikar", "phone": "8767268969", "email": "ruikarshreyas24@gmail.com"},
+          {"name": "Suraj Nitin Samgir", "phone": "7887528494", "email": "surajsamgir2004@gmail.com"},
+          {"name": "Vinay Arjun Hajare", "phone": "7559282625", "email": "vinayhajare2004@gmail.com"}
+        ]
+      },
+      {
+        "position": "2nd Runner Up",
+        "team_id": "CO-ML1002",
+        "title": "Passive Captcha Refinement",
+        "institute": "Pune Institute of Computer Technology",
+        "members": [
+          {"name": "Farkhanda Dalal", "phone": "8625886538", "email": "7farkhanda@gmail.com"},
+          {"name": "Misbah Iqbal Bagwan", "phone": "9067352609", "email": "misbahiqbalbagwan@gmail.com"},
+          {"name": "Prathamesh Padmakar Naik", "phone": "918010341866", "email": "prathameshnaik46417@gmail.com"},
+          {"name": "Yashraj Shivaji Lad", "phone": "919665860790", "email": "yashrajlad6@gmail.com"}
+        ]
+      }
+    ]
+  }
+  ,
+  {
+    "id": "im-application-development",
+    "label": "APPLICATION DEVELOPMENT",
+    "dname": "APPLICATION DEVELOPMENT",
+    "values": [
+      {
+        "position": "Winner",
+        "team_id": "IMAD0101",
+        "title": "Smart Hospital Load Balancer & Emergency Routing System",
+        "institute": "Vishwakarma Institute of Technology, Pune",
+        "members": [
+          {"name": "Anushka Shailesh Rudrawar", "phone": "8956642065", "email": ""},
+          {"name": "Manasi Anil Gavali", "phone": "9405257957", "email": ""},
+          {"name": "Rushikesh Kiran Potdar", "phone": "9156034155", "email": ""}
+        ]
+      },
+      {
+        "position": "1st Runner Up",
+        "team_id": "IMAD0034",
+        "title": "PlayZ",
+        "institute": "JSPM NTC, Pune",
+        "members": [
+          {"name": "Aryan Umesh Mane", "phone": "7798700222", "email": ""},
+          {"name": "Deepankar Sunil Rokade", "phone": "9687778789", "email": ""},
+          {"name": "Ganesh Akolkar", "phone": "9637522940", "email": ""},
+          {"name": "Rushikesh Shrikant Pawar", "phone": "7972401648", "email": ""},
+          {"name": "Shriraj Pravin Deshpande", "phone": "9503993992", "email": ""},
+          {"name": "Shubham Raje", "phone": "9730191125", "email": ""}
+        ]
+      },
+      {
+        "position": "2nd Runner Up",
+        "team_id": "IMAD0086",
+        "title": "Nosher",
+        "institute": "Marathwada Mitra Mandal College of Engineering, Pune",
+        "members": [
+          {"name": "Om Gosavi", "phone": "8830202810", "email": ""},
+          {"name": "Swanand Mukkawar", "phone": "8446526753", "email": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "im-communication-networks",
+    "label": "COMMUNICATION NETWORKS AND SECURITY",
+    "dname": "COMMUNICATION NETWORKS AND SECURITY",
+    "values": [
+      {
+        "position": "Winner",
+        "team_id": "IMCN1022",
+        "title": "Multi-Shield: An Intelligent Security Solution for Insider Threat Detection and Zero Trust Protection in Banking Systems",
+        "institute": "Pune Institute of Computer Technology, Pune",
+        "members": [
+          {"name": "Sarvesh Joshi", "phone": "7385260405", "email": ""},
+          {"name": "Smit Bangar", "phone": "8788021680", "email": ""},
+          {"name": "Jui Deshmukh", "phone": "9881251187", "email": ""},
+          {"name": "Krishna Lagad", "phone": "7558453381", "email": ""}
+        ]
+      },
+      {
+        "position": "1st Runner Up",
+        "team_id": "IMCN0027",
+        "title": "Quantum cryptography based secure communication system using bb84 protocol",
+        "institute": "Met Institute of Polytechnic, Nashik",
+        "members": [
+          {"name": "Aishwarya Manohar Sonawane", "phone": "8308453043", "email": ""},
+          {"name": "Tejjas Hemant Chavan", "phone": "9022115471", "email": ""},
+          {"name": "Vedashree Sachin Ambre", "phone": "7058864444", "email": ""}
+        ]
+      },
+      {
+        "position": "2nd Runner Up",
+        "team_id": "IMCN0033",
+        "title": "Abrupt Coalition",
+        "institute": "Pune Vidyarthi Grihas College of Engineering Technology and Management, Pune",
+        "members": [
+          {"name": "Aradhana Hingane", "phone": "7972050382", "email": ""},
+          {"name": "Aryan Deepak Dhamdhere", "phone": "9075883372", "email": ""},
+          {"name": "Deshana Shailendra Shah", "phone": "8446556585", "email": ""},
+          {"name": "Harsh Baviskar", "phone": "9922922119", "email": ""},
+          {"name": "Kedar Mahamuni Santosh", "phone": "9923835650", "email": ""},
+          {"name": "Tejas Shinde", "phone": "7387940538", "email": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "im-dsp",
+    "label": "DSP",
+    "dname": "DIGITAL/SPEECH/IMAGE/VIDEO PROCESSING",
+    "values": [
+      {
+        "position": "Winner",
+        "team_id": "IMDS0007",
+        "title": "Sanjaya – A Semantic Graph-Based Framework for Intelligent Video Analytics and Advanced Surveillance",
+        "institute": "Vishwakarma Institute of Technology",
+        "members": [
+          {"name": "Parag Shende", "phone": "7758831788", "email": ""},
+          {"name": "Sarvadnya Shripad Bhatlawande", "phone": "7758831788", "email": ""},
+          {"name": "Saurav Pathare", "phone": "7758831788", "email": ""},
+          {"name": "Sneha Patil", "phone": "7758831788", "email": ""}
+        ]
+      },
+      {
+        "position": "1st Runner Up",
+        "team_id": "IMDS0023",
+        "title": "AdgenAI - An AI Advertisement Generation Platform",
+        "institute": "MET Bhujbal Knowledge City – Polytechnic, Nashik",
+        "members": [
+          {"name": "Arya Vijay Shejwal", "phone": "8788012811", "email": ""},
+          {"name": "Jayesh Shripad Bhalerao", "phone": "9673769787", "email": ""},
+          {"name": "Utkarsh Ganesh Jagzap", "phone": "8485808207", "email": ""},
+          {"name": "Vedant Nitin Chaudhari", "phone": "7709024724", "email": ""}
+        ]
+      },
+      {
+        "position": "2nd Runner Up",
+        "team_id": "IMDS0002",
+        "title": "VoiceShield: A Real-Time Hybrid AI Framework for Detecting Generative Voice-Cloning and Scam Intent",
+        "institute": "Pune Vidyarthi Griha's College of Engineering, Technology & Management, Pune",
+        "members": [
+          {"name": "Aariya Vora", "phone": "8762351170", "email": ""},
+          {"name": "Aditya Tilekar", "phone": "9322208557", "email": ""},
+          {"name": "Aishwarya Kavhekar", "phone": "9022564616", "email": ""},
+          {"name": "Krish Chobe", "phone": "9403454046", "email": ""},
+          {"name": "Padmaraj Pawar", "phone": "7843008499", "email": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "im-embedded-vlsi",
+    "label": "EMBEDDED SYSTEMS AND VLSI",
+    "dname": "EMBEDDED SYSTEMS AND VLSI",
+    "values": [
+      {
+        "position": "Winner",
+        "team_id": "IMES0063",
+        "title": "Ricky-A smart auto rickshaw meter",
+        "institute": "MGM University JNEC, Chhatrapati Sambhaji Nagar",
+        "members": [
+          {"name": "Jasjyot Singh", "phone": "8468903255", "email": ""},
+          {"name": "Mahima Tharewal", "phone": "9423746366", "email": ""},
+          {"name": "Nirbhay Khedekar", "phone": "8390600361", "email": ""},
+          {"name": "Steven Dsilva", "phone": "9014769806", "email": ""}
+        ]
+      },
+      {
+        "position": "1st Runner Up",
+        "team_id": "IMES0026",
+        "title": "Nakwa",
+        "institute": "International Institute of Information Technology, Pune",
+        "members": [
+          {"name": "Karthik Patil", "phone": "8669609347", "email": ""},
+          {"name": "Mukul Patel", "phone": "7620059577", "email": ""},
+          {"name": "Nachiket Barahalikar", "phone": "7738170045", "email": ""},
+          {"name": "Sameer Patil", "phone": "9823281870", "email": ""},
+          {"name": "Shruti Pathak", "phone": "7974740984", "email": ""}
+        ]
+      },
+      {
+        "position": "2nd Runner Up",
+        "team_id": "IMES1047",
+        "title": "AuraVision",
+        "institute": "Pune Institute of Computer Technology, Pune",
+        "members": [
+          {"name": "Bhavya Jain", "phone": "8669801107", "email": ""},
+          {"name": "Dhruo Gadhiya", "phone": "9359853012", "email": ""},
+          {"name": "Rohit Suresh Kadam", "phone": "9024214317", "email": ""},
+          {"name": "Sameep Makwana", "phone": "7069220107", "email": ""},
+          {"name": "Smit Pritam Gugale", "phone": "9403605745", "email": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "im-ml",
+    "label": "MACHINE LEARNING",
+    "dname": "MACHINE LEARNING",
+    "values": [
+      {
+        "position": "Winner",
+        "team_id": "IMML0057",
+        "title": "Aviral — The AI Nurse Who Never Blinks.",
+        "institute": "Vishwakarma Institute of Information Technology (VIIT), Pune",
+        "members": [
+          {"name": "Atharv Kokate", "phone": "9767060415", "email": ""}
+        ]
+      },
+      {
+        "position": "1st Runner Up",
+        "team_id": "IMML0096",
+        "title": "Grid-Guardian: A Multi-Agent Autonomous P2P Energy Trading System",
+        "institute": "Vishwakarma Institute of Information Technology (VIIT), Pune",
+        "members": [
+          {"name": "Atharva Chinchole", "phone": "9307495003", "email": ""},
+          {"name": "Dhananjay Siddhanath Jagtap", "phone": "9699457193", "email": ""}
+        ]
+      },
+      {
+        "position": "2nd Runner Up",
+        "team_id": "IMML0041",
+        "title": "Aira - Autonomous AI Voice calling Agent",
+        "institute": "Vishwakarma Institute of Information Technology (VIIT), Pune",
+        "members": [
+          {"name": "Akshat Gandhi", "phone": "8446688785", "email": ""},
+          {"name": "Krish Agrawal", "phone": "9356895756", "email": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "im-others",
+    "label": "OTHERS",
+    "dname": "OTHERS",
+    "values": [
+      {
+        "position": "Winner",
+        "team_id": "IMOT1076",
+        "title": "A-SPARSH: Zero-Trust Offline Digital Payment & Security Engine",
+        "institute": "Pune Institute of Computer Technology, Pune",
+        "members": [
+          {"name": "Abhijeet Bhosale", "phone": "8263811035", "email": ""},
+          {"name": "Divyansh Khatikar", "phone": "9284705673", "email": ""},
+          {"name": "Harshvardhan Bhosale", "phone": "8830752464", "email": ""}
+        ]
+      },
+      {
+        "position": "1st Runner Up",
+        "team_id": "IM0T0039",
+        "title": "Ecocycle",
+        "institute": "Vishwakarma Institute of Technology, Pune",
+        "members": [
+          {"name": "Ajay Bhalekar", "phone": "9579234164", "email": ""},
+          {"name": "Baswadeep Bembare", "phone": "7887839501", "email": ""},
+          {"name": "Savya Bhamare", "phone": "8600352609", "email": ""},
+          {"name": "Shruti Bhosale", "phone": "8805679477", "email": ""},
+          {"name": "Yash Bendale", "phone": "8624830334", "email": ""}
+        ]
+      },
+      {
+        "position": "2nd Runner Up",
+        "team_id": "IMOT0025",
+        "title": "Medical Image Similarity Search Engine (FAISS)",
+        "institute": "Pillai HOC College Of Engineering & Technology, Rasayani",
+        "members": [
+          {"name": "Amar Jadhav", "phone": "9011549638", "email": ""},
+          {"name": "Ashutosh Shivaji Mali", "phone": "9653185990", "email": ""},
+          {"name": "Kushal Dinesh Endait", "phone": "9284086431", "email": ""},
+          {"name": "Suraj Jadhav", "phone": "9321206910", "email": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pradnya-junior",
+    "label": "PRADNYA JUNIOR",
+    "dname": "JUNIOR CATEGORY",
+    "values": [
+      {
+        "position": "Rank 1",
+        "team_id": "P-012",
+        "title": "Pradnya Winners",
+        "institute": "PICT",
+        "members": [
+          {"name": "Siddhesh Dhatrak", "phone": "9272115397", "email": ""},
+          {"name": "Mahesh Khose", "phone": "9881393446", "email": ""}
+        ]
+      },
+      {
+        "position": "Rank 2",
+        "team_id": "P-041",
+        "title": "Pradnya Winners",
+        "institute": "PICT",
+        "members": [
+          {"name": "Riddhesh Kataria", "phone": "8275522169", "email": ""},
+          {"name": "Grins Sah", "phone": "9022465582", "email": ""}
+        ]
+      },
+      {
+        "position": "Rank 3",
+        "team_id": "P-026",
+        "title": "Pradnya Winners",
+        "institute": "PICT",
+        "members": [
+          {"name": "Shreyas Chavan", "phone": "9404603087", "email": ""},
+          {"name": "Atharva Jaisingpure", "phone": "9404683937", "email": ""}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pradnya-senior",
+    "label": "PRADNYA SENIOR",
+    "dname": "SENIOR CATEGORY",
+    "values": [
+      {
+        "position": "Rank 1",
+        "team_id": "P-031",
+        "title": "Pradnya Winners",
+        "institute": "PICT",
+        "members": [
+          {"name": "Jayraj Rathi", "phone": "9423282083", "email": ""},
+          {"name": "Anuj Nagpure", "phone": "7058630684", "email": ""}
+        ]
+      },
+      {
+        "position": "Rank 2",
+        "team_id": "P-135",
+        "title": "Pradnya Winners",
+        "institute": "Walchand College of Engineering, Sangli",
+        "members": [
+          {"name": "Parag Patkulkar", "phone": "8975991226", "email": ""},
+          {"name": "Pratik Magdum", "phone": "8767158590", "email": ""}
+        ]
+      },
+      {
+        "position": "Rank 3",
+        "team_id": "P-334",
+        "title": "Pradnya Winners",
+        "institute": "VIT / SKNCOE",
+        "members": [
+          {"name": "Mithilesh Gandhe", "phone": "8806398100", "email": ""},
+          {"name": "Atharv Shinde", "phone": "8668864412", "email": ""}
+        ]
+      }
+    ]
+  }
+]

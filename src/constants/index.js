@@ -47,10 +47,15 @@ export const navItems = [
       isHome: true,
       title: "Events",
     },
-    {
+  {
       id: "committee/core",
       isHome: false,
       title: "Committee",
+    },
+    {
+      id: "results/concepts",
+      isHome: false,
+      title: "Results",
     },
     {
     id: "schedule",
@@ -864,10 +869,10 @@ const core = [
       },
       {
         name: "Utsavi Bagri",
-        linkedin: "",
-        github: "",
-        instagram: "",
-        photo: "",
+        linkedin: "https://www.linkedin.com/in/utsavi-bagri-6a3530284/",
+        github: "https://github.com/utsavii",
+        instagram: "https://www.instagram.com/utsavi_bagri/",
+        photo: "https://drive.google.com/file/d/1OwNtuMA0Hv46DhCH5XrgeghENfiWKJ5X/view",
       },
     ],
   },
@@ -972,10 +977,10 @@ const core = [
     members: [
       {
         name: "Achal Acharya",
-        linkedin: "",
+        linkedin: "https://www.linkedin.com/in/achal-a-1192aa225/",
         github: "",
-        instagram: "",
-        photo: "",
+        instagram: "https://www.instagram.com/_achal.acharya_",
+        photo: "https://drive.google.com/file/d/1PGRBqVLKWFP355m4xpASNKVruVmNZ7EV/view",
       },
       {
         name: "Kaustubh Banerjee",
