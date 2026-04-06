@@ -8,8 +8,7 @@ import scrollToTop from '../utils/scrollToTop';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 
-const results = {
-  concepts: winners2026.map((domain) => ({
+const mapDomain = (domain) => ({
     dname: domain.dname,
     values: domain.values.map((m) => ({
       position: m.position,
@@ -18,7 +17,18 @@ const results = {
       names: m.members.map((member) => member.name),
       institute: m.institute,
     })),
-  })),
+  });
+
+const results = {
+  concepts: winners2026
+    .filter((domain) => !domain.id.startsWith('im-') && !domain.id.startsWith('pradnya-'))
+    .map(mapDomain),
+  impetus: winners2026
+    .filter((domain) => domain.id.startsWith('im-'))
+    .map(mapDomain),
+  pradnya: winners2026
+    .filter((domain) => domain.id.startsWith('pradnya-'))
+    .map(mapDomain),
 };
 
 const Results = () => {
@@ -28,7 +38,11 @@ const Results = () => {
 
 	useEffect(() => {     
     scrollToTop();
-    if (id) setActiveResult(id);
+    if (id && Object.keys(results).includes(id)) {
+      setActiveResult(id);
+      return;
+    }
+    setActiveResult('concepts');
   }, [id]);
 
   useEffect(() => {
@@ -129,7 +143,7 @@ const Results = () => {
 			</h3>
 
 			<div className='w-full max-w-[90rem] max-sm:px-2'>
-        {activeResult === 'concepts' && <DisplayResult data={results[activeResult]} />}
+        {results[activeResult] && <DisplayResult data={results[activeResult]} />}
                                   </div>
 </section>
 		:
