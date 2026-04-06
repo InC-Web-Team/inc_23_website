@@ -393,7 +393,7 @@ const Hero = () => {
   <span className="relative z-10 block px-4 py-2 bg-gray-950 ">
     <div className="relative z-10 flex items-center space-x-2">
       <span className="transition-all duration-500 group-hover/canvas-card:translate-x-1">
-        Registeration Closed
+        Registrations Closed
       </span>
 
       {/* <svg
