@@ -322,49 +322,6 @@
         ]
       }
     ]
-  },
-  {
-    "id": "dell-award",
-    "label": "DELL AWARD",
-    "dname": "DELL: BEST INNOVATION AWARD IN AGENTIC AI",
-    "values": [
-      {
-        "position": "Winner",
-        "team_id": "CO-ML1024",
-        "title": "Vantage: An Intelligence Layer for Real-Time Interaction Systems",
-        "institute": "Pune Institute of Computer Technology",
-        "members": [
-          {"name": "Alisha Shaikh", "phone": "917843005539", "email": "alisha9571@gmail.com"},
-          {"name": "Anshul Kalbande", "phone": "918308276391", "email": "anshulkalbande17@gmail.com"},
-          {"name": "Anurag Mandke", "phone": "917385100700", "email": "anurag.mandke@gmail.com"},
-          {"name": "Sarthak Kangane", "phone": "919834940628", "email": "sarthakkangane30@gmail.com"}
-        ]
-      },
-      {
-        "position": "1st Runner Up",
-        "team_id": "CO-ML0021",
-        "title": "BidFlow-AI: AI-Powered Tender Analysis and Bid Management System",
-        "institute": "Vishwakarma Institute of Technology, Pune",
-        "members": [
-          {"name": "Piyush Tanaji Ghadge", "phone": "8180951397", "email": "piyushghadge2504@gmail.com"},
-          {"name": "Shreyas Shrivallabh Ruikar", "phone": "8767268969", "email": "ruikarshreyas24@gmail.com"},
-          {"name": "Suraj Nitin Samgir", "phone": "7887528494", "email": "surajsamgir2004@gmail.com"},
-          {"name": "Vinay Arjun Hajare", "phone": "7559282625", "email": "vinayhajare2004@gmail.com"}
-        ]
-      },
-      {
-        "position": "2nd Runner Up",
-        "team_id": "CO-ML1002",
-        "title": "Passive Captcha Refinement",
-        "institute": "Pune Institute of Computer Technology",
-        "members": [
-          {"name": "Farkhanda Dalal", "phone": "8625886538", "email": "7farkhanda@gmail.com"},
-          {"name": "Misbah Iqbal Bagwan", "phone": "9067352609", "email": "misbahiqbalbagwan@gmail.com"},
-          {"name": "Prathamesh Padmakar Naik", "phone": "918010341866", "email": "prathameshnaik46417@gmail.com"},
-          {"name": "Yashraj Shivaji Lad", "phone": "919665860790", "email": "yashrajlad6@gmail.com"}
-        ]
-      }
-    ]
   }
   ,
   {
