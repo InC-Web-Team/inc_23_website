@@ -1,31 +1,19 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { styles } from '../styles';
-
-// import winners2026 from '../data/winners2026.json';
-const winners2026 = [];
 import { cn } from "../lib/utils";
 import { TypewriterEffectSmooth } from './ui/typewriter-effect';
 import scrollToTop from '../utils/scrollToTop';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 
-const mapDomain = (domain) => ({
-  dname: domain.dname,
-  values: domain.values.map((m) => ({
-    position: m.position,
-    team_id: m.team_id,
-    title: m.title,
-    names: m.members.map((member) => member.name),
-    institute: m.institute,
-  })),
-});
-
 const results = {
   concepts: [],
   impetus: [],
   pradnya: [],
 };
+
+
 
 const Results = () => {
   const [activeResult, setActiveResult] = useState('concepts');
