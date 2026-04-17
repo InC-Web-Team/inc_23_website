@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, useLocation, Navigate } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { About, Navbar, Sponsors } from "./components";
 import Hero from "./components/HeroParallax";
 import Events from "./components/Events";
