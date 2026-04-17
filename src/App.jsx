@@ -32,7 +32,6 @@ import Attendance from "./components/admin/Attendance.jsx";
 const Register = lazy(() => import("./components/Register.jsx"));
 const Committee = lazy(() => import("./components/committee"));
 const EventDetails = lazy(() => import("./components/EventDetails"));
-const Results = lazy(() => import("./components/Results"));
 
 // Suspense wrappers
 const RegisterWithSuspense = () => (
@@ -92,43 +91,7 @@ const CommitteeWithSuspense = () => (
   </Suspense>
 );
 
-const ResultsWithSuspense = () => (
-  <Suspense
-    fallback={
-      <div
-        style={{
-          textAlign: "center",
-          padding: "150px 0",
-          color: "white",
-          fontSize: "18px",
-        }}
-      >
-        Loading Results...
-      </div>
-    }
-  >
-    <Results />
-  </Suspense>
-);
 
-// const ResultsWithSuspense = () => (
-//   <Suspense
-//     fallback={
-//       <div
-//         style={{
-//           textAlign: "center",
-//           padding: "150px 0",
-//           color: "white",
-//           fontSize: "18px",
-//         }}
-//       >
-//         Loading Results...
-//       </div>
-//     }
-//   >
-//     <Results />
-//   </Suspense>
-// );
 
 const App = () => {
   const [loading, setLoading] = useState(true); // PRELOADER
@@ -190,11 +153,11 @@ const App = () => {
 
               <Route path="/register" element={<RegisterHome />} />
               <Route path="/admin/view/allocation" element={<AdminViewAllocations />} />
-               <Route path="/admin/view/project-judge" element={<ProjectJudgesAllocation />} />
-                <Route path="/admin/view/analytics" element={<AnalyticsDashboard />} />
-                <Route path="/admin/reallocate" element={<AdminReallocate />} />
-                <Route path="/attendance" element={<Attendance />} />
-                <Route path="/schedule" element={<AdminJudgingSchedule/>} />
+              <Route path="/admin/view/project-judge" element={<ProjectJudgesAllocation />} />
+              <Route path="/admin/view/analytics" element={<AnalyticsDashboard />} />
+              <Route path="/admin/reallocate" element={<AdminReallocate />} />
+              <Route path="/attendance" element={<Attendance />} />
+              <Route path="/schedule" element={<AdminJudgingSchedule />} />
               <Route
                 path="/register/judge/:event_name"
                 element={<JudgeRegister />}
@@ -214,12 +177,6 @@ const App = () => {
                 path="/committee/:id"
                 element={<CommitteeWithSuspense />}
               />
-
-              <Route
-                path="/results/:id"
-                element={<ResultsWithSuspense />}
-              />
-              <Route path="/results" element={<Navigate to="/results/concepts" replace />} />
 
               <Route
                 path="/generate-synopsis/:event_name"

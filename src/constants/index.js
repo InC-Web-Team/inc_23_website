@@ -31,33 +31,28 @@ export const navItems = [
 
 
 
-  const navLinks = [
-    // {
-    //   id: "results/impetus",
-    //   isHome: false,
-    //   title: "Results",
-    // },
-    {
-      id: "about",
-      isHome: true,
-      title: "About",
-    },
-    {
-      id: "events",
-      isHome: true,
-      title: "Events",
-    },
+const navLinks = [
+  // {
+  //   id: "results/impetus",
+  //   isHome: false,
+  //   title: "Results",
+  // },
   {
-      id: "committee/core",
-      isHome: false,
-      title: "Committee",
-    },
-    {
-      id: "results/concepts",
-      isHome: false,
-      title: "Results",
-    },
-    {
+    id: "about",
+    isHome: true,
+    title: "About",
+  },
+  {
+    id: "events",
+    isHome: true,
+    title: "Events",
+  },
+  {
+    id: "committee/core",
+    isHome: false,
+    title: "Committee",
+  },
+  {
     id: "schedule",
     isHome: false,
     title: "Schedule",
@@ -99,11 +94,6 @@ const adminNavlinks = [
     id: "admin/deallocate/impetus",
     isHome: false,
     title: "Deallocate",
-  },
-  {
-    id: "admin/results/imp_project_score",
-    isHome: false,
-    title: "Results",
   },
   {
     id: "admin/view/allocation",
