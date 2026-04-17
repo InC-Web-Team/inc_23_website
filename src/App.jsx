@@ -32,6 +32,7 @@ import Attendance from "./components/admin/Attendance.jsx";
 const Register = lazy(() => import("./components/Register.jsx"));
 const Committee = lazy(() => import("./components/committee"));
 const EventDetails = lazy(() => import("./components/EventDetails"));
+// const Results = lazy(() => import("./components/Results"));
 
 // Suspense wrappers
 const RegisterWithSuspense = () => (
@@ -91,7 +92,26 @@ const CommitteeWithSuspense = () => (
   </Suspense>
 );
 
-
+/*
+const ResultsWithSuspense = () => (
+  <Suspense
+    fallback={
+      <div
+        style={{
+          textAlign: "center",
+          padding: "150px 0",
+          color: "white",
+          fontSize: "18px",
+        }}
+      >
+        Loading Results...
+      </div>
+    }
+  >
+    <Results />
+  </Suspense>
+);
+*/
 
 const App = () => {
   const [loading, setLoading] = useState(true); // PRELOADER
@@ -177,6 +197,14 @@ const App = () => {
                 path="/committee/:id"
                 element={<CommitteeWithSuspense />}
               />
+
+              {/* 
+              <Route
+                path="/results/:id"
+                element={<ResultsWithSuspense />}
+              />
+              <Route path="/results" element={<Navigate to="/results/concepts" replace />} />
+              */}
 
               <Route
                 path="/generate-synopsis/:event_name"

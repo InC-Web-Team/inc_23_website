@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { styles } from '../styles';
+
 // import winners2026 from '../data/winners2026.json';
 const winners2026 = [];
 import { cn } from "../lib/utils";

@@ -47,6 +47,11 @@ const navLinks = [
     isHome: true,
     title: "Events",
   },
+  // {
+  //   id: "results/concepts",
+  //   isHome: false,
+  //   title: "Results",
+  // },
   {
     id: "committee/core",
     isHome: false,
@@ -95,6 +100,11 @@ const adminNavlinks = [
     isHome: false,
     title: "Deallocate",
   },
+  // {
+  //   id: "admin/results/imp_project_score",
+  //   isHome: false,
+  //   title: "Results",
+  // },
   {
     id: "admin/view/allocation",
     isHome: false,
